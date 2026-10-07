@@ -23,7 +23,7 @@ from apps.accounts.emails import send_employee_self_service_invitation
 from apps.institutions.models import Role
 from apps.institutions.services import create_invitation, record_user_activity
 from apps.organization.models import Department, Grade, Location, Position
-from apps.documents.models import Document
+from apps.documents.models import EMPLOYEE_ENTITY_TYPE, Document, DocumentRequirement
 from apps.documents.serializers import DocumentSerializer
 from apps.audit.services import field_changes, record_audit_event, snapshot
 from common.scoping import scope_to_employees
@@ -110,8 +110,14 @@ SELF_SERVICE_DOCUMENT_CATEGORIES = (
 
 def _own_documents(request, employee):
     return Document.objects.for_institution(request.institution).filter(
-        entity_type="EMPLOYEE", entity_id=employee.id, is_active=True
+        entity_type=EMPLOYEE_ENTITY_TYPE, entity_id=employee.id, is_active=True
     )
+
+
+def _self_service_categories(institution):
+    """The fixed self-service categories plus any active document requirement's category."""
+    required = DocumentRequirement.objects.for_institution(institution).filter(is_active=True).values_list("document_category", flat=True)
+    return list(dict.fromkeys((*SELF_SERVICE_DOCUMENT_CATEGORIES, *required)))
 
 
 @extend_schema(responses=DocumentSerializer(many=True))
@@ -127,8 +133,9 @@ class SelfServiceDocumentsView(SelfServiceBaseView):
     def post(self, request):
         employee = self.employee(request)
         category = str(request.data.get("category") or "Other").strip()
-        if category not in SELF_SERVICE_DOCUMENT_CATEGORIES:
-            raise ValidationError({"category": f"Choose one of: {', '.join(SELF_SERVICE_DOCUMENT_CATEGORIES)}."})
+        allowed = _self_service_categories(request.institution)
+        if category not in allowed:
+            raise ValidationError({"category": f"Choose one of: {', '.join(allowed)}."})
         if request.data.get("uploaded_file") is None:
             raise ValidationError({"uploaded_file": "Choose a file to upload."})
         # Ownership and classification come from the server, never the browser.
@@ -141,7 +148,7 @@ class SelfServiceDocumentsView(SelfServiceBaseView):
         document = serializer.save(
             institution=request.institution,
             uploaded_by=request.user,
-            entity_type="EMPLOYEE",
+            entity_type=EMPLOYEE_ENTITY_TYPE,
             entity_id=employee.id,
         )
         record_audit_event(

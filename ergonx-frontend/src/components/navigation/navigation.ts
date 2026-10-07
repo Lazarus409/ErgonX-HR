@@ -1,18 +1,17 @@
 import {
-  Briefcase,
-  Building2,
   CalendarDays,
   ClipboardCheck,
-  Clock3,
   Contact,
   FileText,
   GitPullRequest,
+  GraduationCap,
   FileBarChart,
   House,
   LayoutDashboard,
   Network,
   Settings,
   ShieldCheck,
+  Target,
   Users,
 } from "lucide-react";
 
@@ -91,7 +90,6 @@ export const APPROVAL_PERMISSIONS = ["approval_request.view", "leave.approve", "
 
 export const navigation: NavigationItem[] = [
   { label: "Home", href: "/", icon: House, permission: "home.view" },
-  { label: "Executive Dashboard", href: "/dashboard", icon: LayoutDashboard, permission: "dashboard.executive.view" },
   {
     label: "My Department / Functional Area",
     href: "/department",
@@ -104,14 +102,37 @@ export const navigation: NavigationItem[] = [
       { label: "Team leave calendar", href: "/leave/calendar", permission: "leave.view", module: "LEAVE" },
     ],
   },
-  // ErgonX HR edition: the HR modules are the product, so each is a top-level
-  // destination rather than a child of a "Human Resources" group.
-  { label: "HR Dashboard", href: "/hr/dashboard", icon: LayoutDashboard, module: "HR", permission: "dashboard.hr.view", scopes: INSTITUTION_WIDE },
-  { label: "Employees", href: "/hr/employees", icon: Users, module: "HR", permission: "employee.view", scopes: INSTITUTION_WIDE },
-  { label: "Organization", href: "/hr", icon: Building2, module: "HR", anyPermissions: ["organization.view", "organization.create", "organization.update"], scopes: INSTITUTION_WIDE },
-  { label: "Recruitment", href: "/recruitment", icon: Briefcase, module: "RECRUITMENT", anyPermissions: moduleWorkspacePermissions.RECRUITMENT, scopes: INSTITUTION_WIDE },
-  { label: "Leave", href: "/leave", icon: CalendarDays, module: "LEAVE", anyPermissions: moduleWorkspacePermissions.LEAVE, scopes: INSTITUTION_WIDE },
-  { label: "Attendance", href: "/attendance", icon: Clock3, module: "ATTENDANCE", anyPermissions: moduleWorkspacePermissions.ATTENDANCE, scopes: INSTITUTION_WIDE },
+  {
+    label: "Human Resources",
+    href: "/hr",
+    icon: Users,
+    // Every HR workspace sits in this one menu; each child keeps its own gate.
+    anyPermissions: [
+      "dashboard.executive.view",
+      ...moduleWorkspacePermissions.HR,
+      ...moduleWorkspacePermissions.RECRUITMENT,
+      ...moduleWorkspacePermissions.LEAVE,
+      ...moduleWorkspacePermissions.ATTENDANCE,
+      "document_requirement.view",
+      "training.view",
+      "training.manage",
+      "performance.view",
+      "performance.manage",
+    ],
+    scopes: INSTITUTION_WIDE,
+    children: [
+      { label: "Executive Dashboard", href: "/dashboard", permission: "dashboard.executive.view" },
+      { label: "HR Dashboard", href: "/hr/dashboard", module: "HR", permission: "dashboard.hr.view" },
+      { label: "Employees", href: "/hr/employees", module: "HR", permission: "employee.view" },
+      { label: "Organization", href: "/hr/organization", module: "HR", anyPermissions: ["organization.view", "organization.create", "organization.update"] },
+      { label: "Recruitment", href: "/recruitment", module: "RECRUITMENT", anyPermissions: moduleWorkspacePermissions.RECRUITMENT },
+      { label: "Leave", href: "/leave", module: "LEAVE", anyPermissions: moduleWorkspacePermissions.LEAVE },
+      { label: "Attendance", href: "/attendance", module: "ATTENDANCE", anyPermissions: moduleWorkspacePermissions.ATTENDANCE },
+      { label: "Document Checklist", href: "/hr/documents", module: "HR", permission: "document_requirement.view" },
+      { label: "Training", href: "/training", module: "HR", anyPermissions: ["training.view", "training.manage"] },
+      { label: "Performance", href: "/performance", module: "HR", anyPermissions: ["performance.view", "performance.manage"] },
+    ],
+  },
   {
     label: "Reports & Analytics",
     href: "/reports",
@@ -168,6 +189,20 @@ export const selfServiceNavigation: NavigationItem[] = [
     icon: ClipboardCheck,
     module: "ATTENDANCE",
     permission: "attendance.view",
+    selfService: true,
+  },
+  {
+    label: "My Performance",
+    href: "/me/performance",
+    icon: Target,
+    permission: "home.view",
+    selfService: true,
+  },
+  {
+    label: "My Training",
+    href: "/me/training",
+    icon: GraduationCap,
+    permission: "home.view",
     selfService: true,
   },
   {

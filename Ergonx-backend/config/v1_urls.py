@@ -38,6 +38,8 @@ urlpatterns += [
         "apps.dashboards.urls",
         "apps.reports.urls",
         "apps.recruitment.urls",
+        "apps.training.urls",
+        "apps.performance.urls",
         "apps.notifications.urls",
     )
     if MODULE_URLCONFS.get(urlconf) not in settings.ERGONX_EXCLUDED_MODULES

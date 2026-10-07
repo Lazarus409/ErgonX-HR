@@ -66,6 +66,8 @@ LOCAL_APPS = [
     "apps.dashboards.apps.DashboardsConfig",
     "apps.reports.apps.ReportsConfig",
     "apps.recruitment.apps.RecruitmentConfig",
+    "apps.training.apps.TrainingConfig",
+    "apps.performance.apps.PerformanceConfig",
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 

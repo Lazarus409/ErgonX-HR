@@ -315,6 +315,19 @@ class DashboardViewSet(ViewSet):
                 .order_by("-hire_date", "-created_at")[:5]
             ),
         })
+        # Document checklist (apps.documents.checklist): only when requirements are set up.
+        from apps.documents.checklist import active_requirements, compliance_overview
+
+        if active_requirements(institution):
+            overview = compliance_overview(institution, employees)
+            payload["document_compliance"] = {
+                "compliance_rate": overview["compliance_rate"],
+                "complete_employees": overview["complete_employees"],
+                "employees": overview["employees"],
+                "outstanding_employees": sum(1 for row in overview["employees_detail"] if not row["complete"]),
+            }
+        else:
+            payload["document_compliance"] = None
         return Response(payload)
 
     @extend_schema(responses={200: OpenApiTypes.OBJECT}, description="Return tenant-scoped leave dashboard rollups.")

@@ -3,7 +3,8 @@ import mimetypes
 from django.conf import settings
 from rest_framework import serializers
 
-from apps.documents.models import Document, ImageAsset
+from apps.documents.models import Document, DocumentRequirement, DocumentRequirementWaiver, ImageAsset
+from common.serializers import ValidatedModelSerializer
 
 
 class DocumentSerializer(serializers.ModelSerializer):
@@ -91,3 +92,27 @@ class ImageAssetSerializer(serializers.ModelSerializer):
         validated_data["stored_file"] = uploaded
         return super().create(validated_data)
 
+
+
+class DocumentRequirementSerializer(ValidatedModelSerializer):
+    class Meta:
+        model = DocumentRequirement
+        fields = (
+            "id", "name", "description", "document_category", "employment_types", "validity_months",
+            "is_mandatory", "sort_order", "is_active", "created_at", "updated_at",
+        )
+        read_only_fields = ("id", "is_active", "created_at", "updated_at")
+
+
+class DocumentRequirementWaiverSerializer(ValidatedModelSerializer):
+    requirement_name = serializers.CharField(source="requirement.name", read_only=True)
+    employee_name = serializers.CharField(source="employee.full_name", read_only=True)
+    waived_by_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = DocumentRequirementWaiver
+        fields = ("id", "requirement", "requirement_name", "employee", "employee_name", "reason", "waived_by", "waived_by_name", "created_at")
+        read_only_fields = ("id", "waived_by", "created_at")
+
+    def get_waived_by_name(self, obj) -> str:
+        return (obj.waived_by.get_full_name() or obj.waived_by.email) if obj.waived_by else ""

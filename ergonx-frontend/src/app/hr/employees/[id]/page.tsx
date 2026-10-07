@@ -43,6 +43,8 @@ import LoadingState from "@/components/ui/LoadingState";
 import ConfirmDialog from "@/components/ui/ConfirmDialog";
 import { Menu, MenuItem } from "@/components/ui/Overlay";
 import { EmployeeAttendanceTab, EmployeeLeaveTab, EmployeePayrollTab } from "@/components/hr/EmployeeRecordTabs";
+import DocumentChecklistPanel from "@/components/hr/DocumentChecklistPanel";
+import EmployeeTrainingList from "@/components/hr/EmployeeTrainingList";
 import { isModuleOffered } from "@/lib/product";
 import { EM_DASH, formatDate, humanizeEnum } from "@/lib/format";
 import { Avatar } from "@/components/ui/Card";
@@ -198,12 +200,13 @@ function toEmployeeView(
 };
 
 
-type DetailTab = "overview" | "attendance" | "leave" | "payroll" | "documents";
+type DetailTab = "overview" | "attendance" | "leave" | "training" | "payroll" | "documents";
 
 const ALL_DETAIL_TABS: Array<{ value: DetailTab; label: string }> = [
   { value: "overview", label: "Overview" },
   { value: "attendance", label: "Attendance" },
   { value: "leave", label: "Leave" },
+  { value: "training", label: "Training" },
   { value: "payroll", label: "Payroll" },
   { value: "documents", label: "Documents" },
 ];
@@ -462,7 +465,8 @@ export default function EmployeeDetailPage() {
   const [documentUploading, setDocumentUploading] = useState(false);
   const [documentProgress, setDocumentProgress] = useState(0);
   const [documentActionId, setDocumentActionId] = useState<string | null>(null);
-  const [tab, setTab] = useState<DetailTab>("overview");
+  // ?tab=documents (e.g. from the document checklist) opens straight on that tab.
+  const [tab, setTab] = useState<DetailTab>(() => DETAIL_TABS.find((item) => item.value === searchParams.get("tab"))?.value ?? "overview");
   const [pendingStatus, setPendingStatus] = useState<string | null>(null);
   const [statusSaving, setStatusSaving] = useState(false);
   const [manager, setManager] = useState<{ id: string; name: string; title: string } | null>(null);
@@ -489,7 +493,7 @@ export default function EmployeeDetailPage() {
           organizationApi.loadOrganizationLookups(),
           employeesApi.listEmergencyContacts(params.id),
           employeesApi.getEmployeeLifecycle(params.id),
-          operationsApi.listDocuments({ entity_type: "employees.Employee", entity_id: params.id, is_active: true, page_size: 100 }),
+          operationsApi.listDocuments({ entity_type: "EMPLOYEE", entity_id: params.id, is_active: true, page_size: 100 }),
         ]);
         const currentEmployment = history.results.find(
           (employment) => employment.is_current,
@@ -541,6 +545,16 @@ export default function EmployeeDetailPage() {
     return () => { active = false; };
   }, [reportsTo, lookups.positions]);
 
+  // Re-read the document list after the checklist uploads a required document.
+  const refreshDocuments = async () => {
+    try {
+      const documentData = await operationsApi.listDocuments({ entity_type: "EMPLOYEE", entity_id: params.id, is_active: true, page_size: 100 });
+      setDocuments(documentData.results);
+    } catch (caught) {
+      setDocumentsError(getApiErrorMessage(caught));
+    }
+  };
+
   const uploadEmployeeDocument = async (file: File | undefined) => {
     if (!file) return;
     if (file.size > operationsApi.MAX_DOCUMENT_BYTES) {
@@ -553,7 +567,7 @@ export default function EmployeeDetailPage() {
     try {
       const uploaded = await operationsApi.uploadDocument(
         file,
-        { category: "EMPLOYEE_DOCUMENT", classification: "CONFIDENTIAL", entity_type: "employees.Employee", entity_id: params.id },
+        { category: "EMPLOYEE_DOCUMENT", classification: "CONFIDENTIAL", entity_type: "EMPLOYEE", entity_id: params.id },
         setDocumentProgress,
       );
       setDocuments((current) => [uploaded, ...current]);
@@ -1068,7 +1082,7 @@ export default function EmployeeDetailPage() {
 
       <nav aria-label="Breadcrumb" className="print:hidden">
         <ol className="flex flex-wrap items-center gap-1.5 text-support">
-          <li><Link href="/hr" className="font-medium text-primary-ink hover:underline">Employees</Link></li>
+          <li><Link href="/hr/employees" className="font-medium text-primary-ink hover:underline">Employees</Link></li>
           <li aria-hidden="true" className="text-ink-subtle"><ChevronRight className="h-4 w-4" /></li>
           <li><Link href="/hr/employees" className="font-medium text-primary-ink hover:underline">Employee Directory</Link></li>
           <li aria-hidden="true" className="text-ink-subtle"><ChevronRight className="h-4 w-4" /></li>
@@ -1647,7 +1661,9 @@ export default function EmployeeDetailPage() {
 
           {tab === "attendance" && <EmployeeAttendanceTab employeeId={employee.id} />}
           {tab === "leave" && <EmployeeLeaveTab employeeId={employee.id} />}
+          {tab === "training" && <EmployeeTrainingList employeeId={employee.id} />}
           {tab === "payroll" && <EmployeePayrollTab employeeId={employee.id} />}
+          {tab === "documents" && <div className="mb-6"><DocumentChecklistPanel mode="hr" employeeId={employee.id} onChanged={() => void refreshDocuments()} /></div>}
           {tab === "documents" && (
           <SectionCard
             id="documents"

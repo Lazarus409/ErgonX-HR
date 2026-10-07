@@ -35,7 +35,7 @@ from rest_framework.exceptions import ValidationError as ApiValidationError
 from apps.accounts.models import User
 from apps.attendance.models import AttendanceAdjustment, AttendanceRecord, OvertimeRecord
 from apps.attendance.services import classify_attendance_date, clock_in, clock_out, decide_adjustment, decide_overtime, request_adjustment
-from apps.documents.models import Document
+from apps.documents.models import EMPLOYEE_ENTITY_TYPE, Document, DocumentRequirement, DocumentRequirementWaiver
 from apps.employees.models import EmergencyContact, Employee, EmployeeOnboarding, Employment
 from apps.employees.services import (
     complete_employee_offboarding,
@@ -78,6 +78,11 @@ from apps.recruitment.services import (
     submit_job_posting_for_approval,
     withdraw_application,
 )
+from apps.notifications.models import Notification
+from apps.performance.models import Competency, ReviewCycle
+from apps.performance.services import close_cycle, launch_cycle, reassign_reviewer, release_to_reviewer, save_manager_review, save_self_assessment, sign_off
+from apps.training.models import TrainingCourse, TrainingEnrollment
+from apps.training.services import cancel_enrollment, complete_enrollment, enroll_employees, start_enrollment
 from apps.scheduling.models import FlexibleWorkRule, ScheduleAssignment, Shift, ShiftPattern, ShiftPatternDay, WorkSchedule
 from apps.scheduling.services import create_schedule_assignment, schedule_assignment_for, schedule_expectation
 
@@ -217,7 +222,14 @@ MALE_NAMES = ("Kofi", "Kwame", "Kwabena", "Kojo", "Yaw", "Kwaku", "Fiifi", "Nana
 FEMALE_NAMES = ("Ama", "Akosua", "Abena", "Adwoa", "Afua", "Yaa", "Efua", "Esi", "Araba", "Adjoa", "Akos", "Enyonam", "Dzifa", "Sena", "Mawusi", "Naa", "Dede", "Ayeley", "Fatima", "Zainab", "Mariam", "Gifty", "Priscilla", "Belinda", "Linda", "Vida", "Mabel", "Joyce", "Grace", "Patience")
 SURNAMES = ("Owusu", "Boateng", "Asante", "Osei", "Addo", "Amoah", "Ofori", "Sarpong", "Antwi", "Frimpong", "Tetteh", "Quaye", "Ankrah", "Nyarko", "Asamoah", "Bonsu", "Acheampong", "Agyeman", "Adjei", "Danso", "Opoku", "Mensah", "Appiah", "Gyamfi", "Kyei", "Badu", "Yeboah", "Ntim", "Amponsah", "Dogbe", "Agbenyega", "Fuseini", "Alhassan", "Abubakar", "Arthur", "Essien", "Quansah", "Hagan", "Kumi", "Baah")
 RELATIONSHIPS = ("Spouse", "Mother", "Father", "Brother", "Sister", "Uncle", "Aunt", "Cousin")
-DOCUMENTS = (("Employment contract", "CONTRACT"), ("Ghana Card copy", "IDENTITY"), ("Academic certificate", "QUALIFICATION"), ("Medical fitness certificate", "OTHER"))
+# Document checklist: (name, category, employment types or () for all, renew every N months, chance on file).
+DOCUMENT_REQUIREMENTS = (
+    ("Employment contract", "Contract", (), None, 0.95, "Signed contract of employment or appointment letter."),
+    ("Ghana Card", "Identification", (), None, 0.9, "Copy of the National Identification (Ghana) Card."),
+    ("Academic or professional certificate", "Qualification", ("PERMANENT", "CONTRACT"), None, 0.8, "Highest qualification relevant to the role."),
+    ("Medical fitness certificate", "Medical", (), 12, 0.85, "Annual medical fitness for work at BOST sites."),
+    ("SSNIT registration", "SSNIT", ("PERMANENT", "CONTRACT"), None, 0.85, "Social Security (SSNIT) number confirmation."),
+)
 
 REQUISITIONS = (
     # code, title, department, position, location, target status, openings, hiring reason, days since opened
@@ -231,6 +243,27 @@ REQUISITIONS = (
     ("BOST-JOB-008", "Product Stock Controller", "DPT-DEP", "POS-016", "LOC-KSI", "APPROVED", 1, "EXPANSION", 0),
     ("BOST-JOB-009", "Learning & Development Officer", "DPT-HR", "POS-007", "LOC-ACC", "PENDING_APPROVAL", 1, "NEW_ROLE", 0),
     ("BOST-JOB-010", "Procurement Officer", "DPT-FIN", "POS-010", "LOC-ACC", "DRAFT", 1, "TEMPORARY_COVER", 0),
+)
+# Training catalogue: (code, title, category, delivery, provider, hours, certificate months, mandatory, departments or () for all, share enrolled)
+TRAINING_COURSES = (
+    ("TRN-001", "Corporate Induction", "INDUCTION", "CLASSROOM", "Human Resources", 8, None, True, (), 1.0),
+    ("TRN-002", "Fire Safety & Emergency Response", "SAFETY", "CLASSROOM", "HSSE team", 8, 24, True, (), 0.9),
+    ("TRN-003", "Petroleum Product Handling & Storage", "TECHNICAL", "BLENDED", "BOST Training School", 24, 24, True, ("DPT-DEP", "DPT-OPS", "DPT-HSE"), 0.95),
+    ("TRN-004", "Defensive Driving for Tanker Drivers", "SAFETY", "ON_THE_JOB", "National Road Safety Authority", 16, 12, True, ("DPT-PIP",), 0.95),
+    ("TRN-005", "H2S & Confined Space Awareness", "SAFETY", "CLASSROOM", "HSSE team", 6, 12, True, ("DPT-DEP", "DPT-PIP", "DPT-HSE"), 0.85),
+    ("TRN-006", "First Aid at Work", "SAFETY", "CLASSROOM", "Ghana Red Cross Society", 12, 36, False, (), 0.25),
+    ("TRN-007", "Code of Conduct & Anti-Bribery", "COMPLIANCE", "ONLINE", "Legal & Compliance", 2, 12, True, (), 0.8),
+    ("TRN-008", "Leadership Essentials for Supervisors", "LEADERSHIP", "BLENDED", "GIMPA Executive Education", 30, None, False, (), 0.0),
+    ("TRN-009", "Data Reporting with Excel", "TECHNICAL", "ONLINE", "IT Academy", 10, None, False, ("DPT-FIN", "DPT-COM", "DPT-IT", "DPT-HR"), 0.3),
+)
+COMPETENCIES = (
+    ("Job knowledge & skills", "Understands the role, products and procedures; keeps skills current."),
+    ("Quality of work", "Accurate, thorough work that meets BOST standards first time."),
+    ("Safety & compliance", "Follows HSSE rules and permits; reports hazards and near misses."),
+    ("Teamwork & collaboration", "Works well across shifts, depots and departments."),
+    ("Communication", "Clear, timely written and spoken communication."),
+    ("Initiative & problem solving", "Spots problems early and proposes practical fixes."),
+    ("Reliability & attendance", "Dependable, punctual and available when needed."),
 )
 SOURCES = ("LinkedIn", "Employee referral", "Careers page", "Jobberman", "Recruitment agency", "University job fair", "Walk-in")
 STAGES = ("Applied", "Screening", "Shortlisted", "Interview", "Final Review", "Offer")
@@ -268,7 +301,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("--password", default=DEFAULT_PASSWORD, help="Password for newly created demo accounts.")
         parser.add_argument("--days", type=int, default=ATTENDANCE_DAYS, help=f"Days of attendance history to keep (default {ATTENDANCE_DAYS}).")
-        parser.add_argument("--no-documents", action="store_true", help="Skip employee document files (for hosts whose disk is wiped on deploy).")
+        parser.add_argument("--no-documents", action="store_true", help="Create document records without file contents (for hosts whose disk is wiped on deploy).")
 
     def handle(self, *args, **options):
         if not settings.DEBUG:
@@ -284,20 +317,29 @@ class Command(BaseCommand):
         self.now = timezone.now().astimezone(self.zone)
         self.today = self.now.date()
 
+        inst = self.institution
+        # (label, step, already seeded?). Steps that draw names and dates in sequence
+        # run only once: re-running them would shift the sequence and duplicate
+        # history. Attendance and documents fill in what is missing and always run.
         steps = (
-            ("people", self._people),
-            ("emergency contacts", self._emergency_contacts),
-            ("schedules", self._schedules),
-            ("leave", self._leave),
-            ("attendance", self._attendance),
-            ("attendance corrections and overtime", self._corrections_and_overtime),
-            ("recruitment", self._recruitment),
-            ("documents", self._documents),
-            ("joiners and leavers", self._lifecycle),
-            ("onboarding checklist", self._finish_onboarding),
+            ("people", self._people, lambda: inst.employees.filter(employee_number="BOST-0010").exists()),
+            ("emergency contacts", self._emergency_contacts, lambda: EmergencyContact.objects.filter(institution=inst).exists()),
+            ("schedules", self._schedules, None),
+            ("leave", self._leave, lambda: inst.leave_requests.filter(reason__startswith="BOST-LEAVE").exists()),
+            ("attendance", self._attendance, None),
+            ("attendance corrections and overtime", self._corrections_and_overtime, lambda: AttendanceAdjustment.objects.filter(institution=inst).exists()),
+            ("recruitment", self._recruitment, lambda: inst.candidates.exists()),
+            ("training", self._training, lambda: TrainingCourse.objects.filter(institution=inst).exists()),
+            ("performance", self._performance, lambda: Competency.objects.filter(institution=inst).exists()),
+            ("documents", self._documents, lambda: DocumentRequirement.objects.filter(institution=inst).exists()),
+            ("joiners and leavers", self._lifecycle, lambda: inst.employees.filter(status=Employee.Status.TERMINATED).exists()),
+            ("onboarding checklist", self._finish_onboarding, None),
         )
         failures = []
-        for label, step in steps:
+        for label, step, seeded in steps:
+            if seeded is not None and seeded():
+                self.stdout.write(f"  skip    {label}: already seeded")
+                continue
             try:
                 with transaction.atomic():
                     step()
@@ -865,23 +907,197 @@ class Command(BaseCommand):
             interview.panel.set(panel)
             self._count("recruitment")
 
+    # ----------------------------------------------------------------- training
+
+    def _training(self):
+        """Course catalogue and three years of training history, through the services."""
+        institution, admin = self.institution, self.admin
+        rng = random.Random("bost-training")
+        employees = list(institution.employees.filter(status=Employee.Status.ACTIVE).order_by("employee_number"))
+        departments = dict(Employment.objects.filter(employee__in=employees, is_current=True).values_list("employee_id", "department__code"))
+        supervisors = {employee.id for employee in employees if employee.employee_number <= "BOST-0009"} | set(
+            Employment.objects.filter(employee__in=employees, is_current=True, position__code__in=("POS-014", "POS-004")).values_list("employee_id", flat=True)
+        )
+        for code, title, category, delivery, provider, hours, validity, mandatory, scope, share in TRAINING_COURSES:
+            course = TrainingCourse.objects.create(
+                institution=institution, code=code, title=title, category=category, delivery_mode=delivery, provider=provider,
+                duration_hours=Decimal(hours), certificate_validity_months=validity, is_mandatory=mandatory,
+                description=f"{title} for BOST Energy staff.",
+            )
+            self._count("training")
+            if code == "TRN-008":
+                audience = [employee for employee in employees if employee.id in supervisors]
+            else:
+                audience = [employee for employee in employees if not scope or departments.get(employee.id) in scope]
+            for employee in audience:
+                roll = rng.random()
+                if roll > share and code != "TRN-001":
+                    continue
+                if code == "TRN-001":
+                    # Everyone completes induction in their first weeks; very recent joiners are still booked on it.
+                    start = max(employee.hire_date, self.today - timedelta(days=1500)) + timedelta(days=rng.randint(3, 20))
+                    if start > self.today - timedelta(days=3):
+                        enroll_employees(course=course, employees=[employee], actor=admin, planned_start=self.today + timedelta(days=rng.randint(2, 14)))
+                        continue
+                    outcome = "COMPLETED"
+                else:
+                    outcome = rng.choices(("COMPLETED", "IN_PROGRESS", "PLANNED", "NOT_PASSED", "CANCELLED"), weights=(70, 8, 14, 3, 3))[0]
+                if outcome == "PLANNED":
+                    start = self.today + timedelta(days=rng.randint(5, 75))
+                elif outcome == "IN_PROGRESS":
+                    start = self.today - timedelta(days=rng.randint(1, 6))
+                elif code != "TRN-001":
+                    # Spread completions so certificates are current, nearly due or lapsed.
+                    age = rng.randint(30, int(validity * 30.4) + 120) if validity else rng.randint(30, 900)
+                    start = max(employee.hire_date + timedelta(days=14), self.today - timedelta(days=age))
+                    if start >= self.today - timedelta(days=2):
+                        start = self.today - timedelta(days=20)
+                created, _ = enroll_employees(course=course, employees=[employee], actor=admin, planned_start=start, planned_end=start + timedelta(days=max(0, int(hours // 8))))
+                if not created:
+                    continue
+                enrollment = created[0]
+                if outcome == "PLANNED":
+                    continue
+                start_enrollment(enrollment=enrollment, actor=admin)
+                if outcome == "IN_PROGRESS":
+                    continue
+                if outcome == "CANCELLED":
+                    cancel_enrollment(enrollment=enrollment, actor=admin, reason="Operational cover needed at the depot.")
+                    continue
+                finished = min(start + timedelta(days=max(0, int(hours // 8))), self.today - timedelta(days=1))
+                complete_enrollment(
+                    enrollment=enrollment, actor=admin, completed_on=finished, passed=outcome == "COMPLETED",
+                    score=Decimal(rng.randint(72, 99) if outcome == "COMPLETED" else rng.randint(35, 58)),
+                    certificate_number=f"{code}-{finished:%y}-{rng.randint(1000, 9999)}" if validity and outcome == "COMPLETED" else "",
+                )
+                self._count("training")
+        # History is old news: only upcoming training stays unread in people's inboxes.
+        upcoming = [str(pk) for pk in TrainingEnrollment.objects.filter(institution=institution, status=TrainingEnrollment.Status.PLANNED).values_list("pk", flat=True)]
+        Notification.objects.filter(institution=institution, notification_type__startswith="TRAINING_", read_at__isnull=True).exclude(
+            metadata__training_enrollment_id__in=upcoming
+        ).update(read_at=self.now, status=Notification.Status.READ)
+
+    # -------------------------------------------------------------- performance
+
+    def _performance(self):
+        """A closed annual review for last year and a mid-year review in progress."""
+        institution, admin = self.institution, self.admin
+        rng = random.Random("bost-performance")
+        competencies = [Competency.objects.create(institution=institution, name=name, description=description, sort_order=index) for index, (name, description) in enumerate(COMPETENCIES, start=1)]
+        hr_users = [membership.user for membership in institution.memberships.filter(role__code="HR_ADMIN", status="ACTIVE").select_related("user").order_by("user__email")]
+        employees = list(institution.employees.filter(status=Employee.Status.ACTIVE).select_related("user").order_by("employee_number"))
+        # Each person's underlying level, so their reviews are consistent across cycles.
+        level = {employee.id: min(5, max(1, round(rng.gauss(3.4, 0.75)))) for employee in employees}
+
+        def rate(base, spread=1):
+            return min(5, max(1, base + rng.choice((-spread, 0, 0, 0, spread))))
+
+        def run(cycle, people, outcome_for):
+            launch_cycle(cycle=cycle, actor=admin, employees=people)
+            ids = [str(competency.id) for competency in competencies]
+            for review in cycle.reviews.select_related("employee__user", "reviewer").order_by("employee__employee_number"):
+                if review.reviewer is None:
+                    reassign_reviewer(review=review, actor=admin, reviewer=admin if review.employee.user_id != admin.id else hr_users[0])
+                    review.refresh_from_db()
+                outcome = outcome_for(review)
+                base = level.get(review.employee_id, 3)
+                if outcome == "SELF_DRAFT":
+                    if review.employee.user_id:
+                        save_self_assessment(review=review, actor=review.employee.user, ratings={cid: {"rating": rate(base), "comment": ""} for cid in ids[:3]}, summary="Draft in progress.")
+                    continue
+                if outcome == "SELF_ASSESSMENT":
+                    continue
+                if review.employee.user_id:
+                    save_self_assessment(review=review, actor=review.employee.user, ratings={cid: {"rating": min(5, rate(base) + rng.choice((0, 0, 1))), "comment": ""} for cid in ids}, summary="I met my main objectives this period and supported the team during peak operations.", submit=True)
+                else:
+                    release_to_reviewer(review=review, actor=admin)
+                if outcome == "MANAGER_REVIEW":
+                    continue
+                save_manager_review(
+                    review=review, actor=review.reviewer, ratings={cid: {"rating": rate(base), "comment": ""} for cid in ids},
+                    summary=rng.choice(("Dependable performer who meets expectations.", "Strong contributor; consistently safe and thorough.", "Good progress; needs to build confidence leading tasks.", "Excellent period; a role model on the depot floor.", "Some gaps in procedures; agreed a support plan.")),
+                    development_plan=rng.choice(("Supervisor leadership course.", "Refresher on product handling procedures.", "Mentoring from a senior operator.", "Data reporting course.", "")),
+                    overall_rating=rate(base, 0), submit=True,
+                )
+                if outcome == "HR_REVIEW":
+                    continue
+                signer = admin if review.employee.user_id != admin.id else hr_users[0]
+                sign_off(review=review, actor=signer, comment="")
+                self._count("performance")
+
+        today = self.today
+        annual = ReviewCycle.objects.create(
+            institution=institution, name=f"{today.year - 1} Annual Performance Review", period_start=date(today.year - 1, 1, 1), period_end=date(today.year - 1, 12, 31),
+            self_assessment_due=date(today.year, 1, 23), manager_review_due=date(today.year, 2, 13), description="Year-end review of objectives, competencies and development.",
+        )
+        annual.competencies.set(competencies)
+        run(annual, [employee for employee in employees if employee.hire_date <= date(today.year - 1, 9, 30)], lambda review: "COMPLETED")
+        close_cycle(cycle=annual, actor=admin)
+        ReviewCycle.objects.filter(pk=annual.pk).update(launched_at=self._stamp(date(today.year, 1, 5), 9), closed_at=self._stamp(date(today.year, 2, 27), 16))
+        annual.reviews.update(self_submitted_at=self._stamp(date(today.year, 1, 20), 11), manager_submitted_at=self._stamp(date(today.year, 2, 10), 15), signed_off_at=self._stamp(date(today.year, 2, 20), 10))
+
+        mid = ReviewCycle.objects.create(
+            institution=institution, name=f"{today.year} Mid-Year Review", period_start=date(today.year, 1, 1), period_end=date(today.year, 6, 30),
+            self_assessment_due=today + timedelta(days=5), manager_review_due=today + timedelta(days=19), description="Mid-year check-in on objectives and safety performance.",
+        )
+        mid.competencies.set(competencies)
+        stages = ("COMPLETED",) * 8 + ("HR_REVIEW",) * 4 + ("MANAGER_REVIEW",) * 4 + ("SELF_ASSESSMENT",) * 2 + ("SELF_DRAFT",) * 2
+        run(mid, [employee for employee in employees if employee.hire_date <= date(today.year, 4, 30)], lambda review: rng.choice(stages))
+        ReviewCycle.objects.filter(pk=mid.pk).update(launched_at=self._stamp(today - timedelta(days=24), 9))
+        # The closed annual cycle's notifications are history.
+        annual_ids = [str(pk) for pk in annual.reviews.values_list("pk", flat=True)]
+        Notification.objects.filter(institution=institution, notification_type__startswith="PERFORMANCE_", metadata__performance_review_id__in=annual_ids, read_at__isnull=True).update(read_at=self.now, status=Notification.Status.READ)
+
     # ---------------------------------------------------------------- documents
 
     def _documents(self):
-        if not self.with_documents:
-            self.summary["documents"] = "skipped (--no-documents)"
-            return
+        """Document requirements and the documents on each employee's record.
+
+        With --no-documents only the document records are created (no file
+        contents), so the checklist still reflects realistic compliance on hosts
+        whose disk is wiped on deploy.
+        """
         institution, admin = self.institution, self.admin
-        for index, employee in enumerate(institution.employees.order_by("employee_number")):
-            for doc_index, (title, category) in enumerate(DOCUMENTS):
-                if doc_index > index % 4:
-                    continue  # Not everyone has every document on file yet.
-                filename = f"{employee.employee_number} {title}.pdf"
-                if Document.objects.filter(institution=institution, entity_type="EMPLOYEE", entity_id=employee.id, original_filename=filename).exists():
+        requirements = []
+        for order, (name, category, types, validity, _chance, description) in enumerate(DOCUMENT_REQUIREMENTS, start=1):
+            requirement, created = DocumentRequirement.objects.get_or_create(
+                institution=institution, name=name,
+                defaults={"document_category": category, "employment_types": list(types), "validity_months": validity, "description": description, "sort_order": order},
+            )
+            requirements.append(requirement)
+            if created:
+                self._count("documents")
+        rng = random.Random("bost-documents")
+        employees = list(institution.employees.exclude(status=Employee.Status.TERMINATED).order_by("employee_number"))
+        employment_types = dict(Employment.objects.filter(employee__in=employees, is_current=True).values_list("employee_id", "employment_type"))
+        for employee in employees:
+            for requirement, (name, category, types, validity, chance, _description) in zip(requirements, DOCUMENT_REQUIREMENTS):
+                if types and employment_types.get(employee.id) not in types:
                     continue
-                document = Document(institution=institution, uploaded_by=admin, original_filename=filename, content_type="application/pdf", size_bytes=len(MINIMAL_PDF), category=category, classification=Document.Classification.CONFIDENTIAL, entity_type="EMPLOYEE", entity_id=employee.id, is_active=True)
-                document.stored_file.save(f"bost-demo/{employee.employee_number}-{category.lower()}-{doc_index}.pdf", ContentFile(MINIMAL_PDF), save=False)
+                roll = rng.random()
+                if roll >= chance:
+                    continue  # Still missing.
+                filename = f"{employee.employee_number} {name}.pdf"
+                if Document.objects.filter(institution=institution, entity_type=EMPLOYEE_ENTITY_TYPE, entity_id=employee.id, original_filename=filename).exists():
+                    continue
+                uploaded = self.now - timedelta(days=rng.randint(20, 900))
+                if validity:
+                    # Renewables: most current, some lapsing within a month, a few expired.
+                    uploaded = self.now - timedelta(days=rng.choice((rng.randint(30, 300), rng.randint(30, 300), rng.randint(30, 300), rng.randint(340, 360), rng.randint(380, 500))))
+                document = Document(institution=institution, uploaded_by=admin, original_filename=filename, content_type="application/pdf", size_bytes=len(MINIMAL_PDF), category=category, classification=Document.Classification.CONFIDENTIAL, entity_type=EMPLOYEE_ENTITY_TYPE, entity_id=employee.id, is_active=True)
+                if self.with_documents:
+                    document.stored_file.save(f"bost-demo/{employee.employee_number}-{category.lower()}.pdf", ContentFile(MINIMAL_PDF), save=False)
+                else:
+                    document.file_reference = "demo:record-only"
                 document.save()
+                Document.objects.filter(pk=document.pk).update(created_at=uploaded)
+                self._count("documents")
+        # Two documented exceptions, as HR would record them.
+        card = requirements[1]
+        for employee, reason in zip(employees[30:32], ("Foreign national: passport and work permit on file instead of a Ghana Card.", "Ghana Card application in progress; NIA receipt seen by HR.")):
+            has_card = Document.objects.filter(institution=institution, entity_type=EMPLOYEE_ENTITY_TYPE, entity_id=employee.id, category__iexact=card.document_category, is_active=True).exists()
+            if not has_card and not DocumentRequirementWaiver.objects.filter(requirement=card, employee=employee).exists():
+                DocumentRequirementWaiver.objects.create(institution=institution, requirement=card, employee=employee, reason=reason, waived_by=admin)
                 self._count("documents")
 
     # ------------------------------------------------------- joiners and leavers

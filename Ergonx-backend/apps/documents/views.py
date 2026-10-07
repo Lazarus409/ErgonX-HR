@@ -4,10 +4,20 @@ from django.http import FileResponse
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, PermissionDenied
 
-from apps.documents.models import Document, ImageAsset
-from apps.documents.serializers import DocumentSerializer, ImageAssetSerializer
+from django.shortcuts import get_object_or_404
+from drf_spectacular.utils import OpenApiTypes, extend_schema
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from apps.audit.services import field_changes, record_audit_event, snapshot
+from apps.documents.checklist import checklists, compliance_overview, summarize
+from apps.documents.models import Document, DocumentRequirement, DocumentRequirementWaiver, ImageAsset
+from apps.documents.serializers import DocumentRequirementSerializer, DocumentRequirementWaiverSerializer, DocumentSerializer, ImageAssetSerializer
 from apps.employees.models import Employee
+from apps.employees.services import ensure_not_self_hr_mutation
+from common.permissions import TenantContextPermission, TenantRBACPermission
 from common.scoping import LEAVE_BROAD, scope_to_employees
+from common.serializers import call_validated_service
 from common.viewsets import TenantModelViewSet
 
 
@@ -160,4 +170,104 @@ class ImageAssetViewSet(TenantModelViewSet):
     def perform_destroy(self, instance):
         instance.is_active = False
         instance.save(update_fields=("is_active", "updated_at"))
+
+
+REQUIREMENT_FIELDS = ("name", "description", "document_category", "employment_types", "validity_months", "is_mandatory", "sort_order", "is_active")
+
+
+class DocumentRequirementViewSet(TenantModelViewSet):
+    """Documents HR requires on file, and the organization's compliance with them."""
+
+    model = DocumentRequirement
+    serializer_class = DocumentRequirementSerializer
+    http_method_names = ("get", "post", "patch", "delete", "head", "options")
+    filterset_fields = ("is_active", "is_mandatory")
+    search_fields = ("name", "document_category")
+    ordering_fields = ("sort_order", "name", "created_at")
+    ordering = ("sort_order", "name")
+
+    def get_required_permission(self):
+        return "document_requirement.view" if self.action in ("list", "retrieve", "compliance") else "document_requirement.manage"
+
+    def perform_create(self, serializer):
+        requirement = serializer.save(institution=self.request.institution)
+        record_audit_event(actor=self.request.user, institution=self.request.institution, entity=requirement, action="document_requirement.created", metadata={"name": requirement.name})
+
+    def perform_update(self, serializer):
+        before = snapshot(serializer.instance, REQUIREMENT_FIELDS)
+        requirement = serializer.save()
+        record_audit_event(actor=self.request.user, institution=self.request.institution, entity=requirement, action="document_requirement.updated", metadata={"changes": field_changes(before, snapshot(requirement, REQUIREMENT_FIELDS))})
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)  # Deactivates: history and waivers are kept.
+        record_audit_event(actor=self.request.user, institution=self.request.institution, entity=instance, action="document_requirement.deactivated", metadata={"name": instance.name})
+
+    @extend_schema(responses={200: OpenApiTypes.OBJECT})
+    @action(detail=False, methods=("get",), url_path="compliance")
+    def compliance(self, request):
+        employees = scope_to_employees(Employee.objects.for_institution(request.institution), request, "")
+        department = request.query_params.get("department")
+        if department:
+            employees = employees.filter(employments__is_current=True, employments__department_id=department).distinct()
+        return Response(compliance_overview(request.institution, employees))
+
+
+class DocumentRequirementWaiverViewSet(TenantModelViewSet):
+    model = DocumentRequirementWaiver
+    serializer_class = DocumentRequirementWaiverSerializer
+    http_method_names = ("get", "post", "delete", "head", "options")
+    filterset_fields = ("employee", "requirement")
+
+    def get_required_permission(self):
+        return "document_requirement.view" if self.action in ("list", "retrieve") else "document_requirement.manage"
+
+    def get_queryset(self):
+        return scope_to_employees(super().get_queryset().select_related("requirement", "employee", "waived_by"), self.request)
+
+    def perform_create(self, serializer):
+        employee = serializer.validated_data["employee"]
+        if not scope_to_employees(Employee.objects.for_institution(self.request.institution), self.request, "").filter(pk=employee.pk).exists():
+            raise NotFound("Employee not found.")
+        call_validated_service(ensure_not_self_hr_mutation, actor=self.request.user, employee=employee)
+        waiver = serializer.save(institution=self.request.institution, waived_by=self.request.user)
+        record_audit_event(actor=self.request.user, institution=self.request.institution, entity=waiver, action="document_requirement.waived", metadata={"requirement": waiver.requirement.name, "employee_id": str(employee.id), "reason": waiver.reason})
+
+    def perform_destroy(self, instance):
+        record_audit_event(actor=self.request.user, institution=self.request.institution, entity=instance, action="document_requirement.waiver_removed", metadata={"requirement": instance.requirement.name, "employee_id": str(instance.employee_id)})
+        instance.delete()
+
+
+def _checklist_payload(institution, employee):
+    items = checklists(institution, [employee])[employee.id]
+    return {"employee_id": str(employee.id), "employee": employee.full_name, "summary": summarize(items), "items": items}
+
+
+class EmployeeDocumentChecklistView(APIView):
+    """One employee's document checklist, for HR and the employee's managers."""
+
+    permission_classes = (TenantContextPermission, TenantRBACPermission)
+    required_module = "CORE_HR"
+
+    def get_required_permission(self):
+        return "document_requirement.view"
+
+    @extend_schema(responses={200: OpenApiTypes.OBJECT})
+    def get(self, request, pk):
+        employee = get_object_or_404(scope_to_employees(Employee.objects.for_institution(request.institution), request, ""), pk=pk)
+        return Response(_checklist_payload(request.institution, employee))
+
+
+class SelfServiceDocumentChecklistView(APIView):
+    """The signed-in employee's own document checklist."""
+
+    permission_classes = (TenantContextPermission, TenantRBACPermission)
+    required_module = "CORE_HR"
+
+    def get_required_permission(self):
+        return "home.view"
+
+    @extend_schema(responses={200: OpenApiTypes.OBJECT})
+    def get(self, request):
+        employee = get_object_or_404(Employee.objects.for_institution(request.institution), user=request.user)
+        return Response(_checklist_payload(request.institution, employee))
 

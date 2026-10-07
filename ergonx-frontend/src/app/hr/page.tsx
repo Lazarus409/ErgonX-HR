@@ -1,16 +1,21 @@
 "use client";
 
-import { Building2, GraduationCap, MapPin, UserRoundCog } from "lucide-react";
+import { Briefcase, Building2, CalendarDays, Clock3, FileCheck2, GraduationCap, LayoutDashboard, Target, Users } from "lucide-react";
 
 import ModuleLanding from "@/components/home/ModuleLanding";
 
 const areas = [
-  { title: "Departments / Functional Areas", description: "Add and organize departments / functional areas.", href: "/hr/departments", icon: Building2, permission: "organization.view" },
-  { title: "Positions", description: "Add job positions and the department / functional area each belongs to.", href: "/hr/positions", icon: UserRoundCog, permission: "organization.view" },
-  { title: "Grades", description: "Set up the grade levels used for employees and pay.", href: "/hr/grades", icon: GraduationCap, permission: "organization.view" },
-  { title: "Locations", description: "Add offices, sites and remote arrangements.", href: "/hr/locations", icon: MapPin, permission: "organization.view" },
+  { title: "HR Dashboard", description: "Workforce composition, active employment, recent hires and document compliance.", href: "/hr/dashboard", icon: LayoutDashboard, permission: "dashboard.hr.view" },
+  { title: "Employees", description: "Employee records, employment history, documents and training.", href: "/hr/employees", icon: Users, permission: "employee.view" },
+  { title: "Organization", description: "Departments, positions, grades and locations.", href: "/hr/organization", icon: Building2, permission: "organization.view" },
+  { title: "Document Checklist", description: "Required documents and who is still missing them.", href: "/hr/documents", icon: FileCheck2, permission: "document_requirement.view" },
+  { title: "Training", description: "Courses, enrolments and certificates to renew.", href: "/training", icon: GraduationCap, permission: "training.view" },
+  { title: "Performance", description: "Review cycles, self-assessments, manager reviews and sign-off.", href: "/performance", icon: Target, permission: "performance.view" },
+  { title: "Recruitment", description: "Requisitions, candidates, interviews and offers.", href: "/recruitment", icon: Briefcase, permission: "job_posting.view" },
+  { title: "Leave", description: "Leave requests, balances, policies and the team calendar.", href: "/leave", icon: CalendarDays, permission: "dashboard.leave.view" },
+  { title: "Attendance", description: "Daily attendance, schedules, corrections and overtime.", href: "/attendance", icon: Clock3, permission: "dashboard.attendance.view" },
 ];
 
-export default function HRHomePage() {
-  return <ModuleLanding title="Organization" description="Set up the departments, positions, grades and locations your people are organized into." module="HR" accent="hr" icon={Building2} eyebrow="Human Resources" areas={areas} />;
+export default function HumanResourcesPage() {
+  return <ModuleLanding title="Human Resources" description="Everything for managing your people, in one place." module="HR" accent="hr" icon={Users} eyebrow="Human Resources" areas={areas} />;
 }

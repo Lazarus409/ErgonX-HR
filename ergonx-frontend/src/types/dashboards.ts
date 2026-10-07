@@ -96,6 +96,8 @@ export interface HrDashboard extends EmployeeMetrics {
   by_location: NamedCount[];
   by_employment_type: NamedCount[];
   recent_hires: RecentHire[];
+  /** Document checklist; null until HR sets up document requirements. */
+  document_compliance?: { compliance_rate: number; complete_employees: number; employees: number; outstanding_employees: number } | null;
 }
 
 export interface LeaveDashboard {

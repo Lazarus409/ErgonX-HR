@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AlertCircle, ArrowRight, BriefcaseBusiness, Building2, CalendarCheck, ClipboardCheck, FilePlus2, MapPin, UserCheck, UserMinus, UserPlus, Users, type LucideIcon } from "lucide-react";
+import { AlertCircle, ArrowRight, BriefcaseBusiness, Building2, CalendarCheck, ClipboardCheck, FileCheck2, FilePlus2, MapPin, UserCheck, UserMinus, UserPlus, Users, type LucideIcon } from "lucide-react";
 import { useCallback } from "react";
 
 import ChartCard from "@/components/charts/ChartCard";
@@ -96,7 +96,9 @@ export default function HRDashboardPage() {
         <MetricCard label="Workforce" value={data ? formatNumber(data.total_employees) : EM_DASH} description="Employee records" icon={Users} accent="hr" loading={initial} />
         <MetricCard label="Active employees" value={data ? formatNumber(data.active_employees) : EM_DASH} description={data?.total_employees ? `${Math.round((data.active_employees / data.total_employees) * 100)}% of workforce` : "Current active records"} icon={UserCheck} accent="accounting" loading={initial} />
         <MetricCard label="New hires" value={data ? formatNumber(hiresThisYear) : EM_DASH} description={`Hired in ${currentYear}`} icon={UserPlus} accent="attendance" loading={initial} />
-        <MetricCard label="Terminated" value={data ? formatNumber(statusCount("TERMINATED")) : EM_DASH} description="Employee status records" icon={UserMinus} accent="audit" loading={initial} />
+        {data?.document_compliance ? (
+          <MetricCard label="Document compliance" value={`${data.document_compliance.compliance_rate.toFixed(0)}%`} description={`${formatNumber(data.document_compliance.outstanding_employees)} employees with documents outstanding`} icon={FileCheck2} accent="audit" href="/hr/documents" loading={initial} />
+        ) : <MetricCard label="Terminated" value={data ? formatNumber(statusCount("TERMINATED")) : EM_DASH} description="Employee status records" icon={UserMinus} accent="audit" loading={initial} />}
       </section>
 
       {primaryActions.length > 0 && (

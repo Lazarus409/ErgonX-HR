@@ -57,6 +57,8 @@ _TYPE_PREFIXES = (
     ("MFA", "SECURITY"),
     ("EMPLOYEE", "HR"),
     ("DOCUMENT", "HR"),
+    ("TRAINING", "HR"),
+    ("PERFORMANCE", "HR"),
 )
 _METADATA_KEYS = (
     ("approval_request_id", "APPROVALS"),

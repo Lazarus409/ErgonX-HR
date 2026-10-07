@@ -68,12 +68,18 @@ function routeContext(pathname: string): { section: string; page?: string } {
     // owns its route tree before any group that links into it.
     const direct = navigation.filter((item) => !item.children?.length && matches(item.href)).sort((a, b) => b.href.length - a.href.length)[0];
     if (direct) return { section: direct.label };
+    // A child owns its exact route tree first (most specific wins across menus) ...
+    const exact = navigation
+      .flatMap((item) => (item.children ?? []).map((child) => ({ item, child })))
+      .filter(({ child }) => matches(child.href))
+      .sort((a, b) => b.child.href.length - a.child.href.length)[0];
+    if (exact) return { section: exact.item.label, page: exact.child.label };
     for (const item of navigation) {
       for (const child of item.children ?? []) {
-        // A child owns its exact route tree, or — when it lives in a different
-        // module root than its parent (e.g. HR › Leave) — that whole root.
+        // ... then, when it lives in a different module root than its parent
+        // (e.g. HR › Leave), that whole root.
         const foreignRoot = rootOf(child.href) !== rootOf(item.href) ? rootOf(child.href) : null;
-        if (matches(child.href) || (foreignRoot && matches(foreignRoot))) return { section: item.label, page: child.label };
+        if (foreignRoot && matches(foreignRoot)) return { section: item.label, page: child.label };
       }
       if (matches(item.href)) return { section: item.label };
     }
