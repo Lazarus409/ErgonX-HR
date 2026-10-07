@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#3a475c","surface-container-high":"#dce9ff","surface-variant":"#d3e4fe","on-error-container":"#93000a","primary-container":"#0e1c2f","on-error":"#ffffff","secondary":"#0051d5","on-secondary-fixed":"#00174b","background":"#f8f9ff","tertiary-container":"#001f26","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-surface":"#0b1c30","on-tertiary":"#ffffff","on-tertiary-fixed-variant":"#004e5c","primary":"#000000","error":"#ba1a1a","primary-fixed":"#d6e3fe","primary-fixed-dim":"#bac7e1","on-secondary-fixed-variant":"#003ea8","on-secondary-container":"#fefcff","tertiary-fixed":"#acedff","on-tertiary-container":"#0090a9","surface":"#f8f9ff","surface-container":"#e5eeff","on-background":"#0b1c30","on-surface-variant":"#44474c","inverse-primary":"#bac7e1","surface-dim":"#cbdbf5","on-primary-container":"#77849c","tertiary":"#000000","on-primary-fixed":"#0e1c2f","surface-container-low":"#eff4ff","secondary-fixed":"#dbe1ff","error-container":"#ffdad6","surface-tint":"#525f75","on-tertiary-fixed":"#001f26","inverse-surface":"#213145","outline-variant":"#c5c6cd","surface-bright":"#f8f9ff","secondary-fixed-dim":"#b4c5ff","on-secondary":"#ffffff","secondary-container":"#316bf3","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","outline":"#75777d","tertiary-fixed-dim":"#4cd7f6"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-xl":"2rem","margin-mobile":"1rem","gutter":"1rem","margin":"1.5rem","gutter-compact":"0.75rem"},fontFamily:{"body-lg":["Manrope"],"label-sm":["Manrope"],"headline-sm":["Hanken Grotesk"],"label-md":["Manrope"],"body-sm":["Manrope"],"title-md":["Manrope"],"label-lg":["Manrope"],"display-lg-mobile":["Hanken Grotesk"],"body-md":["Manrope"],"headline-md":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"display-lg":["Hanken Grotesk"]},fontSize:{"body-lg":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"400"}],"title-md":["15px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"600"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"display-lg-mobile":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-md":["13px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}],"display-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-primary-container z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary-container"><img alt="Brand logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-surface truncate tracking-tight">ErgonX</span><span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase truncate">Enterprise ERP</span></div></div><div class="mx-space-sm my-space-xs p-space-sm rounded-lg bg-inverse-surface flex items-center justify-between cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shrink-0"><span class="material-symbols-outlined text-sm">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-inverse-on-surface truncate">Rivermere Univ.</span><span class="font-label-sm text-label-sm text-primary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-primary-fixed-dim text-sm">unfold_more</span></div><nav class="flex flex-col px-space-xs py-space-sm gap-space-xs" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Core Overview</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="home" href="#">Home</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="insights" href="#">Insights</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Human Resources</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="hr-dashboard" href="#">HR Dashboard</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="employees" href="#">Employees</a><a aria-current="page" class="flex items-center px-space-sm py-space-xs rounded transition-colors bg-secondary-container text-on-secondary-container font-headline-sm" data-path="recruitment-pipeline-board" href="#">Recruitment</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="leave" href="#">Leave</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="attendance" href="#">Attendance</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="payroll" href="#">Payroll</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Accounting</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="accounting-dashboard" href="#">Accounting Dashboard</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="general-ledger" href="#">General Ledger</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="accounts-payable" href="#">Accounts Payable</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="accounts-receivable" href="#">Accounts Receivable</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="bank-reconciliation" href="#">Bank Reconciliation</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="budgets" href="#">Budgets</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="ergonx-desktop---financial-report-detail" href="#">Financial Reports</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Self Service</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="employee-home" href="#">Employee Home</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-profile" href="#">My Profile</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-documents" href="#">My Documents</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-leave" href="#">My Leave</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-attendance" href="#">My Attendance</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-payslips" href="#">My Payslips</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="security" href="#">Security</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Governance</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="reports-and-analytics-library" href="#">Reports &amp; Analytics</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="approvals" href="#">Approvals</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="audit-trail" href="#">Audit Trail</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="users-and-access" href="#">Users &amp; Access</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="settings" href="#">Settings</a></nav></div><div class="p-space-md bg-inverse-surface/40"><div class="flex items-center gap-space-xs text-on-primary-container"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm">Statutory v4.12 Online</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-96"><a class="flex items-center gap-space-sm w-full bg-surface-container-low px-space-sm py-space-xs rounded-lg cursor-pointer hover:bg-surface-container transition-colors" data-path="global-search-results" href="#"><span class="material-symbols-outlined text-outline text-lg">search</span><span class="font-body-sm text-body-sm text-outline flex-1">Search entities, records, transactions...</span><kbd class="font-label-sm text-label-sm bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">⌘K</kbd></a></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface-variant">Core Services: Normal</span></div><div class="h-4 w-px bg-outline-variant"></div><button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" title="Toggle Theme"><span class="material-symbols-outlined text-lg">light_mode</span></button><a class="relative flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" data-path="notifications-center" href="#" title="Notifications"><span class="material-symbols-outlined text-lg">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></a><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm cursor-pointer"><img alt="Profile avatar of Kwame Mensah" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-on-surface-variant">SysAdmin • Finance</span></div><span class="material-symbols-outlined text-outline text-sm">expand_more</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-lg flex flex-col gap-space-lg w-full">
+<!-- Breadcrumb & Top Bar Navigation -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<a class="hover:text-secondary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Human Resources</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface font-title-md">Recruitment</span>
+</nav>
+<div class="flex flex-col">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Recruitment</h1>
+<p class="font-body-md text-body-md text-secondary">Attract, assess and hire great talent.</p>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<!-- Date Selector Dropdown -->
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-low transition-colors font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-base text-outline">calendar_month</span>
+<span>Last 12 months</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+<!-- Primary Action -->
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container text-on-primary shadow-sm hover:bg-inverse-surface transition-colors font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Create requisition</span>
+</button>
+<!-- Secondary Action -->
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-lowest text-secondary shadow-sm hover:bg-surface-container-low transition-colors font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-base">person_add</span>
+<span>Add candidate</span>
+</button>
+</div>
+</div>
+<!-- 4 High-Impact Stat / KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1: Open roles -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md relative overflow-hidden group hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-2xl">work</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Open roles</span>
+<div class="flex items-baseline gap-space-xs my-0.5">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">18</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-emerald-600">
+<span class="material-symbols-outlined text-xs">arrow_drop_up</span>
+<span class="font-semibold">+3 (+20.0%)</span>
+<span class="text-outline font-normal">vs. Jan – Sep 2022</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Candidates in process -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md relative overflow-hidden group hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant shrink-0">
+<span class="material-symbols-outlined text-2xl">group</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Candidates in process</span>
+<div class="flex items-baseline gap-space-xs my-0.5">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">124</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-emerald-600">
+<span class="material-symbols-outlined text-xs">arrow_drop_up</span>
+<span class="font-semibold">+28 (+29.2%)</span>
+<span class="text-outline font-normal">vs. Jan – Sep 2022</span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Interviews this week -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md relative overflow-hidden group hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-2xl">event_available</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Interviews this week</span>
+<div class="flex items-baseline gap-space-xs my-0.5">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">22</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-emerald-600">
+<span class="material-symbols-outlined text-xs">arrow_drop_up</span>
+<span class="font-semibold">+6 (+37.5%)</span>
+<span class="text-outline font-normal">vs. previous week</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Offers pending -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md relative overflow-hidden group hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700 shrink-0">
+<span class="material-symbols-outlined text-2xl">description</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Offers pending</span>
+<div class="flex items-baseline gap-space-xs my-0.5">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">7</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-emerald-600">
+<span class="material-symbols-outlined text-xs">arrow_drop_up</span>
+<span class="font-semibold">+2 (+40.0%)</span>
+<span class="text-outline font-normal">vs. Jan – Sep 2022</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Kanban Surface Container -->
+<div class="flex flex-col rounded-xl bg-surface-container-lowest shadow-sm p-space-md gap-space-md">
+<!-- Section Header & Filter Toolbar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-lg">view_kanban</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Recruitment pipeline</h2>
+<p class="font-body-sm text-body-sm text-secondary">Move candidates through stages from requisition to hire.</p>
+</div>
+</div>
+<div class="flex items-center flex-wrap gap-space-sm">
+<!-- Search Candidates Input -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg w-full sm:w-64">
+<span class="material-symbols-outlined text-outline text-lg">search</span>
+<input class="bg-transparent border-0 outline-none font-body-sm text-body-sm text-on-surface placeholder-outline w-full" placeholder="Search candidates" type="text"/>
+</div>
+<!-- All Roles Dropdown Filter -->
+<button class="inline-flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-body-sm text-body-sm">
+<span>All roles</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+<!-- More Options Action -->
+<button class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="More options">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- 6-Column Responsive Kanban Board -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-space-md overflow-x-auto pb-space-sm">
+<!-- Column 1: Draft -->
+<div class="flex flex-col rounded-xl bg-surface-container-low p-space-sm min-h-[460px] justify-between shadow-sm">
+<div class="flex flex-col gap-space-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Draft</span>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold px-2 py-0.5 rounded-full bg-surface-container">0</span>
+</div>
+<!-- Empty State Card -->
+<div class="p-space-lg rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-sm my-auto mt-space-lg">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-2xl">post_add</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">No candidates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Candidates in draft will appear here when they are added to a requisition.
+              </p>
+</div>
+</div>
+<!-- Quick Action Footer -->
+<button class="w-full mt-space-md py-2 px-space-sm rounded-lg bg-surface-container-lowest text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add candidate</span>
+</button>
+</div>
+<!-- Column 2: Open -->
+<div class="flex flex-col rounded-xl bg-surface-container-low p-space-sm min-h-[460px] justify-between shadow-sm">
+<div class="flex flex-col gap-space-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Open</span>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold px-2 py-0.5 rounded-full bg-surface-container">24</span>
+</div>
+<!-- Empty State Card -->
+<div class="p-space-lg rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-sm my-auto mt-space-lg">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">person_add</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">No candidates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Candidates for open requisitions will appear here.
+              </p>
+</div>
+</div>
+<!-- Quick Action Footer -->
+<button class="w-full mt-space-md py-2 px-space-sm rounded-lg bg-surface-container-lowest text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add candidate</span>
+</button>
+</div>
+<!-- Column 3: Screening -->
+<div class="flex flex-col rounded-xl bg-surface-container-low p-space-sm min-h-[460px] justify-between shadow-sm">
+<div class="flex flex-col gap-space-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Screening</span>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold px-2 py-0.5 rounded-full bg-surface-container">18</span>
+</div>
+<!-- Empty State Card -->
+<div class="p-space-lg rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-sm my-auto mt-space-lg">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-teal-600">
+<span class="material-symbols-outlined text-2xl">person_search</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">No candidates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Candidates being screened will appear here.
+              </p>
+</div>
+</div>
+<!-- Quick Action Footer -->
+<button class="w-full mt-space-md py-2 px-space-sm rounded-lg bg-surface-container-lowest text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add candidate</span>
+</button>
+</div>
+<!-- Column 4: Interview -->
+<div class="flex flex-col rounded-xl bg-surface-container-low p-space-sm min-h-[460px] justify-between shadow-sm">
+<div class="flex flex-col gap-space-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Interview</span>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold px-2 py-0.5 rounded-full bg-surface-container">12</span>
+</div>
+<!-- Empty State Card -->
+<div class="p-space-lg rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-sm my-auto mt-space-lg">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined text-2xl">pending_actions</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">No candidates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Candidates scheduled for or undergoing interviews will appear here.
+              </p>
+</div>
+</div>
+<!-- Quick Action Footer -->
+<button class="w-full mt-space-md py-2 px-space-sm rounded-lg bg-surface-container-lowest text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add candidate</span>
+</button>
+</div>
+<!-- Column 5: Offer -->
+<div class="flex flex-col rounded-xl bg-surface-container-low p-space-sm min-h-[460px] justify-between shadow-sm">
+<div class="flex flex-col gap-space-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Offer</span>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold px-2 py-0.5 rounded-full bg-surface-container">7</span>
+</div>
+<!-- Empty State Card -->
+<div class="p-space-lg rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-sm my-auto mt-space-lg">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined text-2xl">assignment_turned_in</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">No candidates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Candidates with pending offers will appear here.
+              </p>
+</div>
+</div>
+<!-- Quick Action Footer -->
+<button class="w-full mt-space-md py-2 px-space-sm rounded-lg bg-surface-container-lowest text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add candidate</span>
+</button>
+</div>
+<!-- Column 6: Hired -->
+<div class="flex flex-col rounded-xl bg-surface-container-low p-space-sm min-h-[460px] justify-between shadow-sm">
+<div class="flex flex-col gap-space-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Hired</span>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold px-2 py-0.5 rounded-full bg-surface-container">33</span>
+</div>
+<!-- Empty State Card -->
+<div class="p-space-lg rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-space-sm my-auto mt-space-lg">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined text-2xl">how_to_reg</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">No candidates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Successfully hired candidates will appear here.
+              </p>
+</div>
+</div>
+<!-- Quick Action Footer -->
+<button class="w-full mt-space-md py-2 px-space-sm rounded-lg bg-surface-container-lowest text-secondary hover:bg-surface-container transition-colors font-label-md text-label-md flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add candidate</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Quick interactive feedback for buttons
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        btn.classList.add('scale-[0.98]');
+        setTimeout(() => btn.classList.remove('scale-[0.98]'), 120);
+      });
+    });
+  });
+</script></main></div></body></html>

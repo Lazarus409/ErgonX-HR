@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S042",
+  "screen_number": 42,
+  "title": "Offer Management",
+  "slug": "offer-management",
+  "module": "Recruitment",
+  "route_hint": "/recruitment/offers/:offerId",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 4",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (42).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Governed offer lifecycle: Draft \u2192 Approval \u2192 Sent \u2192 Accepted/Declined. Preserve candidate/application lineage into Employee conversion.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

@@ -1,0 +1,175 @@
+accounting.batch_job.completed	apps/accounting/batch.py:212	meta
+accounting.budget.submitted	apps/accounting/budgets.py:105	
+<expr> "accounting.budget.approved" if approve else "accounting.budget.returned"	apps/accounting/budgets.py:127	meta
+accounting.budget.created	apps/accounting/budgets.py:197	
+accounting.budget.updated	apps/accounting/budgets.py:220	meta
+accounting.budget.note_added	apps/accounting/budgets.py:304	
+accounting.financial_report.run	apps/accounting/reporting.py:198	meta
+accounting.financial_report.created	apps/accounting/reporting.py:260	
+accounting.financial_report.updated	apps/accounting/reporting.py:277	meta
+accounting.configuration.changed	apps/accounting/services.py:144	meta
+accounting.preset.applied	apps/accounting/services.py:316	meta
+accounting.account.created	apps/accounting/services.py:345	
+accounting.account.updated	apps/accounting/services.py:362	meta
+accounting.fiscal_year.created	apps/accounting/services.py:381	
+accounting.period.created	apps/accounting/services.py:398	
+accounting.journal.created	apps/accounting/services.py:471	meta
+accounting.journal.updated	apps/accounting/services.py:524	
+accounting.journal.submitted	apps/accounting/services.py:554	meta
+accounting.journal.approved	apps/accounting/services.py:586	meta
+accounting.journal.posted	apps/accounting/services.py:646	meta
+accounting.journal.reversal_created	apps/accounting/services.py:697	meta
+accounting.journal.voided	apps/accounting/services.py:721	meta
+<expr> f"accounting.period.{status.lower()}"	apps/accounting/services.py:763	meta
+accounting.fiscal_year.closed	apps/accounting/services.py:787	meta
+accounting.vendor.created	apps/accounting/services.py:802	
+accounting.vendor.updated	apps/accounting/services.py:819	meta
+accounting.vendor_bill.created	apps/accounting/services.py:901	meta
+accounting.vendor_bill.updated	apps/accounting/services.py:936	meta
+accounting.vendor_bill.submitted	apps/accounting/services.py:981	meta
+accounting.vendor_bill.approved	apps/accounting/services.py:1015	meta
+accounting.vendor_bill.posted	apps/accounting/services.py:1125	meta
+accounting.vendor_bill.voided	apps/accounting/services.py:1149	meta
+accounting.customer.created	apps/accounting/services.py:1164	
+accounting.customer.updated	apps/accounting/services.py:1175	
+accounting.invoice.created	apps/accounting/services.py:1211	
+accounting.invoice.updated	apps/accounting/services.py:1234	
+accounting.invoice.issued	apps/accounting/services.py:1276	meta
+accounting.invoice.voided	apps/accounting/services.py:1290	meta
+accounting.bank_account.created	apps/accounting/services.py:1302	
+accounting.bank_account.updated	apps/accounting/services.py:1323	meta
+accounting.payment.posted	apps/accounting/services.py:1489	meta
+accounting.receipt.posted	apps/accounting/services.py:1550	meta
+<expr> f"accounting.{transaction_record._meta.model_name}.voided"	apps/accounting/services.py:1582	meta
+accounting.bank_statement_line.imported	apps/accounting/services.py:1624	meta
+accounting.bank_statement_line.matched	apps/accounting/services.py:1655	meta
+accounting.bank_statement_line.unmatched	apps/accounting/services.py:1673	meta
+accounting.vat_withholding_certificate.issued	apps/accounting/services.py:1696	meta
+accounting.vat_withholding_certificate.voided	apps/accounting/services.py:1711	
+accounting.expense.created	apps/accounting/services.py:1721	
+accounting.expense.updated	apps/accounting/services.py:1736	
+accounting.expense.submitted	apps/accounting/services.py:1751	meta
+accounting.expense.approved	apps/accounting/services.py:1765	meta
+accounting.expense.rejected	apps/accounting/services.py:1779	meta
+accounting.expense.posted	apps/accounting/services.py:1798	meta
+accounting.payroll_mappings.applied	apps/accounting/services.py:1820	meta
+accounting.payroll_journal.generated	apps/accounting/services.py:1877	meta
+accounting.vendor_bill.rejected	apps/accounting/services.py:1896	meta
+accounting.vendor_bill.revised	apps/accounting/services.py:1910	meta
+<expr> "accounting.vendor_bill.held" if on_hold else "accounting.vendor_bill.released"	apps/accounting/services.py:1925	meta
+accounting.vendor_bill.payment_scheduled	apps/accounting/services.py:1943	meta
+<expr> "accounting.invoice.held" if on_hold else "accounting.invoice.released"	apps/accounting/services.py:1967	meta
+accounting.invoice.sent	apps/accounting/services.py:2004	meta
+accounting.invoice.reminder_added	apps/accounting/services.py:2018	meta
+<expr> f"accounting.invoice.reminder_{status.lower()}"	apps/accounting/services.py:2032	
+accounting.reconciliation.started	apps/accounting/services.py:2087	meta
+accounting.reconciliation.completed	apps/accounting/services.py:2150	meta
+accounting.reconciliation.statement_imported	apps/accounting/services.py:2197	meta
+<expr> "accounting.bank_statement_line.flagged" if exception else "accounting.bank_statement_line.unflagged"	apps/accounting/services.py:2213	meta
+accounting.vendor_bill.settlement_updated	apps/accounting/services.py:1394	meta
+accounting.invoice.settlement_updated	apps/accounting/services.py:1424	meta
+accounting.journal.reversed	apps/accounting/services.py:635	meta
+<expr> f"{self.attachment_entity_type.lower()}.attachment_added"	apps/accounting/views.py:327	meta
+accounting.journal.note_added	apps/accounting/views.py:1456	
+accounting.journal.attachment_added	apps/accounting/views.py:1484	meta
+<expr> f"{PLATFORM_ACTION_PREFIX}{action}"	apps/accounts/platform.py:55	meta
+account.mfa.setup_started	apps/accounts/views.py:87	meta
+account.mfa.enabled	apps/accounts/views.py:99	meta
+account.mfa.method_changed	apps/accounts/views.py:128	meta
+account.mfa.disabled	apps/accounts/views.py:134	meta
+attendance.clocked_in	apps/attendance/services.py:188	meta
+attendance.clocked_out	apps/attendance/services.py:215	meta
+attendance.date_classified	apps/attendance/services.py:250	meta
+attendance.adjustment.requested	apps/attendance/services.py:308	
+attendance.adjustment.decided	apps/attendance/services.py:371	meta
+attendance.overtime.decided	apps/attendance/services.py:404	meta
+attendance.adjustment.returned	apps/attendance/services.py:465	
+attendance.adjustment.resubmitted	apps/attendance/services.py:497	
+attendance.adjustment.delegated	apps/attendance/services.py:521	meta
+compensation.employee.changed	apps/compensation/services.py:86	meta
+compensation.component.override.changed	apps/compensation/services.py:158	meta
+compensation.component.override.ended	apps/compensation/services.py:181	
+compensation.configuration.created	apps/compensation/views.py:41	
+compensation.configuration.updated	apps/compensation/views.py:50	
+compensation.configuration.deactivated	apps/compensation/views.py:59	
+employee.onboarding.started	apps/employees/services.py:125	
+employee.onboarding.completed	apps/employees/services.py:150	
+employee.offboarding.initiated	apps/employees/services.py:173	
+employee.offboarding.completed	apps/employees/services.py:209	
+employee.rehired	apps/employees/services.py:232	meta
+employee.document.uploaded	apps/employees/views.py:147	meta
+employee.document.removed	apps/employees/views.py:184	meta
+access.requested	apps/institutions/access.py:58	meta
+access.role.created	apps/institutions/services.py:567	meta
+access.role.updated	apps/institutions/services.py:605	meta
+access.membership.updated	apps/institutions/services.py:634	meta
+institution.onboarding.validated	apps/institutions/services.py:985	meta
+access.membership.invited	apps/institutions/services.py:1080	meta
+access.invitation.created	apps/institutions/services.py:1103	meta
+access.invitation.revoked	apps/institutions/services.py:1117	meta
+leave.request.created	apps/leave/services.py:323	
+leave.request.submitted	apps/leave/services.py:384	meta
+leave.request.approved_step	apps/leave/services.py:438	meta
+leave.request.rejected	apps/leave/services.py:477	meta
+leave.request.cancelled	apps/leave/services.py:508	
+leave.balance.accrued	apps/leave/services.py:550	meta
+leave.balance.carried_forward	apps/leave/services.py:590	meta
+leave.request.updated	apps/leave/services.py:632	meta
+leave.request.changes_requested	apps/leave/services.py:672	meta
+leave.request.delegated	apps/leave/services.py:716	meta
+leave.request.commented	apps/leave/services.py:733	
+payroll.configuration.changed	apps/payroll/services.py:183	meta
+payroll.employee_profile.changed	apps/payroll/services.py:250	meta
+payroll.period.created	apps/payroll/services.py:276	
+payroll.run.created	apps/payroll/services.py:339	meta
+payroll.run.calculated	apps/payroll/services.py:590	meta
+payroll.run.submitted_for_review	apps/payroll/services.py:632	meta
+payroll.run.approved	apps/payroll/services.py:669	meta
+payroll.run.finalized	apps/payroll/services.py:808	meta
+payroll.run.cancelled	apps/payroll/services.py:866	meta
+payroll.adjustment.created	apps/payroll/services.py:955	
+payroll.adjustment.submitted	apps/payroll/services.py:995	meta
+<expr> "payroll.adjustment.approved" if approve else "payroll.adjustment.rejected"	apps/payroll/services.py:1030	meta
+payroll.tax_relief_claim.created	apps/payroll/services.py:1127	
+payroll.tax_relief_claim.submitted	apps/payroll/services.py:1161	meta
+<expr> "payroll.tax_relief_claim.approved"
+            if approve
+            else "payroll.tax_relief_claim.rejected"	apps/payroll/services.py:1245	meta
+payroll.run.validated	apps/payroll/services.py:1366	meta
+payroll.exception.updated	apps/payroll/services.py:1389	meta
+payroll.adjustment.applied	apps/payroll/services.py:576	meta
+payroll.adjustment.unapplied	apps/payroll/services.py:850	meta
+recruitment.job_posting.published	apps/recruitment/services.py:67	
+<expr> f"recruitment.job_posting.{target.lower()}"	apps/recruitment/services.py:83	
+recruitment.application.submitted	apps/recruitment/services.py:106	meta
+recruitment.application.stage_moved	apps/recruitment/services.py:128	meta
+recruitment.application.withdrawn	apps/recruitment/services.py:143	
+recruitment.application.rejected	apps/recruitment/services.py:159	
+<expr> f"recruitment.interview.{status.lower()}"	apps/recruitment/services.py:177	
+recruitment.evaluation.recorded	apps/recruitment/services.py:190	meta
+recruitment.offer.extended	apps/recruitment/services.py:215	
+<expr> f"recruitment.offer.{target.lower()}"	apps/recruitment/services.py:241	meta
+recruitment.offer.withdrawn	apps/recruitment/services.py:258	
+recruitment.offer.hired	apps/recruitment/services.py:322	meta
+recruitment.requisition.submitted	apps/recruitment/services.py:358	
+recruitment.requisition.approved	apps/recruitment/services.py:382	meta
+recruitment.requisition.returned	apps/recruitment/services.py:399	meta
+recruitment.requisition.team_added	apps/recruitment/services.py:414	meta
+recruitment.requisition.team_removed	apps/recruitment/services.py:425	meta
+recruitment.candidate.document_added	apps/recruitment/services.py:547	meta
+recruitment.candidate.document_removed	apps/recruitment/services.py:557	meta
+<expr> action	apps/recruitment/services.py:707	meta
+recruitment.offer.submitted	apps/recruitment/services.py:733	
+recruitment.offer.approved	apps/recruitment/services.py:757	meta
+recruitment.offer.returned	apps/recruitment/services.py:774	meta
+recruitment.offer.letter_generated	apps/recruitment/services.py:825	
+recruitment.application.scorecard_submitted	apps/recruitment/services.py:517	
+reports.analytics_item.refreshed	apps/reports/library.py:302	meta
+reports.analytics_item.created	apps/reports/library.py:395	meta
+reports.analytics_item.updated	apps/reports/library.py:420	meta
+reports.analytics_item.created	apps/reports/library.py:461	meta
+<expr> action_code	apps/reports/library.py:495	meta
+schedule.assignment.created	apps/scheduling/services.py:16	
+schedule.assignment.changed	apps/scheduling/services.py:49	meta
+APPROVAL_REQUESTED	apps/workflows/services.py:24	
+<expr> f"APPROVAL_{action}"	apps/workflows/services.py:58	meta

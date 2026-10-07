@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S008",
+  "sequence": 8,
+  "title": "Bank Reconciliation \u2014 Transaction Matching",
+  "slug": "bank-reconciliation-matching",
+  "module": "ACCOUNTING",
+  "module_group": "accounting",
+  "canonical_route_hint": "/accounting/bank-reconciliation/:sessionId",
+  "source_archive": "stitch_ergonx_ui (8).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "d1e1047c2610f0b85dff9c7bca02eb149fe325d6a10e60b5cbc44b187fa9c140",
+      "bytes": 236158
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "4faf451c8a012f2b0276c1921e2c74c3cefceba2002e51972fbfa805203f4810",
+      "bytes": 45266
+    }
+  ]
+}

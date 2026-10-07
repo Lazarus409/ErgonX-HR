@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S036",
+  "name": "My Payslips",
+  "slug": "my-payslips",
+  "module": "Employee Self-Service / Payroll",
+  "route_hint": "/my-workspace/payslips",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (36).zip",
+  "source_archive_sha256": "064ce768ea0bf95a7da0003f102f4bb58eb1446b8a6e2a54762b0c9c07d05d8c",
+  "stitch_h1": "My Payslips",
+  "notes": "Employee payslip list, filtering, secure preview and download. Only finalized/available payslips should be exposed.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

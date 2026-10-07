@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S039",
+  "name": "Journal Entry Detail",
+  "slug": "journal-entry-detail",
+  "module": "Accounting / General Ledger",
+  "route_hint": "/accounting/journals/:journalId",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 6",
+  "contract_status": "KEEP/EXTEND",
+  "source_archive": "stitch_ergonx_ui (39).zip",
+  "source_archive_sha256": "cef4a95ff9b3200e0b07a53f7db8b4d04bc6d3ada4fe3dd869d14c5859f61cfb",
+  "stitch_h1": "Journal Entry Detail",
+  "notes": "Journal detail with lines, related records, notes, attachments and audit events. Posted journals remain immutable.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

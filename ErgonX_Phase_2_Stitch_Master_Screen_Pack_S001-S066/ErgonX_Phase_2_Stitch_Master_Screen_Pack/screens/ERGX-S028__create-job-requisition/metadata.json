@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S028",
+  "name": "Create Job Requisition",
+  "slug": "create-job-requisition",
+  "module": "Recruitment",
+  "route_hint": "/recruitment/requisitions/new",
+  "classification": "phase2-new",
+  "phase2_wave": "Wave 4",
+  "contract_status": "NEW",
+  "source_archive": "stitch_ergonx_ui (28).zip",
+  "source_archive_sha256": "2db0d7acf1e994db940d2446deee06bc174ecc84ade467e38df0250b29926ef6",
+  "stitch_h1": "Create requisition",
+  "notes": "Phase 2 requisition creation with requisition details, role brief/requirements and hiring plan summary.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

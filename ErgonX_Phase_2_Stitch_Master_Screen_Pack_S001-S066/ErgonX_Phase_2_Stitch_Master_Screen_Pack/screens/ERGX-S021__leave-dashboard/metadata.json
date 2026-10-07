@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S021",
+  "name": "Leave Dashboard",
+  "slug": "leave-dashboard",
+  "module": "Leave",
+  "route_hint": "/leave",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (21).zip",
+  "source_archive_sha256": "a14c2fca2181e8984a55adb26c7207ee75beb3daf752b8b91744b3d11976f6ce",
+  "stitch_h1": "Leave",
+  "notes": "Administrative/manager Leave dashboard: trends, calendar, pending approvals, policy compliance and alerts.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

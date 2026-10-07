@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S024",
+  "name": "Employee Detail",
+  "slug": "employee-detail",
+  "module": "HR / Employee Management",
+  "route_hint": "/employees/:employeeId",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (24).zip",
+  "source_archive_sha256": "04ea458c1d1c415cc3153b1e1edba9ec09ea4ae54f33bd47b0946d077ae5f0c5",
+  "stitch_h1": "Ama Mensah",
+  "notes": "Rich employee record including personal/organizational attributes, emergency contacts, performance trajectory, reporting/team, location and lifecycle status.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

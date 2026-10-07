@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S037",
+  "name": "My Attendance",
+  "slug": "my-attendance",
+  "module": "Employee Self-Service / Attendance",
+  "route_hint": "/my-workspace/attendance",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/EXTEND",
+  "source_archive": "stitch_ergonx_ui (37).zip",
+  "source_archive_sha256": "2aca6a006a3eb0edad171df007522fe7ed549c2d333e0ae1f30b7cf6bb56639c",
+  "stitch_h1": "My Attendance",
+  "notes": "Employee attendance calendar and daily records with governed adjustment request action.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

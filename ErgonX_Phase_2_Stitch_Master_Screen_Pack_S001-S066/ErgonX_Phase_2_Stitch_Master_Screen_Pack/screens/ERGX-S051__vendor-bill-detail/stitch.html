@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#f8f9ff","primary-fixed-dim":"#bac7e1","on-secondary-fixed":"#00174b","on-tertiary-fixed":"#001f26","surface-tint":"#525f75","surface-container":"#e5eeff","on-error":"#ffffff","on-background":"#0b1c30","outline-variant":"#c5c6cd","inverse-surface":"#213145","surface-container-low":"#eff4ff","surface-variant":"#d3e4fe","on-secondary":"#ffffff","primary-fixed":"#d6e3fe","tertiary-fixed-dim":"#4cd7f6","primary-container":"#0e1c2f","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","outline":"#75777d","on-surface-variant":"#44474c","surface-container-highest":"#d3e4fe","tertiary-container":"#001f26","inverse-primary":"#bac7e1","inverse-on-surface":"#eaf1ff","on-primary-fixed":"#0e1c2f","surface-bright":"#f8f9ff","on-surface":"#0b1c30","on-error-container":"#93000a","error-container":"#ffdad6","primary":"#000000","on-secondary-fixed-variant":"#003ea8","background":"#f8f9ff","error":"#ba1a1a","on-secondary-container":"#fefcff","tertiary":"#000000","secondary-fixed-dim":"#b4c5ff","surface-container-high":"#dce9ff","secondary-fixed":"#dbe1ff","secondary":"#0051d5","on-tertiary-fixed-variant":"#004e5c","tertiary-fixed":"#acedff","on-tertiary-container":"#0090a9","on-primary-container":"#77849c","secondary-container":"#316bf3","on-primary-fixed-variant":"#3a475c","on-primary":"#ffffff","surface-dim":"#cbdbf5"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-compact":"0.75rem","space-sm":"0.5rem","space-xs":"0.25rem","margin-mobile":"1rem","space-xl":"2rem","margin":"1.5rem","space-lg":"1.5rem","gutter":"1rem","space-md":"1rem"},fontFamily:{"display-lg-mobile":["Hanken Grotesk"],"display-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"label-lg":["Manrope"],"body-lg":["Manrope"],"label-md":["Manrope"],"title-md":["Manrope"],"body-sm":["Manrope"],"label-sm":["Manrope"],"headline-lg":["Hanken Grotesk"],"body-md":["Manrope"],"headline-md":["Hanken Grotesk"]},fontSize:{"display-lg-mobile":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"display-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"body-lg":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"title-md":["15px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"700"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["13px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-primary-container z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary-container"><img alt="Brand logo. - Primary color: #0b192c
+- Font: hankenGrotesk
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-surface truncate tracking-tight">ErgonX</span><span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase truncate">Enterprise ERP</span></div></div><div class="mx-space-sm my-space-xs p-space-sm rounded-lg bg-inverse-surface flex items-center justify-between cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shrink-0"><span class="material-symbols-outlined text-sm">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-inverse-on-surface truncate">Rivermere Univ.</span><span class="font-label-sm text-label-sm text-primary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-primary-fixed-dim text-sm">unfold_more</span></div><nav class="flex flex-col px-space-xs py-space-sm gap-space-xs" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Core Overview</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-base">dashboard</span><span class="font-body-md text-body-md">Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="insights" href="#"><span class="material-symbols-outlined text-base">query_stats</span><span class="font-body-md text-body-md">Insights</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Human Resources</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="hr-dashboard" href="#"><span class="material-symbols-outlined text-base">hub</span><span class="font-body-md text-body-md">HR Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="employees" href="#"><span class="material-symbols-outlined text-base">groups</span><span class="font-body-md text-body-md">Employees</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="recruitment" href="#"><span class="material-symbols-outlined text-base">person_search</span><span class="font-body-md text-body-md">Recruitment</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="leave" href="#"><span class="material-symbols-outlined text-base">event_available</span><span class="font-body-md text-body-md">Leave</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="attendance" href="#"><span class="material-symbols-outlined text-base">schedule</span><span class="font-body-md text-body-md">Attendance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="payroll" href="#"><span class="material-symbols-outlined text-base">payments</span><span class="font-body-md text-body-md">Payroll</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Accounting</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="accounting-dashboard" href="#"><span class="material-symbols-outlined text-base">account_tree</span><span class="font-body-md text-body-md">Accounting Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="general-ledger" href="#"><span class="material-symbols-outlined text-base">menu_book</span><span class="font-body-md text-body-md">General Ledger</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="accounts-payable" href="#"><span class="material-symbols-outlined text-base">receipt_long</span><span class="font-body-md text-body-md">Accounts Payable</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="accounts-receivable" href="#"><span class="material-symbols-outlined text-base">request_quote</span><span class="font-body-md text-body-md">Accounts Receivable</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="bank-reconciliation" href="#"><span class="material-symbols-outlined text-base">sync_alt</span><span class="font-body-md text-body-md">Bank Reconciliation</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="budgets" href="#"><span class="material-symbols-outlined text-base">pie_chart</span><span class="font-body-md text-body-md">Budgets</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="financial-reports" href="#"><span class="material-symbols-outlined text-base">assessment</span><span class="font-body-md text-body-md">Financial Reports</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Self Service</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="employee-home" href="#"><span class="material-symbols-outlined text-base">person</span><span class="font-body-md text-body-md">Employee Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-profile" href="#"><span class="material-symbols-outlined text-base">badge</span><span class="font-body-md text-body-md">My Profile</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-documents" href="#"><span class="material-symbols-outlined text-base">folder_shared</span><span class="font-body-md text-body-md">My Documents</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-leave" href="#"><span class="material-symbols-outlined text-base">event_note</span><span class="font-body-md text-body-md">My Leave</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-attendance" href="#"><span class="material-symbols-outlined text-base">alarm</span><span class="font-body-md text-body-md">My Attendance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-payslips" href="#"><span class="material-symbols-outlined text-base">price_check</span><span class="font-body-md text-body-md">My Payslips</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="security" href="#"><span class="material-symbols-outlined text-base">encrypted</span><span class="font-body-md text-body-md">Security</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Governance</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-base">bar_chart</span><span class="font-body-md text-body-md">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="approvals" href="#"><span class="material-symbols-outlined text-base">fact_check</span><span class="font-body-md text-body-md">Approvals</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-base">history_toggle_off</span><span class="font-body-md text-body-md">Audit Trail</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="users-and-access" href="#"><span class="material-symbols-outlined text-base">admin_panel_settings</span><span class="font-body-md text-body-md">Users &amp; Access</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-base">settings</span><span class="font-body-md text-body-md">Settings</span></a></nav></div><div class="p-space-md border-t border-outline-variant/20"><div class="flex items-center gap-space-xs text-on-primary-container"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm">Statutory v4.12 Online</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-96"><div class="flex items-center gap-space-sm w-full bg-surface-container-low px-space-sm py-space-xs rounded-lg"><span class="material-symbols-outlined text-outline text-lg">search</span><input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface w-full placeholder:text-outline" placeholder="Search entities, records, transactions..." type="text"/><kbd class="font-label-sm text-label-sm bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface-variant">Core Services: Normal</span></div><div class="h-4 w-px bg-outline-variant"></div><button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" title="Toggle Theme"><span class="material-symbols-outlined text-lg">light_mode</span></button><button class="relative flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" title="Notifications"><span class="material-symbols-outlined text-lg">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-on-surface-variant">SysAdmin • Finance</span></div><span class="material-symbols-outlined text-outline text-sm">expand_more</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-lg space-y-space-md">
+<!-- Top Breadcrumb & Executive Actions Toolbar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex flex-col gap-space-xs">
+<nav class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Accounting</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Accounts Payable</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Vendor Bills</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface font-headline-sm text-headline-sm">Vendor Bill Detail</span>
+</nav>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Vendor Bill Detail</h1>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-space-sm self-start sm:self-auto">
+<a class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span class="font-label-lg text-label-lg">Back to Vendor Bills</span>
+</a>
+<div class="relative inline-block text-left">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-all" id="actionsDropdownBtn" onclick="document.getElementById('actionsMenu').classList.toggle('hidden')">
+<span class="font-label-lg text-label-lg">Actions</span>
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-48 rounded-lg bg-surface-container-lowest shadow-xl z-30 py-space-xs" id="actionsMenu">
+<a class="flex items-center gap-space-xs px-space-md py-space-xs font-body-sm text-body-sm text-on-surface hover:bg-surface-container" href="#"><span class="material-symbols-outlined text-sm">print</span>Print Bill</a>
+<a class="flex items-center gap-space-xs px-space-md py-space-xs font-body-sm text-body-sm text-on-surface hover:bg-surface-container" href="#"><span class="material-symbols-outlined text-sm">download</span>Export PDF</a>
+<a class="flex items-center gap-space-xs px-space-md py-space-xs font-body-sm text-body-sm text-on-surface hover:bg-surface-container" href="#"><span class="material-symbols-outlined text-sm">content_copy</span>Duplicate</a>
+<div class="h-px bg-surface-container my-1"></div>
+<a class="flex items-center gap-space-xs px-space-md py-space-xs font-body-sm text-body-sm text-error hover:bg-error-container/20" href="#"><span class="material-symbols-outlined text-sm">cancel</span>Void Bill</a>
+</div>
+</div>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span class="font-label-lg text-label-lg">Edit</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg bg-primary-container text-inverse-on-surface shadow-sm hover:bg-inverse-surface transition-all">
+<span class="material-symbols-outlined text-sm">send</span>
+<span class="font-label-lg text-label-lg font-semibold">Submit for Approval</span>
+</button>
+</div>
+</div>
+<!-- Top Vendor Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-center">
+<!-- Vendor Profile Cell -->
+<div class="xl:col-span-4 flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl text-secondary">apartment</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface">Acme Office Supplies</span>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">V-10024</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span>Office Equipment &amp; Consumables</span>
+<span>•</span>
+<span class="inline-flex items-center gap-0.5"><span class="material-symbols-outlined text-xs">verified</span>Preferred Vendor</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm mt-1 truncate">
+              123 Market St, Chicago, IL 60601 • (312) 555-0100
+            </div>
+</div>
+</div>
+<!-- Metric Grid -->
+<div class="xl:col-span-8 grid grid-cols-2 md:grid-cols-5 gap-space-md pt-space-sm xl:pt-0">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Bill Number</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1 font-mono">BILL-2024-00892</span>
+<span class="font-label-md text-label-md text-secondary mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">receipt</span>INV-2024-8812
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Invoice Date</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1">14 Mar 2025</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Fiscal Period Q1-25</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Due Date</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1">14 Apr 2025</span>
+<span class="font-label-sm text-label-sm text-secondary-container mt-0.5">Net 30 Days</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Amount</span>
+<span class="font-headline-lg text-headline-lg text-on-surface mt-0.5 font-bold">$14,850.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">USD / Domestic Wire</span>
+</div>
+<div class="flex flex-col col-span-2 md:col-span-1 justify-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</span>
+<div class="mt-1">
+<span class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                Pending Review
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Awaiting Dept Sign-off</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-xs rounded-lg">
+<button class="px-space-md py-space-xs rounded font-label-lg text-label-lg bg-surface-container-lowest text-secondary shadow-sm">
+        Document &amp; Optical View
+      </button>
+<button class="px-space-md py-space-xs rounded font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors">
+        Line Item Details (3)
+      </button>
+<button class="px-space-md py-space-xs rounded font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors">
+        Approval Route (2/3)
+      </button>
+<button class="px-space-md py-space-xs rounded font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors">
+        Related Records (PO, GRN)
+      </button>
+</div>
+<!-- Main Workspace Split (Left Document Preview + Right Financial Controls Rail) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Center Document Inspection Canvas (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest">
+<!-- Document Action & Viewer Toolbar -->
+<div class="flex items-center justify-between px-space-md py-space-xs bg-primary-container text-surface">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed">description</span>
+<span class="font-label-lg text-label-lg text-surface font-mono">INV-2024-8812.pdf</span>
+<span class="px-1.5 py-0.5 rounded bg-inverse-surface text-primary-fixed font-label-sm text-label-sm">OCR Verified</span>
+</div>
+<!-- Document Controls -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1 bg-inverse-surface px-space-xs py-0.5 rounded">
+<button class="p-1 hover:bg-surface/10 rounded transition-colors text-surface" title="Previous Page">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<span class="font-label-sm text-label-sm text-surface font-mono px-1">1 / 1</span>
+<button class="p-1 hover:bg-surface/10 rounded transition-colors text-surface" title="Next Page">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center gap-1 bg-inverse-surface px-space-xs py-0.5 rounded">
+<button class="p-1 hover:bg-surface/10 rounded transition-colors text-surface" title="Zoom Out">
+<span class="material-symbols-outlined text-sm">zoom_out</span>
+</button>
+<span class="font-label-sm text-label-sm text-surface font-mono px-1">100%</span>
+<button class="p-1 hover:bg-surface/10 rounded transition-colors text-surface" title="Zoom In">
+<span class="material-symbols-outlined text-sm">zoom_in</span>
+</button>
+</div>
+<button class="p-1.5 hover:bg-surface/10 rounded transition-colors text-surface" title="Rotate Document">
+<span class="material-symbols-outlined text-base">rotate_right</span>
+</button>
+<button class="p-1.5 hover:bg-surface/10 rounded transition-colors text-surface" title="Download Document">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="p-1.5 hover:bg-surface/10 rounded transition-colors text-surface" title="Full Screen View">
+<span class="material-symbols-outlined text-base">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Rendered Real-life Invoice Canvas -->
+<div class="p-space-xl bg-surface-container-low flex justify-center overflow-x-auto">
+<div class="w-full max-w-2xl bg-surface-container-lowest shadow-md rounded-lg p-space-xl space-y-space-lg text-on-surface">
+<!-- Invoice Header Header & Brand -->
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded bg-primary-container text-surface flex items-center justify-center font-headline-sm text-headline-sm">A</div>
+<span class="font-headline-lg text-headline-lg font-bold tracking-tight">Acme Office Supplies</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm mt-1 leading-relaxed">
+                  123 Market Street, Suite 400<br/>
+                  Chicago, IL 60601<br/>
+                  Phone: (312) 555-0100 • billing@acmeofficesupplies.com
+                </div>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg font-extrabold tracking-tight text-on-surface">INVOICE</span>
+<div class="mt-2 space-y-0.5">
+<div class="font-body-sm text-body-sm flex justify-end gap-space-md">
+<span class="text-on-surface-variant font-label-md text-label-md">Invoice #:</span>
+<span class="font-semibold font-mono">INV-2024-8812</span>
+</div>
+<div class="font-body-sm text-body-sm flex justify-end gap-space-md">
+<span class="text-on-surface-variant font-label-md text-label-md">Invoice Date:</span>
+<span>March 14, 2025</span>
+</div>
+<div class="font-body-sm text-body-sm flex justify-end gap-space-md">
+<span class="text-on-surface-variant font-label-md text-label-md">Due Date:</span>
+<span>April 14, 2025</span>
+</div>
+<div class="font-body-sm text-body-sm flex justify-end gap-space-md">
+<span class="text-on-surface-variant font-label-md text-label-md">Payment Terms:</span>
+<span class="font-semibold">Net 30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Invoice Recipient Card -->
+<div class="bg-surface-container-low p-space-md rounded-lg grid grid-cols-2 gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold">Bill To:</span>
+<div class="mt-1 font-body-sm text-body-sm leading-relaxed text-on-surface">
+<strong class="font-semibold text-on-surface">Rivermere University</strong><br/>
+                  Accounts Payable Division, Hall 4<br/>
+                  1000 University Way<br/>
+                  Riverton, IL 60601
+                </div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold">Shipment Destination:</span>
+<div class="mt-1 font-body-sm text-body-sm leading-relaxed text-on-surface">
+                  Rivermere Central Receiving Dock B<br/>
+                  Attn: Facilities &amp; Campus Logistics<br/>
+                  P.O. Ref: <span class="font-mono font-semibold">PO-9941</span>
+</div>
+</div>
+</div>
+<!-- Line Items Table -->
+<div class="overflow-x-auto rounded-lg">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-space-xs px-space-sm w-12 text-center">#</th>
+<th class="py-space-xs px-space-sm">Description &amp; Specs</th>
+<th class="py-space-xs px-space-sm text-center w-16">Qty</th>
+<th class="py-space-xs px-space-sm text-right w-28">Unit Price</th>
+<th class="py-space-xs px-space-sm text-right w-32">Total</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-sm px-space-sm text-center font-mono text-on-surface-variant">01</td>
+<td class="py-space-sm px-space-sm">
+<div class="font-semibold text-on-surface">Heavy-Duty Network Laser Printers</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Model: ApexPrint Enterprise 4000 duplex-network array</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-mono">4</td>
+<td class="py-space-sm px-space-sm text-right font-mono">$1,250.00</td>
+<td class="py-space-sm px-space-sm text-right font-mono font-semibold text-on-surface">$5,000.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-sm px-space-sm text-center font-mono text-on-surface-variant">02</td>
+<td class="py-space-sm px-space-sm">
+<div class="font-semibold text-on-surface">Ergonomic Adjustable Task Chairs</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Lumbar support, breathable mesh, commercial rating ANSI/BIFMA</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-mono">25</td>
+<td class="py-space-sm px-space-sm text-right font-mono">$280.00</td>
+<td class="py-space-sm px-space-sm text-right font-mono font-semibold text-on-surface">$7,000.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-sm px-space-sm text-center font-mono text-on-surface-variant">03</td>
+<td class="py-space-sm px-space-sm">
+<div class="font-semibold text-on-surface">Premium Recycled Copier Paper (Case)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Letter size 8.5x11, 20lb, 10 reams/case (50 cases total)</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-mono">50</td>
+<td class="py-space-sm px-space-sm text-right font-mono">$57.00</td>
+<td class="py-space-sm px-space-sm text-right font-mono font-semibold text-on-surface">$2,850.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Document Calculation Summary -->
+<div class="flex justify-end pt-space-xs">
+<div class="w-72 space-y-space-xs bg-surface-container-low p-space-md rounded-lg">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Subtotal:</span>
+<span class="font-mono font-semibold">$14,850.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">State Tax (Higher Ed Exemption):</span>
+<span class="font-mono text-secondary">$0.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Shipping &amp; Logistics:</span>
+<span class="font-mono text-on-surface-variant">Included</span>
+</div>
+<div class="h-px bg-surface-container my-1"></div>
+<div class="flex justify-between font-headline-sm text-headline-sm">
+<span class="font-bold text-on-surface">Invoice Total:</span>
+<span class="font-bold text-secondary font-mono">$14,850.00</span>
+</div>
+</div>
+</div>
+<!-- Bottom Disclaimer / Electronic Signature Footprint -->
+<div class="pt-space-md flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>Electronic Delivery Stamp • SHA256: 8fbc8921a998de4b32</span>
+</div>
+<div>University Vendor Federal ID: 36-2489110</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Inspection & Execution Rail (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Payment Scheduling Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">payments</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Payment Status</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+              Not Scheduled
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Payment cannot be released until the multi-department approval workflow is fully completed and matched against PO.
+          </p>
+<div class="bg-surface-container-low p-space-sm rounded-lg mb-space-md space-y-space-xs">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Recommended Disbursement:</span>
+<span class="font-mono text-on-surface font-semibold">10 Apr 2025</span>
+</div>
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Early Discount Applicable:</span>
+<span class="text-secondary font-semibold">2% 10 Net 30 ($297.00 saved)</span>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container text-secondary transition-all">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+<span class="font-label-lg text-label-lg font-semibold">Schedule Payment Execution</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<!-- Multi-Stage Approval Workflow Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">schema</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Approval Route</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+              Stage 2 of 3
+            </span>
+</div>
+<!-- Stepper Pipeline -->
+<div class="space-y-space-md relative pl-2">
+<!-- Line connector -->
+<div class="absolute left-5 top-3 bottom-3 w-0.5 bg-surface-container-high -z-0"></div>
+<!-- Step 1: Matching (Done) -->
+<div class="relative z-10 flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-xs font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">3-Way Match System</span>
+<span class="font-label-sm text-label-sm text-secondary">Auto-Passed</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validated with PO-9941 &amp; GRN-2024-11</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">14 Mar 2025, 09:14 AM</span>
+</div>
+</div>
+<!-- Step 2: Department Sign-off (Active) -->
+<div class="relative z-10 flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0 ring-4 ring-secondary-fixed/30 animate-pulse">
+<span class="material-symbols-outlined text-xs">pending</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Facilities Operations</span>
+<span class="font-label-sm text-label-sm text-secondary">In Review</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Assigned to: Marcus Vance (Campus Director)</span>
+<div class="flex items-center gap-space-xs mt-1.5">
+<button class="px-2 py-1 rounded bg-secondary text-on-secondary font-label-sm text-label-sm hover:opacity-90 transition-opacity">Approve</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">Request Info</button>
+</div>
+</div>
+</div>
+<!-- Step 3: Finance Controller (Pending) -->
+<div class="relative z-10 flex items-start gap-space-sm opacity-60">
+<div class="w-6 h-6 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="font-label-sm text-label-sm">3</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface">Executive Controller</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Kwame Mensah (Threshold &gt;$10k)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Pending Step 2</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Verified Attachments Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">attachment</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Attachments (2)</span>
+</div>
+<button class="font-label-md text-label-md text-secondary hover:underline inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-sm">add</span>Add File
+            </button>
+</div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary text-base">picture_as_pdf</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Purchase_Order_PO-9941.pdf</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">420 KB • Linked ERP Document</span>
+</div>
+</div>
+<button class="p-1 hover:bg-surface-container-highest rounded text-on-surface-variant" title="Download">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary text-base">receipt_long</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Goods_Receipt_GRN-2024-11.pdf</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1.1 MB • Signed Receiving Dock</span>
+</div>
+</div>
+<button class="p-1 hover:bg-surface-container-highest rounded text-on-surface-variant" title="Download">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+</div>
+</div>
+<!-- Drag and Drop Target -->
+<div class="mt-space-sm p-space-sm rounded-lg bg-surface-container-low/60 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-secondary text-xl mb-1">cloud_upload</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Drop supplemental vouchers here</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Supports PDF, PNG up to 25MB</span>
+</div>
+</div>
+<!-- Audit History Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">history</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Audit History</span>
+</div>
+<a class="font-label-md text-label-md text-secondary hover:underline" href="#">View All (6)</a>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-xs text-secondary mt-1">check_circle</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Bill Created via EDI Ingestion</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14 Mar 2025, 08:30 AM by System Integration</span>
+</div>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-xs text-secondary mt-1">document_scanner</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">OCR Extraction Auto-Verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Confidence rating: 99.4% • Line items matched</span>
+</div>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-xs text-secondary mt-1">forward_to_inbox</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Submitted to Marcus Vance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">14 Mar 2025, 09:15 AM by Kwame Mensah</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Lightweight toggle listener for click away on dropdown
+    document.addEventListener('click', function(e) {
+      const btn = document.getElementById('actionsDropdownBtn');
+      const menu = document.getElementById('actionsMenu');
+      if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
+</div></main></div></body></html>

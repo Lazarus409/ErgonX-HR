@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#f8f9ff","primary-fixed-dim":"#bac7e1","on-secondary-fixed":"#00174b","on-tertiary-fixed":"#001f26","surface-tint":"#525f75","surface-container":"#e5eeff","on-error":"#ffffff","on-background":"#0b1c30","outline-variant":"#c5c6cd","inverse-surface":"#213145","surface-container-low":"#eff4ff","surface-variant":"#d3e4fe","on-secondary":"#ffffff","primary-fixed":"#d6e3fe","tertiary-fixed-dim":"#4cd7f6","primary-container":"#0e1c2f","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","outline":"#75777d","on-surface-variant":"#44474c","surface-container-highest":"#d3e4fe","tertiary-container":"#001f26","inverse-primary":"#bac7e1","inverse-on-surface":"#eaf1ff","on-primary-fixed":"#0e1c2f","surface-bright":"#f8f9ff","on-surface":"#0b1c30","on-error-container":"#93000a","error-container":"#ffdad6","primary":"#000000","on-secondary-fixed-variant":"#003ea8","background":"#f8f9ff","error":"#ba1a1a","on-secondary-container":"#fefcff","tertiary":"#000000","secondary-fixed-dim":"#b4c5ff","surface-container-high":"#dce9ff","secondary-fixed":"#dbe1ff","secondary":"#0051d5","on-tertiary-fixed-variant":"#004e5c","tertiary-fixed":"#acedff","on-tertiary-container":"#0090a9","on-primary-container":"#77849c","secondary-container":"#316bf3","on-primary-fixed-variant":"#3a475c","on-primary":"#ffffff","surface-dim":"#cbdbf5"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-compact":"0.75rem","space-sm":"0.5rem","space-xs":"0.25rem","margin-mobile":"1rem","space-xl":"2rem","margin":"1.5rem","space-lg":"1.5rem","gutter":"1rem","space-md":"1rem"},fontFamily:{"display-lg-mobile":["Hanken Grotesk"],"display-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"label-lg":["Manrope"],"body-lg":["Manrope"],"label-md":["Manrope"],"title-md":["Manrope"],"body-sm":["Manrope"],"label-sm":["Manrope"],"headline-lg":["Hanken Grotesk"],"body-md":["Manrope"],"headline-md":["Hanken Grotesk"]},fontSize:{"display-lg-mobile":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"display-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"body-lg":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"title-md":["15px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"700"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["13px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-primary-container z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary-container"><img alt="Brand logo. - Primary color: #0b192c
+- Font: hankenGrotesk
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-surface truncate tracking-tight">ErgonX</span><span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase truncate">Enterprise ERP</span></div></div><div class="mx-space-sm my-space-xs p-space-sm rounded-lg bg-inverse-surface flex items-center justify-between cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shrink-0"><span class="material-symbols-outlined text-sm">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-inverse-on-surface truncate">Rivermere Univ.</span><span class="font-label-sm text-label-sm text-primary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-primary-fixed-dim text-sm">unfold_more</span></div><nav class="flex flex-col px-space-xs py-space-sm gap-space-xs" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Core Overview</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-base">dashboard</span><span class="font-body-md text-body-md">Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="insights" href="#"><span class="material-symbols-outlined text-base">query_stats</span><span class="font-body-md text-body-md">Insights</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Human Resources</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="hr-dashboard" href="#"><span class="material-symbols-outlined text-base">hub</span><span class="font-body-md text-body-md">HR Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="employees" href="#"><span class="material-symbols-outlined text-base">groups</span><span class="font-body-md text-body-md">Employees</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="recruitment" href="#"><span class="material-symbols-outlined text-base">person_search</span><span class="font-body-md text-body-md">Recruitment</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="leave" href="#"><span class="material-symbols-outlined text-base">event_available</span><span class="font-body-md text-body-md">Leave</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="attendance" href="#"><span class="material-symbols-outlined text-base">schedule</span><span class="font-body-md text-body-md">Attendance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="payroll" href="#"><span class="material-symbols-outlined text-base">payments</span><span class="font-body-md text-body-md">Payroll</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Accounting</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="accounting-dashboard" href="#"><span class="material-symbols-outlined text-base">account_tree</span><span class="font-body-md text-body-md">Accounting Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="general-ledger" href="#"><span class="material-symbols-outlined text-base">menu_book</span><span class="font-body-md text-body-md">General Ledger</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="accounts-payable" href="#"><span class="material-symbols-outlined text-base">receipt_long</span><span class="font-body-md text-body-md">Accounts Payable</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="accounts-receivable" href="#"><span class="material-symbols-outlined text-base">request_quote</span><span class="font-body-md text-body-md">Accounts Receivable</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="bank-reconciliation" href="#"><span class="material-symbols-outlined text-base">sync_alt</span><span class="font-body-md text-body-md">Bank Reconciliation</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="budgets" href="#"><span class="material-symbols-outlined text-base">pie_chart</span><span class="font-body-md text-body-md">Budgets</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="financial-reports" href="#"><span class="material-symbols-outlined text-base">assessment</span><span class="font-body-md text-body-md">Financial Reports</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Self Service</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="employee-home" href="#"><span class="material-symbols-outlined text-base">person</span><span class="font-body-md text-body-md">Employee Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-profile" href="#"><span class="material-symbols-outlined text-base">badge</span><span class="font-body-md text-body-md">My Profile</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-documents" href="#"><span class="material-symbols-outlined text-base">folder_shared</span><span class="font-body-md text-body-md">My Documents</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-leave" href="#"><span class="material-symbols-outlined text-base">event_note</span><span class="font-body-md text-body-md">My Leave</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-attendance" href="#"><span class="material-symbols-outlined text-base">alarm</span><span class="font-body-md text-body-md">My Attendance</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="my-payslips" href="#"><span class="material-symbols-outlined text-base">price_check</span><span class="font-body-md text-body-md">My Payslips</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="security" href="#"><span class="material-symbols-outlined text-base">encrypted</span><span class="font-body-md text-body-md">Security</span></a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Governance</div><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-base">bar_chart</span><span class="font-body-md text-body-md">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="approvals" href="#"><span class="material-symbols-outlined text-base">fact_check</span><span class="font-body-md text-body-md">Approvals</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-base">history_toggle_off</span><span class="font-body-md text-body-md">Audit Trail</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="users-and-access" href="#"><span class="material-symbols-outlined text-base">admin_panel_settings</span><span class="font-body-md text-body-md">Users &amp; Access</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-base">settings</span><span class="font-body-md text-body-md">Settings</span></a></nav></div><div class="p-space-md border-t border-outline-variant/20"><div class="flex items-center gap-space-xs text-on-primary-container"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm">Statutory v4.12 Online</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-96"><div class="flex items-center gap-space-sm w-full bg-surface-container-low px-space-sm py-space-xs rounded-lg"><span class="material-symbols-outlined text-outline text-lg">search</span><input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface w-full placeholder:text-outline" placeholder="Search entities, records, transactions..." type="text"/><kbd class="font-label-sm text-label-sm bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface-variant">Core Services: Normal</span></div><div class="h-4 w-px bg-outline-variant"></div><button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" title="Toggle Theme"><span class="material-symbols-outlined text-lg">light_mode</span></button><button class="relative flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" title="Notifications"><span class="material-symbols-outlined text-lg">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-on-surface-variant">SysAdmin • Finance</span></div><span class="material-symbols-outlined text-outline text-sm">expand_more</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-lg flex flex-col gap-space-lg">
+<!-- Breadcrumb & Top Utilities Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<nav class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">home</span> Home
+        </a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Budgets</a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Department budgets</a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<span class="text-on-surface font-headline-sm text-body-sm font-semibold">Academic Affairs</span>
+</nav>
+<div class="flex items-center gap-space-xs">
+<span class="bg-surface-container-high px-space-sm py-1 rounded-full font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Ledger Synced: 2 mins ago
+        </span>
+</div>
+</div>
+<!-- Title and Action Header -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-3xl">folder_managed</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Academic Affairs</h1>
+<span class="bg-secondary/15 text-secondary px-2.5 py-0.5 rounded-full font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> FY2025 Standard
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">FY2025 Operating Budget &amp; Multi-Department Allocation</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap self-end lg:self-center">
+<button class="w-9 h-9 rounded bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center" title="Options">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-colors">
+<span class="material-symbols-outlined text-base">edit</span>
+<span>Edit Draft</span>
+</button>
+<button class="flex items-center gap-2 px-space-lg py-2 rounded bg-primary text-on-primary hover:bg-inverse-surface shadow-sm font-label-lg text-label-lg transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-base">send</span>
+<span>Submit for Approval</span>
+</button>
+</div>
+</div>
+<!-- Top Metadata Governance Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Fiscal Period -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-surface-container-low text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">date_range</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Fiscal Period</span>
+<span class="font-title-md text-title-md text-on-surface">1 Jan 2025 – 31 Dec 2025</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface">expand_more</span>
+</div>
+<!-- Owner -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0" data-alt="Professional studio portrait of an Asian female academic executive wearing a navy tailored suit against a warm neutral office backdrop, executive lighting, high clarity corporate headshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClDhTDjxPzO_gIu8vIa_0V_Ld2RuINiqWe9QBLErEkvp_EYcSjWFJUHpnCBqYyXU_G85QWKUeXuQv7vtz5YnEQLlqi-LSTW9GUKkaMYeedKcj-yFmLJV4nzD1epQy_vonw4WLoUqAF7nEbemF_6OrEA5GORVaaz-OWEFWPBX37lV0zGPN6oVOZNaoklHwkw0jOrmBDIMVOqYm3jM0EbAOwBx3NwASJ5aO6aCih1BYSsqDA0YNaj7g50Q"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Owner / Custodian</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Dr. Lisa Chen</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Vice Provost, Academic Affairs</span>
+</div>
+</div>
+<button class="p-1 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</button>
+</div>
+<!-- Lifecycle Status -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-surface-container-low text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Governance Status</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                Active / Governed
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tier-1 Authority</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface">tune</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="bg-surface-container-lowest px-space-md pt-space-xs rounded-lg shadow-sm flex items-center gap-space-md overflow-x-auto">
+<button class="relative py-space-sm px-space-sm font-label-lg text-label-lg text-secondary font-bold flex items-center gap-1.5 shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-secondary">
+<span class="material-symbols-outlined text-base">dashboard_customize</span>
+        Overview
+      </button>
+<button class="py-space-sm px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-base">table_chart</span>
+        Budget Breakdown
+      </button>
+<button class="py-space-sm px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-base">flag</span>
+        Strategic Initiatives
+        <span class="bg-surface-container-high text-on-surface-variant px-1.5 py-0.2 rounded-full text-label-sm">4</span>
+</button>
+<button class="py-space-sm px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-base">folder</span>
+        Documents
+        <span class="bg-surface-container-high text-on-surface-variant px-1.5 py-0.2 rounded-full text-label-sm">12</span>
+</button>
+<button class="py-space-sm px-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-base">sticky_note_2</span>
+        Notes &amp; Pre-Audit
+      </button>
+</div>
+<!-- Main Workspace Split Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Core Data & Visualizations (8 cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Budget Summary Metric Cards (4 KPIs) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Allocated -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Allocated</span>
+<span class="material-symbols-outlined text-outline text-base" title="Full statutory allocation for FY2025">info</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">$4,850,000.00</div>
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm mt-1">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+<span>+6.2% vs FY2024 Base</span>
+</div>
+</div>
+<div class="w-full bg-surface-container mt-space-sm h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-full"></div>
+</div>
+</div>
+<!-- Card 2: Committed -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Committed POs</span>
+<span class="material-symbols-outlined text-outline text-base" title="Reserved funds under formal purchase order">info</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">$1,920,400.00</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span>39.6% encumbered</span>
+</div>
+</div>
+<div class="w-full bg-surface-container mt-space-sm h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 39.6%;"></div>
+</div>
+</div>
+<!-- Card 3: Actual Spent -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Actual Disbursed</span>
+<span class="material-symbols-outlined text-outline text-base" title="Realized general ledger debits posted">info</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">$2,145,800.00</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span>44.2% finalized payments</span>
+</div>
+</div>
+<div class="w-full bg-surface-container mt-space-sm h-1 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full" style="width: 44.2%;"></div>
+</div>
+</div>
+<!-- Card 4: Variance / Remaining -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Net Uncommitted</span>
+<span class="material-symbols-outlined text-outline text-base" title="Residual unallocated balance">info</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-secondary font-bold tracking-tight">$783,800.00</div>
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm mt-1 font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>16.2% Available Headroom</span>
+</div>
+</div>
+<div class="w-full bg-surface-container mt-space-sm h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 16.2%;"></div>
+</div>
+</div>
+</div>
+<!-- Budget Execution Progress Bar Block -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary">donut_large</span>
+<span class="font-title-md text-title-md text-on-surface">Budget Utilization Velocity</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Combined Burn: <strong>83.8%</strong> (Actual + Committed)</span>
+</div>
+<!-- Multi-segment Progress Track -->
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-secondary-container h-full transition-all" style="width: 44.2%;" title="Actual: 44.2%"></div>
+<div class="bg-secondary-fixed-dim h-full transition-all" style="width: 39.6%;" title="Committed: 39.6%"></div>
+<div class="bg-surface-container-high h-full transition-all" style="width: 16.2%;" title="Remaining: 16.2%"></div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant pt-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary-container"></span>
+<span>Disbursed Actuals ($2,145,800)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary-fixed-dim"></span>
+<span>Committed Encumbrances ($1,920,400)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-surface-container-high"></span>
+<span>Unallocated Headroom ($783,800)</span>
+</div>
+</div>
+</div>
+<!-- Main Content Table: Actual vs Budget by Category -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Controls Toolbar -->
+<div class="p-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low/50">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">view_list</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Actual vs Budget by Category</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hierarchical general ledger cost centres</p>
+</div>
+</div>
+<!-- Action Controls -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-base">search</span>
+<input class="h-8 pl-8 pr-3 text-body-sm font-body-sm bg-surface-container-lowest text-on-surface rounded placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-secondary w-44" placeholder="Filter categories..." type="text"/>
+</div>
+<div class="relative">
+<button class="h-8 px-3 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span>All Dimensions</span>
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+</div>
+<button class="h-8 px-3 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" title="Export Ledger Breakdown">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Export</span>
+</button>
+</div>
+</div>
+<!-- The Data Grid Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-2.5 px-space-md">Category</th>
+<th class="py-2.5 px-space-md text-right">Allocated</th>
+<th class="py-2.5 px-space-md text-right">Committed</th>
+<th class="py-2.5 px-space-md text-right">Actual</th>
+<th class="py-2.5 px-space-md text-right">Variance</th>
+<th class="py-2.5 px-space-md text-right">% Spent</th>
+<th class="py-2.5 px-space-sm text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-sm font-body-sm">
+<!-- Row 1: Personnel -->
+<tr class="hover:bg-surface-container-low/40 transition-colors group">
+<td class="py-3 px-space-md font-title-md text-title-md text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-base cursor-pointer hover:text-secondary">expand_more</span>
+<span class="material-symbols-outlined text-secondary text-base">groups</span>
+<span class="font-semibold">Personnel &amp; Academic Staff</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right font-mono font-medium text-on-surface">$3,200,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">$1,400,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface font-semibold">$1,580,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-secondary font-semibold">$220,000.00</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-mono font-semibold text-on-surface">93.1%</span>
+<div class="w-12 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 93.1%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary" title="Optimal Threshold"></span>
+</td>
+</tr>
+<!-- Child row Personnel: Tenured Faculty -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-container-low/50 transition-colors text-label-md">
+<td class="py-2 pl-10 pr-space-md text-on-surface-variant flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Tenured &amp; Tenure-Track Faculty</span>
+</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$2,450,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$1,100,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$1,220,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$130,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">94.7%</td>
+<td></td>
+</tr>
+<!-- Child row Personnel: Adjunct & TAs -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-container-low/50 transition-colors text-label-md">
+<td class="py-2 pl-10 pr-space-md text-on-surface-variant flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Adjunct Lecturers &amp; Teaching Assistants</span>
+</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$750,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$300,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$360,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">$90,000.00</td>
+<td class="py-2 px-space-md text-right font-mono text-on-surface-variant">88.0%</td>
+<td></td>
+</tr>
+<!-- Row 2: Supplies & Materials -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-title-md text-title-md text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-base cursor-pointer hover:text-secondary">chevron_right</span>
+<span class="material-symbols-outlined text-secondary text-base">inventory_2</span>
+<span class="font-semibold">Supplies &amp; Materials</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right font-mono font-medium text-on-surface">$450,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">$180,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface font-semibold">$210,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-secondary font-semibold">$60,000.00</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-mono font-semibold text-on-surface">86.7%</span>
+<div class="w-12 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 86.7%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+</td>
+</tr>
+<!-- Row 3: Travel & Conferences -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-title-md text-title-md text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-base cursor-pointer hover:text-secondary">chevron_right</span>
+<span class="material-symbols-outlined text-secondary text-base">flight_takeoff</span>
+<span class="font-semibold">Travel &amp; Conferences</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right font-mono font-medium text-on-surface">$220,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">$65,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface font-semibold">$92,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-secondary font-semibold">$63,000.00</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-mono font-semibold text-on-surface">71.4%</span>
+<div class="w-12 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 71.4%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+</td>
+</tr>
+<!-- Row 4: Capital Equipment -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-title-md text-title-md text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-base cursor-pointer hover:text-secondary">chevron_right</span>
+<span class="material-symbols-outlined text-secondary text-base">precision_manufacturing</span>
+<span class="font-semibold">Capital Equipment &amp; Labs</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right font-mono font-medium text-on-surface">$680,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">$240,400.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface font-semibold">$215,800.00</td>
+<td class="py-3 px-space-md text-right font-mono text-secondary font-semibold">$223,800.00</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-mono font-semibold text-on-surface">67.1%</span>
+<div class="w-12 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 67.1%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+</td>
+</tr>
+<!-- Row 5: Research Initiatives -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-title-md text-title-md text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-base cursor-pointer hover:text-secondary">chevron_right</span>
+<span class="material-symbols-outlined text-secondary text-base">science</span>
+<span class="font-semibold">Research Initiatives &amp; Grants</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right font-mono font-medium text-on-surface">$300,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">$35,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface font-semibold">$48,000.00</td>
+<td class="py-3 px-space-md text-right font-mono text-secondary font-semibold">$217,000.00</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-mono font-semibold text-on-surface">27.7%</span>
+<div class="w-12 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 27.7%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm text-center">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+</td>
+</tr>
+<!-- Total Aggregate Row -->
+<tr class="bg-surface-container-high/60 font-headline-sm text-body-sm font-bold text-on-surface">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2 uppercase tracking-wide">
+<span class="material-symbols-outlined text-secondary text-lg">account_balance_wallet</span>
+<span>Total Consolidated Budget</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-right font-mono">$4,850,000.00</td>
+<td class="py-3.5 px-space-md text-right font-mono text-on-surface-variant">$1,920,400.00</td>
+<td class="py-3.5 px-space-md text-right font-mono">$2,145,800.00</td>
+<td class="py-3.5 px-space-md text-right font-mono text-secondary">$783,800.00</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="font-mono text-secondary">83.8%</span>
+<div class="w-12 bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 83.8%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-sm text-center">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-sm bg-surface-container-low/40 flex items-center justify-between text-label-sm text-on-surface-variant">
+<span>Showing 5 core cost groups with 18 GL sub-ledgers</span>
+<div class="flex items-center gap-2">
+<span class="hover:text-secondary cursor-pointer">Re-index hierarchy</span>
+<span>•</span>
+<span class="hover:text-secondary cursor-pointer">Print statutory snapshot</span>
+</div>
+</div>
+</div>
+<!-- Departmental Spending Visual Breakdown Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col md:flex-row gap-space-lg items-center">
+<div class="w-full md:w-1/3 flex flex-col items-center justify-center text-center">
+<!-- Inline SVG Donut Chart -->
+<div class="relative w-36 h-36 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#E5EEFF" stroke-width="12"></circle>
+<!-- Personnel: 66% stroke-dasharray = 165.8, remaining = 85.6 -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#0051d5" stroke-dasharray="165.8 251.4" stroke-dashoffset="0" stroke-width="12"></circle>
+<!-- Capital: 14% stroke-dasharray = 35.2 -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#316bf3" stroke-dasharray="35.2 251.4" stroke-dashoffset="-165.8" stroke-width="12"></circle>
+<!-- Supplies: 9.3% stroke-dasharray = 23.4 -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#b4c5ff" stroke-dasharray="23.4 251.4" stroke-dashoffset="-201" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-headline-md text-headline-md font-bold text-on-surface leading-none">$4.85M</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Allocated</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-2/3 flex flex-col gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Cost Centre Capital Distribution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-xs">
+              Personnel obligations represent the primary fixed commitment (66.0%), with discretionary allocations distributed between lab infrastructure and research enablement.
+            </p>
+<div class="grid grid-cols-2 gap-space-sm font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-secondary"></span>
+<span class="text-on-surface">Personnel (66.0%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-secondary-container"></span>
+<span class="text-on-surface">Capital Equipment (14.0%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-secondary-fixed-dim"></span>
+<span class="text-on-surface">Supplies &amp; Labs (9.3%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-surface-container-high"></span>
+<span class="text-on-surface">Research &amp; Other (10.7%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Governance, Audit & Routing Inspector (4 cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Card 1: Approval History & Routing -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-xl">account_tree</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Approval Routing</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">In Sequence</span>
+</div>
+<!-- Step Progression Rail -->
+<div class="flex flex-col gap-space-md pl-1 relative">
+<!-- Step 1: Initiated -->
+<div class="flex items-start gap-space-sm relative">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 z-10">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-body-sm font-bold text-on-surface">Department Initiator</span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-1.5 py-0.2 rounded">Passed</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Dr. Lisa Chen • Vice Provost</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Jan 12, 2025 • 09:42 AM</span>
+</div>
+</div>
+<!-- Step 2: Dean Review (Current) -->
+<div class="flex items-start gap-space-sm relative">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 z-10 animate-pulse">
+<span class="material-symbols-outlined text-sm">schedule</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-body-sm font-bold text-on-surface">College Dean Governance</span>
+<span class="bg-secondary/15 text-secondary font-label-sm text-label-sm px-1.5 py-0.2 rounded font-semibold">Under Review</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Prof. Arthur Sterling • Faculty Senate</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">SLA Deadline: Tomorrow, 17:00</span>
+</div>
+</div>
+<!-- Step 3: University Provost -->
+<div class="flex items-start gap-space-sm relative opacity-60">
+<div class="w-7 h-7 rounded-full bg-surface-container text-outline flex items-center justify-center shrink-0 z-10">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-bold text-on-surface">University Provost Signoff</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Dr. Evelyn Vance</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Pending Step 2</span>
+</div>
+</div>
+<!-- Step 4: CFO & Budget Bureau -->
+<div class="flex items-start gap-space-sm relative opacity-60">
+<div class="w-7 h-7 rounded-full bg-surface-container text-outline flex items-center justify-center shrink-0 z-10">
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-bold text-on-surface">Statutory Bureau Ledger Post</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Kwame Mensah • Finance Bureau</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Final Execution Level</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Escalation Policy: <strong>L2 standard</strong></span>
+<button class="font-label-sm text-label-sm text-secondary hover:underline">View Routing Matrix</button>
+</div>
+</div>
+<!-- Card 2: Budget Information Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs pb-space-xs border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary text-xl">info</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Budget Details</h3>
+</div>
+<div class="flex flex-col gap-space-xs text-body-sm">
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Cost Centre Code</span>
+<span class="font-mono font-semibold text-on-surface">BDG-2025-ACA-01</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Department</span>
+<span class="font-medium text-on-surface">Academic Affairs</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Budget Scope</span>
+<span class="font-medium text-on-surface">Operating Expenditure (OPEX)</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Currency</span>
+<span class="font-mono text-on-surface">USD ($) — Institutional Base</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Fiscal Year Span</span>
+<span class="font-mono text-on-surface">FY2025 (12 Months)</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Entity Registration</span>
+<span class="font-medium text-on-surface">Rivermere University Main</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Audit Information Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs pb-space-xs border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary text-xl">shield_person</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Audit Governance Trail</h3>
+</div>
+<div class="flex flex-col gap-space-xs text-body-sm">
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Last Synchronized</span>
+<span class="font-mono text-on-surface">Today, 14:18:22 UTC</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Last Modified By</span>
+<span class="font-medium text-on-surface">Kwame Mensah (SysAdmin)</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Reconciliation Version</span>
+<span class="font-mono font-semibold text-secondary">v2.1.04-GOV</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Compliance Checksum</span>
+<span class="font-mono text-xs text-outline">SHA256:7f49c0...a8e</span>
+</div>
+</div>
+<button class="mt-space-xs w-full py-2 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-base">history</span>
+<span>View Full Audit Log</span>
+</button>
+</div>
+<!-- Institutional Document Attachments Micro-Card -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-surface-container-lowest text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-xl">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-bold text-on-surface">FY2025_Academic_Charter.pdf</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3.8 MB • Signed &amp; Timestamped</span>
+</div>
+</div>
+<button class="p-2 text-outline hover:text-on-surface transition-colors" title="Download Policy Charter">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

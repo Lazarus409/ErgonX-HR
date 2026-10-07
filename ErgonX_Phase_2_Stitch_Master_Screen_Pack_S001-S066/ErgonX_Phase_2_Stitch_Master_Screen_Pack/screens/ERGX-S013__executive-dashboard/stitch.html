@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#213145", "surface-tint": "#525f75", "on-secondary-container": "#fefcff", "secondary-container": "#316bf3", "surface-bright": "#f8f9ff", "secondary": "#0051d5", "outline-variant": "#c5c6cd", "secondary-fixed-dim": "#b4c5ff", "on-primary-fixed": "#0e1c2f", "tertiary-container": "#001f26", "error-container": "#ffdad6", "on-secondary-fixed": "#00174b", "error": "#ba1a1a", "surface-container-high": "#dce9ff", "background": "#f8f9ff", "on-tertiary-fixed-variant": "#004e5c", "surface-container-lowest": "#ffffff", "surface-container": "#e5eeff", "tertiary": "#000000", "tertiary-fixed-dim": "#4cd7f6", "on-primary-fixed-variant": "#3a475c", "surface": "#f8f9ff", "on-primary": "#ffffff", "surface-dim": "#cbdbf5", "inverse-on-surface": "#eaf1ff", "secondary-fixed": "#dbe1ff", "on-error-container": "#93000a", "on-tertiary-container": "#0090a9", "on-tertiary": "#ffffff", "primary-fixed-dim": "#bac7e1", "on-tertiary-fixed": "#001f26", "inverse-primary": "#bac7e1", "on-surface-variant": "#44474c", "tertiary-fixed": "#acedff", "on-secondary": "#ffffff", "on-background": "#0b1c30", "primary": "#000000", "on-error": "#ffffff", "outline": "#75777d", "on-primary-container": "#77849c", "surface-container-low": "#eff4ff", "on-secondary-fixed-variant": "#003ea8", "surface-variant": "#d3e4fe", "primary-container": "#0e1c2f", "primary-fixed": "#d6e3fe", "surface-container-highest": "#d3e4fe", "on-surface": "#0b1c30" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2rem", "gutter-compact": "0.75rem", "margin-mobile": "1rem", "margin": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "headline-lg": ["Hanken Grotesk"], "headline-md": ["Hanken Grotesk"], "display-lg-mobile": ["Hanken Grotesk"], "label-sm": ["Manrope"], "body-sm": ["Manrope"], "display-lg": ["Hanken Grotesk"], "headline-sm": ["Hanken Grotesk"], "label-md": ["Manrope"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "label-lg": ["Manrope"], "title-md": ["Manrope"] }, "fontSize": { "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700"}], "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "display-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "label-md": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}], "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}], "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "label-lg": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}], "title-md": ["15px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-primary-container text-on-primary-container z-50 flex flex-col justify-between border-r border-outline-variant/20 shadow-[0_1px_8px_rgba(0,0,0,0.08)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm border-b border-outline-variant/20 bg-primary-container"><img alt="Brand logo. - Primary color: #0b192c - Font: hankenGrotesk - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary tracking-tight font-bold truncate">ErgonX</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider font-semibold truncate">Enterprise ERP</span></div></div><div class="p-space-sm border-b border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between p-space-sm rounded-lg bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors text-left" type="button"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-secondary-container text-base">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-primary font-semibold truncate">Rivermere University</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-outline-variant text-base shrink-0">unfold_more</span></button></div><div class="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-space-xs"><nav class="space-y-space-xs" data-active-classes="bg-secondary text-on-secondary font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="home" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="insights" href="#"><span class="material-symbols-outlined text-lg">analytics</span><span>Insights</span></a><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Human Resources</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="hr-dashboard" href="#">HR Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="employees" href="#">Employees</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="recruitment" href="#">Recruitment</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="leave" href="#">Leave</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="attendance" href="#">Attendance</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="payroll" href="#">Payroll</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Accounting</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="accounting-dashboard" href="#">Accounting Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="general-ledger" href="#">General Ledger</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-payable" href="#">Accounts Payable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-receivable" href="#">Accounts Receivable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="bank-reconciliation" href="#">Bank Reconciliation</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="budgets" href="#">Budgets</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="financial-reports" href="#">Financial Reports</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Self Service</span><span class="material-symbols-outlined text-sm text-outline-variant">chevron_right</span></div></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-lg">query_stats</span><span>Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="approvals" href="#"><span class="material-symbols-outlined text-lg">fact_check</span><span>Approvals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-lg">verified_user</span><span>Audit Trail</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="users-and-access" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Users &amp; Access</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg text-outline-variant hover:text-on-primary hover:bg-surface-container-highest/10 transition-colors" type="button"><span class="font-label-md text-label-md font-medium">Collapse Sidebar</span><span class="material-symbols-outlined text-base">keyboard_double_arrow_left</span></button></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-surface-container-high z-40 px-gutter flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-container-low rounded border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="Search records, accounts, employees..." type="text"/><kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/40">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low rounded p-0.5 border border-outline-variant/40"><button class="px-2 py-1 rounded-sm bg-surface-container-lowest text-on-surface shadow-xs flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">light_mode</span></button><button class="px-2 py-1 rounded-sm text-on-surface-variant hover:text-on-surface flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">dark_mode</span></button></div><button class="relative p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="h-6 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Administrator</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-gutter py-space-lg"><div class="flex flex-col w-full pb-space-xl space-y-space-md">
+<!-- Top Context Header & Filters Bar -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-secondary transition-colors" href="#">Home</a>
+<span>/</span>
+<span class="text-on-surface font-semibold">Executive Dashboard</span>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Executive Dashboard</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="material-symbols-outlined text-sm">domain</span>
+          Organization-wide
+        </span>
+</div>
+</div>
+<!-- Institutional Scoping Controls -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Period Selector -->
+<div class="relative inline-flex items-center bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary text-base mr-1.5">calendar_month</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none pr-4 cursor-pointer appearance-none">
+<option>Last 12 months</option>
+<option>Fiscal Year 2024-25</option>
+<option>Current Quarter (Q1 2025)</option>
+<option>Month to date</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant text-sm pointer-events-none absolute right-2">expand_more</span>
+</div>
+<!-- Entity Selector -->
+<div class="relative inline-flex items-center bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-outline text-base mr-1.5">account_balance</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mr-1.5">Institution:</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface font-semibold focus:outline-none pr-4 cursor-pointer appearance-none">
+<option>Rivermere University</option>
+<option>Rivermere Health Sciences</option>
+<option>Rivermere Foundation</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant text-sm pointer-events-none absolute right-2">expand_more</span>
+</div>
+<!-- Campus / Location Selector -->
+<div class="relative inline-flex items-center bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-outline text-base mr-1.5">pin_drop</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mr-1.5">Location:</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface font-semibold focus:outline-none pr-4 cursor-pointer appearance-none">
+<option>All locations</option>
+<option>Main Campus</option>
+<option>North Campus</option>
+<option>West Campus</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant text-sm pointer-events-none absolute right-2">expand_more</span>
+</div>
+<!-- Refresh Status -->
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 text-on-surface-variant font-label-sm text-label-sm ml-auto xl:ml-2">
+<span class="material-symbols-outlined text-sm text-secondary animate-[spin_6s_linear_infinite]">autorenew</span>
+<span>Synced: Mar 31, 2025, 10:24 AM</span>
+</div>
+</div>
+</div>
+<!-- Primary Top KPI Cards (4 metrics across) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Total Employees -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Total employees</span>
+<span class="material-symbols-outlined text-outline text-sm" title="Active university contracts &amp; tenured faculties">info</span>
+</div>
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight mt-1">428</span>
+<div class="flex items-center gap-1 mt-1 text-[#059669] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-base">arrow_drop_up</span>
+<span>+2.4%</span>
+<span class="text-on-surface-variant font-normal ml-0.5">vs. previous period</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#0090a9]/10 text-[#0090a9] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+</div>
+<!-- Active Workforce -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Active workforce</span>
+<span class="material-symbols-outlined text-outline text-sm" title="Excludes sabbaticals &amp; long-term leaves">info</span>
+</div>
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight mt-1">401</span>
+<div class="flex items-center gap-1 mt-1 text-[#059669] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-base">arrow_drop_up</span>
+<span>+1.8%</span>
+<span class="text-on-surface-variant font-normal ml-0.5">vs. previous period</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container/15 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">person_pin</span>
+</div>
+</div>
+<!-- Payroll Cost (YTD) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Payroll cost (YTD)</span>
+<span class="material-symbols-outlined text-outline text-sm" title="Consolidated gross payroll disbursement">info</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface-variant">GHS</span>
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight">2.84M</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-[#059669] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-base">arrow_drop_up</span>
+<span>+6.1%</span>
+<span class="text-on-surface-variant font-normal ml-0.5">vs. previous period</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/15 text-[#7c3aed] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+</div>
+<!-- Revenue (YTD) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Revenue (YTD)</span>
+<span class="material-symbols-outlined text-outline text-sm" title="Realized tuition fees, grants &amp; auxiliary incomes">info</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface-variant">GHS</span>
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight">8.62M</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-[#059669] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-base">arrow_drop_up</span>
+<span>+8.3%</span>
+<span class="text-on-surface-variant font-normal ml-0.5">vs. previous period</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#f59e0b]/15 text-[#d97706] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+</div>
+</div>
+<!-- Primary Middle Data Grid (3 columns across) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- 1. Employee Demographics (Donut) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#0090a9]/10 text-[#0090a9] flex items-center justify-center">
+<span class="material-symbols-outlined text-base">pie_chart</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Employee demographics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Workforce by gender across the institution.</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-secondary font-label-sm text-label-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-xs">table_chart</span>
+            View as table
+          </button>
+</div>
+<!-- Donut & Legend Container -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6 my-4">
+<!-- Donut Graphic -->
+<div class="relative w-36 h-36 shrink-0 flex items-center justify-center">
+<svg class="w-36 h-36 -rotate-90 transform" viewbox="0 0 120 120">
+<!-- Background Ring -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#eff4ff" stroke-width="16"></circle>
+<!-- Female: 52.3% = 151.1px of 289px -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#0090a9" stroke-dasharray="289" stroke-dashoffset="0" stroke-linecap="round" stroke-width="16"></circle>
+<!-- Male: 45.1% = 130.3px -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#8b5cf6" stroke-dasharray="289" stroke-dashoffset="138" stroke-linecap="round" stroke-width="16"></circle>
+<!-- Non-binary: 2.6% = 7.5px -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#316bf3" stroke-dasharray="289" stroke-dashoffset="281" stroke-linecap="round" stroke-width="16"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface leading-none">428</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">employees</span>
+</div>
+</div>
+<!-- Breakdown List -->
+<div class="flex flex-col space-y-2 w-full max-w-[180px]">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0090a9]"></span>
+<span class="text-on-surface font-medium">Female</span>
+</div>
+<div class="text-right">
+<span class="font-bold text-on-surface">52.3%</span>
+<span class="text-on-surface-variant font-label-sm ml-1 text-xs">224</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#8b5cf6]"></span>
+<span class="text-on-surface font-medium">Male</span>
+</div>
+<div class="text-right">
+<span class="font-bold text-on-surface">45.1%</span>
+<span class="text-on-surface-variant font-label-sm ml-1 text-xs">193</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#316bf3]"></span>
+<span class="text-on-surface font-medium truncate" title="Non-binary / Undisclosed">Non-binary</span>
+</div>
+<div class="text-right">
+<span class="font-bold text-on-surface">2.6%</span>
+<span class="text-on-surface-variant font-label-sm ml-1 text-xs">11</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low/70 rounded-lg p-2.5 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mt-2">
+<span>Statutory Gender Ratio: <strong>1.16 : 1</strong> (F to M)</span>
+<span class="text-[#059669] font-bold">Compliant</span>
+</div>
+</div>
+<!-- 2. Employees by Department (Horizontal Bars) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary-container/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">bar_chart</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Employees by department</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total number of employees in each unit.</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-secondary font-label-sm text-label-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-xs">table_chart</span>
+            View as table
+          </button>
+</div>
+<!-- Horizontal Distribution Bars -->
+<div class="mt-4 space-y-2 font-label-md text-label-md">
+<!-- Academic Affairs -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">Academic Affairs</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-[#0051d5] rounded-sm" style="width: 26.8%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">26.8%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">115</span>
+</div>
+<!-- Professional Services -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">Professional Serv.</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-[#316bf3] rounded-sm" style="width: 18.9%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">18.9%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">81</span>
+</div>
+<!-- Student Services -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">Student Services</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-[#8b5cf6] rounded-sm" style="width: 15.6%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">15.6%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">67</span>
+</div>
+<!-- Finance -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">Finance</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-[#f59e0b] rounded-sm" style="width: 12.4%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">12.4%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">53</span>
+</div>
+<!-- IT -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">IT &amp; Systems</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-[#b4c5ff] rounded-sm" style="width: 10.7%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">10.7%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">46</span>
+</div>
+<!-- Human Resources -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">Human Resources</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-[#c5c6cd] rounded-sm" style="width: 8.1%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">8.1%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">35</span>
+</div>
+<!-- Facilities -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">Facilities</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-[#dce9ff] rounded-sm" style="width: 6.3%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">6.3%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">27</span>
+</div>
+<!-- Other -->
+<div class="flex items-center gap-2">
+<span class="w-28 text-right text-on-surface-variant truncate shrink-0">Auxiliary / Other</span>
+<div class="flex-1 h-3.5 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-outline-variant rounded-sm" style="width: 5.2%;"></div>
+</div>
+<span class="w-9 text-right font-bold text-on-surface shrink-0">5.2%</span>
+<span class="w-7 text-right text-on-surface-variant shrink-0 text-xs">22</span>
+</div>
+</div>
+</div>
+<div class="pt-2 text-right">
+<span class="font-label-sm text-label-sm text-secondary hover:underline cursor-pointer">Explore full departmental taxonomy →</span>
+</div>
+</div>
+<!-- 3. Workforce Trend (Line Area Chart) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary-container/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">show_chart</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Workforce trend</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total headcount trajectory over 12 months.</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-secondary font-label-sm text-label-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-xs">table_chart</span>
+            View as table
+          </button>
+</div>
+<!-- SVG Line Curve Area Chart -->
+<div class="mt-4">
+<div class="h-44 w-full relative">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 320 140">
+<defs>
+<lineargradient id="workforceGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#316bf3" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#316bf3" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid lines -->
+<line stroke="#eff4ff" stroke-width="1" x1="0" x2="320" y1="20" y2="20"></line>
+<line stroke="#eff4ff" stroke-width="1" x1="0" x2="320" y1="55" y2="55"></line>
+<line stroke="#eff4ff" stroke-width="1" x1="0" x2="320" y1="90" y2="90"></line>
+<line stroke="#eff4ff" stroke-width="1" x1="0" x2="320" y1="125" y2="125"></line>
+<!-- Y-axis labels -->
+<text class="font-label-sm" fill="#75777d" font-size="8" x="0" y="18">500</text>
+<text class="font-label-sm" fill="#75777d" font-size="8" x="0" y="53">450</text>
+<text class="font-label-sm" fill="#75777d" font-size="8" x="0" y="88">400</text>
+<text class="font-label-sm" fill="#75777d" font-size="8" x="0" y="123">350</text>
+<!-- Area Fill -->
+<polygon fill="url(#workforceGradient)" points="20,115 47,105 74,96 101,92 128,88 155,87 182,85 209,84 236,78 263,75 290,72 315,68 315,130 20,130"></polygon>
+<!-- Line Chart -->
+<polyline fill="none" points="20,115 47,105 74,96 101,92 128,88 155,87 182,85 209,84 236,78 263,75 290,72 315,68" stroke="#0051d5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Points -->
+<circle cx="20" cy="115" fill="#0051d5" r="3"></circle>
+<circle cx="47" cy="105" fill="#0051d5" r="3"></circle>
+<circle cx="74" cy="96" fill="#0051d5" r="3"></circle>
+<circle cx="101" cy="92" fill="#0051d5" r="3"></circle>
+<circle cx="128" cy="88" fill="#0051d5" r="3"></circle>
+<circle cx="155" cy="87" fill="#0051d5" r="3"></circle>
+<circle cx="182" cy="85" fill="#0051d5" r="3"></circle>
+<circle cx="209" cy="84" fill="#0051d5" r="3"></circle>
+<circle cx="236" cy="78" fill="#0051d5" r="3"></circle>
+<circle cx="263" cy="75" fill="#0051d5" r="3"></circle>
+<circle cx="290" cy="72" fill="#0051d5" r="3"></circle>
+<circle cx="315" cy="68" fill="#0051d5" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+</svg>
+</div>
+<!-- X-Axis Months -->
+<div class="flex justify-between text-[9px] font-label-sm text-outline px-2 mt-1">
+<span>Apr 24</span>
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Aug</span>
+<span>Sep</span>
+<span>Oct</span>
+<span>Nov</span>
+<span>Dec</span>
+<span>Jan 25</span>
+<span>Feb</span>
+<span>Mar 25</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Net annual growth: <strong class="text-on-surface">+78 staff</strong></span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-[#059669] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#059669]"></span>
+          Retention Rate: 94.2%
+        </span>
+</div>
+</div>
+</div>
+<!-- Secondary Middle Data Grid (3 columns across) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- 4. Age Distribution (Vertical Columns) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary-container/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">bar_chart</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Age distribution</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Workforce brackets across institution.</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-secondary font-label-sm text-label-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-xs">table_chart</span>
+            View as table
+          </button>
+</div>
+<!-- Vertical Columns -->
+<div class="mt-4 flex items-end justify-between gap-2 h-44 pb-2 px-1">
+<!-- &lt; 25 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end group">
+<span class="font-label-sm text-label-sm font-bold text-on-surface mb-1">5.6%</span>
+<div class="w-full bg-[#0090a9] rounded-t hover:opacity-90 transition-all flex items-center justify-center text-[10px] text-white font-bold" style="height: 18%;">
+              23
+            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">&lt; 25</span>
+</div>
+<!-- 25 - 34 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end group">
+<span class="font-label-sm text-label-sm font-bold text-on-surface mb-1">22.1%</span>
+<div class="w-full bg-[#316bf3] rounded-t hover:opacity-90 transition-all flex items-center justify-center text-[10px] text-white font-bold" style="height: 62%;">
+              95
+            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">25–34</span>
+</div>
+<!-- 35 - 44 (Highest) -->
+<div class="flex-1 flex flex-col items-center h-full justify-end group">
+<span class="font-label-sm text-label-sm font-bold text-secondary mb-1">34.7%</span>
+<div class="w-full bg-[#8b5cf6] rounded-t hover:opacity-90 transition-all flex items-center justify-center text-[10px] text-white font-bold" style="height: 98%;">
+              149
+            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">35–44</span>
+</div>
+<!-- 45 - 54 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end group">
+<span class="font-label-sm text-label-sm font-bold text-on-surface mb-1">24.3%</span>
+<div class="w-full bg-[#f59e0b] rounded-t hover:opacity-90 transition-all flex items-center justify-center text-[10px] text-white font-bold" style="height: 68%;">
+              104
+            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">45–54</span>
+</div>
+<!-- 55 - 64 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end group">
+<span class="font-label-sm text-label-sm font-bold text-on-surface mb-1">10.8%</span>
+<div class="w-full bg-[#bac7e1] rounded-t hover:opacity-90 transition-all flex items-center justify-center text-[10px] text-on-surface font-bold" style="height: 32%;">
+              46
+            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">55–64</span>
+</div>
+<!-- 65+ -->
+<div class="flex-1 flex flex-col items-center h-full justify-end group">
+<span class="font-label-sm text-label-sm font-bold text-on-surface mb-1">2.5%</span>
+<div class="w-full bg-[#cbd5e1] rounded-t hover:opacity-90 transition-all flex items-center justify-center text-[10px] text-on-surface font-bold" style="height: 10%;">
+              10
+            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">65+</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Median Age: <strong class="text-on-surface">39.4 Years</strong></span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Active Pension Track: 97.4%</span>
+</div>
+</div>
+<!-- 5. Module Performance (Completion Bars) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary-container/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">layers</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Module performance</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Activity &amp; completion rate by ERP module.</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-secondary font-label-sm text-label-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-xs">table_chart</span>
+            View as table
+          </button>
+</div>
+<!-- Progress List -->
+<div class="mt-5 space-y-3.5">
+<!-- Human Resources -->
+<div>
+<div class="flex items-center justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface font-semibold">Human Resources</span>
+<span class="text-on-surface font-bold">92%</span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 92%;"></div>
+</div>
+</div>
+<!-- Payroll -->
+<div>
+<div class="flex items-center justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface font-semibold">Payroll</span>
+<span class="text-on-surface font-bold">88%</span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#0090a9] rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<!-- Recruitment -->
+<div>
+<div class="flex items-center justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface font-semibold">Recruitment</span>
+<span class="text-on-surface font-bold">76%</span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#8b5cf6] rounded-full" style="width: 76%;"></div>
+</div>
+</div>
+<!-- Accounting -->
+<div>
+<div class="flex items-center justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface font-semibold">Accounting &amp; Payables</span>
+<span class="text-on-surface font-bold">84%</span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#f59e0b] rounded-full" style="width: 84%;"></div>
+</div>
+</div>
+<!-- Attendance -->
+<div>
+<div class="flex items-center justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface font-semibold">Attendance &amp; Leave</span>
+<span class="text-on-surface font-bold">90%</span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#10b981] rounded-full" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low/70 rounded-lg p-2.5 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant mt-2">
+<span>Average ERP Adoption Index:</span>
+<span class="font-bold text-secondary">86.0% (Tier 1 Operational)</span>
+</div>
+</div>
+<!-- 6. Workforce by Location (Stacked Campus Bars) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-secondary-container/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">location_city</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Workforce by location</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Distribution across regional campuses.</p>
+</div>
+</div>
+<button class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-secondary font-label-sm text-label-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-xs">table_chart</span>
+            View as table
+          </button>
+</div>
+<!-- Campus Stacked Bar Layout -->
+<div class="mt-4 flex items-end justify-around h-44 pb-2 px-4 gap-4">
+<!-- Main Campus (212 staff) -->
+<div class="flex flex-col items-center h-full justify-end flex-1 max-w-[64px]">
+<span class="font-label-lg text-label-lg font-bold text-on-surface mb-1">212</span>
+<div class="w-full flex flex-col rounded overflow-hidden shadow-xs" style="height: 100%;">
+<!-- Support (26) -->
+<div class="w-full bg-[#8b5cf6] flex items-center justify-center text-[10px] text-white font-semibold" style="height: 12%;">26</div>
+<!-- Admin (68) -->
+<div class="w-full bg-[#0090a9] flex items-center justify-center text-[10px] text-white font-semibold" style="height: 32%;">68</div>
+<!-- Academic (118) -->
+<div class="w-full bg-[#0051d5] flex items-center justify-center text-[10px] text-white font-bold" style="height: 56%;">118</div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface mt-2 text-center truncate">Main</span>
+</div>
+<!-- North Campus (128 staff) -->
+<div class="flex flex-col items-center h-full justify-end flex-1 max-w-[64px]">
+<span class="font-label-lg text-label-lg font-bold text-on-surface mb-1">128</span>
+<div class="w-full flex flex-col rounded overflow-hidden shadow-xs" style="height: 60%;">
+<!-- Support (16) -->
+<div class="w-full bg-[#8b5cf6] flex items-center justify-center text-[10px] text-white font-semibold" style="height: 13%;">16</div>
+<!-- Admin (41) -->
+<div class="w-full bg-[#0090a9] flex items-center justify-center text-[10px] text-white font-semibold" style="height: 32%;">41</div>
+<!-- Academic (71) -->
+<div class="w-full bg-[#0051d5] flex items-center justify-center text-[10px] text-white font-bold" style="height: 55%;">71</div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface mt-2 text-center truncate">North</span>
+</div>
+<!-- West Campus (88 staff) -->
+<div class="flex flex-col items-center h-full justify-end flex-1 max-w-[64px]">
+<span class="font-label-lg text-label-lg font-bold text-on-surface mb-1">88</span>
+<div class="w-full flex flex-col rounded overflow-hidden shadow-xs" style="height: 42%;">
+<!-- Support (11) -->
+<div class="w-full bg-[#8b5cf6] flex items-center justify-center text-[10px] text-white font-semibold" style="height: 13%;">11</div>
+<!-- Admin (31) -->
+<div class="w-full bg-[#0090a9] flex items-center justify-center text-[10px] text-white font-semibold" style="height: 35%;">31</div>
+<!-- Academic (46) -->
+<div class="w-full bg-[#0051d5] flex items-center justify-center text-[10px] text-white font-bold" style="height: 52%;">46</div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface mt-2 text-center truncate">West</span>
+</div>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex items-center justify-center gap-4 pt-2 font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#0051d5]"></span>
+<span class="text-on-surface">Academic</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#0090a9]"></span>
+<span class="text-on-surface">Admin</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#8b5cf6]"></span>
+<span class="text-on-surface">Support</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Analytical Strip (4 Columns Across) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- 7. Tenure Distribution -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-lg">history_toggle_off</span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Tenure distribution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Length of service at institution.</p>
+</div>
+</div>
+<button class="text-secondary hover:text-secondary-container" title="View details">
+<span class="material-symbols-outlined text-base">table_chart</span>
+</button>
+</div>
+<!-- Mini Tenure Bars -->
+<div class="mt-4 flex items-end justify-between gap-1.5 h-24 pb-1">
+<!-- < 1 yr -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[9px] font-bold text-on-surface">28.5%</span>
+<div class="w-full bg-[#0051d5] rounded-t flex items-center justify-center text-[9px] text-white font-semibold" style="height: 100%;">
+              122
+            </div>
+<span class="text-[9px] text-on-surface-variant mt-1">&lt;1y</span>
+</div>
+<!-- 1 - 3 yrs -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[9px] font-bold text-on-surface">24.3%</span>
+<div class="w-full bg-[#0090a9] rounded-t flex items-center justify-center text-[9px] text-white font-semibold" style="height: 85%;">
+              104
+            </div>
+<span class="text-[9px] text-on-surface-variant mt-1">1-3y</span>
+</div>
+<!-- 4 - 7 yrs -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[9px] font-bold text-on-surface">21.7%</span>
+<div class="w-full bg-[#8b5cf6] rounded-t flex items-center justify-center text-[9px] text-white font-semibold" style="height: 76%;">
+              93
+            </div>
+<span class="text-[9px] text-on-surface-variant mt-1">4-7y</span>
+</div>
+<!-- 8 - 15 yrs -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[9px] font-bold text-on-surface">15.2%</span>
+<div class="w-full bg-[#f59e0b] rounded-t flex items-center justify-center text-[9px] text-white font-semibold" style="height: 53%;">
+              65
+            </div>
+<span class="text-[9px] text-on-surface-variant mt-1">8-15y</span>
+</div>
+<!-- 16 - 25 yrs -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[9px] font-bold text-on-surface">7.5%</span>
+<div class="w-full bg-[#bac7e1] rounded-t flex items-center justify-center text-[9px] text-on-surface font-semibold" style="height: 26%;">
+              32
+            </div>
+<span class="text-[9px] text-on-surface-variant mt-1">16-25</span>
+</div>
+<!-- > 25 yrs -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[9px] font-bold text-on-surface">2.8%</span>
+<div class="w-full bg-[#cbd5e1] rounded-t flex items-center justify-center text-[9px] text-on-surface font-semibold" style="height: 10%;">
+              12
+            </div>
+<span class="text-[9px] text-on-surface-variant mt-1">&gt;25</span>
+</div>
+</div>
+</div>
+<div class="border-t border-surface-container pt-2 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Average Staff Tenure:</span>
+<span class="font-bold text-on-surface">4.6 Years</span>
+</div>
+</div>
+<!-- 8. Payroll Cost Trend -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#8b5cf6] text-lg">trending_up</span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Payroll cost trend</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total disbursement progression.</p>
+</div>
+</div>
+<button class="text-secondary hover:text-secondary-container" title="View details">
+<span class="material-symbols-outlined text-base">table_chart</span>
+</button>
+</div>
+<!-- Payroll Curve SVG -->
+<div class="mt-4">
+<div class="h-24 w-full relative">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 240 80">
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="240" y1="10" y2="10"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="240" y1="35" y2="35"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="240" y1="60" y2="60"></line>
+<!-- Axis markers -->
+<text fill="#75777d" font-size="7" x="0" y="9">4.0M</text>
+<text fill="#75777d" font-size="7" x="0" y="34">2.0M</text>
+<text fill="#75777d" font-size="7" x="0" y="59">0.0M</text>
+<polyline fill="none" points="10,50 30,48 50,42 70,40 90,39 110,38 130,37 150,35 170,33 190,30 210,29 230,26" stroke="#8b5cf6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+<!-- Node dots -->
+<circle cx="10" cy="50" fill="#8b5cf6" r="2.5"></circle>
+<circle cx="50" cy="42" fill="#8b5cf6" r="2.5"></circle>
+<circle cx="110" cy="38" fill="#8b5cf6" r="2.5"></circle>
+<circle cx="170" cy="33" fill="#8b5cf6" r="2.5"></circle>
+<circle cx="230" cy="26" fill="#8b5cf6" r="3" stroke="#ffffff" stroke-width="1"></circle>
+</svg>
+</div>
+<div class="flex justify-between text-[9px] font-label-sm text-outline px-1 mt-1">
+<span>Apr 24</span>
+<span>Jul</span>
+<span>Oct</span>
+<span>Jan 25</span>
+<span>Mar 25</span>
+</div>
+</div>
+</div>
+<div class="border-t border-surface-container pt-2 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Monthly Burn Rate:</span>
+<span class="font-bold text-on-surface">GHS 246,500</span>
+</div>
+</div>
+<!-- 9. Revenue vs Receivables -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#f59e0b] text-lg">account_balance_wallet</span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Revenue vs receivables</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Quarterly income &amp; outstanding balances.</p>
+</div>
+</div>
+<button class="text-secondary hover:text-secondary-container" title="View details">
+<span class="material-symbols-outlined text-base">table_chart</span>
+</button>
+</div>
+<!-- Stacked Comparison Columns -->
+<div class="mt-4 flex items-end justify-between gap-2 h-24 pb-1 px-1">
+<!-- Q2 2024 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[8px] font-semibold text-on-surface-variant mb-0.5">2.0M</span>
+<div class="w-full flex flex-col rounded overflow-hidden" style="height: 72%;">
+<div class="w-full bg-[#f59e0b] flex items-center justify-center text-[7px] text-white font-bold" style="height: 20%;">0.4</div>
+<div class="w-full bg-[#0051d5] flex items-center justify-center text-[8px] text-white font-bold" style="height: 80%;">1.6</div>
+</div>
+<span class="text-[9px] text-on-surface font-semibold mt-1">Q2 '24</span>
+</div>
+<!-- Q3 2024 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[8px] font-semibold text-on-surface-variant mb-0.5">2.1M</span>
+<div class="w-full flex flex-col rounded overflow-hidden" style="height: 76%;">
+<div class="w-full bg-[#f59e0b] flex items-center justify-center text-[7px] text-white font-bold" style="height: 24%;">0.5</div>
+<div class="w-full bg-[#0051d5] flex items-center justify-center text-[8px] text-white font-bold" style="height: 76%;">1.6</div>
+</div>
+<span class="text-[9px] text-on-surface font-semibold mt-1">Q3 '24</span>
+</div>
+<!-- Q4 2024 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[8px] font-semibold text-on-surface-variant mb-0.5">2.3M</span>
+<div class="w-full flex flex-col rounded overflow-hidden" style="height: 84%;">
+<div class="w-full bg-[#f59e0b] flex items-center justify-center text-[7px] text-white font-bold" style="height: 26%;">0.6</div>
+<div class="w-full bg-[#0051d5] flex items-center justify-center text-[8px] text-white font-bold" style="height: 74%;">1.7</div>
+</div>
+<span class="text-[9px] text-on-surface font-semibold mt-1">Q4 '24</span>
+</div>
+<!-- Q1 2025 -->
+<div class="flex-1 flex flex-col items-center h-full justify-end">
+<span class="text-[8px] font-semibold text-on-surface-variant mb-0.5">2.3M</span>
+<div class="w-full flex flex-col rounded overflow-hidden" style="height: 86%;">
+<div class="w-full bg-[#f59e0b] flex items-center justify-center text-[7px] text-white font-bold" style="height: 22%;">0.5</div>
+<div class="w-full bg-[#0051d5] flex items-center justify-center text-[8px] text-white font-bold" style="height: 78%;">1.8</div>
+</div>
+<span class="text-[9px] text-on-surface font-semibold mt-1">Q1 '25</span>
+</div>
+</div>
+</div>
+<!-- Legend & Meta -->
+<div class="border-t border-surface-container pt-2 flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 text-on-surface"><span class="w-2 h-2 rounded-xs bg-[#0051d5]"></span>Rev</span>
+<span class="flex items-center gap-1 text-on-surface"><span class="w-2 h-2 rounded-xs bg-[#f59e0b]"></span>Recv</span>
+</div>
+<span class="text-[#059669] font-bold">Collection: 77.8%</span>
+</div>
+</div>
+<!-- 10. Compliance & Posting Status Matrix -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#059669] text-lg">verified_user</span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Compliance &amp; posting status</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Statutory governance scorecard.</p>
+</div>
+</div>
+<button class="text-secondary hover:text-secondary-container" title="View details">
+<span class="material-symbols-outlined text-base">table_chart</span>
+</button>
+</div>
+<!-- Matrix Heatmap -->
+<div class="mt-3 overflow-x-auto">
+<table class="w-full text-left font-label-sm text-label-sm">
+<thead>
+<tr class="text-outline">
+<th class="py-1 font-semibold">Audit Track</th>
+<th class="text-center px-1">Jan</th>
+<th class="text-center px-1">Feb</th>
+<th class="text-center px-1">Mar</th>
+<th class="text-center px-1">Apr</th>
+<th class="text-center px-1">May</th>
+<th class="text-center px-1">Jun</th>
+</tr>
+</thead>
+<tbody class="space-y-1">
+<tr>
+<td class="py-1 text-on-surface truncate pr-1">Payroll postings</td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+</tr>
+<tr>
+<td class="py-1 text-on-surface truncate pr-1">Journal entries</td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#d97706]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+</tr>
+<tr>
+<td class="py-1 text-on-surface truncate pr-1">Statutory filings</td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+</tr>
+<tr>
+<td class="py-1 text-on-surface truncate pr-1">Policy compliance</td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#dc2626]"></span></td>
+</tr>
+<tr>
+<td class="py-1 text-on-surface truncate pr-1">Data quality index</td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#059669]"></span></td>
+<td class="text-center"><span class="inline-block w-2.5 h-2.5 rounded-full bg-[#dc2626]"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Compliance Legend -->
+<div class="border-t border-surface-container pt-2 flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-[#059669]"></span>On track</span>
+<span class="flex items-center gap-1 text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-[#d97706]"></span>Review</span>
+<span class="flex items-center gap-1 text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-[#dc2626]"></span>Overdue</span>
+</div>
+</div>
+</div>
+<!-- Realtime Activity & Audit Drawer Preview (Institutional Alert Footer) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined">security_update_good</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Statutory Governance &amp; Periodic Close</span>
+<span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#059669] font-label-sm text-label-sm font-bold">Audit Clean</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Last external certification reconciled by Kwame Mensah on Mar 28, 2025 across all 3 Rivermere University operational campuses.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold transition-colors flex items-center gap-1.5 shadow-xs">
+<span class="material-symbols-outlined text-base">download</span>
+        Export Executive Summary
+      </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container hover:bg-black text-on-primary font-label-lg text-label-lg font-semibold transition-colors flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-base">assignment_turned_in</span>
+        Sign-off Fiscal Pack
+      </button>
+</div>
+</div>
+</div></main></div></body></html>

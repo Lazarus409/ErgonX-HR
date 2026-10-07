@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S025",
+  "name": "Emergency Contacts",
+  "slug": "emergency-contacts",
+  "module": "Employee Self-Service",
+  "route_hint": "/my-workspace/emergency-contacts",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (25).zip",
+  "source_archive_sha256": "65836fa695b0366d2746a0decef332c1a85209cd6a55cfda7783720bfad3fbb3",
+  "stitch_h1": "Emergency Contacts",
+  "notes": "Employee-managed emergency contacts with confidentiality messaging, escalation order and supporting healthcare proxy document concept.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

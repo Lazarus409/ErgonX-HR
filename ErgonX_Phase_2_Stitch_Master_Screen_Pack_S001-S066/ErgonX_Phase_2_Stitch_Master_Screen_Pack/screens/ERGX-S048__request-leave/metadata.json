@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S048",
+  "screen_number": 48,
+  "title": "Request Leave",
+  "slug": "request-leave",
+  "module": "Leave / Self Service",
+  "route_hint": "/my-workspace/leave/request",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 3",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (48).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Support draft, half-day boundaries, working-day calculation, attachments, balance preview and approval-route preview. Policy rules are institution-configured.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

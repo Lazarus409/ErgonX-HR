@@ -1,0 +1,20 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import ErrorState from "@/components/ui/ErrorState";
+import LoadingState from "@/components/ui/LoadingState";
+import PageHeader from "@/components/ui/PageHeader";
+import BackNavigation from "@/components/ui/BackNavigation";
+import { getApiErrorMessage, recruitmentApi } from "@/lib/api";
+import type { Candidate, JobPosting } from "@/types/recruitment";
+import { buttonClasses } from "@/components/ui/Button";
+
+export default function NewApplicationPage() {
+  const router = useRouter(); const [jobs, setJobs] = useState<JobPosting[] | null>(null); const [candidates, setCandidates] = useState<Candidate[] | null>(null); const [form, setForm] = useState(() => ({ job_posting: typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("job_posting") ?? "", candidate: typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("candidate") ?? "", notes: "" })); const [error, setError] = useState<string | null>(null); const [saving, setSaving] = useState(false);
+  useEffect(() => { let active = true; Promise.all([recruitmentApi.listJobPostings({ status: "OPEN", page_size: 100 }), recruitmentApi.listCandidates({ status: "ACTIVE", page_size: 100 })]).then(([jobRows, candidateRows]) => { if (active) { setJobs(jobRows.results); setCandidates(candidateRows.results); } }).catch((caught) => active && setError(getApiErrorMessage(caught))); return () => { active = false; }; }, []);
+  const submit = async (event: React.FormEvent) => { event.preventDefault(); if (!form.job_posting || !form.candidate || saving) { setError("Select an open job posting and candidate."); return; } setSaving(true); setError(null); try { const application = await recruitmentApi.createApplication({ ...form, notes: form.notes.trim() }); await recruitmentApi.submitApplication(application.id); router.push(`/recruitment/candidates/${form.candidate}?application=${application.id}`); } catch (caught) { setError(getApiErrorMessage(caught)); } finally { setSaving(false); } };
+  if (!jobs || !candidates) return error ? <ErrorState message={error} /> : <LoadingState />;
+  return <div className="space-y-6"><BackNavigation fallback="/recruitment/applications" label="Back to Applications" /><PageHeader title="New Application" description="Creates a draft then submits it through the backend workflow." /><form onSubmit={submit} className="space-y-6 rounded-2xl border border-line bg-surface p-6"><div className="grid gap-5"><label><span className="mb-1.5 block text-sm font-medium">Open Job Posting</span><select value={form.job_posting} onChange={(event) => setForm((current) => ({ ...current, job_posting: event.target.value }))} className="w-full h-9 rounded-lg border border-line-strong px-3 text-sm"><option value="">Select job posting</option>{jobs.map((job) => <option key={job.id} value={job.id}>{job.code} · {job.title}</option>)}</select></label><label><span className="mb-1.5 block text-sm font-medium">Candidate</span><select value={form.candidate} onChange={(event) => setForm((current) => ({ ...current, candidate: event.target.value }))} className="w-full h-9 rounded-lg border border-line-strong px-3 text-sm"><option value="">Select candidate</option>{candidates.map((candidate) => <option key={candidate.id} value={candidate.id}>{candidate.first_name} {candidate.last_name} · {candidate.email}</option>)}</select></label><label><span className="mb-1.5 block text-sm font-medium">Notes</span><textarea rows={4} value={form.notes} onChange={(event) => setForm((current) => ({ ...current, notes: event.target.value }))} className="w-full rounded-lg border border-line-strong px-3 py-2.5 text-sm" /></label></div>{error && <ErrorState message={error} />}<div className="flex justify-end gap-3"><Link href="/recruitment/applications" className="rounded-lg border border-line-strong px-4 py-2.5 text-sm font-medium">Cancel</Link><button disabled={saving} className={buttonClasses({ variant: "primary" })}>{saving ? "Submitting…" : "Create and Submit"}</button></div></form></div>;
+}

@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S031",
+  "name": "Insights",
+  "slug": "insights",
+  "module": "Reports & Analytics",
+  "route_hint": "/insights",
+  "classification": "phase2-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "EXTEND",
+  "source_archive": "stitch_ergonx_ui (31).zip",
+  "source_archive_sha256": "6772e8b574bfd47478ccc1c74f2bd4d497ae71df64dd39fd8244093d2fc1d48e",
+  "stitch_h1": "Insights",
+  "notes": "Operational analytics surface for authorized non-executive roles; permission- and module-filtered. Standard employees do not land here by default.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

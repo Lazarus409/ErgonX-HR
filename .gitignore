@@ -1,0 +1,26 @@
+.env.production
+.env.production.local
+.env
+.coverage
+*.sqlite3
+*.dump
+*.backup
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+ergonx-frontend/node_modules/
+ergonx-frontend/.next/
+ergonx-frontend/tsconfig.tsbuildinfo
+ergonx-frontend/.playwright-cli/
+ergonx-frontend/output/
+.playwright-cli/
+
+# ErgonX HR: local-only items that must never be published.
+# Migrates the main ERP's database dump into Render; not applicable to the HR system.
+scripts/migrate-local-db-to-render.ps1
+.npm-lock-validation/
+Ergonx-backend/media/
+.claude/settings.local.json

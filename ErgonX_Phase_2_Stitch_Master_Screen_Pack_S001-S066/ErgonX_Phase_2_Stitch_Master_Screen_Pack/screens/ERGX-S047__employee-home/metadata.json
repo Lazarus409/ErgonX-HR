@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S047",
+  "screen_number": 47,
+  "title": "Employee Home",
+  "slug": "employee-home",
+  "module": "Self Service",
+  "route_hint": "/my-workspace",
+  "phase_2_classification": "Existing screen \u2014 refine",
+  "implementation_wave": "Wave 3",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (47).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Daily employee workspace, not an executive dashboard. Show only own records and enabled modules; no invented performance scores.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

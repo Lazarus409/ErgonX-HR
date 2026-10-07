@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S023",
+  "name": "Attendance Adjustment Review",
+  "slug": "attendance-adjustment-review",
+  "module": "Attendance",
+  "route_hint": "/attendance/adjustments/:adjustmentId",
+  "classification": "phase2-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "NEW/EXTEND",
+  "source_archive": "stitch_ergonx_ui (23).zip",
+  "source_archive_sha256": "232c2d44f9dd59d4d2b909221b692bb27eb2509fff16e39081a7daa11df9c83b",
+  "stitch_h1": "Attendance adjustment review",
+  "notes": "Governed attendance correction review with evidence, policy/compliance checks, comments, timeline and decision actions.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

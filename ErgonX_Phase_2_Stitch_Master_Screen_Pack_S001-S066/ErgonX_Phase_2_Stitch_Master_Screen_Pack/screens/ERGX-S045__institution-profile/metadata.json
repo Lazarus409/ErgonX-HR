@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S045",
+  "screen_number": 45,
+  "title": "Institution Profile",
+  "slug": "institution-profile",
+  "module": "Settings / Institution",
+  "route_hint": "/settings/institution",
+  "phase_2_classification": "Existing/partial \u2014 refine",
+  "implementation_wave": "Wave 2",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (45).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Logo, legal identity, institution type, country, default currency, timezone and contact data. Currency formatting preferences must not silently change transaction currency.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

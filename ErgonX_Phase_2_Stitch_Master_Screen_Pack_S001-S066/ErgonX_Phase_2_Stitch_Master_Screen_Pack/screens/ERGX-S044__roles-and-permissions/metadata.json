@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S044",
+  "screen_number": 44,
+  "title": "Roles & Permissions",
+  "slug": "roles-and-permissions",
+  "module": "Settings / RBAC",
+  "route_hint": "/settings/roles",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 2",
+  "priority": "P0",
+  "source_archive": "stitch_ergonx_ui (44).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "System roles remain protected. UI permission buckets must map to granular backend permissions; backend authorization is authoritative.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

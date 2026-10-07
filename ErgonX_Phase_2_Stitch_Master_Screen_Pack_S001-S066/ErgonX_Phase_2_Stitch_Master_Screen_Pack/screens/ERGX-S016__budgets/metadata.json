@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S016",
+  "sequence": 16,
+  "title": "Budgets",
+  "slug": "budgets",
+  "module": "ACCOUNTING",
+  "module_group": "accounting",
+  "canonical_route_hint": "/accounting/budgets",
+  "source_archive": "stitch_ergonx_ui (16).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "a9bfe85df0ff229425f527d461f5225ed79898fec340d9e6f162c050b8850499",
+      "bytes": 495756
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "beb3b7e639cf00f1b4cc7cc0e911bce92a9a17f406619d597f6f862e994a1b9c",
+      "bytes": 54234
+    }
+  ]
+}

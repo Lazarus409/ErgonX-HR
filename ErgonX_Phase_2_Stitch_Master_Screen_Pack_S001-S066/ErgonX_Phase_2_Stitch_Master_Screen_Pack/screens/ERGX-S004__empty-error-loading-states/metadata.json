@@ -1,0 +1,25 @@
+{
+  "screen_id": "ERGX-S004",
+  "sequence": 4,
+  "title": "Empty, Error & Loading States",
+  "slug": "empty-error-loading-states",
+  "module": "DESIGN_SYSTEM",
+  "module_group": "design-system",
+  "canonical_route_hint": "N/A",
+  "source_archive": "stitch_ergonx_ui (4).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "reference.png",
+      "sha256": "431b04b68db57a8e4e50c4fa9d946230612fb60c364d6869a711ecfe7f15379d",
+      "bytes": 368523
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "947e54230eae047c491711c7555a89778bec69338af23de083a9f48e5b8cfc34",
+      "bytes": 24939
+    }
+  ]
+}

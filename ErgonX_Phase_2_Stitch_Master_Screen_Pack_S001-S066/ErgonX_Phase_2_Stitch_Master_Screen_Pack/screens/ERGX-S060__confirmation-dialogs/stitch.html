@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ErgonX Desktop - Governed System States: Empty, Error &amp; Loading</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              600: '#0052cc',
+              700: '#003e99',
+              900: '#0a192f',
+            },
+            sidebar: '#001428',
+            surface: '#f8fafc',
+            borderLight: '#e2e8f0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-custom {
+      animation: spin-slow 1.25s linear infinite;
+    }
+    @keyframes pulse-custom {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .skeleton-pulse {
+      animation: pulse-custom 1.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/></head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 bg-[#051329] text-slate-300 flex-shrink-0 flex flex-col justify-between hidden md:flex border-r border-slate-800" data-purpose="sidebar-navigation">
+<!-- Top section of sidebar -->
+<div>
+<!-- ErgonX Brand Logo -->
+<div class="h-16 px-6 flex items-center gap-2 border-b border-slate-800/80">
+<span class="text-2xl font-extrabold tracking-tight text-white flex items-center">
+          Ergon<span class="text-cyan-400 font-black">X</span>
+</span>
+</div>
+<!-- Institution / Tenant Switcher -->
+<div class="p-3">
+<div class="bg-[#0b1d3a] rounded-lg p-2.5 flex items-center justify-between border border-slate-700/60 cursor-pointer hover:border-slate-600 transition">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0">
+<i class="fa-solid fa-building-columns text-sm"></i>
+</div>
+<div class="truncate">
+<div class="text-xs font-semibold text-white leading-tight truncate">Rivermere University</div>
+<div class="text-[11px] text-slate-400">Higher Education</div>
+</div>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<nav class="mt-2 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-house w-4 text-center"></i>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-column w-4 text-center"></i>
+<span>Insights</span>
+</a>
+<!-- HR Section (Expanded) -->
+<div class="pt-1">
+<div class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-slate-800/60 rounded-md">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-user-group w-4 text-center text-cyan-400"></i>
+<span>HR</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</div>
+<div class="pl-7 pr-2 mt-1 space-y-1 text-xs">
+<a class="flex items-center gap-2 py-1.5 px-2 font-semibold text-cyan-400 bg-cyan-950/40 rounded border-l-2 border-cyan-400" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+<span>HR Dashboard</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Recruitment</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Leave</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Attendance</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Payroll</span>
+</a>
+</div>
+</div>
+<!-- Other modules -->
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-calculator w-4 text-center"></i>
+<span>Accounting</span>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-line w-4 text-center"></i>
+<span>Reports &amp; Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-regular fa-circle-check w-4 text-center"></i>
+<span>Approvals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-shield-halved w-4 text-center"></i>
+<span>Audit Trail</span>
+</a>
+<div class="pt-2 border-t border-slate-800/80 my-2"></div>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-users-gear w-4 text-center"></i>
+<span>Users &amp; Access</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-gear w-4 text-center"></i>
+<span>Settings</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-circle-user w-4 text-center"></i>
+<span>Self Service</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</a>
+</nav>
+</div>
+<!-- Bottom collapse sidebar trigger -->
+<div class="p-3 border-t border-slate-800/80">
+<button class="w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-md hover:bg-slate-800/60 transition">
+<i class="fa-solid fa-angles-left"></i>
+<span>Collapse sidebar</span>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- BEGIN: TopBar -->
+<header class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-30 shadow-xs" data-purpose="top-navigation">
+<!-- Breadcrumb path -->
+<div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<a class="hover:text-slate-800" href="#">Home</a>
+<span class="text-slate-300">/</span>
+<span class="text-slate-500">Governance</span>
+<span class="text-slate-300">/</span>
+<span class="text-slate-800 font-semibold">System States</span>
+</div>
+<!-- Search and User Actions -->
+<div class="flex items-center gap-5">
+<!-- Search bar with command key -->
+<div class="relative w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<i class="fa-solid fa-magnifying-glass text-xs"></i>
+</div>
+<input class="w-full pl-9 pr-12 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-800 placeholder-slate-400" placeholder="Search across ErgonX..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
+<span class="text-[10px] font-semibold text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs">⌘ K</span>
+</div>
+</div>
+<!-- Notification Bell -->
+<div class="relative cursor-pointer text-slate-500 hover:text-slate-700">
+<i class="fa-regular fa-bell text-lg"></i>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
+</div>
+<!-- Light/Dark Mode Switcher -->
+<div class="flex items-center gap-1.5 text-slate-400 bg-slate-100 p-1 rounded-full border border-slate-200 text-xs">
+<i class="fa-solid fa-sun text-amber-500 px-1"></i>
+<div class="w-7 h-3.5 bg-slate-300 rounded-full relative cursor-pointer">
+<div class="w-3.5 h-3.5 bg-white rounded-full absolute left-0 top-0 shadow-sm"></div>
+</div>
+<i class="fa-solid fa-moon text-slate-400 px-1"></i>
+</div>
+<!-- User profile badge -->
+<div class="flex items-center gap-2.5 pl-2 border-l border-slate-200 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center text-xs">
+            KW
+          </div>
+<div class="hidden lg:block text-left">
+<div class="text-xs font-semibold text-slate-800 leading-tight">Kwame Mensah</div>
+<div class="text-[11px] text-slate-400">Administrator</div>
+</div>
+<i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- Main Content Container -->
+<main class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full" data-purpose="governed-states-showcase"><div class="flex flex-col w-full">
+<!-- Title and Header Context -->
+<div class="flex flex-col gap-1 pb-6">
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="hover:text-primary cursor-pointer transition-colors">Home</span>
+<span class="opacity-40">/</span>
+<span class="hover:text-primary cursor-pointer transition-colors">System Standards</span>
+<span class="opacity-40">/</span>
+<span class="text-on-background font-semibold">Confirmation Dialogs</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mt-2">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-background tracking-tight">Confirmation Dialogs</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Standardized confirmation patterns for common scenarios in ErgonX ERP.</p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+          UX Guidelines v4.2
+        </span>
+</div>
+</div>
+</div>
+<!-- Dialog Cards Showcase Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start pb-12">
+<!-- Card 1: Confirm action (Information / Standard Modal) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col justify-between transition-all duration-200 hover:shadow-xl relative overflow-hidden">
+<div class="space-y-4">
+<!-- Dialog Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Confirm action</h2>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-background transition-colors p-1 rounded-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Prompt Text -->
+<p class="font-body-md text-body-md text-on-surface">Are you sure you want to generate the payroll report for March 2025?</p>
+<!-- Context Item Box -->
+<div class="bg-surface-container-low rounded-lg p-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-background truncate">Payroll report</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Period: March 2025 • Type: Summary</div>
+</div>
+</div>
+<!-- Explanatory note -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">This will generate the report. No data will be deleted.</p>
+<!-- Governance Info Box -->
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 flex-shrink-0">info</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">This action will be recorded in the audit trail with your user ID and timestamp.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-3 mt-6 pt-2">
+<button class="px-4 py-2 text-center rounded bg-surface-container-low hover:bg-surface-container text-on-background font-label-lg text-label-lg transition-colors" type="button">
+          Cancel
+        </button>
+<button class="px-4 py-2 text-center rounded bg-primary-container hover:opacity-90 text-on-primary font-label-lg text-label-lg transition-all shadow-sm" type="button">
+          Generate report
+        </button>
+</div>
+</div>
+<!-- Card 2: Approve leave request (Success / Approval Modal) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col justify-between transition-all duration-200 hover:shadow-xl relative overflow-hidden">
+<div class="space-y-4">
+<!-- Dialog Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Approve leave request</h2>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-background transition-colors p-1 rounded-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Prompt Text -->
+<p class="font-body-md text-body-md text-on-surface">Are you sure you want to approve this leave request?</p>
+<!-- Context Item Box -->
+<div class="bg-surface-container-low rounded-lg p-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-background truncate">Ama Owusu</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Leave request • 3 – 7 Oct 2023 (5 days)</div>
+</div>
+</div>
+<!-- Explanatory note -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">This will approve the request and notify the employee. The employee's leave balance will be updated.</p>
+<!-- Governance Info Box -->
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 flex-shrink-0">info</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">This action will be recorded in the audit trail with your user ID and timestamp.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-3 mt-6 pt-2">
+<button class="px-4 py-2 text-center rounded bg-surface-container-low hover:bg-surface-container text-on-background font-label-lg text-label-lg transition-colors" type="button">
+          Cancel
+        </button>
+<button class="px-4 py-2 text-center rounded bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg transition-all shadow-sm" type="button">
+          Approve
+        </button>
+</div>
+</div>
+<!-- Card 3: Discard changes (Warning Modal) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col justify-between transition-all duration-200 hover:shadow-xl relative overflow-hidden">
+<div class="space-y-4">
+<!-- Dialog Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Discard changes</h2>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-background transition-colors p-1 rounded-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Prompt Text -->
+<p class="font-body-md text-body-md text-on-surface">You have unsaved changes. If you leave now, your changes will be lost.</p>
+<!-- Context Item Box -->
+<div class="bg-surface-container-low rounded-lg p-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-background truncate">Employee profile (draft)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Sarah Kim • Marketing Specialist</div>
+</div>
+</div>
+<!-- Explanatory note -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">No changes have been saved.</p>
+<!-- Subtle spacer placeholder for vertical grid harmony -->
+<div class="h-10"></div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-3 mt-6 pt-2">
+<button class="px-4 py-2 text-center rounded bg-surface-container-low hover:bg-surface-container text-on-background font-label-lg text-label-lg transition-colors" type="button">
+          Keep editing
+        </button>
+<button class="px-4 py-2 text-center rounded bg-primary-container hover:opacity-90 text-on-primary font-label-lg text-label-lg transition-all shadow-sm" type="button">
+          Discard
+        </button>
+</div>
+</div>
+<!-- Card 4: Deactivate employee (High-Impact Operational Modal) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col justify-between transition-all duration-200 hover:shadow-xl relative overflow-hidden">
+<div class="space-y-4">
+<!-- Dialog Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Deactivate employee</h2>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-background transition-colors p-1 rounded-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Prompt Text -->
+<p class="font-body-md text-body-md text-on-surface">Are you sure you want to deactivate this employee?</p>
+<!-- Context Item Box -->
+<div class="bg-surface-container-low rounded-lg p-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-label-lg text-label-lg flex-shrink-0 font-bold">
+            SK
+          </div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-background truncate">Sarah Kim</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Marketing Specialist • Employee ID: EMP-1042</div>
+</div>
+</div>
+<!-- Explanatory note -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">This will deactivate the employee's access and mark their record as inactive. Their historical data (leave, payroll, documents, etc.) will be retained.</p>
+<!-- Governance Info Box -->
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 flex-shrink-0">shield_person</span>
+<div>
+<span class="font-label-md text-label-md text-on-background font-bold">Governed action</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5 leading-snug">This action requires the 'HR Administrator' or 'People Manager' permission and will be recorded in the audit trail.</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-3 mt-6 pt-2">
+<button class="px-4 py-2 text-center rounded bg-surface-container-low hover:bg-surface-container text-on-background font-label-lg text-label-lg transition-colors" type="button">
+          Cancel
+        </button>
+<button class="px-4 py-2 text-center rounded bg-primary-container hover:opacity-90 text-on-primary font-label-lg text-label-lg transition-all shadow-sm" type="button">
+          Deactivate employee
+        </button>
+</div>
+</div>
+<!-- Card 5: Delete record (Destructive Action Modal) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col justify-between transition-all duration-200 hover:shadow-xl relative overflow-hidden">
+<div class="space-y-4">
+<!-- Dialog Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Delete record</h2>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-background transition-colors p-1 rounded-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Prompt Text -->
+<p class="font-body-md text-body-md text-on-surface">Are you sure you want to permanently delete this record?</p>
+<!-- Context Item Box -->
+<div class="bg-surface-container-low rounded-lg p-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-error flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">article</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-on-background truncate">Leave policy (draft)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Draft • Last modified: 19 Sep 2023</div>
+</div>
+</div>
+<!-- Explanatory note -->
+<p class="font-body-sm text-body-sm text-error font-medium">This will permanently delete the record. This action cannot be undone.</p>
+<!-- Governance Info Box -->
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 flex-shrink-0">lock</span>
+<div>
+<span class="font-label-md text-label-md text-on-background font-bold">Allowed for non-referenced records only</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5 leading-snug">Hard delete is only available for draft or unreferenced configuration records. This action will be recorded in the audit trail.</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-3 mt-6 pt-2">
+<button class="px-4 py-2 text-center rounded bg-surface-container-low hover:bg-surface-container text-on-background font-label-lg text-label-lg transition-colors" type="button">
+          Cancel
+        </button>
+<button class="px-4 py-2 text-center rounded bg-error hover:opacity-90 text-on-error font-label-lg text-label-lg transition-all shadow-sm" type="button">
+          Delete
+        </button>
+</div>
+</div>
+<!-- Implementation & Policy Matrix Card (Complementary Enterprise Slot) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col justify-between transition-all duration-200 hover:shadow-xl relative overflow-hidden">
+<div class="space-y-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">rule_folder</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Governance Policy</h2>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">ErgonX Standard</span>
+</div>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 mt-2"></span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Every state mutation within institutional environments must adhere to multi-party audit protocols.</p>
+<!-- Metric / Spec Breakdown -->
+<div class="space-y-2 pt-1">
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Immutable Audit Logs</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-bold">SHA-256</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Destructive Confirmation</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-bold">Strict 2-Step</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rollback Period</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-bold">14 Days Soft-Retain</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Engineered to meet statutory compliance across SOX, GDPR Article 17, and regional higher education frameworks.</p>
+</div>
+<div class="mt-6 pt-2">
+<button class="w-full px-4 py-2 text-center rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>View Design Specification</span>
+</button>
+</div>
+</div>
+</div>
+</div></main>
+</div>
+<!-- END: MainContentArea -->
+</body></html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#3a475c","surface-container-high":"#dce9ff","surface-variant":"#d3e4fe","on-error-container":"#93000a","primary-container":"#0e1c2f","on-error":"#ffffff","secondary":"#0051d5","on-secondary-fixed":"#00174b","background":"#f8f9ff","tertiary-container":"#001f26","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-surface":"#0b1c30","on-tertiary":"#ffffff","on-tertiary-fixed-variant":"#004e5c","primary":"#000000","error":"#ba1a1a","primary-fixed":"#d6e3fe","primary-fixed-dim":"#bac7e1","on-secondary-fixed-variant":"#003ea8","on-secondary-container":"#fefcff","tertiary-fixed":"#acedff","on-tertiary-container":"#0090a9","surface":"#f8f9ff","surface-container":"#e5eeff","on-background":"#0b1c30","on-surface-variant":"#44474c","inverse-primary":"#bac7e1","surface-dim":"#cbdbf5","on-primary-container":"#77849c","tertiary":"#000000","on-primary-fixed":"#0e1c2f","surface-container-low":"#eff4ff","secondary-fixed":"#dbe1ff","error-container":"#ffdad6","surface-tint":"#525f75","on-tertiary-fixed":"#001f26","inverse-surface":"#213145","outline-variant":"#c5c6cd","surface-bright":"#f8f9ff","secondary-fixed-dim":"#b4c5ff","on-secondary":"#ffffff","secondary-container":"#316bf3","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","outline":"#75777d","tertiary-fixed-dim":"#4cd7f6"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-xl":"2rem","margin-mobile":"1rem","gutter":"1rem","margin":"1.5rem","gutter-compact":"0.75rem"},fontFamily:{"body-lg":["Manrope"],"label-sm":["Manrope"],"headline-sm":["Hanken Grotesk"],"label-md":["Manrope"],"body-sm":["Manrope"],"title-md":["Manrope"],"label-lg":["Manrope"],"display-lg-mobile":["Hanken Grotesk"],"body-md":["Manrope"],"headline-md":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"display-lg":["Hanken Grotesk"]},fontSize:{"body-lg":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"400"}],"title-md":["15px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"600"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"600"}],"display-lg-mobile":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-md":["13px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}],"display-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-primary-container z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary-container"><img alt="Brand logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-surface truncate tracking-tight">ErgonX</span><span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase truncate">Enterprise ERP</span></div></div><div class="mx-space-sm my-space-xs p-space-sm rounded-lg bg-inverse-surface flex items-center justify-between cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shrink-0"><span class="material-symbols-outlined text-sm">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-inverse-on-surface truncate">Rivermere Univ.</span><span class="font-label-sm text-label-sm text-primary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-primary-fixed-dim text-sm">unfold_more</span></div><nav class="flex flex-col px-space-xs py-space-sm gap-space-xs" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Core Overview</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="home" href="#">Home</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="insights" href="#">Insights</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Human Resources</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="hr-dashboard" href="#">HR Dashboard</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="employees" href="#">Employees</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="recruitment-pipeline-board" href="#">Recruitment</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="leave" href="#">Leave</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="attendance" href="#">Attendance</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="payroll" href="#">Payroll</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Accounting</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="accounting-dashboard" href="#">Accounting Dashboard</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="general-ledger" href="#">General Ledger</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="accounts-payable" href="#">Accounts Payable</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="accounts-receivable" href="#">Accounts Receivable</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="bank-reconciliation" href="#">Bank Reconciliation</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="budgets" href="#">Budgets</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="ergonx-desktop---financial-report-detail" href="#">Financial Reports</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Self Service</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="employee-home" href="#">Employee Home</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-profile" href="#">My Profile</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-documents" href="#">My Documents</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-leave" href="#">My Leave</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-attendance" href="#">My Attendance</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="my-payslips" href="#">My Payslips</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="security" href="#">Security</a><div class="px-space-sm pt-space-sm pb-space-xs font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Governance</div><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="reports-and-analytics-library" href="#">Reports &amp; Analytics</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="approvals" href="#">Approvals</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="audit-trail" href="#">Audit Trail</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="users-and-access" href="#">Users &amp; Access</a><a class="flex items-center px-space-sm py-space-xs rounded text-primary-fixed-dim hover:bg-inverse-surface hover:text-surface transition-colors font-body-md text-body-md" data-path="settings" href="#">Settings</a></nav></div><div class="p-space-md bg-inverse-surface/40"><div class="flex items-center gap-space-xs text-on-primary-container"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm">Statutory v4.12 Online</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-96"><a class="flex items-center gap-space-sm w-full bg-surface-container-low px-space-sm py-space-xs rounded-lg cursor-pointer hover:bg-surface-container transition-colors" data-path="global-search-results" href="#"><span class="material-symbols-outlined text-outline text-lg">search</span><span class="font-body-sm text-body-sm text-outline flex-1">Search entities, records, transactions...</span><kbd class="font-label-sm text-label-sm bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">⌘K</kbd></a></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface-variant">Core Services: Normal</span></div><div class="h-4 w-px bg-outline-variant"></div><button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" title="Toggle Theme"><span class="material-symbols-outlined text-lg">light_mode</span></button><a class="relative flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container transition-colors" data-path="notifications-center" href="#" title="Notifications"><span class="material-symbols-outlined text-lg">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></a><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm cursor-pointer"><img alt="Profile avatar of Kwame Mensah" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-on-surface-variant">SysAdmin • Finance</span></div><span class="material-symbols-outlined text-outline text-sm">expand_more</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-header / Breadcrumbs & View Meta Bar -->
+<section class="w-full bg-surface-container-lowest shadow-sm px-space-xl py-space-md">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-md">
+<!-- Top breadcrumbs row -->
+<div class="flex items-center justify-between">
+<nav aria-label="Breadcrumbs" class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-secondary flex items-center gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">home</span>
+<span>Home</span>
+</a>
+<span class="text-outline-variant font-bold">/</span>
+<span class="text-on-surface font-title-md text-title-md">Global Search</span>
+</nav>
+<div class="hidden lg:flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Indexed across 6 interconnected databases</span>
+</div>
+</div>
+<!-- Main Search Section Header Title -->
+<div class="flex flex-wrap items-baseline justify-between gap-space-sm">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Global Search</h1>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Search Parameters</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+<span>Audit Query Log</span>
+</button>
+</div>
+</div>
+<!-- Search Input Bar & Quick Action Controls -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-space-md pt-space-xs">
+<div class="relative flex-1 flex items-center bg-surface-container-low rounded shadow-sm focus-within:ring-2 focus-within:ring-secondary/20">
+<div class="pl-space-md pr-space-xs flex items-center text-outline">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="w-full bg-transparent py-2.5 px-space-xs text-on-surface font-body-lg text-body-lg placeholder:text-outline focus:outline-none" id="global-search-input" placeholder="Search across employees, pay records, GL, vouchers, candidates..." type="text" value="jordan"/>
+<button aria-label="Clear query" class="px-space-sm py-1 text-outline hover:text-on-surface transition-colors flex items-center" id="clear-search-btn" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-lg py-2.5 bg-primary-container text-on-primary rounded font-label-lg text-label-lg hover:bg-inverse-surface shadow-sm transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-base">search</span>
+<span>Search</span>
+</button>
+<a class="inline-flex items-center gap-1.5 px-space-sm py-2 rounded text-secondary hover:bg-secondary/5 font-label-lg text-label-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-lg text-secondary">help_outline</span>
+<span>Search tips</span>
+</a>
+<div class="relative">
+<button class="inline-flex items-center gap-1.5 px-space-sm py-2 rounded text-on-surface hover:bg-surface-container font-label-lg text-label-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-lg text-secondary">bookmark</span>
+<span>Saved searches</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Filter Controls Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<!-- Dropdown Module -->
+<div class="relative">
+<button class="flex items-center gap-2 px-space-sm py-1.5 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="text-outline">Module:</span>
+<span class="font-semibold">All modules</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Dropdown Record Types -->
+<div class="relative">
+<button class="flex items-center gap-2 px-space-sm py-1.5 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="text-outline">Type:</span>
+<span class="font-semibold">All record types</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Dropdown Period -->
+<div class="relative">
+<button class="flex items-center gap-2 px-space-sm py-1.5 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="text-outline">Timeline:</span>
+<span class="font-semibold">Any time</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Dropdown Location -->
+<div class="relative">
+<button class="flex items-center gap-2 px-space-sm py-1.5 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="text-outline">Location:</span>
+<span class="font-semibold">All locations</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Dropdown Department -->
+<div class="relative">
+<button class="flex items-center gap-2 px-space-sm py-1.5 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="text-outline">Dept:</span>
+<span class="font-semibold">All departments</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+</div>
+<div>
+<button class="text-secondary font-label-md text-label-md hover:underline font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">restart_alt</span>
+<span>Clear all</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Multi-Column Results Viewport -->
+<div class="w-full max-w-[1440px] mx-auto px-space-xl py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT RAIL: Facets & Search History (3 Cols) -->
+<aside class="lg:col-span-3 flex flex-col gap-space-md">
+<!-- Module Category Distribution Card -->
+<div class="bg-surface-container-lowest rounded shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Results (24)</h2>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Indexed</span>
+</div>
+<nav aria-label="Search categories" class="flex flex-col gap-1">
+<a class="flex items-center justify-between px-space-sm py-2 rounded bg-surface-container text-secondary font-label-lg text-label-lg transition-all" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-lg">group</span>
+<span>People</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold">8</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-colors" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-lg">payments</span>
+<span>Payroll</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">4</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-colors" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-lg">pie_chart</span>
+<span>Accounting</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">3</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-colors" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-lg">work_outline</span>
+<span>Recruitment</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">4</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-colors" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-lg">description</span>
+<span>Documents</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">3</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded text-on-surface hover:bg-surface-container-low font-label-lg text-label-lg transition-colors" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-lg">settings</span>
+<span>Settings</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">2</span>
+</a>
+</nav>
+</div>
+<!-- Recent Searches List Card -->
+<div class="bg-surface-container-lowest rounded shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-outline text-lg">history</span>
+<span>Recent searches</span>
+</div>
+<button class="font-label-sm text-label-sm text-outline hover:text-secondary transition-colors">Clear</button>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center justify-between px-space-sm py-1.5 rounded bg-surface-container text-on-surface font-body-sm text-body-sm font-semibold transition-all" href="#">
+<div class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-secondary text-base">schedule</span>
+<span class="truncate">jordan</span>
+</div>
+<span class="material-symbols-outlined text-xs text-secondary">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#">
+<div class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-outline text-base">schedule</span>
+<span class="truncate">payroll policy</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Mar 10</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#">
+<div class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-outline text-base">schedule</span>
+<span class="truncate">vacation balance</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Mar 08</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#">
+<div class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-outline text-base">schedule</span>
+<span class="truncate">recruitment status</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Feb 28</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#">
+<div class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-outline text-base">schedule</span>
+<span class="truncate">finance report</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Feb 22</span>
+</a>
+</div>
+</div>
+<!-- System Governance & Search Performance Diagnostic Card -->
+<div class="bg-surface-container-low rounded shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">speed</span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-bold">Query Diagnostics</span>
+</div>
+<div class="flex flex-col gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex justify-between items-center py-0.5">
+<span>Query Execution:</span>
+<span class="font-semibold text-on-surface">38 ms</span>
+</div>
+<div class="flex justify-between items-center py-0.5">
+<span>Tenant Scope:</span>
+<span class="font-semibold text-on-surface">Rivermere Univ. (All Orgs)</span>
+</div>
+<div class="flex justify-between items-center py-0.5">
+<span>ACL Enforced:</span>
+<span class="text-secondary font-semibold">Strict Role (Kwame M.)</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- RIGHT FEED: Structured Result Groups (9 Cols) -->
+<main class="lg:col-span-9 flex flex-col gap-space-lg">
+<!-- Results Counter & Sorting Bar -->
+<div class="bg-surface-container-lowest rounded shadow-sm p-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Showing <strong class="font-bold text-secondary">24</strong> results for</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">“jordan”</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Sort by:</span>
+<div class="relative">
+<select class="appearance-none bg-surface-container-low text-on-surface font-label-lg text-label-lg px-space-md py-1.5 pr-8 rounded focus:outline-none cursor-pointer">
+<option value="relevance">Relevance</option>
+<option value="recent">Most Recent</option>
+<option value="alpha">Alphabetical</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+</div>
+<!-- ================= GROUP 1: PEOPLE (8) ================= -->
+<section class="flex flex-col gap-space-xs">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-secondary text-xl">group</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">People <span class="font-normal text-on-surface-variant font-body-lg text-body-lg">(8)</span></h2>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-secondary hover:underline font-semibold group" href="#">
+<span>View all people results</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Result Items Stack -->
+<div class="flex flex-col gap-space-xs">
+<!-- Record Item 1 -->
+<article class="group bg-surface-container-lowest hover:bg-surface-container-low rounded shadow-sm p-space-md transition-all cursor-pointer flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<!-- Avatar Token -->
+<div class="w-11 h-11 rounded-lg bg-surface-container-high text-secondary flex items-center justify-center font-headline-sm text-headline-sm font-bold shrink-0">
+                  JT
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-baseline gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors font-bold truncate">
+                      Jordan Taylor
+                    </h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">Active Staff</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                    Employee <span class="mx-1">•</span> Human Resources <span class="mx-1">•</span> Employee ID: <span class="font-mono text-on-surface">EMP-1047</span> <span class="mx-1">|</span> IT <span class="mx-1">|</span> Rivermere University
+                  </p>
+<p class="font-body-md text-body-md text-on-surface pt-1.5 line-clamp-1">
+                    ... <mark class="bg-surface-container-high text-on-surface font-semibold px-0.5 rounded">Jordan</mark> Taylor is a Systems Administrator in the IT department handling campus identity provisioning and network directory...
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="hidden sm:inline-block font-label-md text-label-md text-outline">Updated Mar 12, 2025</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</article>
+<!-- Record Item 2 -->
+<article class="group bg-surface-container-lowest hover:bg-surface-container-low rounded shadow-sm p-space-md transition-all cursor-pointer flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<!-- Avatar Token -->
+<div class="w-11 h-11 rounded-lg bg-surface-container-high text-secondary flex items-center justify-center font-headline-sm text-headline-sm font-bold shrink-0">
+                  JA
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-baseline gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors font-bold truncate">
+                      Jordan Ali
+                    </h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-primary-fixed-variant font-medium">Applicant</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                    Candidate <span class="mx-1">•</span> Recruitment <span class="mx-1">•</span> Application ID: <span class="font-mono text-on-surface">REC-3281</span> <span class="mx-1">|</span> Graduate Programme <span class="mx-1">|</span> Applied Feb 18, 2025
+                  </p>
+<p class="font-body-md text-body-md text-on-surface pt-1.5 line-clamp-1">
+                    ... <mark class="bg-surface-container-high text-on-surface font-semibold px-0.5 rounded">Jordan</mark> Ali applied for the Data Analyst role. Status: Under Review with Finance Hiring Board panel...
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="hidden sm:inline-block font-label-md text-label-md text-outline">Updated Feb 18, 2025</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</article>
+</div>
+</section>
+<!-- ================= GROUP 2: PAYROLL (4) ================= -->
+<section class="flex flex-col gap-space-xs">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-secondary text-xl">database</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Payroll <span class="font-normal text-on-surface-variant font-body-lg text-body-lg">(4)</span></h2>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-secondary hover:underline font-semibold group" href="#">
+<span>View all payroll results</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Result Items Stack -->
+<div class="flex flex-col gap-space-xs">
+<!-- Record Item 3 -->
+<article class="group bg-surface-container-lowest hover:bg-surface-container-low rounded shadow-sm p-space-md transition-all cursor-pointer flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<!-- Icon Token -->
+<div class="w-11 h-11 rounded-lg bg-surface-container text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">description</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-baseline gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors font-bold truncate">
+                      Payroll Record – Jordan Taylor
+                    </h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">Disbursed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                    Payroll record <span class="mx-1">•</span> Payroll <span class="mx-1">•</span> Period: <span class="font-semibold text-on-surface">Mar 2025</span> <span class="mx-1">|</span> Employee ID: <span class="font-mono text-on-surface">EMP-1047</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface pt-1.5 line-clamp-1">
+                    ... Basic salary, allowances and deductions for <mark class="bg-surface-container-high text-on-surface font-semibold px-0.5 rounded">Jordan</mark> Taylor (Mar 2025) deposited through Standard University Direct Remittance...
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="hidden sm:inline-block font-label-md text-label-md text-outline">Updated Mar 31, 2025</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</article>
+<!-- Record Item 4 -->
+<article class="group bg-surface-container-lowest hover:bg-surface-container-low rounded shadow-sm p-space-md transition-all cursor-pointer flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<!-- Icon Token -->
+<div class="w-11 h-11 rounded-lg bg-surface-container text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-baseline gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors font-bold truncate">
+                      PAYE Submission – March 2025
+                    </h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">Statutory</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                    Submission <span class="mx-1">•</span> Payroll <span class="mx-1">•</span> Tax year: <span class="font-semibold text-on-surface">2024/25</span> <span class="mx-1">|</span> Includes: <span class="font-semibold text-on-surface">Jordan Taylor</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface pt-1.5 line-clamp-1">
+                    ... PAYE submission includes <mark class="bg-surface-container-high text-on-surface font-semibold px-0.5 rounded">Jordan</mark> Taylor and 342 other employees filed electronically with state revenue authorities...
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="hidden sm:inline-block font-label-md text-label-md text-outline">Updated Mar 11, 2025</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</article>
+</div>
+</section>
+<!-- ================= GROUP 3: ACCOUNTING (3) ================= -->
+<section class="flex flex-col gap-space-xs">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-secondary text-xl">pie_chart</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Accounting <span class="font-normal text-on-surface-variant font-body-lg text-body-lg">(3)</span></h2>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-secondary hover:underline font-semibold group" href="#">
+<span>View all accounting results</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Result Items Stack -->
+<div class="flex flex-col gap-space-xs">
+<!-- Record Item 5 -->
+<article class="group bg-surface-container-lowest hover:bg-surface-container-low rounded shadow-sm p-space-md transition-all cursor-pointer flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<!-- Icon Token -->
+<div class="w-11 h-11 rounded-lg bg-surface-container text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">store</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-baseline gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors font-bold truncate">
+                      Vendor – Jordan Systems Ltd
+                    </h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-primary-fixed-variant font-medium">Verified Supplier</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                    Supplier <span class="mx-1">•</span> Accounting <span class="mx-1">•</span> Supplier ID: <span class="font-mono text-on-surface">SUP-0176</span> <span class="mx-1">|</span> Status: <span class="text-secondary font-semibold">Active</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface pt-1.5 line-clamp-1">
+                    ... <mark class="bg-surface-container-high text-on-surface font-semibold px-0.5 rounded">Jordan</mark> Systems Ltd – IT equipment and support services provider contracted under annual Master Services Agreement...
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="hidden sm:inline-block font-label-md text-label-md text-outline">Updated Jan 20, 2025</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</article>
+<!-- Record Item 6 -->
+<article class="group bg-surface-container-lowest hover:bg-surface-container-low rounded shadow-sm p-space-md transition-all cursor-pointer flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<!-- Icon Token -->
+<div class="w-11 h-11 rounded-lg bg-surface-container text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">request_quote</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-baseline gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors font-bold truncate">
+                      Invoice INV-7743
+                    </h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">Accounts Payable</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                    Transaction <span class="mx-1">•</span> Accounting <span class="mx-1">•</span> Supplier: <span class="font-semibold text-on-surface">Jordan Systems Ltd</span> <span class="mx-1">|</span> Date: <span class="text-on-surface">Feb 10, 2025</span> <span class="mx-1">|</span> Amount: <span class="font-mono font-bold text-on-surface">USD 12,450.00</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface pt-1.5 line-clamp-1">
+                    ... Invoice INV-7743 from <mark class="bg-surface-container-high text-on-surface font-semibold px-0.5 rounded">Jordan</mark> Systems Ltd for IT infrastructure quarterly maintenance and cloud tenant renewals...
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="hidden sm:inline-block font-label-md text-label-md text-outline">Updated Feb 10, 2025</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</article>
+</div>
+</section>
+<!-- Pagination Footer Strip -->
+<div class="bg-surface-container-lowest rounded shadow-sm p-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            Showing records 1 - 6 of 24 matches
+          </div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors" disabled="">
+              Previous
+            </button>
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary font-label-md text-label-md font-bold">1</button>
+<button class="px-space-sm py-1 rounded hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">2</button>
+<button class="px-space-sm py-1 rounded hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">3</button>
+<button class="px-space-sm py-1 rounded hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors">4</button>
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+              Next
+            </button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive clear input feature
+  const clearBtn = document.getElementById('clear-search-btn');
+  const searchInput = document.getElementById('global-search-input');
+  
+  if (clearBtn && searchInput) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchInput.focus();
+    });
+  }
+</script></main></div></body></html>

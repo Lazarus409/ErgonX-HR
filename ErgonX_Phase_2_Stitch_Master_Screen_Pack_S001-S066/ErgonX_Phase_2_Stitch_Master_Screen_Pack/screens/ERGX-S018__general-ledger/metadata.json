@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S018",
+  "sequence": 18,
+  "title": "General Ledger",
+  "slug": "general-ledger",
+  "module": "ACCOUNTING",
+  "module_group": "accounting",
+  "canonical_route_hint": "/accounting/general-ledger",
+  "source_archive": "stitch_ergonx_ui (18).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "a28017381665a289ed2d09cd6d699d73aecad958385d9735890db5e38757fe93",
+      "bytes": 293792
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "a44c4040a1681e3c5b40ab187f244dd5cf9a468c23973741253ed213d91b81f9",
+      "bytes": 35823
+    }
+  ]
+}

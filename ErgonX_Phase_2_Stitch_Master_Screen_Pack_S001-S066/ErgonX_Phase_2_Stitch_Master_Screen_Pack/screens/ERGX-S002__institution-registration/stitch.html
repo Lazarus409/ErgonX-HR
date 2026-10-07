@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ErgonX - Institution Registration</title>
+<!-- Tailwind CSS CDN with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans / Inter style enterprise typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#0a192f',
+              dark: '#0f172a',
+              deep: '#0B1E36',
+              cyan: '#00D2FF',
+              sky: '#3a8ef6',
+              border: '#E2E8F0',
+              inputBg: '#FFFFFF',
+              inputBorder: '#D8E2EE',
+            }
+          },
+          boxShadow: {
+            'card-elevated': '0 24px 60px -12px rgba(15, 23, 42, 0.08), 0 8px 24px -8px rgba(0, 130, 255, 0.04)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Aurora Background Styling -->
+<style data-purpose="aurora-background">
+    body {
+      background-color: #f6f9fc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Soft curved organic cyan/blue ambient light effects mimicking the screenshot */
+    .aurora-top-right {
+      position: absolute;
+      top: -10vw;
+      right: -10vw;
+      width: 55vw;
+      height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125, 211, 252, 0.45) 0%, rgba(186, 230, 253, 0.25) 45%, rgba(246, 249, 252, 0) 75%);
+      filter: blur(55px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .aurora-bottom-right {
+      position: absolute;
+      bottom: -15vw;
+      right: -5vw;
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199, 210, 254, 0.4) 0%, rgba(165, 243, 252, 0.2) 50%, rgba(246, 249, 252, 0) 75%);
+      filter: blur(65px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .aurora-top-center {
+      position: absolute;
+      top: 0%;
+      left: 35%;
+      width: 40vw;
+      height: 30vw;
+      background: radial-gradient(circle, rgba(224, 242, 254, 0.5) 0%, rgba(240, 249, 255, 0) 70%);
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Elegant swoosh overlay lines for architectural fluid feel */
+    .fluid-swoosh {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 60%;
+      background: radial-gradient(ellipse at 80% 20%, rgba(147, 197, 253, 0.25), transparent 60%),
+                  radial-gradient(ellipse at 95% 85%, rgba(186, 230, 253, 0.35), transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+<!-- END: Custom Aurora Background Styling -->
+<!-- BEGIN: Form Custom Utility Styling -->
+<style data-purpose="form-controls">
+    .custom-input, .custom-select {
+      background-color: #ffffff;
+      border: 1.5px solid #dbe4ef;
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.875rem;
+      font-size: 0.875rem;
+      color: #1e293b;
+      transition: all 0.15s ease-in-out;
+      width: 100%;
+    }
+
+    .custom-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .custom-input:focus, .custom-select:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .custom-label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 0.375rem;
+    }
+  </style>
+<!-- END: Form Custom Utility Styling -->
+</head>
+<body class="antialiased text-slate-800 flex items-center justify-center p-4 sm:p-6 lg:p-12 relative min-h-screen">
+<!-- Ambient Fluid Lighting Elements -->
+<div class="aurora-top-right"></div>
+<div class="aurora-bottom-right"></div>
+<div class="aurora-top-center"></div>
+<div class="fluid-swoosh"></div>
+<!-- BEGIN: MainContainer -->
+<main class="relative z-10 w-full max-w-[1360px] mx-auto py-4">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+<!-- BEGIN: LeftInfoColumn -->
+<!-- Left Column: Branding, Navigation and Title Description -->
+<section class="lg:col-span-4 flex flex-col pt-2 lg:pt-6" data-purpose="branding-and-heading">
+<!-- Logo Header -->
+<header class="mb-10 lg:mb-14">
+<a aria-label="ErgonX Home" class="inline-flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-sky-500 rounded" href="#">
+<span class="text-3xl lg:text-[2.35rem] font-black tracking-tight text-slate-900 leading-none">
+              Ergon
+            </span>
+<!-- Geometric stylized gradient X matching reference -->
+<span class="relative inline-flex items-center justify-center text-3xl lg:text-[2.35rem] font-black leading-none bg-gradient-to-tr from-[#00D2FF] via-[#0ea5e9] to-[#38bdf8] bg-clip-text text-transparent">
+              X
+            </span>
+</a>
+</header>
+<!-- Back Link Navigation -->
+<div class="mb-8 lg:mb-12">
+<a class="group inline-flex items-center text-sm font-semibold text-sky-600 hover:text-sky-700 transition-colors" href="#signin">
+<svg aria-hidden="true" class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Back to sign in</span>
+</a>
+</div>
+<!-- Big Display Header & Context -->
+<div>
+<h1 class="text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-slate-900 leading-[1.12] tracking-tight">
+            Get your<br class="hidden sm:inline"/> ErgonX account
+          </h1>
+<p class="mt-4 text-base sm:text-lg text-slate-500 max-w-sm font-normal leading-relaxed">
+            Create your organization to set up access for your team.
+          </p>
+</div>
+<!-- Trust Badges & Certifications (Discreet enterprise touch) -->
+<div class="mt-12 hidden lg:flex items-center gap-4 text-xs text-slate-400">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>SOC 2 Type II Certified</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>256-bit SSL Encryption</span>
+</div>
+</div>
+</section>
+<!-- END: LeftInfoColumn -->
+<!-- BEGIN: RegistrationCard -->
+<!-- Right Form Card: 2-Column Institutional Setup -->
+<section class="lg:col-span-8 bg-white/95 backdrop-blur-sm rounded-2xl shadow-card-elevated border border-slate-100 p-6 sm:p-9 lg:p-11" data-purpose="registration-card">
+<form class="space-y-8" id="institutionForm" onsubmit="event.preventDefault();">
+<!-- BEGIN: FormTwoColumns -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+<!-- Column 1: Institution Details -->
+<fieldset class="space-y-4" data-purpose="institution-details">
+<legend class="text-xl font-bold text-slate-900 tracking-tight pb-2 border-b border-transparent">
+                Institution details
+              </legend>
+<!-- Legal Name -->
+<div>
+<label class="custom-label" for="institutionName">Legal name of institution</label>
+<input class="custom-input" id="institutionName" name="institutionName" placeholder="e.g. Acme University" required="" type="text"/>
+</div>
+<!-- Institution Type -->
+<div>
+<label class="custom-label" for="institutionType">Institution type</label>
+<div class="relative">
+<select class="custom-select appearance-none pr-10 cursor-pointer text-slate-700" id="institutionType" name="institutionType" required="">
+<option class="text-slate-400" disabled="" selected="" value="">Select institution type</option>
+<option value="higher-education">Higher Education</option>
+<option value="k12">K-12 Education</option>
+<option value="healthcare">Healthcare</option>
+<option value="government">Government &amp; Public Sector</option>
+<option value="enterprise">Corporate Enterprise</option>
+<option value="non-profit">Non-Profit &amp; Research</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Country Selection -->
+<div>
+<label class="custom-label" for="country">Country</label>
+<div class="relative">
+<select class="custom-select appearance-none pr-10 cursor-pointer text-slate-700" id="country" name="country" required="">
+<option disabled="" selected="" value="">Select country</option>
+<option value="GH">Ghana</option>
+<option value="US">United States</option>
+<option value="GB">United Kingdom</option>
+<option value="CA">Canada</option>
+<option value="NG">Nigeria</option>
+<option value="KE">Kenya</option>
+<option value="ZA">South Africa</option>
+<option value="DE">Germany</option>
+<option value="FR">France</option>
+<option value="AU">Australia</option>
+<option value="AE">United Arab Emirates</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Employee / Workforce Size -->
+<div>
+<label class="custom-label" for="employeeSize">Employee size</label>
+<div class="relative">
+<select class="custom-select appearance-none pr-10 cursor-pointer text-slate-700" id="employeeSize" name="employeeSize" required="">
+<option disabled="" selected="" value="">Select employee size</option>
+<option value="1-50">1 - 50 employees</option>
+<option value="51-250">51 - 250 employees</option>
+<option value="251-1000">251 - 1,000 employees</option>
+<option value="1001-5000">1,001 - 5,000 employees</option>
+<option value="5000+">5,000+ employees</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Official Website URL -->
+<div>
+<label class="custom-label" for="website">Website</label>
+<input class="custom-input" id="website" name="website" placeholder="https://www.yourinstitution.edu" required="" type="url"/>
+</div>
+</fieldset>
+<!-- Column 2: Administrator Details -->
+<fieldset class="space-y-4" data-purpose="admin-details">
+<legend class="text-xl font-bold text-slate-900 tracking-tight pb-2 border-b border-transparent">
+                Admin details
+              </legend>
+<!-- Name Fields Split (First & Last) -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="custom-label" for="firstName">First name</label>
+<input class="custom-input" id="firstName" name="firstName" placeholder="e.g. Jordan" required="" type="text"/>
+</div>
+<div>
+<label class="custom-label" for="lastName">Last name</label>
+<input class="custom-input" id="lastName" name="lastName" placeholder="e.g. Taylor" required="" type="text"/>
+</div>
+</div>
+<!-- Work Email -->
+<div>
+<label class="custom-label" for="workEmail">Work email</label>
+<input class="custom-input" id="workEmail" name="workEmail" placeholder="e.g. jordan.taylor@yourinstitution.edu" required="" type="email"/>
+</div>
+<!-- Phone Number Input with Country Code -->
+<div>
+<label class="custom-label" for="phoneNumber">Phone number</label>
+<div class="relative flex rounded-md">
+<input class="custom-input" id="phoneNumber" name="phoneNumber" placeholder="e.g. +1 415 555 0123" required="" type="tel"/>
+</div>
+</div>
+<!-- Password Creation with View Toggle -->
+<div>
+<label class="custom-label" for="password">Create a password</label>
+<div class="relative">
+<input class="custom-input pr-10" id="password" name="password" placeholder="Enter a password" required="" type="password"/>
+<!-- Toggle Password Visibility Button -->
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none" data-purpose="password-visibility-toggle" id="togglePasswordBtn" type="button">
+<!-- Eye Icon -->
+<svg class="w-5 h-5" fill="none" id="eyeIcon" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<!-- Eye Slash (Hidden by default) -->
+<svg class="w-5 h-5 hidden" fill="none" id="eyeSlashIcon" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Micro-copy hint for password rules -->
+<p class="mt-1.5 text-xs text-slate-400">Must be at least 8 characters with 1 number and 1 symbol.</p>
+</div>
+</fieldset>
+</div>
+<!-- END: FormTwoColumns -->
+<!-- Form Bottom Section: Compliance, Submit Action, and Trust Guarantee -->
+<div class="pt-3 border-t border-slate-100 space-y-6">
+<!-- Checkbox Terms of Service -->
+<div class="flex items-center space-x-3">
+<input class="h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500 cursor-pointer" id="termsCheckbox" name="termsCheckbox" required="" type="checkbox"/>
+<label class="text-xs sm:text-sm text-slate-600 select-none" for="termsCheckbox">
+                I agree to the ErgonX 
+                <a class="font-medium text-sky-600 hover:text-sky-700 underline decoration-sky-300 underline-offset-2" href="#terms">Terms of Service</a> 
+                and acknowledge the 
+                <a class="font-medium text-sky-600 hover:text-sky-700 underline decoration-sky-300 underline-offset-2" href="#privacy">Privacy Policy</a>.
+              </label>
+</div>
+<!-- Primary Action CTA Button -->
+<div>
+<button class="w-full inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#0B1E36] hover:bg-[#081729] active:bg-[#050e1a] text-white font-semibold text-base rounded-lg transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 group" type="submit">
+<span>Create organization</span>
+<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Security Assurance Tagline -->
+<p class="text-center text-xs text-slate-500 font-normal">
+              Your information is secure and used only to set up your organization in ErgonX.
+            </p>
+</div>
+</form>
+</section>
+<!-- END: RegistrationCard -->
+</div>
+</main>
+<!-- END: MainContainer -->
+<!-- BEGIN: Interactive Password Toggle Script -->
+<script data-purpose="toggle-password-visibility">
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleBtn = document.getElementById('togglePasswordBtn');
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eyeIcon');
+      const eyeSlashIcon = document.getElementById('eyeSlashIcon');
+
+      if (toggleBtn && passwordInput) {
+        toggleBtn.addEventListener('click', function () {
+          const isPassword = passwordInput.getAttribute('type') === 'password';
+          if (isPassword) {
+            passwordInput.setAttribute('type', 'text');
+            eyeIcon.classList.add('hidden');
+            eyeSlashIcon.classList.remove('hidden');
+          } else {
+            passwordInput.setAttribute('type', 'password');
+            eyeIcon.classList.remove('hidden');
+            eyeSlashIcon.classList.add('hidden');
+          }
+        });
+      }
+    });
+  </script>
+<!-- END: Interactive Password Toggle Script -->
+</body></html>

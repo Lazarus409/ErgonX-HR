@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S057",
+  "screen_number": 57,
+  "title": "Recruitment Dashboard",
+  "slug": "recruitment-dashboard",
+  "module": "Recruitment",
+  "route_hint": "/recruitment",
+  "phase_2_classification": "Existing/partial \u2014 refine",
+  "implementation_wave": "Wave 4",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (57).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Pipeline should reflect real configured lifecycle stages and authoritative counts. Requisition creation is a real Phase 2 domain addition.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

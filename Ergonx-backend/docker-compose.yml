@@ -1,0 +1,26 @@
+# ErgonX HR database. Kept fully apart from the main ErgonX ERP:
+# own project name, container, port, credentials and data volume.
+name: ergonx-hr
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ergonx-hr-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ergonx_hr}
+      POSTGRES_USER: ${POSTGRES_USER:-ergonx_hr}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "${POSTGRES_PORT:-5434}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - ergonx_hr_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  ergonx_hr_postgres_data:
+    name: ergonx_hr_postgres_data

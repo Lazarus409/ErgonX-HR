@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S060",
+  "screen_number": 60,
+  "title": "Confirmation Dialog Patterns",
+  "slug": "confirmation-dialogs",
+  "module": "Design System / Platform",
+  "route_hint": "shared",
+  "phase_2_classification": "Design-system standard",
+  "implementation_wave": "Wave 1",
+  "priority": "P0",
+  "source_archive": "stitch_ergonx_ui (60).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Standardize confirmations for reversible, destructive and governed actions. Domain backend remains responsible for actual authorization, lifecycle and audit.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

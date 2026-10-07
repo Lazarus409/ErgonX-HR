@@ -1,0 +1,58 @@
+from django.contrib import admin
+
+from apps.accounting.models import (
+    Account,
+    AccountingPeriod,
+    AccountingPreset,
+    AccountingPresetVersion,
+    AccountTemplate,
+    ChartOfAccountsTemplate,
+    FiscalYear,
+    GhanaLocalizationVersion,
+    InstitutionAccountingConfiguration,
+    JournalEntry,
+    JournalLine,
+    TaxCode,
+    TaxComponent,
+    WithholdingRule,
+    Vendor,
+    VendorBill,
+    VendorBillLine,
+    Customer,
+    Invoice,
+    InvoiceLine,
+    BankAccount,
+    Payment,
+    Receipt,
+    Expense,
+)
+
+
+admin.site.register(
+    [
+        AccountingPreset,
+        AccountingPresetVersion,
+        GhanaLocalizationVersion,
+        TaxCode,
+        TaxComponent,
+        WithholdingRule,
+        Vendor,
+        VendorBill,
+        VendorBillLine,
+        Customer,
+        Invoice,
+        InvoiceLine,
+        BankAccount,
+        Payment,
+        Receipt,
+        Expense,
+        ChartOfAccountsTemplate,
+        AccountTemplate,
+        InstitutionAccountingConfiguration,
+        Account,
+        FiscalYear,
+        AccountingPeriod,
+        JournalEntry,
+        JournalLine,
+    ]
+)

@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S034",
+  "name": "Interview Scheduling",
+  "slug": "interview-scheduling",
+  "module": "Recruitment",
+  "route_hint": "/recruitment/interviews/new",
+  "classification": "phase2-extension",
+  "phase2_wave": "Wave 4",
+  "contract_status": "EXTEND",
+  "source_archive": "stitch_ergonx_ui (34).zip",
+  "source_archive_sha256": "34f4f3ef0bc045687d55037ea418661cc52bd5d55ec587d54a380a206d080531",
+  "stitch_h1": "Schedule interview",
+  "notes": "Internal interview scheduler with date/time, timezone, panel, candidate notification and conflict UI. External calendar/Teams availability remains future integration unless connected.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

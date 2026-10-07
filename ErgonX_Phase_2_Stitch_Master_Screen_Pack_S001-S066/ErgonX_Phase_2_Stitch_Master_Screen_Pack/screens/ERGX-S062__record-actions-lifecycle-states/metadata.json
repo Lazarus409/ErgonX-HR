@@ -1,0 +1,16 @@
+{
+  "screen_id": "ERGX-S062",
+  "screen_number": 62,
+  "title": "Record Actions & Lifecycle States",
+  "slug": "record-actions-lifecycle-states",
+  "module": "Governance / HR pattern",
+  "route_hint": "shared lifecycle pattern",
+  "phase_2_classification": "New Phase 2 governance pattern",
+  "implementation_wave": "Wave 0/2",
+  "priority": "P0",
+  "variant_of": null,
+  "source_archive": "stitch_ergonx_ui (62).zip",
+  "reference_image_status": "present",
+  "codex_guardrail": "Use as a reusable lifecycle-action pattern. Draft may be deletable when unreferenced; active/archived/finalized/immutable states require domain-specific safeguards. Finalized/immutable records use correction/reversal rather than destructive edit.",
+  "authority_note": "Stitch is a visual/reference source. ErgonX backend/domain invariants, tenant isolation, RBAC, module gating, audit and lifecycle rules are authoritative."
+}

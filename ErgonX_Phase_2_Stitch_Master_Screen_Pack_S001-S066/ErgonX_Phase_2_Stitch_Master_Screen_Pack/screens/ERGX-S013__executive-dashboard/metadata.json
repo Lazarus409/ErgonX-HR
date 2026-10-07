@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S013",
+  "sequence": 13,
+  "title": "Executive Dashboard",
+  "slug": "executive-dashboard",
+  "module": "REPORTS",
+  "module_group": "reports",
+  "canonical_route_hint": "/executive",
+  "source_archive": "stitch_ergonx_ui (13).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "45fd14e94d07bde25095ebd7d0d4faa882a58babbe1869d87bb6f57b52a53ee7",
+      "bytes": 505320
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "d6eea9f8878e9cf4b1f8fa51faad4e4630e1d241d83cf1f95bc9a3f3806f0bb4",
+      "bytes": 66535
+    }
+  ]
+}

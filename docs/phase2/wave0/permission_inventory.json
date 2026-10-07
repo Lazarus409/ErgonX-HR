@@ -1,0 +1,2864 @@
+{
+ "read_only_roles": [
+  "AUDITOR"
+ ],
+ "permissions": [
+  {
+   "code": "home.view",
+   "description": "View personalized home",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": true,
+   "endpoint_count": 17,
+   "endpoints": [
+    "DELETE /api/v1/employees/me/documents/{pk}/",
+    "DELETE /api/v1/employees/me/emergency-contacts/{pk}/",
+    "GET /api/v1/approvals/inbox/",
+    "GET /api/v1/employees/me/",
+    "GET /api/v1/employees/me/documents/",
+    "GET /api/v1/employees/me/documents/{pk}/",
+    "GET /api/v1/employees/me/emergency-contacts/",
+    "GET /api/v1/employees/me/profile/",
+    "GET /api/v1/home/",
+    "GET /api/v1/home/insights/",
+    "GET /api/v1/notifications/",
+    "PATCH /api/v1/employees/me/emergency-contacts/{pk}/",
+    "PATCH /api/v1/employees/me/profile/",
+    "POST /api/v1/employees/me/documents/",
+    "POST /api/v1/employees/me/emergency-contacts/",
+    "POST /api/v1/notifications/mark-all-read/",
+    "POST /api/v1/notifications/{notification_id}/mark-read/"
+   ]
+  },
+  {
+   "code": "search.use",
+   "description": "Use universal search",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "DELETE /api/v1/institutions/search/entries/",
+    "DELETE /api/v1/search/entries/",
+    "GET /api/v1/institutions/search/",
+    "GET /api/v1/institutions/search/entries/",
+    "GET /api/v1/search/",
+    "GET /api/v1/search/entries/",
+    "POST /api/v1/institutions/search/entries/",
+    "POST /api/v1/search/entries/"
+   ]
+  },
+  {
+   "code": "settings.profile.manage_self",
+   "description": "Manage personal preferences",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": true,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/institutions/preferences/",
+    "PUT /api/v1/institutions/preferences/"
+   ]
+  },
+  {
+   "code": "settings.institution.view",
+   "description": "View institution settings",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/institutions/settings/",
+    "PUT /api/v1/institutions/settings/"
+   ]
+  },
+  {
+   "code": "settings.institution.manage",
+   "description": "Manage institution settings",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "PATCH /api/v1/institutions/current/"
+   ]
+  },
+  {
+   "code": "settings.modules.manage",
+   "description": "Manage institution modules",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "GET /api/v1/institutions/modules/",
+    "GET /api/v1/institutions/modules/{pk}/",
+    "PATCH /api/v1/institutions/modules/{pk}/"
+   ]
+  },
+  {
+   "code": "settings.users.manage",
+   "description": "Manage institution memberships",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 10,
+   "endpoints": [
+    "GET /api/v1/institutions/invitations/",
+    "GET /api/v1/institutions/invitations/{pk}/",
+    "GET /api/v1/institutions/members/",
+    "GET /api/v1/institutions/members/{pk}/",
+    "PATCH /api/v1/institutions/members/{pk}/",
+    "POST /api/v1/institutions/invitations/",
+    "POST /api/v1/institutions/invitations/{pk}/resend/",
+    "POST /api/v1/institutions/invitations/{pk}/revoke/",
+    "POST /api/v1/institutions/members/",
+    "POST /api/v1/institutions/members/invite-link/"
+   ]
+  },
+  {
+   "code": "settings.roles.manage",
+   "description": "Manage custom roles and permissions",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "GET /api/v1/institutions/permissions/",
+    "GET /api/v1/institutions/roles/",
+    "GET /api/v1/institutions/roles/{pk}/",
+    "PATCH /api/v1/institutions/roles/{pk}/",
+    "POST /api/v1/institutions/roles/",
+    "POST /api/v1/institutions/roles/clone/"
+   ]
+  },
+  {
+   "code": "settings.notifications.manage",
+   "description": "Manage notification settings",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "settings.security.manage",
+   "description": "Manage institution security settings",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "audit.view",
+   "description": "View institution audit history",
+   "module": "CORE_HR",
+   "classification": "PRIVILEGED",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/audit/"
+   ]
+  },
+  {
+   "code": "onboarding.view",
+   "description": "View institution onboarding state",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/institutions/onboarding/",
+    "POST /api/v1/institutions/onboarding/"
+   ]
+  },
+  {
+   "code": "onboarding.manage",
+   "description": "Manage institution onboarding",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/institutions/onboarding/{step_code}/{action_name}/"
+   ]
+  },
+  {
+   "code": "job_posting.view",
+   "description": "View job postings",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "GET /api/v1/recruitment/job-postings/",
+    "GET /api/v1/recruitment/job-postings/people/",
+    "GET /api/v1/recruitment/job-postings/{pk}/",
+    "GET /api/v1/recruitment/job-postings/{pk}/activity/",
+    "GET /api/v1/recruitment/job-postings/{pk}/history/",
+    "GET /api/v1/recruitment/job-postings/{pk}/team/"
+   ]
+  },
+  {
+   "code": "job_posting.create",
+   "description": "Create and publish job postings",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/recruitment/job-postings/"
+   ]
+  },
+  {
+   "code": "job_posting.update",
+   "description": "Update and close job postings",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "DELETE /api/v1/recruitment/job-postings/{pk}/team/{member_id}/",
+    "PATCH /api/v1/recruitment/job-postings/{pk}/",
+    "POST /api/v1/recruitment/job-postings/{pk}/cancel/",
+    "POST /api/v1/recruitment/job-postings/{pk}/close/",
+    "POST /api/v1/recruitment/job-postings/{pk}/publish/",
+    "POST /api/v1/recruitment/job-postings/{pk}/submit-approval/",
+    "POST /api/v1/recruitment/job-postings/{pk}/team/",
+    "PUT /api/v1/recruitment/job-postings/{pk}/"
+   ]
+  },
+  {
+   "code": "job_posting.approve",
+   "description": "Approve job requisitions for publishing",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/recruitment/job-postings/{pk}/approve/",
+    "POST /api/v1/recruitment/job-postings/{pk}/return/"
+   ]
+  },
+  {
+   "code": "candidate.view",
+   "description": "View candidates and applications",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 15,
+   "endpoints": [
+    "GET /api/v1/dashboards/recruitment/",
+    "GET /api/v1/recruitment/applications/",
+    "GET /api/v1/recruitment/applications/pipeline/",
+    "GET /api/v1/recruitment/applications/{pk}/",
+    "GET /api/v1/recruitment/applications/{pk}/overview/",
+    "GET /api/v1/recruitment/applications/{pk}/scorecard/",
+    "GET /api/v1/recruitment/applications/{pk}/stage-history/",
+    "GET /api/v1/recruitment/candidates/",
+    "GET /api/v1/recruitment/candidates/document-categories/",
+    "GET /api/v1/recruitment/candidates/{pk}/",
+    "GET /api/v1/recruitment/candidates/{pk}/documents/",
+    "GET /api/v1/recruitment/candidates/{pk}/documents/{document_id}/download/",
+    "PATCH /api/v1/recruitment/applications/{pk}/",
+    "POST /api/v1/recruitment/applications/{pk}/scorecard/",
+    "PUT /api/v1/recruitment/applications/{pk}/"
+   ]
+  },
+  {
+   "code": "candidate.create",
+   "description": "Create candidates and applications",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "POST /api/v1/recruitment/applications/",
+    "POST /api/v1/recruitment/applications/{pk}/submit/",
+    "POST /api/v1/recruitment/candidates/"
+   ]
+  },
+  {
+   "code": "candidate.update",
+   "description": "Update candidates and move applications",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 7,
+   "endpoints": [
+    "DELETE /api/v1/recruitment/candidates/{pk}/documents/{document_id}/",
+    "PATCH /api/v1/recruitment/candidates/{pk}/",
+    "POST /api/v1/recruitment/applications/{pk}/move-stage/",
+    "POST /api/v1/recruitment/applications/{pk}/reject/",
+    "POST /api/v1/recruitment/applications/{pk}/withdraw/",
+    "POST /api/v1/recruitment/candidates/{pk}/documents/",
+    "PUT /api/v1/recruitment/candidates/{pk}/"
+   ]
+  },
+  {
+   "code": "recruitment_stage.view",
+   "description": "View recruitment pipeline stages",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/recruitment/stages/",
+    "GET /api/v1/recruitment/stages/{pk}/"
+   ]
+  },
+  {
+   "code": "recruitment_stage.manage",
+   "description": "Manage recruitment pipeline stages",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "DELETE /api/v1/recruitment/stages/{pk}/",
+    "PATCH /api/v1/recruitment/stages/{pk}/",
+    "POST /api/v1/recruitment/stages/",
+    "PUT /api/v1/recruitment/stages/{pk}/"
+   ]
+  },
+  {
+   "code": "interview.view",
+   "description": "View interviews and evaluations",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/recruitment/evaluations/",
+    "GET /api/v1/recruitment/evaluations/{pk}/",
+    "GET /api/v1/recruitment/interviews/",
+    "GET /api/v1/recruitment/interviews/{pk}/"
+   ]
+  },
+  {
+   "code": "interview.manage",
+   "description": "Schedule and complete interviews",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/recruitment/interviews/availability/",
+    "POST /api/v1/recruitment/interviews/schedule/",
+    "POST /api/v1/recruitment/interviews/{pk}/reschedule/",
+    "POST /api/v1/recruitment/interviews/{pk}/set-status/"
+   ]
+  },
+  {
+   "code": "candidate_evaluation.create",
+   "description": "Record candidate evaluations",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/recruitment/evaluations/"
+   ]
+  },
+  {
+   "code": "offer.view",
+   "description": "View offers",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "GET /api/v1/recruitment/offers/",
+    "GET /api/v1/recruitment/offers/{pk}/",
+    "GET /api/v1/recruitment/offers/{pk}/activity/"
+   ]
+  },
+  {
+   "code": "offer.create",
+   "description": "Create and extend offers",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "PATCH /api/v1/recruitment/offers/{pk}/",
+    "POST /api/v1/recruitment/offers/",
+    "POST /api/v1/recruitment/offers/{pk}/extend/",
+    "POST /api/v1/recruitment/offers/{pk}/generate-letter/",
+    "POST /api/v1/recruitment/offers/{pk}/submit-approval/",
+    "PUT /api/v1/recruitment/offers/{pk}/"
+   ]
+  },
+  {
+   "code": "offer.manage",
+   "description": "Accept, decline, withdraw, and hire offers",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "POST /api/v1/recruitment/offers/{pk}/accept/",
+    "POST /api/v1/recruitment/offers/{pk}/decline/",
+    "POST /api/v1/recruitment/offers/{pk}/hire/",
+    "POST /api/v1/recruitment/offers/{pk}/withdraw/"
+   ]
+  },
+  {
+   "code": "offer.approve",
+   "description": "Approve offers before they are sent",
+   "module": "RECRUITMENT",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/recruitment/offers/{pk}/approve/",
+    "POST /api/v1/recruitment/offers/{pk}/return/"
+   ]
+  },
+  {
+   "code": "import_job.view",
+   "description": "View import jobs and row results",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/import-jobs/",
+    "GET /api/v1/import-jobs/{pk}/",
+    "GET /api/v1/import-row-results/",
+    "GET /api/v1/import-row-results/{pk}/"
+   ]
+  },
+  {
+   "code": "import_job.create",
+   "description": "Create import jobs",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/import-jobs/",
+    "POST /api/v1/import-jobs/{pk}/confirm/"
+   ]
+  },
+  {
+   "code": "export_job.view",
+   "description": "View export jobs",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "GET /api/v1/export-jobs/",
+    "GET /api/v1/export-jobs/{pk}/",
+    "GET /api/v1/export-jobs/{pk}/download/"
+   ]
+  },
+  {
+   "code": "export_job.create",
+   "description": "Create export jobs",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/export-jobs/"
+   ]
+  },
+  {
+   "code": "background_job.view",
+   "description": "View background jobs",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/background-jobs/",
+    "GET /api/v1/background-jobs/{pk}/"
+   ]
+  },
+  {
+   "code": "approval_workflow.view",
+   "description": "View approval workflows",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/approval-workflow-steps/",
+    "GET /api/v1/approval-workflow-steps/{pk}/",
+    "GET /api/v1/approval-workflows/",
+    "GET /api/v1/approval-workflows/{pk}/"
+   ]
+  },
+  {
+   "code": "approval_workflow.create",
+   "description": "Create approval workflows",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/approval-workflow-steps/",
+    "POST /api/v1/approval-workflows/"
+   ]
+  },
+  {
+   "code": "approval_workflow.update",
+   "description": "Update approval workflows",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "PATCH /api/v1/approval-workflow-steps/{pk}/",
+    "PATCH /api/v1/approval-workflows/{pk}/",
+    "PUT /api/v1/approval-workflow-steps/{pk}/",
+    "PUT /api/v1/approval-workflows/{pk}/"
+   ]
+  },
+  {
+   "code": "approval_workflow.delete",
+   "description": "Deactivate approval workflows",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "DELETE /api/v1/approval-workflow-steps/{pk}/",
+    "DELETE /api/v1/approval-workflows/{pk}/"
+   ]
+  },
+  {
+   "code": "approval_request.view",
+   "description": "View approval requests",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/approval-actions/",
+    "GET /api/v1/approval-actions/{pk}/",
+    "GET /api/v1/approval-requests/",
+    "GET /api/v1/approval-requests/{pk}/"
+   ]
+  },
+  {
+   "code": "approval_request.create",
+   "description": "Submit approval requests",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/approval-requests/"
+   ]
+  },
+  {
+   "code": "document.view",
+   "description": "View shared documents",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "document.create",
+   "description": "Create shared document references",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "document.update",
+   "description": "Update shared document metadata",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "document.delete",
+   "description": "Deactivate shared documents",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "report.view",
+   "description": "View and export institution reports",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 17,
+   "endpoints": [
+    "GET /api/v1/report-library/",
+    "GET /api/v1/report-library/options/",
+    "GET /api/v1/report-library/{pk}/",
+    "GET /api/v1/report-library/{pk}/activity/",
+    "GET /api/v1/reports/accounting/",
+    "GET /api/v1/reports/ap-ar/",
+    "GET /api/v1/reports/attendance/",
+    "GET /api/v1/reports/expenses/",
+    "GET /api/v1/reports/leave/",
+    "GET /api/v1/reports/payroll/",
+    "GET /api/v1/reports/recruitment/",
+    "GET /api/v1/reports/workforce-cost/",
+    "PATCH /api/v1/report-library/{pk}/",
+    "POST /api/v1/report-library/",
+    "POST /api/v1/report-library/{pk}/duplicate/",
+    "POST /api/v1/report-library/{pk}/refresh/",
+    "POST /api/v1/report-library/{pk}/share/"
+   ]
+  },
+  {
+   "code": "report.all",
+   "description": "View every report institution-wide, read-only, without the underlying module permissions",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "DIRECTOR",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "report.publish",
+   "description": "Publish saved dashboards and reports to everyone with access",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "dashboard.executive.view",
+   "description": "View executive dashboard",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "DIRECTOR",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/dashboards/executive/"
+   ]
+  },
+  {
+   "code": "dashboard.hr.view",
+   "description": "View HR dashboard",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/dashboards/hr/"
+   ]
+  },
+  {
+   "code": "dashboard.leave.view",
+   "description": "View leave dashboard",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/dashboards/leave/"
+   ]
+  },
+  {
+   "code": "dashboard.attendance.view",
+   "description": "View attendance dashboard",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/dashboards/attendance/"
+   ]
+  },
+  {
+   "code": "dashboard.payroll.view",
+   "description": "View payroll dashboard",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/dashboards/payroll/"
+   ]
+  },
+  {
+   "code": "dashboard.finance.view",
+   "description": "View finance dashboard",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/dashboards/finance/"
+   ]
+  },
+  {
+   "code": "dashboard.department.view",
+   "description": "View the dashboard for departments the member heads",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/dashboards/department/"
+   ]
+  },
+  {
+   "code": "institution.view",
+   "description": "View current institution",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "GET /api/v1/institutions/current/"
+   ]
+  },
+  {
+   "code": "organization.view",
+   "description": "View organization records",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "GET /api/v1/departments/",
+    "GET /api/v1/departments/{pk}/",
+    "GET /api/v1/grades/",
+    "GET /api/v1/grades/{pk}/",
+    "GET /api/v1/locations/",
+    "GET /api/v1/locations/{pk}/",
+    "GET /api/v1/positions/",
+    "GET /api/v1/positions/{pk}/"
+   ]
+  },
+  {
+   "code": "organization.create",
+   "description": "Create organization records",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "POST /api/v1/departments/",
+    "POST /api/v1/grades/",
+    "POST /api/v1/locations/",
+    "POST /api/v1/positions/"
+   ]
+  },
+  {
+   "code": "organization.update",
+   "description": "Update organization records",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "PATCH /api/v1/departments/{pk}/",
+    "PATCH /api/v1/grades/{pk}/",
+    "PATCH /api/v1/locations/{pk}/",
+    "PATCH /api/v1/positions/{pk}/",
+    "PUT /api/v1/departments/{pk}/",
+    "PUT /api/v1/grades/{pk}/",
+    "PUT /api/v1/locations/{pk}/",
+    "PUT /api/v1/positions/{pk}/"
+   ]
+  },
+  {
+   "code": "organization.delete",
+   "description": "Deactivate or delete organization records",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "DELETE /api/v1/departments/{pk}/",
+    "DELETE /api/v1/grades/{pk}/",
+    "DELETE /api/v1/locations/{pk}/",
+    "DELETE /api/v1/positions/{pk}/"
+   ]
+  },
+  {
+   "code": "employee.view",
+   "description": "View employees",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/emergency-contacts/",
+    "GET /api/v1/emergency-contacts/{pk}/",
+    "GET /api/v1/employees/",
+    "GET /api/v1/employees/{pk}/"
+   ]
+  },
+  {
+   "code": "employee.create",
+   "description": "Create employees",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/emergency-contacts/",
+    "POST /api/v1/employees/"
+   ]
+  },
+  {
+   "code": "employee.update",
+   "description": "Update employees",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 11,
+   "endpoints": [
+    "PATCH /api/v1/emergency-contacts/{pk}/",
+    "PATCH /api/v1/employees/{pk}/",
+    "POST /api/v1/employees/invite-self-service/",
+    "POST /api/v1/employees/{pk}/invite-self-service/",
+    "POST /api/v1/employees/{pk}/offboarding/complete/",
+    "POST /api/v1/employees/{pk}/offboarding/start/",
+    "POST /api/v1/employees/{pk}/onboarding/complete/",
+    "POST /api/v1/employees/{pk}/onboarding/start/",
+    "POST /api/v1/employees/{pk}/rehire/",
+    "PUT /api/v1/emergency-contacts/{pk}/",
+    "PUT /api/v1/employees/{pk}/"
+   ]
+  },
+  {
+   "code": "employee.delete",
+   "description": "Deactivate or delete employees",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "DELETE /api/v1/emergency-contacts/{pk}/",
+    "DELETE /api/v1/employees/{pk}/"
+   ]
+  },
+  {
+   "code": "employment.view",
+   "description": "View employment history",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/employees/{pk}/employment-history/",
+    "GET /api/v1/employees/{pk}/lifecycle/",
+    "GET /api/v1/employments/",
+    "GET /api/v1/employments/{pk}/"
+   ]
+  },
+  {
+   "code": "employment.create",
+   "description": "Create employment records",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/employments/"
+   ]
+  },
+  {
+   "code": "employment.update",
+   "description": "Update employment records",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "PATCH /api/v1/employments/{pk}/",
+    "PUT /api/v1/employments/{pk}/"
+   ]
+  },
+  {
+   "code": "employment.delete",
+   "description": "Delete employment records",
+   "module": "CORE_HR",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 0,
+   "endpoints": []
+  },
+  {
+   "code": "leave.view",
+   "description": "View leave records",
+   "module": "LEAVE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": true,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 14,
+   "endpoints": [
+    "GET /api/v1/leave-approvals/",
+    "GET /api/v1/leave-approvals/{pk}/",
+    "GET /api/v1/leave-balances/",
+    "GET /api/v1/leave-balances/{pk}/",
+    "GET /api/v1/leave-policies/",
+    "GET /api/v1/leave-policies/{pk}/",
+    "GET /api/v1/leave-requests/",
+    "GET /api/v1/leave-requests/calendar/",
+    "GET /api/v1/leave-requests/{pk}/",
+    "GET /api/v1/leave-requests/{pk}/comments/",
+    "GET /api/v1/leave-requests/{pk}/review/",
+    "GET /api/v1/leave-types/",
+    "GET /api/v1/leave-types/{pk}/",
+    "POST /api/v1/leave-requests/{pk}/comments/"
+   ]
+  },
+  {
+   "code": "leave.request",
+   "description": "Request and submit leave",
+   "module": "LEAVE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": true,
+   "read_only_role_write_exempt": true,
+   "endpoint_count": 4,
+   "endpoints": [
+    "PATCH /api/v1/leave-requests/{pk}/",
+    "POST /api/v1/leave-requests/",
+    "POST /api/v1/leave-requests/{pk}/cancel/",
+    "POST /api/v1/leave-requests/{pk}/submit/"
+   ]
+  },
+  {
+   "code": "leave.approve",
+   "description": "Approve leave requests",
+   "module": "LEAVE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "GET /api/v1/leave-requests/{pk}/delegates/",
+    "POST /api/v1/leave-requests/{pk}/approve/",
+    "POST /api/v1/leave-requests/{pk}/delegate/",
+    "POST /api/v1/leave-requests/{pk}/request-changes/"
+   ]
+  },
+  {
+   "code": "leave.reject",
+   "description": "Reject leave requests",
+   "module": "LEAVE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/leave-requests/{pk}/reject/"
+   ]
+  },
+  {
+   "code": "leave.configure",
+   "description": "Configure leave types and policies",
+   "module": "LEAVE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "DELETE /api/v1/leave-policies/{pk}/",
+    "DELETE /api/v1/leave-types/{pk}/",
+    "PATCH /api/v1/leave-policies/{pk}/",
+    "PATCH /api/v1/leave-types/{pk}/",
+    "POST /api/v1/leave-policies/",
+    "POST /api/v1/leave-types/",
+    "PUT /api/v1/leave-policies/{pk}/",
+    "PUT /api/v1/leave-types/{pk}/"
+   ]
+  },
+  {
+   "code": "leave.balance.manage",
+   "description": "Manage employee leave balances",
+   "module": "LEAVE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "DELETE /api/v1/leave-balances/{pk}/",
+    "PATCH /api/v1/leave-balances/{pk}/",
+    "POST /api/v1/leave-balances/",
+    "POST /api/v1/leave-balances/{pk}/accrue/",
+    "POST /api/v1/leave-balances/{pk}/carry-forward/",
+    "PUT /api/v1/leave-balances/{pk}/"
+   ]
+  },
+  {
+   "code": "schedule.view",
+   "description": "View work schedules",
+   "module": "ATTENDANCE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": true,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 16,
+   "endpoints": [
+    "GET /api/v1/flexible-work-rules/",
+    "GET /api/v1/flexible-work-rules/{pk}/",
+    "GET /api/v1/rotation-patterns/",
+    "GET /api/v1/rotation-patterns/{pk}/",
+    "GET /api/v1/rotation-steps/",
+    "GET /api/v1/rotation-steps/{pk}/",
+    "GET /api/v1/schedule-assignments/",
+    "GET /api/v1/schedule-assignments/{pk}/",
+    "GET /api/v1/shift-pattern-days/",
+    "GET /api/v1/shift-pattern-days/{pk}/",
+    "GET /api/v1/shift-patterns/",
+    "GET /api/v1/shift-patterns/{pk}/",
+    "GET /api/v1/shifts/",
+    "GET /api/v1/shifts/{pk}/",
+    "GET /api/v1/work-schedules/",
+    "GET /api/v1/work-schedules/{pk}/"
+   ]
+  },
+  {
+   "code": "schedule.manage",
+   "description": "Configure and assign work schedules",
+   "module": "ATTENDANCE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 29,
+   "endpoints": [
+    "DELETE /api/v1/flexible-work-rules/{pk}/",
+    "DELETE /api/v1/rotation-patterns/{pk}/",
+    "DELETE /api/v1/rotation-steps/{pk}/",
+    "DELETE /api/v1/shift-pattern-days/{pk}/",
+    "DELETE /api/v1/shift-patterns/{pk}/",
+    "DELETE /api/v1/shifts/{pk}/",
+    "DELETE /api/v1/work-schedules/{pk}/",
+    "PATCH /api/v1/flexible-work-rules/{pk}/",
+    "PATCH /api/v1/rotation-patterns/{pk}/",
+    "PATCH /api/v1/rotation-steps/{pk}/",
+    "PATCH /api/v1/shift-pattern-days/{pk}/",
+    "PATCH /api/v1/shift-patterns/{pk}/",
+    "PATCH /api/v1/shifts/{pk}/",
+    "PATCH /api/v1/work-schedules/{pk}/",
+    "POST /api/v1/flexible-work-rules/",
+    "POST /api/v1/rotation-patterns/",
+    "POST /api/v1/rotation-steps/",
+    "POST /api/v1/schedule-assignments/",
+    "POST /api/v1/shift-pattern-days/",
+    "POST /api/v1/shift-patterns/",
+    "POST /api/v1/shifts/",
+    "POST /api/v1/work-schedules/",
+    "PUT /api/v1/flexible-work-rules/{pk}/",
+    "PUT /api/v1/rotation-patterns/{pk}/",
+    "PUT /api/v1/rotation-steps/{pk}/",
+    "PUT /api/v1/shift-pattern-days/{pk}/",
+    "PUT /api/v1/shift-patterns/{pk}/",
+    "PUT /api/v1/shifts/{pk}/",
+    "PUT /api/v1/work-schedules/{pk}/"
+   ]
+  },
+  {
+   "code": "attendance.view",
+   "description": "View attendance records",
+   "module": "ATTENDANCE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": true,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 10,
+   "endpoints": [
+    "GET /api/v1/attendance-adjustments/",
+    "GET /api/v1/attendance-adjustments/{pk}/",
+    "GET /api/v1/attendance-adjustments/{pk}/review/",
+    "GET /api/v1/attendance-records/",
+    "GET /api/v1/attendance-records/calendar/",
+    "GET /api/v1/attendance-records/{pk}/",
+    "GET /api/v1/overtime-records/",
+    "GET /api/v1/overtime-records/{pk}/",
+    "POST /api/v1/attendance-records/",
+    "POST /api/v1/overtime-records/"
+   ]
+  },
+  {
+   "code": "attendance.clock",
+   "description": "Clock in and out",
+   "module": "ATTENDANCE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": true,
+   "read_only_role_write_exempt": true,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/attendance-records/clock-in/",
+    "POST /api/v1/attendance-records/{pk}/clock-out/"
+   ]
+  },
+  {
+   "code": "attendance.adjust",
+   "description": "Request attendance adjustments",
+   "module": "ATTENDANCE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": true,
+   "read_only_role_write_exempt": true,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/attendance-adjustments/",
+    "POST /api/v1/attendance-adjustments/{pk}/resubmit/"
+   ]
+  },
+  {
+   "code": "attendance.manage",
+   "description": "Manage attendance records",
+   "module": "ATTENDANCE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/attendance-records/classify/"
+   ]
+  },
+  {
+   "code": "attendance.approve",
+   "description": "Approve attendance adjustments and overtime",
+   "module": "ATTENDANCE",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 7,
+   "endpoints": [
+    "GET /api/v1/attendance-adjustments/{pk}/delegates/",
+    "POST /api/v1/attendance-adjustments/{pk}/approve/",
+    "POST /api/v1/attendance-adjustments/{pk}/delegate/",
+    "POST /api/v1/attendance-adjustments/{pk}/reject/",
+    "POST /api/v1/attendance-adjustments/{pk}/request-changes/",
+    "POST /api/v1/overtime-records/{pk}/approve/",
+    "POST /api/v1/overtime-records/{pk}/reject/"
+   ]
+  },
+  {
+   "code": "compensation.view",
+   "description": "View employee compensation",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 5,
+   "endpoints": [
+    "GET /api/v1/employee-compensations/",
+    "GET /api/v1/employee-compensations/{pk}/",
+    "GET /api/v1/employee-compensations/{pk}/resolved/",
+    "GET /api/v1/employee-pay-components/",
+    "GET /api/v1/employee-pay-components/{pk}/"
+   ]
+  },
+  {
+   "code": "compensation.configure",
+   "description": "Configure pay components and salary structures",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 18,
+   "endpoints": [
+    "DELETE /api/v1/pay-components/{pk}/",
+    "DELETE /api/v1/salary-structure-components/{pk}/",
+    "DELETE /api/v1/salary-structures/{pk}/",
+    "GET /api/v1/pay-components/",
+    "GET /api/v1/pay-components/{pk}/",
+    "GET /api/v1/salary-structure-components/",
+    "GET /api/v1/salary-structure-components/{pk}/",
+    "GET /api/v1/salary-structures/",
+    "GET /api/v1/salary-structures/{pk}/",
+    "PATCH /api/v1/pay-components/{pk}/",
+    "PATCH /api/v1/salary-structure-components/{pk}/",
+    "PATCH /api/v1/salary-structures/{pk}/",
+    "POST /api/v1/pay-components/",
+    "POST /api/v1/salary-structure-components/",
+    "POST /api/v1/salary-structures/",
+    "PUT /api/v1/pay-components/{pk}/",
+    "PUT /api/v1/salary-structure-components/{pk}/",
+    "PUT /api/v1/salary-structures/{pk}/"
+   ]
+  },
+  {
+   "code": "compensation.manage",
+   "description": "Manage employee compensation and overrides",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "POST /api/v1/employee-compensations/",
+    "POST /api/v1/employee-pay-components/",
+    "POST /api/v1/employee-pay-components/{pk}/end/"
+   ]
+  },
+  {
+   "code": "payroll.view",
+   "description": "View payroll configuration and transactions",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 37,
+   "endpoints": [
+    "GET /api/v1/compliance-deadlines/",
+    "GET /api/v1/compliance-deadlines/{pk}/",
+    "GET /api/v1/contribution-allocations/",
+    "GET /api/v1/contribution-allocations/{pk}/",
+    "GET /api/v1/contribution-rules/",
+    "GET /api/v1/contribution-rules/{pk}/",
+    "GET /api/v1/payroll-adjustments/",
+    "GET /api/v1/payroll-adjustments/{pk}/",
+    "GET /api/v1/payroll-configurations/",
+    "GET /api/v1/payroll-configurations/choices/",
+    "GET /api/v1/payroll-configurations/{pk}/",
+    "GET /api/v1/payroll-items/",
+    "GET /api/v1/payroll-items/{pk}/",
+    "GET /api/v1/payroll-periods/",
+    "GET /api/v1/payroll-periods/{pk}/",
+    "GET /api/v1/payroll-periods/{pk}/compliance-deadlines/",
+    "GET /api/v1/payroll-preset-versions/",
+    "GET /api/v1/payroll-preset-versions/{pk}/",
+    "GET /api/v1/payroll-presets/",
+    "GET /api/v1/payroll-presets/{pk}/",
+    "GET /api/v1/payroll-records/",
+    "GET /api/v1/payroll-records/{pk}/",
+    "GET /api/v1/payroll-runs/",
+    "GET /api/v1/payroll-runs/{pk}/",
+    "GET /api/v1/payroll-runs/{pk}/activity/",
+    "GET /api/v1/payroll-runs/{pk}/exceptions/",
+    "GET /api/v1/payroll-runs/{pk}/reconcile/",
+    "GET /api/v1/special-income-rules/",
+    "GET /api/v1/special-income-rules/{pk}/",
+    "GET /api/v1/statutory-thresholds/",
+    "GET /api/v1/statutory-thresholds/{pk}/",
+    "GET /api/v1/tax-bands/",
+    "GET /api/v1/tax-bands/{pk}/",
+    "GET /api/v1/tax-relief-definitions/",
+    "GET /api/v1/tax-relief-definitions/{pk}/",
+    "GET /api/v1/tax-rules/",
+    "GET /api/v1/tax-rules/{pk}/"
+   ]
+  },
+  {
+   "code": "payroll.configure",
+   "description": "Configure payroll rules and periods",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "GET /api/v1/employee-payroll-profiles/",
+    "GET /api/v1/employee-payroll-profiles/{pk}/",
+    "PATCH /api/v1/employee-payroll-profiles/{pk}/",
+    "PATCH /api/v1/payroll-configurations/{pk}/",
+    "POST /api/v1/employee-payroll-profiles/",
+    "POST /api/v1/payroll-configurations/"
+   ]
+  },
+  {
+   "code": "payroll.prepare",
+   "description": "Prepare and calculate payroll runs",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "ACCOUNTANT"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 9,
+   "endpoints": [
+    "POST /api/v1/payroll-adjustments/",
+    "POST /api/v1/payroll-adjustments/{pk}/submit/",
+    "POST /api/v1/payroll-periods/",
+    "POST /api/v1/payroll-runs/",
+    "POST /api/v1/payroll-runs/{pk}/calculate/",
+    "POST /api/v1/payroll-runs/{pk}/cancel/",
+    "POST /api/v1/payroll-runs/{pk}/exceptions/{exception_id}/",
+    "POST /api/v1/payroll-runs/{pk}/submit-review/",
+    "POST /api/v1/payroll-runs/{pk}/validate/"
+   ]
+  },
+  {
+   "code": "payroll.approve",
+   "description": "Approve payroll runs and adjustments",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "POST /api/v1/payroll-adjustments/{pk}/approve/",
+    "POST /api/v1/payroll-adjustments/{pk}/reject/",
+    "POST /api/v1/payroll-runs/{pk}/approve/"
+   ]
+  },
+  {
+   "code": "payroll.finalize",
+   "description": "Finalize payroll runs",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/payroll-runs/{pk}/finalize/"
+   ]
+  },
+  {
+   "code": "payslip.view",
+   "description": "View payslips",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": true,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/payslips/",
+    "GET /api/v1/payslips/{pk}/"
+   ]
+  },
+  {
+   "code": "tax_relief.view",
+   "description": "View tax relief claims",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "DIRECTOR",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/employee-tax-relief-claims/",
+    "GET /api/v1/employee-tax-relief-claims/{pk}/"
+   ]
+  },
+  {
+   "code": "tax_relief.claim",
+   "description": "Create and submit tax relief claims",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "EMPLOYEE",
+    "DEPARTMENT_HEAD"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": true,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/employee-tax-relief-claims/",
+    "POST /api/v1/employee-tax-relief-claims/{pk}/submit/"
+   ]
+  },
+  {
+   "code": "tax_relief.approve",
+   "description": "Approve tax relief claims",
+   "module": "PAYROLL",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "HR_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/employee-tax-relief-claims/{pk}/approve/",
+    "POST /api/v1/employee-tax-relief-claims/{pk}/reject/"
+   ]
+  },
+  {
+   "code": "accounting.configure",
+   "description": "Configure institution accounting",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 7,
+   "endpoints": [
+    "PATCH /api/v1/accounting-configurations/{pk}/",
+    "PATCH /api/v1/ghana-compliance-reminders/{pk}/",
+    "POST /api/v1/accounting-configurations/",
+    "POST /api/v1/accounting-periods/",
+    "POST /api/v1/accounting-preset-versions/{pk}/apply/",
+    "POST /api/v1/fiscal-years/",
+    "POST /api/v1/ghana-compliance-reminders/"
+   ]
+  },
+  {
+   "code": "account.view",
+   "description": "View the chart of accounts",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 28,
+   "endpoints": [
+    "GET /api/v1/account-templates/",
+    "GET /api/v1/account-templates/{pk}/",
+    "GET /api/v1/accounting-configurations/",
+    "GET /api/v1/accounting-configurations/choices/",
+    "GET /api/v1/accounting-configurations/{pk}/",
+    "GET /api/v1/accounting-periods/",
+    "GET /api/v1/accounting-periods/{pk}/",
+    "GET /api/v1/accounting-preset-versions/",
+    "GET /api/v1/accounting-preset-versions/{pk}/",
+    "GET /api/v1/accounting-presets/",
+    "GET /api/v1/accounting-presets/{pk}/",
+    "GET /api/v1/accounts/",
+    "GET /api/v1/accounts/balances/",
+    "GET /api/v1/accounts/{pk}/",
+    "GET /api/v1/chart-of-accounts-templates/",
+    "GET /api/v1/chart-of-accounts-templates/{pk}/",
+    "GET /api/v1/fiscal-years/",
+    "GET /api/v1/fiscal-years/{pk}/",
+    "GET /api/v1/ghana-localization-versions/",
+    "GET /api/v1/ghana-localization-versions/{pk}/",
+    "GET /api/v1/payroll-account-mapping-templates/",
+    "GET /api/v1/payroll-account-mapping-templates/{pk}/",
+    "GET /api/v1/tax-codes/",
+    "GET /api/v1/tax-codes/{pk}/",
+    "GET /api/v1/tax-components/",
+    "GET /api/v1/tax-components/{pk}/",
+    "GET /api/v1/withholding-rules/",
+    "GET /api/v1/withholding-rules/{pk}/"
+   ]
+  },
+  {
+   "code": "account.create",
+   "description": "Create chart-of-account records",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/accounts/"
+   ]
+  },
+  {
+   "code": "account.update",
+   "description": "Update chart-of-account records",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "PATCH /api/v1/accounts/{pk}/"
+   ]
+  },
+  {
+   "code": "journal.view",
+   "description": "View journals and ledger entries",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "GET /api/v1/accounts/{pk}/activity/",
+    "GET /api/v1/journal-entries/",
+    "GET /api/v1/journal-entries/{pk}/",
+    "GET /api/v1/journal-entries/{pk}/attachments/{document_id}/download/",
+    "GET /api/v1/journal-entries/{pk}/context/",
+    "GET /api/v1/journal-lines/",
+    "GET /api/v1/journal-lines/{pk}/",
+    "POST /api/v1/journal-entries/{pk}/notes/"
+   ]
+  },
+  {
+   "code": "journal.create",
+   "description": "Create and submit journals",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "PATCH /api/v1/journal-entries/{pk}/",
+    "POST /api/v1/journal-entries/",
+    "POST /api/v1/journal-entries/{pk}/attachments/",
+    "POST /api/v1/journal-entries/{pk}/submit/",
+    "POST /api/v1/journal-entries/{pk}/void/",
+    "POST /api/v1/payroll-runs/{pk}/generate-accounting-journal/"
+   ]
+  },
+  {
+   "code": "journal.approve",
+   "description": "Approve journals",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/journal-entries/{pk}/approve/"
+   ]
+  },
+  {
+   "code": "journal.post",
+   "description": "Post approved journals",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/journal-entries/{pk}/post/"
+   ]
+  },
+  {
+   "code": "journal.reverse",
+   "description": "Create journal reversals",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/journal-entries/{pk}/reverse/"
+   ]
+  },
+  {
+   "code": "financial_report.view",
+   "description": "View accounting reports",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 10,
+   "endpoints": [
+    "GET /api/v1/accounting-reports/balance-sheet/",
+    "GET /api/v1/accounting-reports/general-ledger/",
+    "GET /api/v1/accounting-reports/income-statement/",
+    "GET /api/v1/accounting-reports/trial-balance/",
+    "GET /api/v1/financial-reports/",
+    "GET /api/v1/financial-reports/{pk}/",
+    "GET /api/v1/financial-reports/{pk}/runs/",
+    "GET /api/v1/ghana-compliance-reminders/",
+    "GET /api/v1/ghana-compliance-reminders/{pk}/",
+    "POST /api/v1/financial-reports/{pk}/run/"
+   ]
+  },
+  {
+   "code": "financial_report.manage",
+   "description": "Create, edit and schedule saved financial reports",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "PATCH /api/v1/financial-reports/{pk}/",
+    "POST /api/v1/financial-reports/"
+   ]
+  },
+  {
+   "code": "accounting_period.close",
+   "description": "Close and lock accounting periods",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "POST /api/v1/accounting-periods/{pk}/close/",
+    "POST /api/v1/accounting-periods/{pk}/lock/",
+    "POST /api/v1/fiscal-years/{pk}/close/"
+   ]
+  },
+  {
+   "code": "accounting_period.reopen",
+   "description": "Reopen closed accounting periods",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/accounting-periods/{pk}/reopen/"
+   ]
+  },
+  {
+   "code": "budget.view",
+   "description": "View budgets and budget-versus-actual",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "DIRECTOR",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER",
+    "AUDITOR"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 7,
+   "endpoints": [
+    "GET /api/v1/budgets/",
+    "GET /api/v1/budgets/options/",
+    "GET /api/v1/budgets/overview/",
+    "GET /api/v1/budgets/{pk}/",
+    "GET /api/v1/budgets/{pk}/attachments/{document_id}/download/",
+    "GET /api/v1/budgets/{pk}/detail_view/",
+    "POST /api/v1/budgets/{pk}/notes/"
+   ]
+  },
+  {
+   "code": "budget.manage",
+   "description": "Create and edit budgets",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "PATCH /api/v1/budgets/{pk}/",
+    "POST /api/v1/budgets/",
+    "POST /api/v1/budgets/{pk}/attachments/",
+    "POST /api/v1/budgets/{pk}/submit/"
+   ]
+  },
+  {
+   "code": "budget.approve",
+   "description": "Approve budgets",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "DIRECTOR",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/budgets/{pk}/approve/",
+    "POST /api/v1/budgets/{pk}/return/"
+   ]
+  },
+  {
+   "code": "vendor.view",
+   "description": "View vendors",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/vendors/",
+    "GET /api/v1/vendors/{pk}/"
+   ]
+  },
+  {
+   "code": "vendor.create",
+   "description": "Create vendors",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/vendors/"
+   ]
+  },
+  {
+   "code": "vendor.update",
+   "description": "Update vendors",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "PATCH /api/v1/vendors/{pk}/"
+   ]
+  },
+  {
+   "code": "vendor_bill.view",
+   "description": "View vendor bills",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "GET /api/v1/vendor-bills/",
+    "GET /api/v1/vendor-bills/batch-jobs/",
+    "GET /api/v1/vendor-bills/summary/",
+    "GET /api/v1/vendor-bills/{pk}/",
+    "GET /api/v1/vendor-bills/{pk}/attachments/{document_id}/download/",
+    "GET /api/v1/vendor-bills/{pk}/context/",
+    "POST /api/v1/vendor-bills/bulk/execute/",
+    "POST /api/v1/vendor-bills/bulk/preview/"
+   ]
+  },
+  {
+   "code": "vendor_bill.create",
+   "description": "Create, edit, and submit vendor bills",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 5,
+   "endpoints": [
+    "PATCH /api/v1/vendor-bills/{pk}/",
+    "POST /api/v1/vendor-bills/",
+    "POST /api/v1/vendor-bills/{pk}/attachments/",
+    "POST /api/v1/vendor-bills/{pk}/revise/",
+    "POST /api/v1/vendor-bills/{pk}/submit/"
+   ]
+  },
+  {
+   "code": "vendor_bill.approve",
+   "description": "Approve vendor bills",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 4,
+   "endpoints": [
+    "POST /api/v1/vendor-bills/{pk}/approve/",
+    "POST /api/v1/vendor-bills/{pk}/hold/",
+    "POST /api/v1/vendor-bills/{pk}/reject/",
+    "POST /api/v1/vendor-bills/{pk}/release/"
+   ]
+  },
+  {
+   "code": "vendor_bill.post",
+   "description": "Post approved vendor bills",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/vendor-bills/{pk}/post/"
+   ]
+  },
+  {
+   "code": "vendor_bill.void",
+   "description": "Void unposted vendor bills",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/vendor-bills/{pk}/void/"
+   ]
+  },
+  {
+   "code": "customer.view",
+   "description": "View customers",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/customers/",
+    "GET /api/v1/customers/{pk}/"
+   ]
+  },
+  {
+   "code": "customer.create",
+   "description": "Create customers",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/customers/"
+   ]
+  },
+  {
+   "code": "customer.update",
+   "description": "Update customers",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "PATCH /api/v1/customers/{pk}/"
+   ]
+  },
+  {
+   "code": "invoice.view",
+   "description": "View invoices",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "GET /api/v1/invoices/",
+    "GET /api/v1/invoices/summary/",
+    "GET /api/v1/invoices/{pk}/",
+    "GET /api/v1/invoices/{pk}/attachments/{document_id}/download/",
+    "GET /api/v1/invoices/{pk}/context/",
+    "GET /api/v1/invoices/{pk}/reminders/"
+   ]
+  },
+  {
+   "code": "invoice.create",
+   "description": "Create and edit invoices",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "PATCH /api/v1/invoices/{pk}/",
+    "POST /api/v1/invoices/",
+    "POST /api/v1/invoices/{pk}/attachments/"
+   ]
+  },
+  {
+   "code": "invoice.issue",
+   "description": "Issue invoices",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 6,
+   "endpoints": [
+    "POST /api/v1/invoices/{pk}/hold/",
+    "POST /api/v1/invoices/{pk}/issue/",
+    "POST /api/v1/invoices/{pk}/release/",
+    "POST /api/v1/invoices/{pk}/reminders/",
+    "POST /api/v1/invoices/{pk}/reminders/{reminder_id}/",
+    "POST /api/v1/invoices/{pk}/send/"
+   ]
+  },
+  {
+   "code": "invoice.void",
+   "description": "Void draft invoices",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/invoices/{pk}/void/"
+   ]
+  },
+  {
+   "code": "bank_account.view",
+   "description": "View bank accounts",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/bank-accounts/",
+    "GET /api/v1/bank-accounts/{pk}/"
+   ]
+  },
+  {
+   "code": "bank_account.create",
+   "description": "Create bank accounts",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/bank-accounts/"
+   ]
+  },
+  {
+   "code": "bank_account.update",
+   "description": "Update bank accounts",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "PATCH /api/v1/bank-accounts/{pk}/"
+   ]
+  },
+  {
+   "code": "payment.view",
+   "description": "View payments",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/payments/",
+    "GET /api/v1/payments/{pk}/"
+   ]
+  },
+  {
+   "code": "payment.create",
+   "description": "Create and post payments",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/payments/",
+    "POST /api/v1/vendor-bills/{pk}/schedule-payment/"
+   ]
+  },
+  {
+   "code": "payment.void",
+   "description": "Void posted payments",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/payments/{pk}/void/"
+   ]
+  },
+  {
+   "code": "receipt.view",
+   "description": "View receipts",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/receipts/",
+    "GET /api/v1/receipts/{pk}/"
+   ]
+  },
+  {
+   "code": "receipt.create",
+   "description": "Create and post receipts",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/receipts/"
+   ]
+  },
+  {
+   "code": "receipt.void",
+   "description": "Void posted receipts",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/receipts/{pk}/void/"
+   ]
+  },
+  {
+   "code": "expense.view",
+   "description": "View expenses",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/expenses/",
+    "GET /api/v1/expenses/{pk}/"
+   ]
+  },
+  {
+   "code": "expense.create",
+   "description": "Create and submit expenses",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "ACCOUNTANT",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "PATCH /api/v1/expenses/{pk}/",
+    "POST /api/v1/expenses/",
+    "POST /api/v1/expenses/{pk}/submit/"
+   ]
+  },
+  {
+   "code": "expense.approve",
+   "description": "Approve or reject expenses",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/expenses/{pk}/approve/",
+    "POST /api/v1/expenses/{pk}/reject/"
+   ]
+  },
+  {
+   "code": "expense.post",
+   "description": "Post approved expenses",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 1,
+   "endpoints": [
+    "POST /api/v1/expenses/{pk}/post/"
+   ]
+  },
+  {
+   "code": "payroll_accounting.view",
+   "description": "View payroll accounting mappings",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/pay-component-account-mappings/",
+    "GET /api/v1/pay-component-account-mappings/{pk}/"
+   ]
+  },
+  {
+   "code": "payroll_accounting.configure",
+   "description": "Configure payroll accounting mappings",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 3,
+   "endpoints": [
+    "PATCH /api/v1/pay-component-account-mappings/{pk}/",
+    "POST /api/v1/pay-component-account-mappings/",
+    "POST /api/v1/pay-component-account-mappings/apply-templates/"
+   ]
+  },
+  {
+   "code": "bank_reconciliation.view",
+   "description": "View bank statement lines and reconciliation state",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 7,
+   "endpoints": [
+    "GET /api/v1/bank-reconciliations/",
+    "GET /api/v1/bank-reconciliations/accounts/",
+    "GET /api/v1/bank-reconciliations/{pk}/",
+    "GET /api/v1/bank-reconciliations/{pk}/lines/{line_id}/suggestions/",
+    "GET /api/v1/bank-reconciliations/{pk}/report/",
+    "GET /api/v1/bank-statement-lines/",
+    "GET /api/v1/bank-statement-lines/{pk}/"
+   ]
+  },
+  {
+   "code": "bank_reconciliation.manage",
+   "description": "Import, match, and unmatch bank statement lines",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 8,
+   "endpoints": [
+    "PATCH /api/v1/bank-reconciliations/{pk}/",
+    "POST /api/v1/bank-reconciliations/",
+    "POST /api/v1/bank-reconciliations/{pk}/complete/",
+    "POST /api/v1/bank-reconciliations/{pk}/import/",
+    "POST /api/v1/bank-reconciliations/{pk}/lines/{line_id}/{operation}/",
+    "POST /api/v1/bank-statement-lines/",
+    "POST /api/v1/bank-statement-lines/{pk}/match/",
+    "POST /api/v1/bank-statement-lines/{pk}/unmatch/"
+   ]
+  },
+  {
+   "code": "vat_withholding_certificate.view",
+   "description": "View VAT withholding certificates",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "GET /api/v1/vat-withholding-certificates/",
+    "GET /api/v1/vat-withholding-certificates/{pk}/"
+   ]
+  },
+  {
+   "code": "vat_withholding_certificate.issue",
+   "description": "Issue and void VAT withholding certificates",
+   "module": "ACCOUNTING",
+   "classification": "NORMAL",
+   "roles": [
+    "INSTITUTION_ADMIN",
+    "FINANCE_MANAGER"
+   ],
+   "self_service_bundle": false,
+   "read_only_role_write_exempt": false,
+   "endpoint_count": 2,
+   "endpoints": [
+    "POST /api/v1/vat-withholding-certificates/",
+    "POST /api/v1/vat-withholding-certificates/{pk}/void/"
+   ]
+  }
+ ]
+}

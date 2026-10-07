@@ -1,0 +1,21 @@
+# pgAdmin for the ErgonX HR system. The HR database itself is defined in
+# Ergonx-backend/docker-compose.yml (container ergonx-hr-postgres, port 5434).
+# Names and ports differ from the main ErgonX ERP so both can run side by side.
+name: ergonx-hr-tools
+
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: ergonx-hr-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:?Set PGADMIN_DEFAULT_PASSWORD in .env}
+    ports:
+      - "5051:80"
+    volumes:
+      - ergonx_hr_pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  ergonx_hr_pgadmin_data:
+    name: ergonx_hr_pgadmin_data

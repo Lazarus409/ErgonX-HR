@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#213145", "surface-tint": "#525f75", "on-secondary-container": "#fefcff", "secondary-container": "#316bf3", "surface-bright": "#f8f9ff", "secondary": "#0051d5", "outline-variant": "#c5c6cd", "secondary-fixed-dim": "#b4c5ff", "on-primary-fixed": "#0e1c2f", "tertiary-container": "#001f26", "error-container": "#ffdad6", "on-secondary-fixed": "#00174b", "error": "#ba1a1a", "surface-container-high": "#dce9ff", "background": "#f8f9ff", "on-tertiary-fixed-variant": "#004e5c", "surface-container-lowest": "#ffffff", "surface-container": "#e5eeff", "tertiary": "#000000", "tertiary-fixed-dim": "#4cd7f6", "on-primary-fixed-variant": "#3a475c", "surface": "#f8f9ff", "on-primary": "#ffffff", "surface-dim": "#cbdbf5", "inverse-on-surface": "#eaf1ff", "secondary-fixed": "#dbe1ff", "on-error-container": "#93000a", "on-tertiary-container": "#0090a9", "on-tertiary": "#ffffff", "primary-fixed-dim": "#bac7e1", "on-tertiary-fixed": "#001f26", "inverse-primary": "#bac7e1", "on-surface-variant": "#44474c", "tertiary-fixed": "#acedff", "on-secondary": "#ffffff", "on-background": "#0b1c30", "primary": "#000000", "on-error": "#ffffff", "outline": "#75777d", "on-primary-container": "#77849c", "surface-container-low": "#eff4ff", "on-secondary-fixed-variant": "#003ea8", "surface-variant": "#d3e4fe", "primary-container": "#0e1c2f", "primary-fixed": "#d6e3fe", "surface-container-highest": "#d3e4fe", "on-surface": "#0b1c30" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2rem", "gutter-compact": "0.75rem", "margin-mobile": "1rem", "margin": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "headline-lg": ["Hanken Grotesk"], "headline-md": ["Hanken Grotesk"], "display-lg-mobile": ["Hanken Grotesk"], "label-sm": ["Manrope"], "body-sm": ["Manrope"], "display-lg": ["Hanken Grotesk"], "headline-sm": ["Hanken Grotesk"], "label-md": ["Manrope"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "label-lg": ["Manrope"], "title-md": ["Manrope"] }, "fontSize": { "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700"}], "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "display-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "label-md": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}], "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}], "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "label-lg": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}], "title-md": ["15px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-primary-container text-on-primary-container z-50 flex flex-col justify-between border-r border-outline-variant/20 shadow-[0_1px_8px_rgba(0,0,0,0.08)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm border-b border-outline-variant/20 bg-primary-container"><img alt="Brand logo. - Primary color: #0b192c - Font: hankenGrotesk - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary tracking-tight font-bold truncate">ErgonX</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider font-semibold truncate">Enterprise ERP</span></div></div><div class="p-space-sm border-b border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between p-space-sm rounded-lg bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors text-left" type="button"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-secondary-container text-base">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-primary font-semibold truncate">Rivermere University</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-outline-variant text-base shrink-0">unfold_more</span></button></div><div class="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-space-xs"><nav class="space-y-space-xs" data-active-classes="bg-secondary text-on-secondary font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="home" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="insights" href="#"><span class="material-symbols-outlined text-lg">analytics</span><span>Insights</span></a><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Human Resources</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="hr-dashboard" href="#">HR Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="employees" href="#">Employees</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="recruitment" href="#">Recruitment</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="leave" href="#">Leave</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="attendance" href="#">Attendance</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="payroll" href="#">Payroll</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Accounting</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="accounting-dashboard" href="#">Accounting Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="general-ledger" href="#">General Ledger</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-payable" href="#">Accounts Payable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-receivable" href="#">Accounts Receivable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="bank-reconciliation" href="#">Bank Reconciliation</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="budgets" href="#">Budgets</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="financial-reports" href="#">Financial Reports</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Self Service</span><span class="material-symbols-outlined text-sm text-outline-variant">chevron_right</span></div></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-lg">query_stats</span><span>Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="approvals" href="#"><span class="material-symbols-outlined text-lg">fact_check</span><span>Approvals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-lg">verified_user</span><span>Audit Trail</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="users-and-access" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Users &amp; Access</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg text-outline-variant hover:text-on-primary hover:bg-surface-container-highest/10 transition-colors" type="button"><span class="font-label-md text-label-md font-medium">Collapse Sidebar</span><span class="material-symbols-outlined text-base">keyboard_double_arrow_left</span></button></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-surface-container-high z-40 px-gutter flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-container-low rounded border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="Search records, accounts, employees..." type="text"/><kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/40">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low rounded p-0.5 border border-outline-variant/40"><button class="px-2 py-1 rounded-sm bg-surface-container-lowest text-on-surface shadow-xs flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">light_mode</span></button><button class="px-2 py-1 rounded-sm text-on-surface-variant hover:text-on-surface flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">dark_mode</span></button></div><button class="relative p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="h-6 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Administrator</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-gutter py-space-lg"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Breadcrumb & Page Header -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-secondary transition-colors" href="#">Home</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-secondary transition-colors" href="#">Human Resources</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-secondary transition-colors" href="#">Attendance</a>
+<span class="text-outline-variant">/</span>
+<span class="text-secondary font-semibold">Adjustment review</span>
+</nav>
+<div class="flex items-center justify-between mt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+        Attendance adjustment review
+      </h1>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline px-space-sm py-1 bg-surface-container rounded font-bold">
+        Ref: AUDIT-SYNC-OK
+      </span>
+</div>
+<div>
+<a class="inline-flex items-center gap-1.5 text-secondary hover:text-secondary-container transition-colors font-label-lg text-label-lg mt-1 group" href="#">
+<span class="material-symbols-outlined text-base group-hover:-translate-x-0.5 transition-transform">chevron_left</span>
+<span>Back to adjustments</span>
+</a>
+</div>
+</div>
+<!-- Profile & Meta Strip Banner -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-lg flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md min-w-[280px]">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-secondary font-headline-sm text-headline-sm flex items-center justify-center font-bold shadow-inner">
+        SA
+      </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Sarah Agyeman</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span>HR Officer</span>
+<span class="text-outline-variant">•</span>
+<span>Human Resources</span>
+<span class="text-outline-variant">•</span>
+<span class="font-semibold text-on-surface">EMP-10427</span>
+</div>
+</div>
+</div>
+<!-- Date selector & Meta -->
+<div class="flex flex-wrap items-center gap-space-lg">
+<!-- Date Indicator -->
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-xl">calendar_today</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Work date</span>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-bold">Tue, 14 May 2024</span>
+<div class="flex items-center gap-0.5 ml-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Adjustment ID & Status -->
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Adjustment ID</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold tracking-tight">ADJ-2024-00173</span>
+</div>
+<div class="h-8 w-px bg-surface-container"></div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wide">Pending review</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main 2-Column Resolution Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Primary Analysis (7 of 12 cols = ~58%) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Card 1: Exception Summary -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-start justify-between mb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">1. Exception summary</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Compare scheduled, recorded and requested hours for this date.
+            </p>
+</div>
+<span class="material-symbols-outlined text-outline text-xl">timelapse</span>
+</div>
+<!-- Comparative Metrics Flow -->
+<div class="bg-surface-container-low rounded-lg p-space-md">
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-space-sm items-center">
+<!-- Scheduled -->
+<div class="sm:col-span-3 bg-surface-container-lowest rounded-lg p-space-sm shadow-xs flex flex-col">
+<div class="flex items-center gap-1.5 text-outline mb-1">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Scheduled</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">8h 00m</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 font-medium">08:30 – 17:30</span>
+</div>
+<!-- Arrow Indicator -->
+<div class="hidden sm:flex sm:col-span-1 justify-center text-outline-variant">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</div>
+<!-- Recorded -->
+<div class="sm:col-span-3 bg-surface-container-lowest rounded-lg p-space-sm shadow-xs flex flex-col">
+<div class="flex items-center gap-1.5 text-secondary mb-1">
+<span class="material-symbols-outlined text-base">nest_clock_farsight_analog</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Recorded</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">4h 15m</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 font-medium">08:50 – 13:05</span>
+</div>
+<!-- Arrow Indicator -->
+<div class="hidden sm:flex sm:col-span-1 justify-center text-outline-variant">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</div>
+<!-- Requested -->
+<div class="sm:col-span-4 bg-surface-container-lowest rounded-lg p-space-sm shadow-xs flex flex-col">
+<div class="flex items-center gap-1.5 text-secondary mb-1">
+<span class="material-symbols-outlined text-base">edit_calendar</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Requested</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">8h 00m</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-surface-container-high px-1.5 py-0.5 rounded">Add 3h 45m</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 font-medium">08:30 – 17:30</span>
+</div>
+</div>
+<!-- Difference Callout Bar -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between bg-surface-container-lowest p-space-sm rounded-lg shadow-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-lg">trending_up</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wide text-outline font-semibold">Difference</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Requested vs System recorded</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-emerald-600 font-extrabold tracking-tight">+3h 45m</span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded">Reconciled</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Policy and Compliance -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-start justify-between mb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">2. Policy and compliance</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              System check against attendance and leave policies.
+            </p>
+</div>
+<span class="material-symbols-outlined text-emerald-600 text-xl">gavel</span>
+</div>
+<!-- Compliance State Banner -->
+<div class="bg-emerald-50/70 rounded-lg p-space-md flex items-center justify-between gap-space-md mb-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-xl">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-emerald-900 font-bold">Compliant</span>
+<span class="font-body-sm text-body-sm text-emerald-800">This request complies with institutional attendance policy rules.</span>
+</div>
+</div>
+<button class="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-900 font-label-lg text-label-lg font-semibold shrink-0 group" type="button">
+<span>View policy details</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Policy Checklist Indicators -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Daily hours limit</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Within limit</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Required evidence</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Provided</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Overlap with leave</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">No conflicts</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Adjustment Details -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-start justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">3. Adjustment details</h2>
+</div>
+<span class="material-symbols-outlined text-outline text-xl">description</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-md">
+<dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-space-lg gap-y-space-md">
+<div>
+<dt class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Adjustment type</dt>
+<dd class="font-body-md text-body-md text-on-surface font-bold mt-0.5">Add missed hours</dd>
+</div>
+<div>
+<dt class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Reason</dt>
+<dd class="font-body-md text-body-md text-on-surface font-medium mt-0.5">Network outage prevented clock-in</dd>
+</div>
+<div>
+<dt class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Hours to add</dt>
+<dd class="font-body-md text-body-md text-secondary font-bold mt-0.5">3h 45m</dd>
+</div>
+<div>
+<dt class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Requested on</dt>
+<dd class="font-body-md text-body-md text-on-surface font-medium mt-0.5">15 May 2024, 09:12</dd>
+</div>
+<div>
+<dt class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Requested by</dt>
+<dd class="font-body-md text-body-md text-on-surface font-medium mt-0.5">Sarah Agyeman (Employee)</dd>
+</div>
+<div>
+<dt class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Approver</dt>
+<dd class="font-body-md text-body-md text-secondary font-bold mt-0.5">Kwame Mensah (You)</dd>
+</div>
+<div class="sm:col-span-2 pt-space-xs">
+<dt class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Submitted Notes</dt>
+<dd class="font-body-md text-body-md text-on-surface-variant bg-surface-container-lowest p-space-sm rounded-lg mt-1 shadow-xs italic leading-relaxed">
+                "System outage affected time clock on the morning of 14 May. I was on site and working from 08:30 to 12:15. Please add the missed hours. Thank you."
+              </dd>
+</div>
+</dl>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Evidence, Comments, Timeline, Decision (5 of 12 cols = ~42%) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Card 4: Evidence -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">attach_file</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">4. Evidence</h2>
+</div>
+<span class="font-label-sm text-label-sm font-bold bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">1 file</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between gap-space-sm hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl">image</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-bold truncate">outage-notification.png</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">PNG • 412 KB • 15 May 2024, 09:13</span>
+</div>
+</div>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest group-hover:bg-secondary group-hover:text-on-secondary text-on-surface-variant flex items-center justify-center shadow-xs transition-colors shrink-0" title="Download evidence file" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+</div>
+</div>
+<!-- Card 5: Employee Comments -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">chat</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">5. Employee comments</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Direct message</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-md relative">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            System outage affected time clock on the morning of 14 May. I was on site and working from 08:30 to 12:15. Please add the missed hours. Thank you.
+          </p>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs text-outline font-label-sm text-label-sm">
+<span>Verified against IT ticket #INC-8921</span>
+<span>15 May 2024, 09:12</span>
+</div>
+</div>
+</div>
+<!-- Card 6: Review Timeline -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">history</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">6. Review timeline</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Live Audit</span>
+</div>
+<div class="relative pl-6 space-y-space-md">
+<!-- Continuous Vertical Spine -->
+<div class="absolute left-2.5 top-2 bottom-3 w-0.5 bg-surface-container-highest"></div>
+<!-- Step 1: Completed -->
+<div class="relative flex items-start gap-space-sm">
+<div class="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-secondary text-on-secondary flex items-center justify-center ring-4 ring-surface-container-lowest shadow-xs">
+<span class="material-symbols-outlined text-xs font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Adjustment submitted</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">By Sarah Agyeman (Employee)</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">15 May 2024, 09:12</span>
+</div>
+</div>
+<!-- Step 2: In Review -->
+<div class="relative flex items-start gap-space-sm">
+<div class="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center ring-4 ring-surface-container-lowest shadow-xs">
+<span class="w-2 h-2 rounded-full bg-white"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Under review</span>
+<span class="font-label-sm text-label-sm bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded font-bold">Current</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary font-semibold">Pending your action</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Assigned to Kwame Mensah</span>
+</div>
+</div>
+<!-- Step 3: Pending Decision -->
+<div class="relative flex items-start gap-space-sm">
+<div class="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-surface-container-high text-outline flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-outline font-semibold">Decision recorded</span>
+<span class="font-body-sm text-body-sm text-outline">Will be shown here after a decision is made</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 7: Decision Action Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">how_to_reg</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">7. Your decision</h2>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-secondary uppercase tracking-wider">Required</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Review the discrepancy information and select a resolution action.
+        </p>
+<!-- Decision Controls Matrix -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Primary: Approve -->
+<button class="col-span-1 h-11 rounded bg-secondary hover:bg-secondary/90 active:scale-[0.99] text-on-secondary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-sm transition-all" id="btn-approve" type="button">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span>Approve</span>
+</button>
+<!-- Destructive: Decline -->
+<button class="col-span-1 h-11 rounded bg-surface-container-lowest hover:bg-error-container/30 active:scale-[0.99] text-error font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-xs transition-all" id="btn-decline" type="button">
+<span class="material-symbols-outlined text-lg">cancel</span>
+<span>Decline</span>
+</button>
+<!-- Tertiary: Request Changes -->
+<button class="col-span-1 h-10 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-colors" id="btn-changes" type="button">
+<span class="material-symbols-outlined text-base text-secondary">chat_bubble_outline</span>
+<span>Request changes</span>
+</button>
+<!-- Quaternary: Delegate -->
+<button class="col-span-1 h-10 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-colors" id="btn-delegate" type="button">
+<span class="material-symbols-outlined text-base text-outline">group_add</span>
+<span>Delegate</span>
+</button>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center gap-2 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>Decision will be recorded with timestamp and cryptographic audit hash.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic approval button feedback
+  document.getElementById('btn-approve')?.addEventListener('click', function() {
+    this.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">sync</span><span>Recording...</span>';
+    setTimeout(() => {
+      this.className = 'col-span-1 h-11 rounded bg-emerald-600 text-white font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-sm transition-all';
+      this.innerHTML = '<span class="material-symbols-outlined text-lg">done_all</span><span>Approved!</span>';
+    }, 600);
+  });
+</script></main></div></body></html>

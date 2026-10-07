@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S046",
+  "screen_number": 46,
+  "title": "Users & Access",
+  "slug": "users-and-access",
+  "module": "Users & Access",
+  "route_hint": "/users-access",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 2",
+  "priority": "P0",
+  "source_archive": "stitch_ergonx_ui (46).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Members, invitations and access requests. Invitation links should be one-time/expiring; access changes require backend role assignments and audit.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

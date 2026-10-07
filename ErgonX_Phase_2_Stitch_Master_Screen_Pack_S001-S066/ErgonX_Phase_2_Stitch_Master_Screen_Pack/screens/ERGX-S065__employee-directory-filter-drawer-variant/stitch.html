@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ErgonX - Employees Management Hub</title>
+<!-- Google Fonts: Inter / DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#0b1b36',
+              dark: '#0a1628',
+              sidebar: '#0d1a30',
+              blue: '#0062ff',
+              lightBlue: '#e8f0fe',
+              hoverBlue: '#0052d9',
+            },
+            status: {
+              activeBg: '#e6f7ed',
+              activeText: '#107e41',
+              activeDot: '#22c55e',
+              leaveBg: '#fef3e2',
+              leaveText: '#b45309',
+              leaveDot: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom CSS Styling -->
+<style data-purpose="typography">
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style data-purpose="scrollbars-and-accents">
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<!-- END: Custom CSS Styling -->
+</head>
+<body class="bg-[#f4f7fb] text-slate-800 antialiased min-h-screen flex flex-col overflow-x-hidden">
+<!-- Main Viewport Layout Wrapper -->
+<div class="flex flex-1 w-full min-h-screen relative overflow-hidden">
+<!-- BEGIN: Left Slim Navigation Sidebar -->
+<aside class="w-[72px] bg-[#0c1a30] text-slate-400 flex flex-col items-center py-4 flex-shrink-0 z-30 select-none justify-between border-r border-[#1a2b47]">
+<!-- Brand Logo & Main Nav -->
+<div class="flex flex-col items-center w-full space-y-6">
+<!-- Logo -->
+<a class="h-10 w-10 flex items-center justify-center text-white mb-2" href="#" title="ErgonX Home">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+<path d="M11 11L29 29M29 11L11 29" stroke="url(#paint0_linear)" stroke-linecap="round" stroke-width="6"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear" x1="11" x2="29" y1="11" y2="29">
+<stop stop-color="#00C2FF"></stop>
+<stop offset="1" stop-color="#0055FF"></stop>
+</lineargradient>
+</defs>
+</svg>
+</a>
+<!-- Navigation Menu Items -->
+<nav class="flex flex-col items-center w-full space-y-3">
+<!-- Home -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M3 10.25L12 3l9 7.25v10a1 1 0 01-1 1h-4.5a1 1 0 01-1-1v-4.5h-5v4.5a1 1 0 01-1 1H4a1 1 0 01-1-1v-10z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Insights / Analytics -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M3 20h18M7 16V9M12 20V5M17 20v-8" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Active: Employees / HR with popover tooltip -->
+<div class="relative flex items-center w-full justify-center">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-[#0062ff] rounded-r-md"></div>
+<a class="w-11 h-11 rounded-xl bg-[#142646] text-white flex items-center justify-center shadow-inner border border-blue-500/20" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M17 20h5v-2a4 4 0 00-4-4h-1m-4 6H2v-2a4 4 0 014-4h5m4-6a4 4 0 11-8 0 4 4 0 018 0zm7 2a3 3 0 100-6 3 3 0 000 6z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Badge / Tooltip Indicator -->
+<div class="absolute left-full ml-2.5 z-50 whitespace-nowrap bg-[#0b1b36] border border-slate-700/80 text-white text-xs font-medium py-1.5 px-3 rounded-lg shadow-xl pointer-events-none flex items-center">
+<span>Human Resources</span>
+<div class="absolute right-full top-1/2 -translate-y-1/2 -mr-[1px] border-4 border-transparent border-r-[#0b1b36]"></div>
+</div>
+</div>
+<!-- Document / Records -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Performance Chart -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Approvals / Tasks -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Compliance / Shield -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</nav>
+</div>
+<!-- Bottom System Icons -->
+<div class="flex flex-col items-center w-full space-y-3 pb-2">
+<!-- Settings -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Team/Accounts -->
+<a class="w-11 h-11 rounded-xl flex items-center justify-center hover:text-white hover:bg-slate-800/60 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</aside>
+<!-- END: Left Slim Navigation Sidebar -->
+<!-- Main Workspace Center + Right Filter Layout -->
+<div class="flex-1 flex flex-col min-w-0 bg-[#f7f9fc] overflow-y-auto">
+<!-- BEGIN: Top Navigation Header -->
+<header class="h-16 bg-white border-b border-slate-200/80 px-6 flex items-center justify-between sticky top-0 z-20">
+<!-- Breadcrumb Navigation -->
+<div class="flex items-center space-x-3 text-sm">
+<button aria-label="Toggle navigation drawer" class="text-slate-500 hover:text-slate-800 p-1 mr-1">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div class="flex items-center space-x-2 text-[14px]">
+<a class="text-slate-500 hover:text-slate-800 font-medium transition-colors" href="#">Home</a>
+<span class="text-slate-300">/</span>
+<a class="text-slate-500 hover:text-slate-800 font-medium transition-colors" href="#">Human Resources</a>
+<span class="text-slate-300">/</span>
+<span class="text-[#0d1a30] font-bold">Employees</span>
+</div>
+</div>
+<!-- Global Search, Notifications & Administrator Account -->
+<div class="flex items-center space-x-5">
+<!-- Command Search bar -->
+<div class="relative w-64 lg:w-72 hidden sm:block">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="w-full bg-[#f8fafc] border border-slate-200/90 rounded-lg pl-9 pr-11 py-1.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all" placeholder="Search" type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+<kbd class="text-[11px] font-semibold text-slate-400 bg-white px-1.5 py-0.5 border border-slate-200 rounded shadow-xs">⌘ K</kbd>
+</div>
+</div>
+<!-- Notification Bell with Alert Badge -->
+<button aria-label="Notifications" class="relative p-2 text-slate-500 hover:text-slate-700 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
+</button>
+<!-- Administrator Profile Pill -->
+<div class="flex items-center space-x-3 pl-2 cursor-pointer select-none">
+<div class="w-9 h-9 rounded-full bg-[#0062ff] text-white flex items-center justify-center font-bold text-xs tracking-wider ring-2 ring-blue-100">
+              KO
+            </div>
+<div class="hidden md:flex flex-col text-left leading-tight">
+<span class="text-xs font-semibold text-slate-900">Kwame Osei</span>
+<span class="text-[11px] text-slate-400">Administrator</span>
+</div>
+<svg class="w-4 h-4 text-slate-400 hidden md:block" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: Top Navigation Header -->
+<!-- Content Layout: Central Dashboard & Right Filter Rail -->
+<div class="flex-1 flex flex-col xl:flex-row">
+<!-- BEGIN: Central Main Workspace Area -->
+<main class="flex-1 p-6 md:p-8 space-y-6">
+<!-- Page Header Section -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div>
+<h1 class="text-3xl font-extrabold text-[#0d1a30] tracking-tight">Employees</h1>
+<p class="text-sm text-slate-500 mt-1">View and manage your team members.</p>
+</div>
+<button class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-[#0d1a30] hover:bg-[#152542] text-white text-sm font-semibold shadow-sm transition-all active:scale-[0.99] gap-2 self-start sm:self-auto">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Add employee</span>
+</button>
+</div>
+<!-- BEGIN: 2x2 Metric KPI Summary Cards -->
+<section aria-label="Employee summary metrics" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<!-- Metric 1: Total Employees -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between hover:border-slate-300 transition-colors">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-full bg-[#eaf2ff] text-[#0062ff] flex items-center justify-center flex-shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-medium text-slate-500">Total employees</p>
+<p class="text-2xl font-bold text-slate-900 mt-0.5">248</p>
+</div>
+</div>
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Metric 2: New This Month -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between hover:border-slate-300 transition-colors">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-full bg-[#dcfce7] text-[#16a34a] flex items-center justify-center flex-shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-medium text-slate-500">New this month</p>
+<p class="text-2xl font-bold text-slate-900 mt-0.5">12</p>
+</div>
+</div>
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Metric 3: Departments -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between hover:border-slate-300 transition-colors">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-full bg-[#f3e8ff] text-[#9333ea] flex items-center justify-center flex-shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M17 20h5v-2a4 4 0 00-4-4h-1m-4 6H2v-2a4 4 0 014-4h5m4-6a4 4 0 11-8 0 4 4 0 018 0zm7 2a3 3 0 100-6 3 3 0 000 6z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-medium text-slate-500">Departments</p>
+<p class="text-2xl font-bold text-slate-900 mt-0.5">9</p>
+</div>
+</div>
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Metric 4: Open Positions -->
+<div class="bg-white p-5 rounded-xl border border-slate-200/90 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between hover:border-slate-300 transition-colors">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-full bg-[#ffedd5] text-[#ea580c] flex items-center justify-center flex-shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-medium text-slate-500">Open positions</p>
+<p class="text-2xl font-bold text-slate-900 mt-0.5">6</p>
+</div>
+</div>
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</section>
+<!-- END: 2x2 Metric KPI Summary Cards -->
+<!-- BEGIN: Employees Table Container Card -->
+<div class="bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
+<!-- Table Search & Action Toolbar -->
+<div class="p-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-slate-200/70">
+<!-- Internal Search Input -->
+<div class="relative w-full sm:w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="w-full bg-[#f8fafc] border border-slate-200 rounded-lg pl-9 pr-4 py-2 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500" placeholder="Search employees..." type="text"/>
+</div>
+<!-- Filter Active Trigger Button -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-[#f0f4ff] hover:bg-blue-100 text-[#0055ff] border border-blue-200 text-sm font-semibold rounded-lg transition-colors gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Filter</span>
+<span class="inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-[#0062ff] rounded-full">2</span>
+</button>
+</div>
+<!-- Table Component -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#f8fafc] text-xs font-semibold text-slate-500 border-b border-slate-200/80">
+<th class="py-3.5 pl-4 pr-3 w-12 text-center" scope="col">
+<input class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-3.5 px-3" scope="col">
+<div class="inline-flex items-center gap-1.5 cursor-pointer hover:text-slate-700">
+<span>Employee</span>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</th>
+<th class="py-3.5 px-3" scope="col">
+<div class="inline-flex items-center gap-1.5 cursor-pointer hover:text-slate-700">
+<span>Department</span>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</th>
+<th class="py-3.5 px-3" scope="col">
+<div class="inline-flex items-center gap-1.5 cursor-pointer hover:text-slate-700">
+<span>Position</span>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</th>
+<th class="py-3.5 px-3" scope="col">
+<div class="inline-flex items-center gap-1.5 cursor-pointer hover:text-slate-700">
+<span>Status</span>
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</th>
+<th class="py-3.5 pr-4 pl-3 text-right" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-sm">
+<!-- Row 1: Ama Boateng (Selected) -->
+<tr class="bg-blue-50/20 hover:bg-blue-50/40 transition-colors">
+<td class="py-3.5 pl-4 pr-3 text-center">
+<input checked="" class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                          AB
+                        </div>
+<span class="font-bold text-slate-900">Ama Boateng</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-slate-600 font-medium">Finance</td>
+<td class="py-3.5 px-3 text-slate-600">Finance Analyst</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+                        Active
+                      </span>
+</td>
+<td class="py-3.5 pr-4 pl-3 text-right text-slate-400">
+<button class="p-1 hover:text-slate-600 rounded">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+<circle cx="5" cy="10" r="1.5"></circle>
+<circle cx="10" cy="10" r="1.5"></circle>
+<circle cx="15" cy="10" r="1.5"></circle>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 2: Kojo Mensah -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 pl-4 pr-3 text-center">
+<input class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                          KM
+                        </div>
+<span class="font-bold text-slate-900">Kojo Mensah</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-slate-600 font-medium">Human Resources</td>
+<td class="py-3.5 px-3 text-slate-600">HR Officer</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+                        Active
+                      </span>
+</td>
+<td class="py-3.5 pr-4 pl-3 text-right text-slate-400">
+<button class="p-1 hover:text-slate-600 rounded">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+<circle cx="5" cy="10" r="1.5"></circle>
+<circle cx="10" cy="10" r="1.5"></circle>
+<circle cx="15" cy="10" r="1.5"></circle>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 3: Efua Owusu -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 pl-4 pr-3 text-center">
+<input class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                          EO
+                        </div>
+<span class="font-bold text-slate-900">Efua Owusu</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-slate-600 font-medium">Engineering</td>
+<td class="py-3.5 px-3 text-slate-600">Software Engineer</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+                        Active
+                      </span>
+</td>
+<td class="py-3.5 pr-4 pl-3 text-right text-slate-400">
+<button class="p-1 hover:text-slate-600 rounded">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+<circle cx="5" cy="10" r="1.5"></circle>
+<circle cx="10" cy="10" r="1.5"></circle>
+<circle cx="15" cy="10" r="1.5"></circle>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 4: Sarah Amankwah (On Leave) -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 pl-4 pr-3 text-center">
+<input class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                          SA
+                        </div>
+<span class="font-bold text-slate-900">Sarah Amankwah</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-slate-600 font-medium">Academic Affairs</td>
+<td class="py-3.5 px-3 text-slate-600">Lecturer</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span>
+                        On Leave
+                      </span>
+</td>
+<td class="py-3.5 pr-4 pl-3 text-right text-slate-400">
+<button class="p-1 hover:text-slate-600 rounded">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+<circle cx="5" cy="10" r="1.5"></circle>
+<circle cx="10" cy="10" r="1.5"></circle>
+<circle cx="15" cy="10" r="1.5"></circle>
+</svg>
+</button>
+</td>
+</tr>
+<!-- Row 5: Esi Kumah -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3.5 pl-4 pr-3 text-center">
+<input class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                          EK
+                        </div>
+<span class="font-bold text-slate-900">Esi Kumah</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-slate-600 font-medium">Human Resources</td>
+<td class="py-3.5 px-3 text-slate-600">HR Business Partner</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+                        Active
+                      </span>
+</td>
+<td class="py-3.5 pr-4 pl-3 text-right text-slate-400">
+<button class="p-1 hover:text-slate-600 rounded">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
+<circle cx="5" cy="10" r="1.5"></circle>
+<circle cx="10" cy="10" r="1.5"></circle>
+<circle cx="15" cy="10" r="1.5"></circle>
+</svg>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Selection Summary Footer -->
+<div class="p-4 bg-white border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+<div>
+<span>1 of 248 selected</span>
+</div>
+<div class="inline-flex items-center space-x-1.5">
+<button class="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 disabled:opacity-40">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="w-8 h-8 rounded-lg bg-[#0062ff] text-white font-medium flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">2</button>
+<button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">3</button>
+<button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">4</button>
+<button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">5</button>
+<span class="px-1 text-slate-400">...</span>
+<button class="w-8 h-8 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 flex items-center justify-center">25</button>
+<button class="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- END: Employees Table Container Card -->
+</main>
+<!-- END: Central Main Workspace Area -->
+<!-- BEGIN: Right Sliding Filters Panel -->
+<aside class="w-full xl:w-80 bg-white border-l border-slate-200/90 p-6 flex flex-col justify-between flex-shrink-0 z-10 shadow-[-4px_0_12px_rgba(0,0,0,0.01)]">
+<div class="space-y-6">
+<!-- Filter Header -->
+<div class="flex items-center justify-between pb-2 border-b border-slate-100">
+<h2 class="text-xl font-bold text-slate-900 tracking-tight">Filters</h2>
+<button aria-label="Close filters panel" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Filter Criteria Group -->
+<div class="space-y-5">
+<!-- 1. Department -->
+<div class="space-y-1.5">
+<label class="block text-xs font-semibold text-slate-700" for="filter-department">Department</label>
+<div class="relative">
+<select class="w-full appearance-none bg-white border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 pr-10 cursor-pointer" id="filter-department">
+<option selected="">All departments</option>
+<option>Finance</option>
+<option>Human Resources</option>
+<option>Engineering</option>
+<option>Academic Affairs</option>
+<option>Marketing</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- 2. Status -->
+<div class="space-y-1.5">
+<label class="block text-xs font-semibold text-slate-700" for="filter-status">Status</label>
+<div class="relative">
+<select class="w-full appearance-none bg-white border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 pr-10 cursor-pointer" id="filter-status">
+<option selected="">All status</option>
+<option>Active</option>
+<option>On Leave</option>
+<option>Terminated</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- 3. Position -->
+<div class="space-y-1.5">
+<label class="block text-xs font-semibold text-slate-700" for="filter-position">Position</label>
+<div class="relative">
+<select class="w-full appearance-none bg-white border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 pr-10 cursor-pointer" id="filter-position">
+<option selected="">All positions</option>
+<option>Finance Analyst</option>
+<option>HR Officer</option>
+<option>Software Engineer</option>
+<option>Lecturer</option>
+<option>HR Business Partner</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- 4. Employment Type -->
+<div class="space-y-1.5">
+<label class="block text-xs font-semibold text-slate-700" for="filter-type">Employment type</label>
+<div class="relative">
+<select class="w-full appearance-none bg-white border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 pr-10 cursor-pointer" id="filter-type">
+<option selected="">All types</option>
+<option>Full-time</option>
+<option>Part-time</option>
+<option>Contractor</option>
+<option>Intern</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Buttons -->
+<div class="pt-6 space-y-3 mt-6">
+<button class="w-full py-2.5 px-4 bg-[#0c1a30] hover:bg-[#162744] text-white text-sm font-semibold rounded-lg shadow-sm transition-all text-center" type="button">
+              Apply filters
+            </button>
+<button class="w-full py-2.5 px-4 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-sm font-semibold rounded-lg transition-colors text-center" type="button">
+              Clear all
+            </button>
+</div>
+</aside>
+<!-- END: Right Sliding Filters Panel -->
+</div>
+</div>
+</div>
+<!-- Client Interaction Script for Keyboard Shortcuts -->
+<script data-purpose="keyboard-handler">
+    document.addEventListener('keydown', function(event) {
+      if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+        event.preventDefault();
+        const searchInput = document.querySelector('header input[type="text"]');
+        if (searchInput) {
+          searchInput.focus();
+        }
+      }
+    });
+  </script>
+</body></html>

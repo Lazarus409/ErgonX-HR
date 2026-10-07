@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S052",
+  "screen_number": 52,
+  "title": "Budget Detail \u2014 Academic Affairs",
+  "slug": "budget-detail",
+  "module": "Accounting / Budgets",
+  "route_hint": "/accounting/budgets/:budgetId",
+  "phase_2_classification": "New Phase 2 capability",
+  "implementation_wave": "Wave 7",
+  "priority": "P2",
+  "source_archive": "stitch_ergonx_ui (52).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Allocated, actual, remaining and variance are valid targets. 'Committed' must not be shown until a legitimate commitment source such as Procurement/POs exists.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

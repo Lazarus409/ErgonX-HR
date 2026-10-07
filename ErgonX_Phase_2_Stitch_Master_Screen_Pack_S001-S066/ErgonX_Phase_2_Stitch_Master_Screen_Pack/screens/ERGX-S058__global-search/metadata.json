@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S058",
+  "screen_number": 58,
+  "title": "Global Search",
+  "slug": "global-search",
+  "module": "Platform / Search",
+  "route_hint": "/search",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 2",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (58).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Institution- and permission-scoped cross-module search. Authorization must scope retrieval before results are returned, not fetch-all-then-hide.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

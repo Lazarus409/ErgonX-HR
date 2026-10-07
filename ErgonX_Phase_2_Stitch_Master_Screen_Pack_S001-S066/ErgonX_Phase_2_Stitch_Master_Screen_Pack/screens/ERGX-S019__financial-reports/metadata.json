@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S019",
+  "sequence": 19,
+  "title": "Financial Reports",
+  "slug": "financial-reports",
+  "module": "ACCOUNTING",
+  "module_group": "accounting",
+  "canonical_route_hint": "/accounting/financial-reports",
+  "source_archive": "stitch_ergonx_ui (19).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "95ebfb64f1bb2d7b08d8610dcfb461b451db45cbd41026f33272c89aa6e86299",
+      "bytes": 575280
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "317b3418f1c817924cb29a9728cbca84128c25571a398f8895540dc6e853c0bd",
+      "bytes": 55762
+    }
+  ]
+}

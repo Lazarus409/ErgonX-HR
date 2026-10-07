@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S032",
+  "name": "Payroll Run Detail",
+  "slug": "payroll-run-detail",
+  "module": "Payroll",
+  "route_hint": "/payroll/runs/:runId",
+  "classification": "phase2-extension",
+  "phase2_wave": "Wave 5",
+  "contract_status": "KEEP/EXTEND",
+  "source_archive": "stitch_ergonx_ui (32).zip",
+  "source_archive_sha256": "ced1ad780adb5acb661e1b642277d264c9b64fe941a152fa8ae1b99498660953",
+  "stitch_h1": "Payroll run detail",
+  "notes": "Payroll run detail with structured exceptions, compliance checks, approval state and restricted data controls.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

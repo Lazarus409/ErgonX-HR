@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S054",
+  "screen_number": 54,
+  "title": "Financial Report Detail \u2014 Statement of Financial Position",
+  "slug": "financial-report-detail",
+  "module": "Accounting / Financial Reports",
+  "route_hint": "/accounting/financial-reports/:reportId",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 7",
+  "priority": "P2",
+  "source_archive": "stitch_ergonx_ui (54).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Formal statement output must be generated from authoritative posted accounting data. Do not expose PDF/XLSX/XBRL export options unless backend exporters exist.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S005",
+  "sequence": 5,
+  "title": "Accounting Hub \u2014 Alternate Dashboard Concept",
+  "slug": "accounting-hub",
+  "module": "ACCOUNTING",
+  "module_group": "accounting",
+  "canonical_route_hint": "/accounting",
+  "source_archive": "stitch_ergonx_ui (5).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "c3817abe3f33aa172a88833203dc66af7156274072ebf92305d3a6a9e093f8b8",
+      "bytes": 166927
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "3e45f49b894d6ee763c790f78456344832e0d12d2a7dd59d4aa34c4698ee5da2",
+      "bytes": 39516
+    }
+  ]
+}

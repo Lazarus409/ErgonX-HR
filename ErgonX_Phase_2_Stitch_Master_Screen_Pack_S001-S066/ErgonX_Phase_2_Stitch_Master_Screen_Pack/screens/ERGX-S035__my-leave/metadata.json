@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S035",
+  "name": "My Leave",
+  "slug": "my-leave",
+  "module": "Employee Self-Service / Leave",
+  "route_hint": "/my-workspace/leave",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (35).zip",
+  "source_archive_sha256": "104dc8e83f896f9b616ffed921f645f1c241d8d8cee7887a5aaa26219ae18f52",
+  "stitch_h1": "My Leave",
+  "notes": "Employee leave balances, requests, calendar and upcoming approved leave.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

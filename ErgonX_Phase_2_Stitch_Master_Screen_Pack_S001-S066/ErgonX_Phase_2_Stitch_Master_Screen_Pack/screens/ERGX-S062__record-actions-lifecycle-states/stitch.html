@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ErgonX Desktop - Governed System States: Empty, Error &amp; Loading</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              600: '#0052cc',
+              700: '#003e99',
+              900: '#0a192f',
+            },
+            sidebar: '#001428',
+            surface: '#f8fafc',
+            borderLight: '#e2e8f0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-custom {
+      animation: spin-slow 1.25s linear infinite;
+    }
+    @keyframes pulse-custom {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .skeleton-pulse {
+      animation: pulse-custom 1.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/></head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 bg-[#051329] text-slate-300 flex-shrink-0 flex flex-col justify-between hidden md:flex border-r border-slate-800" data-purpose="sidebar-navigation">
+<!-- Top section of sidebar -->
+<div>
+<!-- ErgonX Brand Logo -->
+<div class="h-16 px-6 flex items-center gap-2 border-b border-slate-800/80">
+<span class="text-2xl font-extrabold tracking-tight text-white flex items-center">
+          Ergon<span class="text-cyan-400 font-black">X</span>
+</span>
+</div>
+<!-- Institution / Tenant Switcher -->
+<div class="p-3">
+<div class="bg-[#0b1d3a] rounded-lg p-2.5 flex items-center justify-between border border-slate-700/60 cursor-pointer hover:border-slate-600 transition">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0">
+<i class="fa-solid fa-building-columns text-sm"></i>
+</div>
+<div class="truncate">
+<div class="text-xs font-semibold text-white leading-tight truncate">Rivermere University</div>
+<div class="text-[11px] text-slate-400">Higher Education</div>
+</div>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<nav class="mt-2 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-house w-4 text-center"></i>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-column w-4 text-center"></i>
+<span>Insights</span>
+</a>
+<!-- HR Section (Expanded) -->
+<div class="pt-1">
+<div class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-slate-800/60 rounded-md">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-user-group w-4 text-center text-cyan-400"></i>
+<span>HR</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</div>
+<div class="pl-7 pr-2 mt-1 space-y-1 text-xs">
+<a class="flex items-center gap-2 py-1.5 px-2 font-semibold text-cyan-400 bg-cyan-950/40 rounded border-l-2 border-cyan-400" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+<span>HR Dashboard</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Recruitment</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Leave</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Attendance</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Payroll</span>
+</a>
+</div>
+</div>
+<!-- Other modules -->
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-calculator w-4 text-center"></i>
+<span>Accounting</span>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-line w-4 text-center"></i>
+<span>Reports &amp; Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-regular fa-circle-check w-4 text-center"></i>
+<span>Approvals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-shield-halved w-4 text-center"></i>
+<span>Audit Trail</span>
+</a>
+<div class="pt-2 border-t border-slate-800/80 my-2"></div>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-users-gear w-4 text-center"></i>
+<span>Users &amp; Access</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-gear w-4 text-center"></i>
+<span>Settings</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-circle-user w-4 text-center"></i>
+<span>Self Service</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</a>
+</nav>
+</div>
+<!-- Bottom collapse sidebar trigger -->
+<div class="p-3 border-t border-slate-800/80">
+<button class="w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-md hover:bg-slate-800/60 transition">
+<i class="fa-solid fa-angles-left"></i>
+<span>Collapse sidebar</span>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- BEGIN: TopBar -->
+<header class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-30 shadow-xs" data-purpose="top-navigation">
+<!-- Breadcrumb path -->
+<div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<a class="hover:text-slate-800" href="#">Home</a>
+<span class="text-slate-300">/</span>
+<span class="text-slate-500">Governance</span>
+<span class="text-slate-300">/</span>
+<span class="text-slate-800 font-semibold">System States</span>
+</div>
+<!-- Search and User Actions -->
+<div class="flex items-center gap-5">
+<!-- Search bar with command key -->
+<div class="relative w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<i class="fa-solid fa-magnifying-glass text-xs"></i>
+</div>
+<input class="w-full pl-9 pr-12 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-800 placeholder-slate-400" placeholder="Search across ErgonX..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
+<span class="text-[10px] font-semibold text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs">⌘ K</span>
+</div>
+</div>
+<!-- Notification Bell -->
+<div class="relative cursor-pointer text-slate-500 hover:text-slate-700">
+<i class="fa-regular fa-bell text-lg"></i>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
+</div>
+<!-- Light/Dark Mode Switcher -->
+<div class="flex items-center gap-1.5 text-slate-400 bg-slate-100 p-1 rounded-full border border-slate-200 text-xs">
+<i class="fa-solid fa-sun text-amber-500 px-1"></i>
+<div class="w-7 h-3.5 bg-slate-300 rounded-full relative cursor-pointer">
+<div class="w-3.5 h-3.5 bg-white rounded-full absolute left-0 top-0 shadow-sm"></div>
+</div>
+<i class="fa-solid fa-moon text-slate-400 px-1"></i>
+</div>
+<!-- User profile badge -->
+<div class="flex items-center gap-2.5 pl-2 border-l border-slate-200 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center text-xs">
+            KW
+          </div>
+<div class="hidden lg:block text-left">
+<div class="text-xs font-semibold text-slate-800 leading-tight">Kwame Mensah</div>
+<div class="text-[11px] text-slate-400">Administrator</div>
+</div>
+<i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- Main Content Container -->
+<main class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full" data-purpose="governed-states-showcase"><div class="flex flex-col w-full">
+<div class="flex flex-col gap-6">
+<!-- Top Identity Card & Profile Hero -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col xl:flex-row gap-6 items-start justify-between relative overflow-visible">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full xl:w-auto">
+<div class="relative shrink-0">
+<img class="w-24 h-24 rounded-lg object-cover shadow-sm bg-surface-container" data-alt="Editorial portrait of Priya Sharma, an elegant professional South Asian woman in her early thirties wearing a tailored navy blazer in a soft-lit contemporary university executive campus setting, subtle blue ambient light, crisp high-end studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7cuB6xYga-RX0q6ZTGBz3wDj6vBiefJLI-7M7ghzN3ovsSPMd3X2ngqcaxwADqh7pkX4wVK5QTHBvOo8ZAZpJJJKL6Rlvk1CQrK35e-HuJyaCkj7Qb2o4ErSjOLH9ZdmNFHzMdc8IVQfCvYEHQmwQnRzxAFr6UkzVfEszbG6pUaBSN5hyWHuipd361ki6XLlPJDPDkORqc5uIxMwJkIppEb-YyNkRRJhmUPcR3v8zYngieUsn-F_QXw"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex items-center gap-3 flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Priya Sharma</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-low text-secondary font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Active
+            </span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm flex-wrap">
+<span class="font-label-lg text-on-surface">PRI-00421</span>
+<span class="text-outline-variant">•</span>
+<span>Senior Lecturer</span>
+<span class="text-outline-variant">•</span>
+<span>Academic Affairs</span>
+</div>
+<!-- Metadata Strip -->
+<div class="flex items-center gap-y-1.5 gap-x-4 text-on-surface-variant font-body-sm text-body-sm flex-wrap mt-1">
+<a class="inline-flex items-center gap-1.5 text-secondary hover:underline" href="mailto:priya.sharma@rivermere.edu">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+<span>priya.sharma@rivermere.edu</span>
+</a>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>+1 425 555 0187</span>
+</span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Main Campus, Seattle</span>
+</span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>Joined 10 Jan 2022</span>
+</span>
+</div>
+<!-- Pill Tags -->
+<div class="flex items-center gap-2 mt-2 flex-wrap">
+<span class="px-2.5 py-0.5 rounded bg-surface-container-low text-secondary font-label-md text-label-md">Full-time</span>
+<span class="px-2.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Academic</span>
+<span class="px-2.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md">School of Business</span>
+</div>
+</div>
+</div>
+<!-- Action Strip with Live Contextual Dropdown -->
+<div class="flex items-center gap-2.5 shrink-0 self-start w-full xl:w-auto justify-end relative">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 bg-secondary text-on-secondary rounded-lg font-label-lg text-label-lg hover:bg-secondary/90 transition shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>New</span>
+</button>
+<!-- Dropdown container -->
+<div class="relative" id="mainDropdownWrapper">
+<button class="inline-flex items-center gap-2 px-3.5 py-2 bg-surface-container text-on-surface rounded-lg font-label-lg text-label-lg hover:bg-surface-container-high transition shadow-sm" id="mainDropdownTrigger">
+<span>More actions</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<!-- Interactive Floating Dropdown Menu (Open State by Default) -->
+<div class="absolute right-0 top-11 w-48 bg-surface-container-lowest rounded-xl shadow-xl py-1.5 z-40 flex flex-col" id="mainDropdownMenu">
+<button class="flex items-center gap-2.5 px-3.5 py-2 text-left text-on-surface hover:bg-surface-container-low transition font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">edit</span>
+<span>Edit</span>
+</button>
+<button class="flex items-center gap-2.5 px-3.5 py-2 text-left text-on-surface hover:bg-surface-container-low transition font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">pause_circle</span>
+<span>Deactivate</span>
+</button>
+<button class="flex items-center gap-2.5 px-3.5 py-2 text-left text-on-surface hover:bg-surface-container-low transition font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">person_remove</span>
+<span>Offboard</span>
+</button>
+<button class="flex items-center gap-2.5 px-3.5 py-2 text-left text-on-surface hover:bg-surface-container-low transition font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">inventory_2</span>
+<span>Archive</span>
+</button>
+<button class="flex items-center gap-2.5 px-3.5 py-2 text-left text-outline-variant font-body-sm text-body-sm cursor-not-allowed">
+<span class="material-symbols-outlined text-[17px] text-outline-variant">restore</span>
+<span>Restore</span>
+</button>
+<div class="h-px bg-surface-container my-1"></div>
+<button class="flex items-center gap-2.5 px-3.5 py-2 text-left text-on-surface hover:bg-surface-container-low transition font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">schedule</span>
+<span>View history</span>
+</button>
+<button class="flex items-center gap-2.5 px-3.5 py-2 text-left text-on-surface hover:bg-surface-container-low transition font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">file_download</span>
+<span>Export</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sub-Navigation Horizontal Ribbon -->
+<div class="bg-surface-container-lowest rounded-xl px-4 py-1.5 shadow-sm flex items-center gap-1 overflow-x-auto">
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-lg text-secondary bg-surface-container-low transition whitespace-nowrap">Overview</button>
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition whitespace-nowrap">Employment</button>
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition whitespace-nowrap">Compensation</button>
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition whitespace-nowrap">Attendance &amp; Leave</button>
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition whitespace-nowrap">Performance</button>
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition whitespace-nowrap">Documents</button>
+<button class="px-4 py-2 font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition whitespace-nowrap">History</button>
+</div>
+<!-- 2-Column Main Information & Lifecycle Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Column: Personal Information (8 cols) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-1.5 h-4 rounded-full bg-secondary"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Personal Information</h2>
+</div>
+<button class="inline-flex items-center gap-1 text-secondary font-label-md text-label-md hover:underline">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-8">
+<!-- Col 1 -->
+<div class="space-y-4">
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Full name</span>
+<span class="font-title-md text-title-md text-on-surface text-right truncate">Priya Sharma</span>
+</div>
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Employee ID</span>
+<span class="font-title-md text-title-md text-on-surface text-right">PRI-00421</span>
+</div>
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Date of birth</span>
+<span class="font-body-md text-body-md text-on-surface text-right">14 Mar 1990</span>
+</div>
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Nationality</span>
+<span class="font-body-md text-body-md text-on-surface text-right">Indian</span>
+</div>
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Email</span>
+<a class="font-body-md text-body-md text-secondary text-right truncate hover:underline" href="mailto:priya.sharma@rivermere.edu">priya.sharma@rivermere.edu</a>
+</div>
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Phone</span>
+<span class="font-body-md text-body-md text-on-surface text-right">+1 425 555 0187</span>
+</div>
+</div>
+<!-- Col 2 -->
+<div class="space-y-4">
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Gender</span>
+<span class="font-body-md text-body-md text-on-surface text-right">Female</span>
+</div>
+<div class="flex items-baseline justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0">Marital status</span>
+<span class="font-body-md text-body-md text-on-surface text-right">Single</span>
+</div>
+<div class="flex items-start justify-between gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0 pt-0.5">Address</span>
+<div class="font-body-md text-body-md text-on-surface text-right leading-snug">
+                123 Maple Ave<br/>
+                Seattle, WA 98101<br/>
+                United States
+              </div>
+</div>
+<div class="flex items-start justify-between gap-4 pt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant w-32 shrink-0 pt-0.5">Emergency contact</span>
+<div class="font-body-md text-body-md text-on-surface text-right leading-snug">
+<span class="font-label-lg text-on-surface">Anil Sharma</span> <span class="text-on-surface-variant">(Father)</span><br/>
+<span class="text-secondary font-label-md">+1 425 555 0143</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Record Lifecycle Card (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Record Lifecycle</h2>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-secondary font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Active
+          </span>
+</div>
+<!-- Compliance & Retention Callout -->
+<div class="rounded-lg p-3 bg-surface-container-low flex gap-3 items-start">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            This employee record is retained for payroll, attendance, leave and audit history, even after deactivation or exit, in line with our data retention policy.
+          </p>
+</div>
+<!-- Vertical Milestone Timeline -->
+<div class="relative pl-6 space-y-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container">
+<!-- Active State Milestone -->
+<div class="relative flex flex-col gap-0.5">
+<div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-title-md text-title-md text-on-surface">Active</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10 Jan 2022 – Present</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Employee is currently active</p>
+</div>
+<!-- Hired Milestone -->
+<div class="relative flex flex-col gap-0.5">
+<div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="w-2.5 h-2.5 rounded-full bg-on-primary-fixed-variant"></span>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-title-md text-title-md text-on-surface">Hired</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10 Jan 2022</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Employee record created</p>
+</div>
+</div>
+<div class="pt-2">
+<a class="inline-flex items-center justify-between w-full py-2 px-3 rounded-lg bg-surface-container-low text-secondary font-label-lg text-label-lg hover:bg-surface-container transition" href="#">
+<span class="inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>View full history</span>
+</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Architectural Blueprint: Record Actions by Lifecycle State -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-6">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2.5">
+<span class="w-1.5 h-4 rounded-full bg-secondary-container"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Record Actions by Lifecycle State</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Available actions adapt to the record's lifecycle state. Certain actions may be disabled to protect data integrity and comply with retention policies.
+        </p>
+</div>
+<!-- 5-Card Contextual State Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+<!-- 1. Draft State -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Draft
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug min-h-[36px]">
+              Unpublished record. Can be edited or deleted if not referenced.
+            </p>
+</div>
+<!-- Embedded Dropdown Mock -->
+<div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-2 py-1 bg-surface-container-low rounded font-label-md text-label-md text-on-surface">
+<span>More actions</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+<div class="flex flex-col pt-1 space-y-0.5">
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">edit</span>
+<span>Edit</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-error hover:bg-error-container/30 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-error">delete</span>
+<span>Delete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Active State -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-secondary font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Active
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug min-h-[36px]">
+              Live record. Supports lifecycle management actions.
+            </p>
+</div>
+<!-- Embedded Dropdown Mock -->
+<div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-2 py-1 bg-surface-container-low rounded font-label-md text-label-md text-on-surface">
+<span>More actions</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+<div class="flex flex-col pt-1 space-y-0.5">
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">pause_circle</span>
+<span>Deactivate</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">person_remove</span>
+<span>Offboard</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">inventory_2</span>
+<span>Archive</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Archived State -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed-variant font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Archived
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug min-h-[36px]">
+              Retained record. Can be restored. All data remains available.
+            </p>
+</div>
+<!-- Embedded Dropdown Mock -->
+<div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-2 py-1 bg-surface-container-low rounded font-label-md text-label-md text-on-surface">
+<span>More actions</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+<div class="flex flex-col pt-1 space-y-0.5">
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">restore</span>
+<span>Restore</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">schedule</span>
+<span>View history</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">file_download</span>
+<span>Export</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Finalized State -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Finalized
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug min-h-[36px]">
+              Read-only record. Core data is protected.
+            </p>
+</div>
+<!-- Embedded Dropdown Mock -->
+<div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-2 py-1 bg-surface-container-low rounded font-label-md text-label-md text-on-surface">
+<span>More actions</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+<div class="flex flex-col pt-1 space-y-0.5">
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">visibility</span>
+<span>View</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-outline-variant font-body-sm text-body-sm cursor-not-allowed">
+<span class="material-symbols-outlined text-[15px] text-outline-variant">edit</span>
+<span>Edit</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">rate_review</span>
+<span>Request correction</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">schedule</span>
+<span>View history</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">file_download</span>
+<span>Export</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Immutable State -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Immutable
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug min-h-[36px]">
+              Cannot be changed. Retained for compliance and audit.
+            </p>
+</div>
+<!-- Embedded Dropdown Mock -->
+<div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-2 py-1 bg-surface-container-low rounded font-label-md text-label-md text-on-surface">
+<span>More actions</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+<div class="flex flex-col pt-1 space-y-0.5">
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">visibility</span>
+<span>View</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-outline-variant font-body-sm text-body-sm cursor-not-allowed">
+<span class="material-symbols-outlined text-[15px] text-outline-variant">edit</span>
+<span>Edit</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">warning</span>
+<span>Request reversal</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">schedule</span>
+<span>View history</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">file_download</span>
+<span>Export</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive script for toggling header dropdown -->
+<script>
+    (function () {
+      const trigger = document.getElementById('mainDropdownTrigger');
+      const menu = document.getElementById('mainDropdownMenu');
+      if (trigger && menu) {
+        trigger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          menu.classList.toggle('hidden');
+        });
+        document.addEventListener('click', (e) => {
+          if (!menu.contains(e.target) && !trigger.contains(e.target)) {
+            menu.classList.add('hidden');
+          }
+        });
+      }
+    })();
+  </script>
+</div></main>
+</div>
+<!-- END: MainContentArea -->
+</body></html>

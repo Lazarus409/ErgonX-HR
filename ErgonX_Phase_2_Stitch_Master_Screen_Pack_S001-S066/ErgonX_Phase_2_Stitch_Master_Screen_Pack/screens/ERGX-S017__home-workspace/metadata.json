@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S017",
+  "sequence": 17,
+  "title": "Home \u2014 Daily Workspace",
+  "slug": "home-workspace",
+  "module": "HOME",
+  "module_group": "home",
+  "canonical_route_hint": "/home",
+  "source_archive": "stitch_ergonx_ui (17).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "d965b7dd6f40b0eac483a8b7a882a00ee1b044d4b29a1b3dbffd16135fc443bb",
+      "bytes": 393034
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "a95f4df26261bf722ee90d2f428e783e8e6d37b9bbc60df65732ae28661ef107",
+      "bytes": 42191
+    }
+  ]
+}

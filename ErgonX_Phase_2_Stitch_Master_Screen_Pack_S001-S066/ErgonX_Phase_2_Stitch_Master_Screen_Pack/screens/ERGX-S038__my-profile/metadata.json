@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S038",
+  "name": "My Profile",
+  "slug": "my-profile",
+  "module": "Employee Self-Service / HR",
+  "route_hint": "/my-workspace/profile",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (38).zip",
+  "source_archive_sha256": "46710bd48b5351edf184d19191206733171c02e50221aea7bc532a4fb929b2c8",
+  "stitch_h1": "My Profile",
+  "notes": "Employee profile covering personal, employment, contact, payment and tax information plus optional identity verification status.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

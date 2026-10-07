@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S030",
+  "name": "Candidate Application Submission",
+  "slug": "candidate-application-submission",
+  "module": "Recruitment / Public Careers",
+  "route_hint": "/careers/jobs/:jobId/apply",
+  "classification": "phase2-later",
+  "phase2_wave": "Wave 8",
+  "contract_status": "NEW",
+  "source_archive": "stitch_ergonx_ui (30).zip",
+  "source_archive_sha256": "8f615641e075c5952dd26afaf03b70b3457ae564e6350aeffe9e35dad18b948e",
+  "stitch_h1": "Apply for this role",
+  "notes": "Public candidate application flow. Requires explicit public careers security/privacy/auth/upload contracts before production implementation.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

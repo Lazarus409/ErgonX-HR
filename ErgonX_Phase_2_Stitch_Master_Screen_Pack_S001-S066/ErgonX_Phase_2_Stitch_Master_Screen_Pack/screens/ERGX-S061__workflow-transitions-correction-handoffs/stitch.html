@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ErgonX Desktop - Governed System States: Empty, Error &amp; Loading</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              600: '#0052cc',
+              700: '#003e99',
+              900: '#0a192f',
+            },
+            sidebar: '#001428',
+            surface: '#f8fafc',
+            borderLight: '#e2e8f0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-custom {
+      animation: spin-slow 1.25s linear infinite;
+    }
+    @keyframes pulse-custom {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .skeleton-pulse {
+      animation: pulse-custom 1.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/></head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 bg-[#051329] text-slate-300 flex-shrink-0 flex flex-col justify-between hidden md:flex border-r border-slate-800" data-purpose="sidebar-navigation">
+<!-- Top section of sidebar -->
+<div>
+<!-- ErgonX Brand Logo -->
+<div class="h-16 px-6 flex items-center gap-2 border-b border-slate-800/80">
+<span class="text-2xl font-extrabold tracking-tight text-white flex items-center">
+          Ergon<span class="text-cyan-400 font-black">X</span>
+</span>
+</div>
+<!-- Institution / Tenant Switcher -->
+<div class="p-3">
+<div class="bg-[#0b1d3a] rounded-lg p-2.5 flex items-center justify-between border border-slate-700/60 cursor-pointer hover:border-slate-600 transition">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0">
+<i class="fa-solid fa-building-columns text-sm"></i>
+</div>
+<div class="truncate">
+<div class="text-xs font-semibold text-white leading-tight truncate">Rivermere University</div>
+<div class="text-[11px] text-slate-400">Higher Education</div>
+</div>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<nav class="mt-2 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-house w-4 text-center"></i>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-column w-4 text-center"></i>
+<span>Insights</span>
+</a>
+<!-- HR Section (Expanded) -->
+<div class="pt-1">
+<div class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-slate-800/60 rounded-md">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-user-group w-4 text-center text-cyan-400"></i>
+<span>HR</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</div>
+<div class="pl-7 pr-2 mt-1 space-y-1 text-xs">
+<a class="flex items-center gap-2 py-1.5 px-2 font-semibold text-cyan-400 bg-cyan-950/40 rounded border-l-2 border-cyan-400" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+<span>HR Dashboard</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Recruitment</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Leave</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Attendance</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Payroll</span>
+</a>
+</div>
+</div>
+<!-- Other modules -->
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-calculator w-4 text-center"></i>
+<span>Accounting</span>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-line w-4 text-center"></i>
+<span>Reports &amp; Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-regular fa-circle-check w-4 text-center"></i>
+<span>Approvals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-shield-halved w-4 text-center"></i>
+<span>Audit Trail</span>
+</a>
+<div class="pt-2 border-t border-slate-800/80 my-2"></div>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-users-gear w-4 text-center"></i>
+<span>Users &amp; Access</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-gear w-4 text-center"></i>
+<span>Settings</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-circle-user w-4 text-center"></i>
+<span>Self Service</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</a>
+</nav>
+</div>
+<!-- Bottom collapse sidebar trigger -->
+<div class="p-3 border-t border-slate-800/80">
+<button class="w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-md hover:bg-slate-800/60 transition">
+<i class="fa-solid fa-angles-left"></i>
+<span>Collapse sidebar</span>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- BEGIN: TopBar -->
+<header class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-30 shadow-xs" data-purpose="top-navigation">
+<!-- Breadcrumb path -->
+<div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<a class="hover:text-slate-800" href="#">Home</a>
+<span class="text-slate-300">/</span>
+<span class="text-slate-500">Governance</span>
+<span class="text-slate-300">/</span>
+<span class="text-slate-800 font-semibold">System States</span>
+</div>
+<!-- Search and User Actions -->
+<div class="flex items-center gap-5">
+<!-- Search bar with command key -->
+<div class="relative w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<i class="fa-solid fa-magnifying-glass text-xs"></i>
+</div>
+<input class="w-full pl-9 pr-12 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-800 placeholder-slate-400" placeholder="Search across ErgonX..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
+<span class="text-[10px] font-semibold text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs">⌘ K</span>
+</div>
+</div>
+<!-- Notification Bell -->
+<div class="relative cursor-pointer text-slate-500 hover:text-slate-700">
+<i class="fa-regular fa-bell text-lg"></i>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
+</div>
+<!-- Light/Dark Mode Switcher -->
+<div class="flex items-center gap-1.5 text-slate-400 bg-slate-100 p-1 rounded-full border border-slate-200 text-xs">
+<i class="fa-solid fa-sun text-amber-500 px-1"></i>
+<div class="w-7 h-3.5 bg-slate-300 rounded-full relative cursor-pointer">
+<div class="w-3.5 h-3.5 bg-white rounded-full absolute left-0 top-0 shadow-sm"></div>
+</div>
+<i class="fa-solid fa-moon text-slate-400 px-1"></i>
+</div>
+<!-- User profile badge -->
+<div class="flex items-center gap-2.5 pl-2 border-l border-slate-200 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center text-xs">
+            KW
+          </div>
+<div class="hidden lg:block text-left">
+<div class="text-xs font-semibold text-slate-800 leading-tight">Kwame Mensah</div>
+<div class="text-[11px] text-slate-400">Administrator</div>
+</div>
+<i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- Main Content Container -->
+<main class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full" data-purpose="governed-states-showcase"><div class="flex flex-col w-full space-y-6">
+<!-- Header & Actions -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+        Workflow Transitions and Correction Handoffs
+      </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex flex-wrap items-center gap-2">
+<span>Governed record lifecycle</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Preserve history</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Link corrections</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Ensure auditability</span>
+</p>
+</div>
+<!-- Right record actions menu -->
+<div class="relative inline-block text-left self-start lg:self-center" id="recordActionsDropdown">
+<button class="inline-flex items-center gap-2 bg-surface-container-lowest text-on-surface hover:bg-surface-container-low px-4 py-2 rounded shadow-sm text-label-lg font-label-lg transition duration-150" onclick="document.getElementById('actionMenuPanel').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-base">settings</span>
+<span>Record actions</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-56 rounded bg-surface-container-lowest shadow-xl z-20 py-1.5 focus:outline-none" id="actionMenuPanel">
+<a class="flex items-center gap-2.5 px-4 py-2 text-body-sm font-body-sm text-on-surface hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-base text-secondary">history</span>
+<span>View Audit Log</span>
+</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-body-sm font-body-sm text-on-surface hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-base text-secondary">print</span>
+<span>Print Regulatory Proof</span>
+</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-body-sm font-body-sm text-on-surface hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-base text-secondary">share</span>
+<span>Export Handoff Tree</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Top Visual Process Flow Diagram Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-6 relative overflow-hidden">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-center">
+<!-- Primary Linear Lifecycle (Left 7 cols) -->
+<div class="xl:col-span-7 flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
+<!-- 1. Draft -->
+<div class="flex flex-col items-center text-center group min-w-[70px]">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-primary-fixed-variant transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-xl">description</span>
+</div>
+<span class="mt-2 font-title-md text-body-md text-on-surface">Draft</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Record created</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant font-light hidden sm:block">arrow_forward</span>
+<!-- 2. Submitted -->
+<div class="flex flex-col items-center text-center group min-w-[70px]">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-xl">edit_document</span>
+</div>
+<span class="mt-2 font-title-md text-body-md text-on-surface">Submitted</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Awaiting review</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant font-light hidden sm:block">arrow_forward</span>
+<!-- 3. Approved -->
+<div class="flex flex-col items-center text-center group min-w-[70px]">
+<div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="mt-2 font-title-md text-body-md text-on-surface">Approved</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Authorised</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant font-light hidden sm:block">arrow_forward</span>
+<!-- 4. Finalized (Locked) -->
+<div class="flex flex-col items-center text-center group min-w-[70px]">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-xl">lock</span>
+</div>
+<span class="mt-2 font-title-md text-body-md text-on-surface">Finalized</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Locked (immutable)</span>
+</div>
+</div>
+<!-- Vertical divider for visual hierarchy -->
+<div class="hidden xl:block xl:col-span-1 border-r border-surface-container h-24 mx-auto"></div>
+<!-- Correction / Reversal Handoff Branches (Right 4 cols) -->
+<div class="xl:col-span-4 flex flex-col justify-center space-y-4">
+<div class="text-label-md font-label-md uppercase tracking-wider text-on-surface-variant">
+          Correction / Reversal Handoffs
+        </div>
+<!-- Branch 1: Correction -->
+<div class="flex items-center gap-3">
+<span class="text-xs text-outline tracking-widest hidden sm:inline">- - &gt;</span>
+<div class="w-9 h-9 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-base">warning</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="font-title-md text-body-sm text-on-surface leading-tight">Correction</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant truncate">Amends original</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward</span>
+<div class="w-9 h-9 rounded-full bg-purple-50 text-purple-700 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-body-sm text-on-surface leading-tight">Revised Finalized</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant truncate">New record linked</div>
+</div>
+</div>
+<!-- Branch 2: Reversal -->
+<div class="flex items-center gap-3">
+<span class="text-xs text-outline tracking-widest hidden sm:inline">- - &gt;</span>
+<div class="w-9 h-9 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-base">sync</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="font-title-md text-body-sm text-on-surface leading-tight">Reversal</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant truncate">Cancels original</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward</span>
+<div class="w-9 h-9 rounded-full bg-purple-50 text-purple-700 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-body-sm text-on-surface leading-tight">Reversal Finalized</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant truncate">New record linked</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main 2-Column Responsive Workspace Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN (7 Cols) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Card: Current Record -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-6">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Current record</h2>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Finalized
+          </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Record Attributes List -->
+<div class="md:col-span-6 space-y-3 font-body-sm text-body-sm">
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Record ID</span>
+<span class="font-semibold text-on-surface font-body-md">LEV-2023-001248</span>
+</div>
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Record type</span>
+<span class="font-medium text-on-surface">Leave Request</span>
+</div>
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Employee</span>
+<span class="font-medium text-secondary hover:underline cursor-pointer">Emily Carter (EMP-0248)</span>
+</div>
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Leave type</span>
+<span class="font-medium text-on-surface">Annual Leave</span>
+</div>
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Leave period</span>
+<span class="font-medium text-on-surface">16 Oct 2023 – 20 Oct 2023</span>
+</div>
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Created on</span>
+<span class="font-medium text-on-surface">10 Sep 2023, 09:14</span>
+</div>
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Last updated</span>
+<span class="font-medium text-on-surface">15 Sep 2023, 16:42</span>
+</div>
+<div class="flex justify-between items-baseline py-0.5">
+<span class="text-on-surface-variant">Current owner</span>
+<span class="font-medium text-on-surface">HR Operations</span>
+</div>
+<div class="flex justify-between items-center py-0.5">
+<span class="text-on-surface-variant">Status</span>
+<span class="inline-flex items-center gap-1 font-semibold text-on-surface bg-surface-container px-2 py-0.5 rounded text-label-sm">
+                Finalized
+                <span class="material-symbols-outlined text-[13px]">lock</span>
+</span>
+</div>
+</div>
+<!-- Finalized Callout Explainer Card -->
+<div class="md:col-span-6 bg-surface-container-low rounded-xl p-5 flex flex-col justify-between space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-base">info</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-on-surface">Finalized record</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  This record is finalized and cannot be modified. To make changes, create a correction or reversal record.
+                </p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-11 leading-relaxed border-t border-surface-container pt-3">
+              This record will be retained for audit and compliance purposes. All subsequent changes are managed through new records linked to this one.
+            </p>
+</div>
+</div>
+</div>
+<!-- Card: Create correction / reversal Form -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">auto_fix_high</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Create correction / reversal</h2>
+</div>
+<form class="space-y-5" id="correctionForm" onsubmit="event.preventDefault(); alert('Success: Governed follow-on record created and audit lock established.');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Action type -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface">
+                Action type
+              </label>
+<div class="relative">
+<select class="w-full h-10 px-3 pr-8 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:ring-2 focus:ring-secondary focus:outline-none appearance-none cursor-pointer" id="actionTypeSelect">
+<option value="amend">Correction (Amend details)</option>
+<option value="reversal">Reversal (Cancel record)</option>
+<option value="statutory">Statutory Reclassification</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+<!-- Reason for change -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface">
+                Reason for change <span class="text-error font-bold">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-10 px-3 pr-8 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:ring-2 focus:ring-secondary focus:outline-none appearance-none cursor-pointer" required="">
+<option disabled="" selected="" value="">Select a reason</option>
+<option value="date">Incorrect Date / Duration Calculation</option>
+<option value="policy">Statutory Policy Reallocation</option>
+<option value="employee">Employee Requested Cancellation</option>
+<option value="clerical">Clerical Processing Mistake</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Additional details -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface">
+              Additional details <span class="text-error font-bold">*</span>
+</label>
+<textarea class="w-full p-3 rounded bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:ring-2 focus:ring-secondary focus:outline-none resize-none" placeholder="Provide a clear reason for this correction or reversal..." required="" rows="3"></textarea>
+</div>
+<!-- Helper indicator -->
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-secondary text-base">info</span>
+<span>A new record will be created and linked to this record. The original record will be retained.</span>
+</div>
+<!-- Form Buttons -->
+<div class="flex items-center justify-end gap-3 pt-2">
+<button class="px-4 py-2 rounded bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition" type="reset">
+              Cancel
+            </button>
+<button class="px-5 py-2 rounded bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-on-background transition shadow-sm flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>Create new record</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- RIGHT COLUMN (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Card: Allowed Next Actions -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Allowed next actions</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Disabled: Edit Record -->
+<div class="p-3.5 rounded bg-surface-container-low opacity-60 cursor-not-allowed">
+<div class="flex items-center gap-2 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-base">edit_off</span>
+<span class="font-title-md text-body-md font-semibold text-on-surface-variant">Edit record</span>
+</div>
+<p class="font-body-sm text-label-sm text-on-surface-variant">Not available (finalized)</p>
+</div>
+<!-- Disabled: Submit for Review -->
+<div class="p-3.5 rounded bg-surface-container-low opacity-60 cursor-not-allowed">
+<div class="flex items-center gap-2 text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-base">rule_folder</span>
+<span class="font-title-md text-body-md font-semibold text-on-surface-variant">Submit for review</span>
+</div>
+<p class="font-body-sm text-label-sm text-on-surface-variant">Not available (finalized)</p>
+</div>
+<!-- Active Primary: Create correction -->
+<button class="p-3.5 rounded bg-primary-container text-on-primary text-left hover:bg-on-background transition group shadow-sm" onclick="document.getElementById('actionTypeSelect').value='amend'; document.getElementById('correctionForm').scrollIntoView({behavior: 'smooth'});">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-base text-cyan-300">note_alt</span>
+<span class="font-title-md text-body-md font-semibold">Create correction</span>
+</div>
+<p class="font-body-sm text-label-sm text-slate-300 group-hover:text-white">Amend details (new record)</p>
+</button>
+<!-- Active Secondary: Create reversal -->
+<button class="p-3.5 rounded bg-surface-container hover:bg-surface-container-high text-left transition group" onclick="document.getElementById('actionTypeSelect').value='reversal'; document.getElementById('correctionForm').scrollIntoView({behavior: 'smooth'});">
+<div class="flex items-center gap-2 mb-1 text-on-surface">
+<span class="material-symbols-outlined text-base text-secondary">cached</span>
+<span class="font-title-md text-body-md font-semibold">Create reversal</span>
+</div>
+<p class="font-body-sm text-label-sm text-on-surface-variant">Cancel record (new record)</p>
+</button>
+</div>
+</div>
+<!-- Card: Impact Summary -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-3">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-lg">shield</span>
+<h2 class="font-headline-sm text-headline-sm">Impact summary</h2>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low p-4 rounded-xl">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">policy</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            A new record will be created with the corrected information. The original record <span class="font-semibold text-on-surface">(LEV-2023-001248)</span> will remain finalized and permanently linked for statutory audit traceability.
+          </p>
+</div>
+</div>
+<!-- Card: Linked Records -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Linked records</h2>
+<a class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-1" href="#">
+<span>View all</span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</a>
+</div>
+<!-- Original linked item -->
+<div class="flex items-center justify-between p-3 rounded bg-surface-container-low hover:bg-surface-container transition cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-base">link</span>
+</div>
+<div>
+<div class="font-title-md text-body-sm text-on-surface">Original record</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant">LEV-2023-001248</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary-container text-on-primary">
+              Finalized
+            </span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</div>
+</div>
+<!-- Governed empty lineage substate -->
+<div class="flex items-center gap-3 p-4 rounded bg-surface-container-lowest">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-outline flex-shrink-0">
+<span class="material-symbols-outlined text-lg">alt_route</span>
+</div>
+<div class="text-left">
+<p class="font-title-md text-body-sm text-on-surface font-semibold">No correction or reversal records yet</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant">New records will appear here when created.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Full-Width Section: Transition Timeline -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-surface-container pb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">timeline</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Transition timeline</h2>
+</div>
+<a class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-1 self-start sm:self-auto" href="#">
+<span>View full audit trail</span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</a>
+</div>
+<!-- Timeline Stepper Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+<!-- Step 1: Draft -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-lg">description</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-md text-body-md text-on-surface font-semibold">1. Draft</h3>
+<p class="font-body-sm text-label-sm text-on-surface-variant">10 Sep 2023, 09:14</p>
+<p class="font-body-sm text-body-sm text-on-surface">by <span class="font-medium">Emily Carter</span></p>
+</div>
+<!-- Arrow divider -->
+<span class="material-symbols-outlined absolute -right-3 top-3 text-outline-variant font-light hidden md:block">arrow_forward</span>
+</div>
+<!-- Step 2: Submitted -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-lg">send</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-md text-body-md text-on-surface font-semibold">2. Submitted</h3>
+<p class="font-body-sm text-label-sm text-on-surface-variant">10 Sep 2023, 10:02</p>
+<p class="font-body-sm text-body-sm text-on-surface">by <span class="font-medium">Emily Carter</span></p>
+</div>
+<!-- Arrow divider -->
+<span class="material-symbols-outlined absolute -right-3 top-3 text-outline-variant font-light hidden md:block">arrow_forward</span>
+</div>
+<!-- Step 3: Approved -->
+<div class="flex items-start gap-3 relative">
+<div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-md text-body-md text-on-surface font-semibold">3. Approved</h3>
+<p class="font-body-sm text-label-sm text-on-surface-variant">14 Sep 2023, 13:27</p>
+<p class="font-body-sm text-body-sm text-on-surface">
+            by <span class="font-medium">Daniel Foster</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">(HR Manager)</span>
+</p>
+</div>
+<!-- Arrow divider -->
+<span class="material-symbols-outlined absolute -right-3 top-3 text-outline-variant font-light hidden md:block">arrow_forward</span>
+</div>
+<!-- Step 4: Finalized -->
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-lg">lock</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-md text-body-md text-on-surface font-semibold">4. Finalized</h3>
+<p class="font-body-sm text-label-sm text-on-surface-variant">15 Sep 2023, 16:42</p>
+<p class="font-body-sm text-body-sm text-on-surface">
+            by <span class="font-medium">System</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">(Auto-finalized)</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+</div></main>
+</div>
+<!-- END: MainContentArea -->
+</body></html>

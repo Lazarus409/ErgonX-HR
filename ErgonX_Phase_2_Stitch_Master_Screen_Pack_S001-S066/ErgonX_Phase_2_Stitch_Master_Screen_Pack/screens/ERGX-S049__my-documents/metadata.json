@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S049",
+  "screen_number": 49,
+  "title": "My Documents",
+  "slug": "my-documents",
+  "module": "Self Service / Documents",
+  "route_hint": "/my-workspace/documents",
+  "phase_2_classification": "Existing screen \u2014 refine",
+  "implementation_wave": "Wave 3",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (49).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Categories, issue/expiry dates, status and uploads. Only show storage quota if the backend actually enforces one.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

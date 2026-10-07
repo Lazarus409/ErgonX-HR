@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#213145", "surface-tint": "#525f75", "on-secondary-container": "#fefcff", "secondary-container": "#316bf3", "surface-bright": "#f8f9ff", "secondary": "#0051d5", "outline-variant": "#c5c6cd", "secondary-fixed-dim": "#b4c5ff", "on-primary-fixed": "#0e1c2f", "tertiary-container": "#001f26", "error-container": "#ffdad6", "on-secondary-fixed": "#00174b", "error": "#ba1a1a", "surface-container-high": "#dce9ff", "background": "#f8f9ff", "on-tertiary-fixed-variant": "#004e5c", "surface-container-lowest": "#ffffff", "surface-container": "#e5eeff", "tertiary": "#000000", "tertiary-fixed-dim": "#4cd7f6", "on-primary-fixed-variant": "#3a475c", "surface": "#f8f9ff", "on-primary": "#ffffff", "surface-dim": "#cbdbf5", "inverse-on-surface": "#eaf1ff", "secondary-fixed": "#dbe1ff", "on-error-container": "#93000a", "on-tertiary-container": "#0090a9", "on-tertiary": "#ffffff", "primary-fixed-dim": "#bac7e1", "on-tertiary-fixed": "#001f26", "inverse-primary": "#bac7e1", "on-surface-variant": "#44474c", "tertiary-fixed": "#acedff", "on-secondary": "#ffffff", "on-background": "#0b1c30", "primary": "#000000", "on-error": "#ffffff", "outline": "#75777d", "on-primary-container": "#77849c", "surface-container-low": "#eff4ff", "on-secondary-fixed-variant": "#003ea8", "surface-variant": "#d3e4fe", "primary-container": "#0e1c2f", "primary-fixed": "#d6e3fe", "surface-container-highest": "#d3e4fe", "on-surface": "#0b1c30" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2rem", "gutter-compact": "0.75rem", "margin-mobile": "1rem", "margin": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "headline-lg": ["Hanken Grotesk"], "headline-md": ["Hanken Grotesk"], "display-lg-mobile": ["Hanken Grotesk"], "label-sm": ["Manrope"], "body-sm": ["Manrope"], "display-lg": ["Hanken Grotesk"], "headline-sm": ["Hanken Grotesk"], "label-md": ["Manrope"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "label-lg": ["Manrope"], "title-md": ["Manrope"] }, "fontSize": { "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700"}], "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "display-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "label-md": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}], "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}], "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "label-lg": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}], "title-md": ["15px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-primary-container text-on-primary-container z-50 flex flex-col justify-between border-r border-outline-variant/20 shadow-[0_1px_8px_rgba(0,0,0,0.08)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm border-b border-outline-variant/20 bg-primary-container"><img alt="Brand logo. - Primary color: #0b192c - Font: hankenGrotesk - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary tracking-tight font-bold truncate">ErgonX</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider font-semibold truncate">Enterprise ERP</span></div></div><div class="p-space-sm border-b border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between p-space-sm rounded-lg bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors text-left" type="button"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-secondary-container text-base">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-primary font-semibold truncate">Rivermere University</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-outline-variant text-base shrink-0">unfold_more</span></button></div><div class="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-space-xs"><nav class="space-y-space-xs" data-active-classes="bg-secondary text-on-secondary font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="home" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="insights" href="#"><span class="material-symbols-outlined text-lg">analytics</span><span>Insights</span></a><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Human Resources</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="hr-dashboard" href="#">HR Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="employees" href="#">Employees</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="recruitment" href="#">Recruitment</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="leave" href="#">Leave</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="attendance" href="#">Attendance</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="payroll" href="#">Payroll</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Accounting</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="accounting-dashboard" href="#">Accounting Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="general-ledger" href="#">General Ledger</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-payable" href="#">Accounts Payable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-receivable" href="#">Accounts Receivable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="bank-reconciliation" href="#">Bank Reconciliation</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="budgets" href="#">Budgets</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="financial-reports" href="#">Financial Reports</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Self Service</span><span class="material-symbols-outlined text-sm text-outline-variant">chevron_right</span></div></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-lg">query_stats</span><span>Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="approvals" href="#"><span class="material-symbols-outlined text-lg">fact_check</span><span>Approvals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-lg">verified_user</span><span>Audit Trail</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="users-and-access" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Users &amp; Access</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg text-outline-variant hover:text-on-primary hover:bg-surface-container-highest/10 transition-colors" type="button"><span class="font-label-md text-label-md font-medium">Collapse Sidebar</span><span class="material-symbols-outlined text-base">keyboard_double_arrow_left</span></button></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-surface-container-high z-40 px-gutter flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-container-low rounded border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="Search records, accounts, employees..." type="text"/><kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/40">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low rounded p-0.5 border border-outline-variant/40"><button class="px-2 py-1 rounded-sm bg-surface-container-lowest text-on-surface shadow-xs flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">light_mode</span></button><button class="px-2 py-1 rounded-sm text-on-surface-variant hover:text-on-surface flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">dark_mode</span></button></div><button class="relative p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="h-6 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Administrator</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-gutter py-space-lg"><div class="flex flex-col w-full space-y-space-lg">
+<!-- Breadcrumbs & Dashboard Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<nav class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary transition-colors" href="#">Home</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-secondary transition-colors" href="#">Human Resources</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">HR Dashboard</span>
+</nav>
+<div class="flex items-baseline gap-space-sm">
+<h1 class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">HR Dashboard</h1>
+<span class="hidden md:inline-block font-body-sm text-body-sm text-on-surface-variant">People insights to build a stronger, more inclusive campus workforce.</span>
+</div>
+</div>
+<!-- Date selector & export actions -->
+<div class="flex items-center gap-space-sm self-start lg:self-auto">
+<div class="relative inline-flex items-center">
+<button class="h-9 px-space-md bg-surface-container-lowest rounded shadow-xs flex items-center gap-space-xs text-on-surface font-label-lg text-label-lg hover:bg-surface-container-low transition-colors" id="dateRangeBtn" type="button">
+<span class="material-symbols-outlined text-secondary text-base">calendar_today</span>
+<span>Jan – Sep 2023</span>
+<span class="material-symbols-outlined text-outline text-sm">expand_more</span>
+</button>
+</div>
+<button class="h-9 px-space-md bg-surface-container-lowest rounded shadow-xs flex items-center gap-space-xs text-on-surface font-label-lg text-label-lg hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-on-surface-variant text-base">file_download</span>
+<span>Export</span>
+</button>
+<div class="h-6 w-px bg-surface-container-high hidden sm:block"></div>
+<button class="h-9 w-9 bg-surface-container-lowest rounded shadow-xs flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" title="Settings" type="button">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+</div>
+</div>
+<!-- Metric KPI Cards (4 Column Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- 1. Total Employees -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-fixed/30 rounded-bl-full pointer-events-none transition-transform group-hover:scale-105"></div>
+<div class="flex items-center justify-between mb-space-sm relative z-10">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Total employees</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">groups</span>
+</div>
+</div>
+<div class="space-y-1 relative z-10">
+<div class="flex items-baseline gap-1.5">
+<span class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">248</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">people</span>
+</div>
+<div class="flex items-center gap-1 font-label-md text-label-md text-secondary font-semibold">
+<span class="material-symbols-outlined text-sm font-bold">arrow_upward</span>
+<span>+12 (+5.1%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-normal ml-1">vs. Jan–Sep 2022</span>
+</div>
+</div>
+</div>
+<!-- 2. Active Employees -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary-fixed/30 rounded-bl-full pointer-events-none transition-transform group-hover:scale-105"></div>
+<div class="flex items-center justify-between mb-space-sm relative z-10">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Active employees</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-xl">person_check</span>
+</div>
+</div>
+<div class="space-y-1 relative z-10">
+<div class="flex items-baseline gap-1.5">
+<span class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">241</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">people</span>
+</div>
+<div class="flex items-center gap-1 font-label-md text-label-md text-on-tertiary-container font-semibold">
+<span class="material-symbols-outlined text-sm font-bold">arrow_upward</span>
+<span>+11 (+4.8%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-normal ml-1">vs. Jan–Sep 2022</span>
+</div>
+</div>
+</div>
+<!-- 3. New Hires -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-fixed-dim/20 rounded-bl-full pointer-events-none transition-transform group-hover:scale-105"></div>
+<div class="flex items-center justify-between mb-space-sm relative z-10">
+<span class="font-label-lg text-label-lg text-on-surface-variant">New hires</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">person_add</span>
+</div>
+</div>
+<div class="space-y-1 relative z-10">
+<div class="flex items-baseline gap-1.5">
+<span class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">12</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">people</span>
+</div>
+<div class="flex items-center gap-1 font-label-md text-label-md text-secondary font-semibold">
+<span class="material-symbols-outlined text-sm font-bold">arrow_upward</span>
+<span>+4 (+50.0%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-normal ml-1">vs. Jan–Sep 2022</span>
+</div>
+</div>
+</div>
+<!-- 4. Turnover Rate -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-container-high/40 rounded-bl-full pointer-events-none transition-transform group-hover:scale-105"></div>
+<div class="flex items-center justify-between mb-space-sm relative z-10">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Turnover rate</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">autorenew</span>
+</div>
+</div>
+<div class="space-y-1 relative z-10">
+<div class="flex items-baseline gap-1.5">
+<span class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">3.8%</span>
+</div>
+<div class="flex items-center gap-1 font-label-md text-label-md text-secondary font-semibold">
+<span class="material-symbols-outlined text-sm font-bold">arrow_downward</span>
+<span>-1.2 pp</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-normal ml-1">vs. Jan–Sep 2022</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Ribbon -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-2 h-6 bg-secondary rounded-full"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Quick actions</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Primary: Add Employee -->
+<button class="h-10 px-space-md bg-primary-container text-on-primary rounded font-label-lg text-label-lg hover:bg-inverse-surface transition-all flex items-center gap-2 shadow-xs active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-base">person_add_alt</span>
+<span>Add employee</span>
+</button>
+<!-- Outline: Create Requisition -->
+<button class="h-10 px-space-md bg-surface-container-low text-on-surface rounded font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-base text-secondary">post_add</span>
+<span>Create requisition</span>
+</button>
+<!-- Outline: Review Leave -->
+<button class="h-10 px-space-md bg-surface-container-low text-on-surface rounded font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-base text-secondary">date_range</span>
+<span>Review leave</span>
+</button>
+<!-- Outline: Review Attendance -->
+<button class="h-10 px-space-md bg-surface-container-low text-on-surface rounded font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Review attendance</span>
+</button>
+</div>
+</div>
+<!-- Analytical Charts Section (Split 7 / 5 Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<!-- Headcount Trend Chart (Col 7) -->
+<div class="lg:col-span-7 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Headcount trend</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Monthly progression, onboardings, and institutional turnover</p>
+</div>
+<div class="flex items-center gap-space-md">
+<!-- Legend -->
+<div class="hidden sm:flex items-center gap-space-md text-label-md font-label-md">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> Total
+            </span>
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container"></span> Hires
+            </span>
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span> Exits
+            </span>
+</div>
+<div class="h-7 px-2.5 bg-surface-container-low rounded flex items-center gap-1 text-on-surface font-label-sm text-label-sm font-semibold">
+<span>Number of employees</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</div>
+</div>
+</div>
+<!-- SVG Chart Canvas Container -->
+<div class="w-full h-64 relative pt-2">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 680 230">
+<defs>
+<lineargradient id="areaGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#316bf3" stop-opacity="0.18"></stop>
+<stop offset="100%" stop-color="#316bf3" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#eff4ff" stroke-width="1.5" x1="30" x2="660" y1="20" y2="20"></line>
+<line stroke="#eff4ff" stroke-width="1.5" x1="30" x2="660" y1="65" y2="65"></line>
+<line stroke="#eff4ff" stroke-width="1.5" x1="30" x2="660" y1="110" y2="110"></line>
+<line stroke="#eff4ff" stroke-width="1.5" x1="30" x2="660" y1="155" y2="155"></line>
+<line stroke="#dce9ff" stroke-width="1.5" x1="30" x2="660" y1="200" y2="200"></line>
+<!-- Y-axis labels -->
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="end" x="22" y="24">300</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="end" x="22" y="69">250</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="end" x="22" y="114">200</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="end" x="22" y="159">100</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="end" x="22" y="204">0</text>
+<!-- Area fill underneath main trend -->
+<path d="M 60 76 L 132 74 L 204 70 L 276 68 L 348 64 L 420 62 L 492 60 L 564 60 L 636 58 L 636 200 L 60 200 Z" fill="url(#areaGradient)"></path>
+<!-- Main Trend Line (Total: 236 -> 248) -->
+<path d="M 60 76 L 132 74 L 204 70 L 276 68 L 348 64 L 420 62 L 492 60 L 564 60 L 636 58" fill="none" stroke="#0051d5" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Data Points & Values (Total) -->
+<!-- Jan: 236 -->
+<circle cx="60" cy="76" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="60" y="67">236</text>
+<!-- Feb: 238 -->
+<circle cx="132" cy="74" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="132" y="65">238</text>
+<!-- Mar: 240 -->
+<circle cx="204" cy="70" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="204" y="61">240</text>
+<!-- Apr: 242 -->
+<circle cx="276" cy="68" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="276" y="59">242</text>
+<!-- May: 244 -->
+<circle cx="348" cy="64" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="348" y="55">244</text>
+<!-- Jun: 246 -->
+<circle cx="420" cy="62" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="420" y="53">246</text>
+<!-- Jul: 247 -->
+<circle cx="492" cy="60" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="492" y="51">247</text>
+<!-- Aug: 247 -->
+<circle cx="564" cy="60" fill="#ffffff" r="3.5" stroke="#0051d5" stroke-width="2.5"></circle>
+<text class="fill-on-surface font-label-sm font-semibold" font-size="10" text-anchor="middle" x="564" y="51">247</text>
+<!-- Sep: 248 -->
+<circle cx="636" cy="58" fill="#0051d5" r="4" stroke="#ffffff" stroke-width="2"></circle>
+<text class="fill-secondary font-label-sm font-bold" font-size="10" text-anchor="middle" x="636" y="49">248</text>
+<!-- Monthly Mini Bars (Hires & Exits) -->
+<!-- Jan: +2, -3 -->
+<rect fill="#0090a9" height="14" rx="2" width="6" x="53" y="186"></rect>
+<rect fill="#ba1a1a" height="20" rx="2" width="6" x="61" y="180"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="56" y="180">2</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="64" y="174">3</text>
+<!-- Feb: +3, -2 -->
+<rect fill="#0090a9" height="20" rx="2" width="6" x="125" y="180"></rect>
+<rect fill="#ba1a1a" height="14" rx="2" width="6" x="133" y="186"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="128" y="174">3</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="136" y="180">2</text>
+<!-- Mar: +2, -1 -->
+<rect fill="#0090a9" height="14" rx="2" width="6" x="197" y="186"></rect>
+<rect fill="#ba1a1a" height="7" rx="2" width="6" x="205" y="193"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="200" y="180">2</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="208" y="187">1</text>
+<!-- Apr: +4, -2 -->
+<rect fill="#0090a9" height="28" rx="2" width="6" x="269" y="172"></rect>
+<rect fill="#ba1a1a" height="14" rx="2" width="6" x="277" y="186"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="272" y="166">4</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="280" y="180">2</text>
+<!-- May: +1, -2 -->
+<rect fill="#0090a9" height="7" rx="2" width="6" x="341" y="193"></rect>
+<rect fill="#ba1a1a" height="14" rx="2" width="6" x="349" y="186"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="344" y="187">1</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="352" y="180">2</text>
+<!-- Jun: +3, -1 -->
+<rect fill="#0090a9" height="20" rx="2" width="6" x="413" y="180"></rect>
+<rect fill="#ba1a1a" height="7" rx="2" width="6" x="421" y="193"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="416" y="174">3</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="424" y="187">1</text>
+<!-- Jul: +2, -2 -->
+<rect fill="#0090a9" height="14" rx="2" width="6" x="485" y="186"></rect>
+<rect fill="#ba1a1a" height="14" rx="2" width="6" x="493" y="186"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="488" y="180">2</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="496" y="180">2</text>
+<!-- Aug: +1, -1 -->
+<rect fill="#0090a9" height="7" rx="2" width="6" x="557" y="193"></rect>
+<rect fill="#ba1a1a" height="7" rx="2" width="6" x="565" y="193"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="560" y="187">1</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="568" y="187">1</text>
+<!-- Sep: +2, -1 -->
+<rect fill="#0090a9" height="14" rx="2" width="6" x="629" y="186"></rect>
+<rect fill="#ba1a1a" height="7" rx="2" width="6" x="637" y="193"></rect>
+<text class="fill-on-tertiary-container font-label-sm" font-size="9" text-anchor="middle" x="632" y="180">2</text>
+<text class="fill-error font-label-sm" font-size="9" text-anchor="middle" x="640" y="187">1</text>
+<!-- X-axis Labels -->
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="60" y="218">Jan</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="132" y="218">Feb</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="204" y="218">Mar</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="276" y="218">Apr</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="348" y="218">May</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="420" y="218">Jun</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="492" y="218">Jul</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="564" y="218">Aug</text>
+<text class="fill-outline font-label-sm" font-size="10" text-anchor="middle" x="636" y="218">Sep</text>
+</svg>
+</div>
+</div>
+<!-- Employees by Department (Col 5) -->
+<div class="lg:col-span-5 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Employees by department</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Allocated institutional headcount</p>
+</div>
+<div class="h-7 px-2.5 bg-surface-container-low rounded flex items-center gap-1 text-on-surface font-label-sm text-label-sm font-semibold">
+<span>Number of employees</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</div>
+</div>
+<!-- Bar Chart Visualization -->
+<div class="space-y-4 pt-1">
+<!-- Human Resources: 52 -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<span class="text-on-surface font-medium">Human Resources</span>
+<span class="text-on-surface font-bold">52</span>
+</div>
+<div class="w-full h-5 bg-surface-container-low rounded-sm overflow-hidden flex">
+<div class="h-full bg-secondary transition-all duration-500 rounded-sm" style="width: 65%;"></div>
+</div>
+</div>
+<!-- Finance: 48 -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<span class="text-on-surface font-medium">Finance</span>
+<span class="text-on-surface font-bold">48</span>
+</div>
+<div class="w-full h-5 bg-surface-container-low rounded-sm overflow-hidden flex">
+<div class="h-full bg-secondary-fixed-dim transition-all duration-500 rounded-sm" style="width: 60%;"></div>
+</div>
+</div>
+<!-- Information Technology: 46 -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<span class="text-on-surface font-medium">Information Technology</span>
+<span class="text-on-surface font-bold">46</span>
+</div>
+<div class="w-full h-5 bg-surface-container-low rounded-sm overflow-hidden flex">
+<div class="h-full bg-on-tertiary-container transition-all duration-500 rounded-sm" style="width: 57.5%;"></div>
+</div>
+</div>
+<!-- Academic Affairs: 42 -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<span class="text-on-surface font-medium">Academic Affairs</span>
+<span class="text-on-surface font-bold">42</span>
+</div>
+<div class="w-full h-5 bg-surface-container-low rounded-sm overflow-hidden flex">
+<div class="h-full bg-secondary-container transition-all duration-500 rounded-sm" style="width: 52.5%;"></div>
+</div>
+</div>
+<!-- Operations: 60 -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<span class="text-on-surface font-medium">Operations</span>
+<span class="text-on-surface font-bold">60</span>
+</div>
+<div class="w-full h-5 bg-surface-container-low rounded-sm overflow-hidden flex">
+<div class="h-full bg-surface-tint transition-all duration-500 rounded-sm" style="width: 75%;"></div>
+</div>
+</div>
+</div>
+<!-- Department Scale Axis -->
+<div class="pt-2 flex justify-between font-label-sm text-label-sm text-outline px-1">
+<span>0</span>
+<span>20</span>
+<span>40</span>
+<span>60</span>
+<span>80</span>
+</div>
+</div>
+</div>
+<!-- Bottom Split Section: Needs Attention & Upcoming Events -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left: Needs Attention (Col 7) -->
+<div class="lg:col-span-7 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Needs attention</h2>
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+</div>
+<button class="font-label-md text-label-md text-secondary hover:underline font-semibold" type="button">View all tasks</button>
+</div>
+<div class="space-y-space-xs">
+<!-- Attention Item 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-lg">assignment_late</span>
+</div>
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">7</span>
+<span class="font-body-md text-body-md text-on-surface truncate">employees have incomplete onboarding</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-secondary hover:text-on-secondary-fixed-variant font-semibold shrink-0 ml-2" href="#">
+<span>Review employees</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<!-- Attention Item 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-lg">event_busy</span>
+</div>
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">4</span>
+<span class="font-body-md text-body-md text-on-surface truncate">leave requests awaiting review</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-secondary hover:text-on-secondary-fixed-variant font-semibold shrink-0 ml-2" href="#">
+<span>Review leave</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<!-- Attention Item 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-lg">update</span>
+</div>
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">3</span>
+<span class="font-body-md text-body-md text-on-surface truncate">attendance corrections awaiting review</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-secondary hover:text-on-secondary-fixed-variant font-semibold shrink-0 ml-2" href="#">
+<span>Review attendance</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<!-- Attention Item 4 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-error-container/40 flex items-center justify-center shrink-0 text-error">
+<span class="material-symbols-outlined text-lg">warning</span>
+</div>
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-headline-sm text-headline-sm text-error font-bold">2</span>
+<span class="font-body-md text-body-md text-on-surface truncate">contracts expire within 30 days</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-secondary hover:text-on-secondary-fixed-variant font-semibold shrink-0 ml-2" href="#">
+<span>View contracts</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Right: Upcoming (Col 5) -->
+<div class="lg:col-span-5 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Upcoming</h2>
+<button class="font-label-md text-label-md text-secondary hover:underline font-semibold" type="button">Campus calendar</button>
+</div>
+<div class="space-y-space-xs">
+<!-- Schedule Item 1 -->
+<a class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between group" href="#">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-lg">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-secondary transition-colors">Payroll cutoff</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Monthly faculty &amp; staff run</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md font-bold text-on-surface">20 Sep</span>
+<span class="material-symbols-outlined text-outline-variant text-base group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</div>
+</a>
+<!-- Schedule Item 2 -->
+<a class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between group" href="#">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-lg">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-secondary transition-colors">Graduate recruitment interviews</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Computer Science &amp; Humanities</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md font-bold text-on-surface">25 Sep</span>
+<span class="material-symbols-outlined text-outline-variant text-base group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</div>
+</a>
+<!-- Schedule Item 3 -->
+<a class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between group" href="#">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-lg">contract</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-secondary transition-colors">Contract reviews</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Adjunct teaching staff renewals</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md font-bold text-on-surface">30 Sep</span>
+<span class="material-symbols-outlined text-outline-variant text-base group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic interaction handles
+  document.addEventListener('DOMContentLoaded', () => {
+    // Quick action notification trigger or interactions
+    const dateBtn = document.getElementById('dateRangeBtn');
+    if (dateBtn) {
+      dateBtn.addEventListener('click', () => {
+        // Toggle view period interaction
+        const currentText = dateBtn.querySelector('span:nth-child(2)');
+        if (currentText) {
+          currentText.textContent = currentText.textContent.includes('Jan – Sep') 
+            ? 'Last 12 Months' 
+            : 'Jan – Sep 2023';
+        }
+      });
+    }
+  });
+</script></main></div></body></html>

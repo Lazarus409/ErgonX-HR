@@ -1,0 +1,16 @@
+{
+  "screen_id": "ERGX-S065",
+  "screen_number": 65,
+  "title": "Employee Directory \u2014 Filter Drawer Variant",
+  "slug": "employee-directory-filter-drawer-variant",
+  "module": "Human Resources",
+  "route_hint": "/employees",
+  "phase_2_classification": "Visual variant",
+  "implementation_wave": "Wave 3",
+  "priority": "P1",
+  "variant_of": "ERGX-S008",
+  "source_archive": "stitch_ergonx_ui (65).zip",
+  "reference_image_status": "present",
+  "codex_guardrail": "Responsive/compact Employee Directory variant with KPI cards and filter drawer. Reuse canonical Employee Directory contracts and field-level RBAC. Do not create a second employee listing domain.",
+  "authority_note": "Stitch is a visual/reference source. ErgonX backend/domain invariants, tenant isolation, RBAC, module gating, audit and lifecycle rules are authoritative."
+}

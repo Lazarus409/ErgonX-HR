@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S056",
+  "screen_number": 56,
+  "title": "Notification Center",
+  "slug": "notification-center",
+  "module": "Platform / Notifications",
+  "route_hint": "/notifications",
+  "phase_2_classification": "New/partial \u2014 extend",
+  "implementation_wave": "Wave 2",
+  "priority": "P0",
+  "source_archive": "stitch_ergonx_ui (56).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "In-app + email only for Phase 2. Deep links use controlled route_name/resource_id and re-check source authorization; no arbitrary trusted URLs.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

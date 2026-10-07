@@ -1,0 +1,25 @@
+{
+  "screen_id": "ERGX-S002",
+  "sequence": 2,
+  "title": "Institution Registration",
+  "slug": "institution-registration",
+  "module": "ONBOARDING",
+  "module_group": "onboarding",
+  "canonical_route_hint": "/register",
+  "source_archive": "stitch_ergonx_ui (2).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "reference.png",
+      "sha256": "fe35944c24e451944534be6cb938a92c458c3e18b6b30f9b5594b3d8762ed809",
+      "bytes": 429002
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "1126e2248928fad2e45aa00a9399b40c9feb793d6e926024221bcc57be778004",
+      "bytes": 17457
+    }
+  ]
+}

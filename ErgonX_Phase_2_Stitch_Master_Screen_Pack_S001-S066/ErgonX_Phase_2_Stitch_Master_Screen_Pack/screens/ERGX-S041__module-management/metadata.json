@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S041",
+  "screen_number": 41,
+  "title": "Module Management",
+  "slug": "module-management",
+  "module": "Settings / Platform",
+  "route_hint": "/settings/modules",
+  "phase_2_classification": "Existing screen \u2014 extend/refine",
+  "implementation_wave": "Wave 2",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (41).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Keep module enable/disable and dependency controls. Do not implement SaaS billing/plan mechanics unless separately approved.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

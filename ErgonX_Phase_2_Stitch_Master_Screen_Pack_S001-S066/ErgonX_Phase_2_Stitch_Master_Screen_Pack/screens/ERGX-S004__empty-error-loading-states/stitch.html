@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ErgonX Desktop - Governed System States: Empty, Error &amp; Loading</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              600: '#0052cc',
+              700: '#003e99',
+              900: '#0a192f',
+            },
+            sidebar: '#001428',
+            surface: '#f8fafc',
+            borderLight: '#e2e8f0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-custom {
+      animation: spin-slow 1.25s linear infinite;
+    }
+    @keyframes pulse-custom {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .skeleton-pulse {
+      animation: pulse-custom 1.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 bg-[#051329] text-slate-300 flex-shrink-0 flex flex-col justify-between hidden md:flex border-r border-slate-800" data-purpose="sidebar-navigation">
+<!-- Top section of sidebar -->
+<div>
+<!-- ErgonX Brand Logo -->
+<div class="h-16 px-6 flex items-center gap-2 border-b border-slate-800/80">
+<span class="text-2xl font-extrabold tracking-tight text-white flex items-center">
+          Ergon<span class="text-cyan-400 font-black">X</span>
+</span>
+</div>
+<!-- Institution / Tenant Switcher -->
+<div class="p-3">
+<div class="bg-[#0b1d3a] rounded-lg p-2.5 flex items-center justify-between border border-slate-700/60 cursor-pointer hover:border-slate-600 transition">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0">
+<i class="fa-solid fa-building-columns text-sm"></i>
+</div>
+<div class="truncate">
+<div class="text-xs font-semibold text-white leading-tight truncate">Rivermere University</div>
+<div class="text-[11px] text-slate-400">Higher Education</div>
+</div>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<nav class="mt-2 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-house w-4 text-center"></i>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-column w-4 text-center"></i>
+<span>Insights</span>
+</a>
+<!-- HR Section (Expanded) -->
+<div class="pt-1">
+<div class="flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-slate-800/60 rounded-md">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-user-group w-4 text-center text-cyan-400"></i>
+<span>HR</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</div>
+<div class="pl-7 pr-2 mt-1 space-y-1 text-xs">
+<a class="flex items-center gap-2 py-1.5 px-2 font-semibold text-cyan-400 bg-cyan-950/40 rounded border-l-2 border-cyan-400" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+<span>HR Dashboard</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Recruitment</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Leave</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Attendance</span>
+</a>
+<a class="flex items-center gap-2 py-1.5 px-2 text-slate-400 hover:text-white transition" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+<span>Payroll</span>
+</a>
+</div>
+</div>
+<!-- Other modules -->
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-calculator w-4 text-center"></i>
+<span>Accounting</span>
+</div>
+<i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-chart-line w-4 text-center"></i>
+<span>Reports &amp; Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-regular fa-circle-check w-4 text-center"></i>
+<span>Approvals</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-shield-halved w-4 text-center"></i>
+<span>Audit Trail</span>
+</a>
+<div class="pt-2 border-t border-slate-800/80 my-2"></div>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-users-gear w-4 text-center"></i>
+<span>Users &amp; Access</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<i class="fa-solid fa-gear w-4 text-center"></i>
+<span>Settings</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-800/70 hover:text-white text-slate-300 transition" href="#">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-circle-user w-4 text-center"></i>
+<span>Self Service</span>
+</div>
+<i class="fa-solid fa-chevron-up text-xs text-slate-400"></i>
+</a>
+</nav>
+</div>
+<!-- Bottom collapse sidebar trigger -->
+<div class="p-3 border-t border-slate-800/80">
+<button class="w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-400 hover:text-white rounded-md hover:bg-slate-800/60 transition">
+<i class="fa-solid fa-angles-left"></i>
+<span>Collapse sidebar</span>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- BEGIN: TopBar -->
+<header class="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-30 shadow-xs" data-purpose="top-navigation">
+<!-- Breadcrumb path -->
+<div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+<a class="hover:text-slate-800" href="#">Home</a>
+<span class="text-slate-300">/</span>
+<span class="text-slate-500">Governance</span>
+<span class="text-slate-300">/</span>
+<span class="text-slate-800 font-semibold">System States</span>
+</div>
+<!-- Search and User Actions -->
+<div class="flex items-center gap-5">
+<!-- Search bar with command key -->
+<div class="relative w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<i class="fa-solid fa-magnifying-glass text-xs"></i>
+</div>
+<input class="w-full pl-9 pr-12 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-800 placeholder-slate-400" placeholder="Search across ErgonX..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
+<span class="text-[10px] font-semibold text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs">⌘ K</span>
+</div>
+</div>
+<!-- Notification Bell -->
+<div class="relative cursor-pointer text-slate-500 hover:text-slate-700">
+<i class="fa-regular fa-bell text-lg"></i>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
+</div>
+<!-- Light/Dark Mode Switcher -->
+<div class="flex items-center gap-1.5 text-slate-400 bg-slate-100 p-1 rounded-full border border-slate-200 text-xs">
+<i class="fa-solid fa-sun text-amber-500 px-1"></i>
+<div class="w-7 h-3.5 bg-slate-300 rounded-full relative cursor-pointer">
+<div class="w-3.5 h-3.5 bg-white rounded-full absolute left-0 top-0 shadow-sm"></div>
+</div>
+<i class="fa-solid fa-moon text-slate-400 px-1"></i>
+</div>
+<!-- User profile badge -->
+<div class="flex items-center gap-2.5 pl-2 border-l border-slate-200 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center text-xs">
+            KW
+          </div>
+<div class="hidden lg:block text-left">
+<div class="text-xs font-semibold text-slate-800 leading-tight">Kwame Mensah</div>
+<div class="text-[11px] text-slate-400">Administrator</div>
+</div>
+<i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- Main Content Container -->
+<main class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full" data-purpose="governed-states-showcase">
+<!-- Page Header -->
+<div class="space-y-1">
+<h1 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0a192f]">Empty, Error and Loading States</h1>
+<p class="text-sm text-slate-600">Reusable patterns for common system states. Use these components to provide clear, consistent guidance.</p>
+</div>
+<!-- BEGIN: SectionInlineBanners -->
+<section class="space-y-3" data-purpose="inline-banners">
+<div>
+<h2 class="text-base font-bold text-slate-900">Inline banners</h2>
+<p class="text-xs text-slate-500">Use horizontal banners for contextual messages within a page or section.</p>
+</div>
+<!-- Banner 1: Info / No data available -->
+<div class="bg-[#f0f6ff] border border-[#bfdbfe] rounded-lg p-3 flex flex-wrap items-center justify-between gap-4 text-xs">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-[#3b82f6] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
+<i class="fa-solid fa-info"></i>
+</div>
+<div>
+<span class="font-bold text-[#1e3a8a] mr-2">No data available</span>
+<span class="text-slate-600">There are no records to display at the moment.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-auto">
+<button class="bg-[#002b66] hover:bg-[#001e47] text-white px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Add record</button>
+<button class="bg-white hover:bg-slate-50 text-blue-700 border border-blue-400 px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Learn more</button>
+<button class="text-slate-400 hover:text-slate-600 pl-2 text-sm">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+</div>
+<!-- Banner 2: Warning / Permission -->
+<div class="bg-[#fffbeb] border border-[#fde68a] rounded-lg p-3 flex flex-wrap items-center justify-between gap-4 text-xs">
+<div class="flex items-center gap-3">
+<div class="text-amber-500 text-base flex-shrink-0">
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
+<div>
+<span class="font-bold text-[#78350f] mr-2">You don't have permission</span>
+<span class="text-slate-600">You don't have access to view this information. Contact your administrator if you believe this is a mistake.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-auto">
+<button class="bg-[#002b66] hover:bg-[#001e47] text-white px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Request access</button>
+<button class="bg-white hover:bg-slate-50 text-blue-700 border border-blue-400 px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Learn more</button>
+<button class="text-slate-400 hover:text-slate-600 pl-2 text-sm">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+</div>
+<!-- Banner 3: Danger / Service unavailable -->
+<div class="bg-[#fef2f2] border border-[#fecaca] rounded-lg p-3 flex flex-wrap items-center justify-between gap-4 text-xs">
+<div class="flex items-center gap-3">
+<div class="text-red-500 text-base flex-shrink-0">
+<i class="fa-regular fa-circle-xmark"></i>
+</div>
+<div>
+<span class="font-bold text-[#991b1b] mr-2">Service unavailable</span>
+<span class="text-slate-600">We're unable to load this information right now. Please try again shortly.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-auto">
+<button class="bg-[#002b66] hover:bg-[#001e47] text-white px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Try again</button>
+<button class="bg-white hover:bg-slate-50 text-blue-700 border border-blue-400 px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">View status</button>
+<button class="text-slate-400 hover:text-slate-600 pl-2 text-sm">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+</div>
+<!-- Banner 4: Validation Error -->
+<div class="bg-[#fff1f2] border border-[#fecdd3] rounded-lg p-3 flex flex-wrap items-center justify-between gap-4 text-xs">
+<div class="flex items-center gap-3">
+<div class="text-red-500 text-base flex-shrink-0">
+<i class="fa-solid fa-circle-exclamation"></i>
+</div>
+<div>
+<span class="font-bold text-[#881337] mr-2">Please correct the highlighted fields</span>
+<span class="text-slate-600">There are 2 errors that need your attention before you can continue.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-auto">
+<button class="bg-[#002b66] hover:bg-[#001e47] text-white px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Show errors</button>
+<button class="bg-white hover:bg-slate-50 text-blue-700 border border-blue-400 px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Review form</button>
+<button class="text-slate-400 hover:text-slate-600 pl-2 text-sm">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+</div>
+<!-- Banner 5: Loading State Banner -->
+<div class="bg-[#eff6ff] border border-[#bfdbfe] rounded-lg p-3 flex items-center justify-between text-xs">
+<div class="flex items-center gap-3">
+<div class="text-blue-500 text-base flex-shrink-0 animate-spin-custom">
+<i class="fa-solid fa-spinner"></i>
+</div>
+<div>
+<span class="font-bold text-[#1e3a8a] mr-2">Loading</span>
+<span class="text-slate-600">Please wait while we retrieve your data...</span>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600 pl-2 text-sm">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<!-- Banner 6: Zero Result Banner -->
+<div class="bg-[#ecfeff] border border-[#a5f3fc] rounded-lg p-3 flex flex-wrap items-center justify-between gap-4 text-xs">
+<div class="flex items-center gap-3">
+<div class="text-teal-600 text-base flex-shrink-0">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+<div>
+<span class="font-bold text-[#115e59] mr-2">No results found</span>
+<span class="text-slate-600">We couldn't find any results matching "research grants".</span>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-auto">
+<button class="bg-[#002b66] hover:bg-[#001e47] text-white px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Clear search</button>
+<button class="bg-white hover:bg-slate-50 text-blue-700 border border-blue-400 px-3.5 py-1.5 rounded text-xs font-medium transition shadow-xs">Try a different term</button>
+<button class="text-slate-400 hover:text-slate-600 pl-2 text-sm">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+</div>
+</section>
+<!-- END: SectionInlineBanners -->
+<!-- BEGIN: SectionFullPageStates -->
+<section class="space-y-3" data-purpose="full-page-states">
+<div>
+<h2 class="text-base font-bold text-slate-900">Full-page states</h2>
+<p class="text-xs text-slate-500">Use full-page states when the entire page or primary content area is affected.</p>
+</div>
+<!-- 3-Column Grid for Primary States -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Card 1: No-data empty state -->
+<div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-2xs hover:shadow-sm transition">
+<div>
+<div class="text-xs font-bold text-slate-900">No-data empty state</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Shown when a feature has no data for the current context.</div>
+</div>
+<!-- Empty State Illustration / Content -->
+<div class="py-9 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-2xl mb-3 shadow-inner">
+<i class="fa-regular fa-file-lines"></i>
+</div>
+<h3 class="text-sm font-bold text-slate-900">No records yet</h3>
+<p class="text-xs text-slate-500 mt-1 mb-4">Get started by adding the first record.</p>
+<button class="bg-[#002b66] hover:bg-[#001e47] text-white px-4 py-1.5 rounded text-xs font-medium flex items-center gap-1.5 transition shadow-xs">
+<i class="fa-solid fa-plus text-[10px]"></i>
+<span>Add employee</span>
+</button>
+</div>
+<!-- Collapsible technical details -->
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1 text-[11px] text-slate-500 cursor-pointer hover:text-slate-800">
+<i class="fa-solid fa-chevron-right text-[9px]"></i>
+<span>Technical details (optional)</span>
+</div>
+</div>
+<!-- Card 2: Error state -->
+<div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-2xs hover:shadow-sm transition">
+<div>
+<div class="text-xs font-bold text-slate-900">Error state</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Shown when a backend or service error prevents data from loading.</div>
+</div>
+<!-- Error State Illustration / Content -->
+<div class="py-9 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-2xl mb-3 shadow-inner">
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
+<h3 class="text-sm font-bold text-slate-900">Something went wrong</h3>
+<p class="text-xs text-slate-500 mt-1 mb-4">We couldn't load the data right now.</p>
+<button class="bg-[#002b66] hover:bg-[#001e47] text-white px-4 py-1.5 rounded text-xs font-medium flex items-center gap-1.5 transition shadow-xs">
+<i class="fa-solid fa-rotate-right text-[10px]"></i>
+<span>Try again</span>
+</button>
+</div>
+<!-- Collapsible technical details -->
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1 text-[11px] text-slate-500 cursor-pointer hover:text-slate-800">
+<i class="fa-solid fa-chevron-right text-[9px]"></i>
+<span>Technical details (optional)</span>
+</div>
+</div>
+<!-- Card 3: Permission-restricted state -->
+<div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-2xs hover:shadow-sm transition">
+<div>
+<div class="text-xs font-bold text-slate-900">Permission-restricted state</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Shown when the user doesn't have access to view this resource.</div>
+</div>
+<!-- Permission State Illustration / Content -->
+<div class="py-9 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center text-2xl mb-3 shadow-inner">
+<i class="fa-solid fa-lock"></i>
+</div>
+<h3 class="text-sm font-bold text-slate-900">You don't have access</h3>
+<p class="text-xs text-slate-500 mt-1 mb-4 max-w-[220px]">You don't have permission to view this information. If you believe this is a mistake, contact an administrator.</p>
+<button class="bg-white hover:bg-slate-50 text-blue-700 border border-blue-400 px-4 py-1.5 rounded text-xs font-medium flex items-center gap-1.5 transition shadow-xs">
+<i class="fa-solid fa-user-plus text-[10px]"></i>
+<span>Request access</span>
+</button>
+</div>
+<!-- Collapsible technical details -->
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1 text-[11px] text-slate-500 cursor-pointer hover:text-slate-800">
+<i class="fa-solid fa-chevron-right text-[9px]"></i>
+<span>Technical details (optional)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SectionFullPageStates -->
+<!-- BEGIN: SectionBottomRowStates -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-5" data-purpose="loading-and-zero-results">
+<!-- Left: Loading state with Skeleton Preview -->
+<div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-2xs hover:shadow-sm transition">
+<div>
+<div class="text-xs font-bold text-slate-900">Loading state</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Shown while data is being fetched from the server.</div>
+</div>
+<!-- Spinner & Info Header -->
+<div class="mt-4 mb-4 flex items-center gap-3">
+<div class="text-blue-600 text-2xl animate-spin-custom">
+<i class="fa-solid fa-spinner"></i>
+</div>
+<div>
+<div class="text-xs font-bold text-slate-800">Loading employees...</div>
+<div class="text-[11px] text-slate-500">Please wait while we fetch the latest data.</div>
+</div>
+</div>
+<!-- Skeleton Loader Table Mockup -->
+<div class="space-y-2.5 bg-slate-50/50 p-3 rounded-lg border border-slate-100">
+<!-- Row 1 -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 skeleton-pulse flex-shrink-0"></div>
+<div class="h-3 w-28 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-24 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-14 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-20 bg-slate-200 rounded skeleton-pulse ml-auto"></div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 skeleton-pulse flex-shrink-0"></div>
+<div class="h-3 w-20 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-32 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-16 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-14 bg-slate-200 rounded skeleton-pulse ml-auto"></div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 skeleton-pulse flex-shrink-0"></div>
+<div class="h-3 w-24 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-20 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-12 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-16 bg-slate-200 rounded skeleton-pulse ml-auto"></div>
+</div>
+<!-- Row 4 -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-slate-200 skeleton-pulse flex-shrink-0"></div>
+<div class="h-3 w-32 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-16 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-20 bg-slate-200 rounded skeleton-pulse"></div>
+<div class="h-3 w-12 bg-slate-200 rounded skeleton-pulse ml-auto"></div>
+</div>
+</div>
+</div>
+<!-- Right: Successful Zero-Result Search State -->
+<div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-2xs hover:shadow-sm transition">
+<div>
+<div class="text-xs font-bold text-slate-900">Successful zero-result state</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Shown when a search or filter returns no matches.</div>
+</div>
+<!-- Empty search visual -->
+<div class="py-8 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-2xl mb-3 shadow-inner">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+<h3 class="text-sm font-bold text-slate-900">No matching results</h3>
+<p class="text-xs text-slate-500 mt-1 max-w-xs">We couldn't find any employees matching your criteria.</p>
+<p class="text-xs text-slate-500 mb-4">Try adjusting your search or filters.</p>
+<button class="bg-white hover:bg-slate-50 text-blue-700 border border-blue-400 px-4 py-1.5 rounded text-xs font-medium flex items-center gap-1.5 transition shadow-xs">
+<i class="fa-solid fa-filter text-[10px]"></i>
+<span>Clear filters</span>
+</button>
+</div>
+<!-- Collapsible technical details -->
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1 text-[11px] text-slate-500 cursor-pointer hover:text-slate-800">
+<i class="fa-solid fa-chevron-right text-[9px]"></i>
+<span>Technical details (optional)</span>
+</div>
+</div>
+</section>
+<!-- END: SectionBottomRowStates -->
+</main>
+</div>
+<!-- END: MainContentArea -->
+</body></html>

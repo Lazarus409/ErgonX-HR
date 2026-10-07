@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S027",
+  "name": "Approval Workflows Settings",
+  "slug": "approval-workflows-settings",
+  "module": "Settings / Approvals",
+  "route_hint": "/settings/approval-workflows",
+  "classification": "phase2-extension",
+  "phase2_wave": "Wave 2",
+  "contract_status": "EXTEND",
+  "source_archive": "stitch_ergonx_ui (27).zip",
+  "source_archive_sha256": "893ea6b79a05c723e2ef703a1c78d51f99c230433a9ee585950b6e73b12e97f9",
+  "stitch_h1": "Settings",
+  "notes": "Configurable approval workflow administration. Procurement examples are design examples only and must not silently introduce Procurement scope.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

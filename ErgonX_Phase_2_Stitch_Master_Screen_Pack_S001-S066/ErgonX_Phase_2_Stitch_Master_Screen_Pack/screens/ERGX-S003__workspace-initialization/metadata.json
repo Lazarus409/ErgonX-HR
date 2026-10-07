@@ -1,0 +1,25 @@
+{
+  "screen_id": "ERGX-S003",
+  "sequence": 3,
+  "title": "Workspace Initialization / Loading",
+  "slug": "workspace-initialization",
+  "module": "PLATFORM",
+  "module_group": "platform",
+  "canonical_route_hint": "N/A",
+  "source_archive": "stitch_ergonx_ui (3).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "reference.png",
+      "sha256": "26c7f3ee39f470b29a0599cc25c595c6b56e2ed066a6952d08b7d8a4fcdd7bde",
+      "bytes": 214497
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "e6e15bfac10533119e1a2e549ea97e4af324a7f3baa47ba18dfc37634fe85321",
+      "bytes": 12752
+    }
+  ]
+}

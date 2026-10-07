@@ -1,0 +1,16 @@
+{
+  "screen_id": "ERGX-S064",
+  "screen_number": 64,
+  "title": "Approvals \u2014 Governance Review Variant",
+  "slug": "approvals-governance-variant",
+  "module": "Approvals / Platform",
+  "route_hint": "/approvals",
+  "phase_2_classification": "Visual/functional variant",
+  "implementation_wave": "Wave 2",
+  "priority": "P1",
+  "variant_of": "ERGX-S066",
+  "source_archive": "stitch_ergonx_ui (64).zip",
+  "reference_image_status": "missing in source export",
+  "codex_guardrail": "Approval inbox variant with richer governance/audit detail. Procurement/PO examples are illustrative only and do not authorize adding Procurement. Batch/quick approvals require backend eligibility checks and per-record audit.",
+  "authority_note": "Stitch is a visual/reference source. ErgonX backend/domain invariants, tenant isolation, RBAC, module gating, audit and lifecycle rules are authoritative."
+}

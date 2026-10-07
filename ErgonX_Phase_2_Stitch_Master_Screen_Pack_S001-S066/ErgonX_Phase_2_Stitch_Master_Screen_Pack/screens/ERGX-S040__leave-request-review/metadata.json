@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S040",
+  "name": "Leave Request Review",
+  "slug": "leave-request-review",
+  "module": "Leave / Approvals",
+  "route_hint": "/leave/requests/:requestId/review",
+  "classification": "phase2-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "EXTEND",
+  "source_archive": "stitch_ergonx_ui (40).zip",
+  "source_archive_sha256": "91372c6f61aaf1cfc339d80e0b6d444dc7023d75685fb4d5391ab5fe1bb559a0",
+  "stitch_h1": "Leave Request Review",
+  "notes": "Manager/approver review workspace with balance, policy compliance, supporting documents, comments, team availability and approval history.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

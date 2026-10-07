@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S020",
+  "sequence": 20,
+  "title": "Accounts Receivable",
+  "slug": "accounts-receivable",
+  "module": "ACCOUNTING",
+  "module_group": "accounting",
+  "canonical_route_hint": "/accounting/ar",
+  "source_archive": "stitch_ergonx_ui (20).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "47989807ee2f4b4c1840e70d7604da0752882eeaaf095648218cf903ef743e3b",
+      "bytes": 334213
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "db150366e8a317acc6d1cd444d8fd22fb91f5a7874b00fce768eecb1f4b4d949",
+      "bytes": 55633
+    }
+  ]
+}

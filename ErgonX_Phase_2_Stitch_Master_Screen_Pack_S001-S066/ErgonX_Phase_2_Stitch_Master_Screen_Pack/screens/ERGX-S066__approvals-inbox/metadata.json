@@ -1,0 +1,16 @@
+{
+  "screen_id": "ERGX-S066",
+  "screen_number": 66,
+  "title": "Approvals Inbox \u2014 Pending Decisions",
+  "slug": "approvals-inbox",
+  "module": "Approvals / Platform",
+  "route_hint": "/approvals",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 2",
+  "priority": "P0",
+  "variant_of": null,
+  "source_archive": "stitch_ergonx_ui (66).zip",
+  "reference_image_status": "present",
+  "codex_guardrail": "Canonical cross-module approvals inbox candidate. Leave, finance and attendance decisions must be backed by real approval requests and permissions. Procurement/PO sample content is illustrative only. 'Approve All' requires explicit batch eligibility and per-record authorization/audit.",
+  "authority_note": "Stitch is a visual/reference source. ErgonX backend/domain invariants, tenant isolation, RBAC, module gating, audit and lifecycle rules are authoritative."
+}

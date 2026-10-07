@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S012",
+  "sequence": 12,
+  "title": "Bank Reconciliation \u2014 Overview",
+  "slug": "bank-reconciliation-overview",
+  "module": "ACCOUNTING",
+  "module_group": "accounting",
+  "canonical_route_hint": "/accounting/bank-reconciliation",
+  "source_archive": "stitch_ergonx_ui (12).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "18003a861fc895b0ef0eb426b2df6754345289701833a214cc7e56412133ecbb",
+      "bytes": 437211
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "dd89b979bea6ed6fde99f304c0d28305ea4340344f17e807cd63fd442b94d2ae",
+      "bytes": 41819
+    }
+  ]
+}

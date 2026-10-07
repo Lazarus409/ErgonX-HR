@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S055",
+  "screen_number": 55,
+  "title": "Reports & Analytics Catalogue",
+  "slug": "reports-and-analytics",
+  "module": "Reports & Analytics",
+  "route_hint": "/reports",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 8",
+  "priority": "P2",
+  "source_archive": "stitch_ergonx_ui (55).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Stage implementation: catalogue \u2192 saved configurations \u2192 sharing/access \u2192 scheduling. Do not attempt a generic BI/report-builder platform first.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

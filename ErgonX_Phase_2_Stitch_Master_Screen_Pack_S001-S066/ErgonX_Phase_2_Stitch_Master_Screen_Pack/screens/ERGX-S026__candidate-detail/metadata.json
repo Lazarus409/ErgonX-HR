@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S026",
+  "name": "Candidate Detail",
+  "slug": "candidate-detail",
+  "module": "Recruitment",
+  "route_hint": "/recruitment/candidates/:candidateId",
+  "classification": "phase2-extension",
+  "phase2_wave": "Wave 4",
+  "contract_status": "KEEP/EXTEND",
+  "source_archive": "stitch_ergonx_ui (26).zip",
+  "source_archive_sha256": "59773eb87c3bf19a4ce493d610bc9e3fd4f4e2d9f39d62943012921956676129",
+  "stitch_h1": "Sarah Amankwah",
+  "notes": "Candidate detail with evaluation scorecard, interview feedback, documents, activity, stage progression and interview scheduling.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

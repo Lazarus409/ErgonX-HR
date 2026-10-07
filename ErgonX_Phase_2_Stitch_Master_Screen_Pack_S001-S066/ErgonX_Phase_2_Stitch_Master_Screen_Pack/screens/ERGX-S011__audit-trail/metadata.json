@@ -1,0 +1,30 @@
+{
+  "screen_id": "ERGX-S011",
+  "sequence": 11,
+  "title": "Audit Trail",
+  "slug": "audit-trail",
+  "module": "AUDIT",
+  "module_group": "audit",
+  "canonical_route_hint": "/audit",
+  "source_archive": "stitch_ergonx_ui (11).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "design.md",
+      "sha256": "5bd58b80666f121b16ebc83b73a354db6831d12fea19ef4eb3a4efeb1eb16a88",
+      "bytes": 14115
+    },
+    {
+      "name": "reference.png",
+      "sha256": "9e7dacbc5eeb59c23269cc7eced38cc6cd7e5d110cb73539048fe0598dbc2fc1",
+      "bytes": 520334
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "0202c8d49f80a8fa45a57fc5970854137bd5d7a83b77f27f3795bcea52912aff",
+      "bytes": 63210
+    }
+  ]
+}

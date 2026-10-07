@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S043",
+  "screen_number": 43,
+  "title": "Security Center",
+  "slug": "security-center",
+  "module": "Security / Self Service",
+  "route_hint": "/security",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 2",
+  "priority": "P0",
+  "source_archive": "stitch_ergonx_ui (43).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Support password, TOTP, email OTP, session management and recent security activity. Do not expose SMS OTP or recovery phone until a reliable SMS provider exists.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

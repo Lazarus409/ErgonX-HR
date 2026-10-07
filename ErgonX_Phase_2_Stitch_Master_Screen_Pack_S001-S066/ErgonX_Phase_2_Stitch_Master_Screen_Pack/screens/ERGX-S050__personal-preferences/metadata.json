@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S050",
+  "screen_number": 50,
+  "title": "Personal Preferences",
+  "slug": "personal-preferences",
+  "module": "Self Service / Platform",
+  "route_hint": "/preferences",
+  "phase_2_classification": "New/partial \u2014 extend",
+  "implementation_wave": "Wave 2",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (50).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Locale, timezone, date/time/number formatting, appearance, accessibility and notification preferences. User formatting does not alter accounting currency values.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

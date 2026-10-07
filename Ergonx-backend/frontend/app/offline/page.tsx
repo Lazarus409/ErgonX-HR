@@ -1,0 +1,1 @@
+export default function Offline() { return <main><p className="eyebrow">ERGONX</p><h1>You’re offline</h1><p>This workspace will reconnect when a network is available. Cached application navigation remains available.</p></main>; }

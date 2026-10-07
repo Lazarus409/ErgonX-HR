@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S033",
+  "name": "Payroll Workspace",
+  "slug": "payroll-workspace",
+  "module": "Payroll",
+  "route_hint": "/payroll",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 5",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (33).zip",
+  "source_archive_sha256": "58ec36b19450a016701e896af9d53adca5356b76d54318099c4801d1204ee08f",
+  "stitch_h1": "Payroll workspace",
+  "notes": "Payroll operations workspace for current run, employee breakdown, approvals, compliance checks and related actions.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

@@ -1,0 +1,25 @@
+{
+  "screen_id": "ERGX-S001",
+  "sequence": 1,
+  "title": "Login / Sign In",
+  "slug": "login",
+  "module": "AUTH",
+  "module_group": "authentication",
+  "canonical_route_hint": "/login",
+  "source_archive": "stitch_ergonx_ui (1).zip",
+  "source": "Google Stitch",
+  "implementation_authority": "visual-reference-only",
+  "notes": "Use this screen as a visual/interaction reference. Backend/domain contracts and current ErgonX permissions/lifecycle rules remain authoritative.",
+  "files": [
+    {
+      "name": "reference.png",
+      "sha256": "3eb1639b79580d9af06a1e8954259ceab046df3eaac55901ef89f573c63c9d6c",
+      "bytes": 442738
+    },
+    {
+      "name": "stitch.html",
+      "sha256": "8caebd5d130c2c2dedcd6f62f64636dfe54f420d40580930c1e596bb795f43fb",
+      "bytes": 12570
+    }
+  ]
+}

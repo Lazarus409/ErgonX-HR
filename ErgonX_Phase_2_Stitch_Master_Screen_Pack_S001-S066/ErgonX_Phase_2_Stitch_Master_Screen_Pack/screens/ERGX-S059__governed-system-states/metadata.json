@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S059",
+  "screen_number": 59,
+  "title": "Governed Empty, Error & Loading States",
+  "slug": "governed-system-states",
+  "module": "Design System / Platform",
+  "route_hint": "shared",
+  "phase_2_classification": "Design-system standard",
+  "implementation_wave": "Wave 1",
+  "priority": "P0",
+  "source_archive": "stitch_ergonx_ui (59).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Canonical no-data, loading, error, no-access, validation and zero-result patterns. Sample AP content is illustrative only and does not authorize Procurement/Purchase Orders.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

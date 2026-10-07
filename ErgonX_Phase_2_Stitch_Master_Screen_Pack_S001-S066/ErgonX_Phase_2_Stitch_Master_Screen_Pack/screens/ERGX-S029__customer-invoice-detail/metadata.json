@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S029",
+  "name": "Customer Invoice Detail",
+  "slug": "customer-invoice-detail",
+  "module": "Accounting / Accounts Receivable",
+  "route_hint": "/accounting/ar/invoices/:invoiceId",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 6",
+  "contract_status": "KEEP/EXTEND",
+  "source_archive": "stitch_ergonx_ui (29).zip",
+  "source_archive_sha256": "538fe856fc6b4a7f0aa3bcc4a6faeb949c9b1b4ed087c933febbe3fd8fc97d9d",
+  "stitch_h1": "Customer Invoice Detail",
+  "notes": "Invoice detail with collection status, payment actions/history, reminders, related documents and audit history.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

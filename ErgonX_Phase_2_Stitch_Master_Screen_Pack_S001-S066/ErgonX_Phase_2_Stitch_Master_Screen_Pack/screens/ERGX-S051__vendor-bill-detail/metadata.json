@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S051",
+  "screen_number": 51,
+  "title": "Vendor Bill Detail",
+  "slug": "vendor-bill-detail",
+  "module": "Accounting / Accounts Payable",
+  "route_hint": "/accounting/ap/bills/:billId",
+  "phase_2_classification": "Existing/partial \u2014 extend",
+  "implementation_wave": "Wave 6",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (51).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Document view, approval route, attachments and payment status. Scheduling/recording payment must not imply an external bank transfer unless an integration exists.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

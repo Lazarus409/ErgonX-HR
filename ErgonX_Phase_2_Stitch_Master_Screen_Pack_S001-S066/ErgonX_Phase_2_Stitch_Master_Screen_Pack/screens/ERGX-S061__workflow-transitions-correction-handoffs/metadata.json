@@ -1,0 +1,16 @@
+{
+  "screen_id": "ERGX-S061",
+  "screen_number": 61,
+  "title": "Workflow Transitions & Correction Handoffs",
+  "slug": "workflow-transitions-correction-handoffs",
+  "module": "Governance / Platform",
+  "route_hint": "shared governance pattern",
+  "phase_2_classification": "New Phase 2 governance pattern",
+  "implementation_wave": "Wave 0/2",
+  "priority": "P0",
+  "variant_of": null,
+  "source_archive": "stitch_ergonx_ui (61).zip",
+  "reference_image_status": "present",
+  "codex_guardrail": "Use as the canonical visual pattern for governed transitions, corrections, reversals and linked records. Do not force all domains into one database model; each domain owns its valid state machine.",
+  "authority_note": "Stitch is a visual/reference source. ErgonX backend/domain invariants, tenant isolation, RBAC, module gating, audit and lifecycle rules are authoritative."
+}

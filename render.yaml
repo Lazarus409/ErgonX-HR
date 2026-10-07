@@ -1,0 +1,90 @@
+services:
+  - type: web
+    runtime: docker
+    name: ergonx-hr-api
+    dockerfilePath: Ergonx-backend/Dockerfile
+    dockerContext: Ergonx-backend
+    healthCheckPath: /api/v1/schema/
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings.production
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ergonx-hr-postgres
+          property: connectionString
+      # ErgonX HR edition: these modules are never enabled and their API is not mounted.
+      - key: ERGONX_EXCLUDED_MODULES
+        value: PAYROLL,ACCOUNTING
+      - key: DJANGO_ALLOWED_HOSTS
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: FRONTEND_PUBLIC_URL
+        sync: false
+      - key: EMAIL_DELIVERY_ENABLED
+        value: "false"
+      - key: JWT_ACCESS_MINUTES
+        value: "15"
+      - key: JWT_REFRESH_DAYS
+        value: "7"
+      # Shared with ergonx-hr-web: lets the BFF forward the browser IP for per-IP
+      # sign-in limits and audit records. Generated once here, read by the web service.
+      - key: BFF_PROXY_SECRET
+        generateValue: true
+
+  - type: web
+    runtime: docker
+    name: ergonx-hr-web
+    dockerfilePath: ergonx-frontend/Dockerfile
+    dockerContext: ergonx-frontend
+    envVars:
+      - key: ERGONX_API_PROXY_URL
+        sync: false
+      - key: NEXT_PUBLIC_API_BASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_ENABLE_DEV_AUTH_BYPASS
+        value: "false"
+      - key: BFF_PROXY_SECRET
+        fromService:
+          type: web
+          name: ergonx-hr-api
+          envVarKey: BFF_PROXY_SECRET
+
+  # Scheduled job. Cron jobs are billed separately on Render.
+  - type: cron
+    runtime: docker
+    name: ergonx-hr-approval-reminders
+    dockerfilePath: Ergonx-backend/Dockerfile
+    dockerContext: Ergonx-backend
+    # Hourly: notify approvers and escalation roles about overdue steps.
+    schedule: "0 * * * *"
+    dockerCommand: python manage.py send_approval_reminders
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings.production
+      - key: DJANGO_SECRET_KEY
+        fromService:
+          type: web
+          name: ergonx-hr-api
+          envVarKey: DJANGO_SECRET_KEY
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ergonx-hr-postgres
+          property: connectionString
+      - key: ERGONX_EXCLUDED_MODULES
+        value: PAYROLL,ACCOUNTING
+      - key: DJANGO_ALLOWED_HOSTS
+        value: localhost
+      - key: FRONTEND_PUBLIC_URL
+        sync: false
+      - key: EMAIL_DELIVERY_ENABLED
+        value: "false"
+
+
+databases:
+  - name: ergonx-hr-postgres
+    databaseName: ergonx_hr
+    user: ergonx_hr
+    postgresMajorVersion: "16"

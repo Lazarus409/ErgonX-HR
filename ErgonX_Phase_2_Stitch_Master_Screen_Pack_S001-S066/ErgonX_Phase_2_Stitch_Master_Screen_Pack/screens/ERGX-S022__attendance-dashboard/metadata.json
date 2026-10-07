@@ -1,0 +1,15 @@
+{
+  "screen_id": "ERGX-S022",
+  "name": "Attendance Dashboard",
+  "slug": "attendance-dashboard",
+  "module": "Attendance",
+  "route_hint": "/attendance",
+  "classification": "existing-extension",
+  "phase2_wave": "Wave 3",
+  "contract_status": "KEEP/REFINE",
+  "source_archive": "stitch_ergonx_ui (22).zip",
+  "source_archive_sha256": "d05afa4ad9918984856e85032cb3b59a9591e622cbc81ef1c5cde60df9d959ed",
+  "stitch_h1": "Attendance",
+  "notes": "Attendance operational dashboard: trends, department comparison, priority exceptions and recent adjustments.",
+  "authority_note": "This screen is a visual/UX reference. Existing ErgonX backend/domain/RBAC/tenant/lifecycle contracts remain functionally authoritative."
+}

@@ -1,0 +1,16 @@
+{
+  "screen_id": "ERGX-S063",
+  "screen_number": 63,
+  "title": "Employee Home \u2014 Operational Variant",
+  "slug": "employee-home-operational-variant",
+  "module": "Self Service",
+  "route_hint": "/my-workspace",
+  "phase_2_classification": "Visual/functional variant",
+  "implementation_wave": "Wave 3",
+  "priority": "P1",
+  "variant_of": "ERGX-S047",
+  "source_archive": "stitch_ergonx_ui (63).zip",
+  "reference_image_status": "present",
+  "codex_guardrail": "Variant of Employee Home. Keep useful personal actions, shift/attendance and attention items, but remove organization/team information that exceeds the employee's authorized scope. Do not introduce invented productivity/performance measures.",
+  "authority_note": "Stitch is a visual/reference source. ErgonX backend/domain invariants, tenant isolation, RBAC, module gating, audit and lifecycle rules are authoritative."
+}

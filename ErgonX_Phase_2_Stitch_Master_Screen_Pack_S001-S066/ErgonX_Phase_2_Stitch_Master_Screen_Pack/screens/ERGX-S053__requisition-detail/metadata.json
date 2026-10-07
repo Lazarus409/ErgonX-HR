@@ -1,0 +1,19 @@
+{
+  "screen_id": "ERGX-S053",
+  "screen_number": 53,
+  "title": "Job Requisition Detail",
+  "slug": "requisition-detail",
+  "module": "Recruitment",
+  "route_hint": "/recruitment/requisitions/:requisitionId",
+  "phase_2_classification": "New Phase 2 capability",
+  "implementation_wave": "Wave 4",
+  "priority": "P1",
+  "source_archive": "stitch_ergonx_ui (53).zip",
+  "files": {
+    "reference_image": "reference.png",
+    "stitch_html": "stitch.html",
+    "stitch_design_notes": "DESIGN.md"
+  },
+  "codex_guardrail": "Requisition lifecycle, hiring team, approval and publish controls. Approval must complete before publish when configured.",
+  "authority_note": "Stitch files are visual/reference artifacts. Existing ErgonX backend/domain contracts, tenant isolation, RBAC, module gating, audit and lifecycle rules remain authoritative."
+}

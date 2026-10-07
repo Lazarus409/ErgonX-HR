@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#213145", "surface-tint": "#525f75", "on-secondary-container": "#fefcff", "secondary-container": "#316bf3", "surface-bright": "#f8f9ff", "secondary": "#0051d5", "outline-variant": "#c5c6cd", "secondary-fixed-dim": "#b4c5ff", "on-primary-fixed": "#0e1c2f", "tertiary-container": "#001f26", "error-container": "#ffdad6", "on-secondary-fixed": "#00174b", "error": "#ba1a1a", "surface-container-high": "#dce9ff", "background": "#f8f9ff", "on-tertiary-fixed-variant": "#004e5c", "surface-container-lowest": "#ffffff", "surface-container": "#e5eeff", "tertiary": "#000000", "tertiary-fixed-dim": "#4cd7f6", "on-primary-fixed-variant": "#3a475c", "surface": "#f8f9ff", "on-primary": "#ffffff", "surface-dim": "#cbdbf5", "inverse-on-surface": "#eaf1ff", "secondary-fixed": "#dbe1ff", "on-error-container": "#93000a", "on-tertiary-container": "#0090a9", "on-tertiary": "#ffffff", "primary-fixed-dim": "#bac7e1", "on-tertiary-fixed": "#001f26", "inverse-primary": "#bac7e1", "on-surface-variant": "#44474c", "tertiary-fixed": "#acedff", "on-secondary": "#ffffff", "on-background": "#0b1c30", "primary": "#000000", "on-error": "#ffffff", "outline": "#75777d", "on-primary-container": "#77849c", "surface-container-low": "#eff4ff", "on-secondary-fixed-variant": "#003ea8", "surface-variant": "#d3e4fe", "primary-container": "#0e1c2f", "primary-fixed": "#d6e3fe", "surface-container-highest": "#d3e4fe", "on-surface": "#0b1c30" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2rem", "gutter-compact": "0.75rem", "margin-mobile": "1rem", "margin": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "headline-lg": ["Hanken Grotesk"], "headline-md": ["Hanken Grotesk"], "display-lg-mobile": ["Hanken Grotesk"], "label-sm": ["Manrope"], "body-sm": ["Manrope"], "display-lg": ["Hanken Grotesk"], "headline-sm": ["Hanken Grotesk"], "label-md": ["Manrope"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "label-lg": ["Manrope"], "title-md": ["Manrope"] }, "fontSize": { "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700"}], "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "display-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "label-md": ["11px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}], "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}], "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "label-lg": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}], "title-md": ["15px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-primary-container text-on-primary-container z-50 flex flex-col justify-between border-r border-outline-variant/20 shadow-[0_1px_8px_rgba(0,0,0,0.08)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-space-md flex items-center gap-space-sm border-b border-outline-variant/20 bg-primary-container"><img alt="Brand logo. - Primary color: #0b192c - Font: hankenGrotesk - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WJhAJ01CWiCcxSvaxMI321Cz2exgvAyYJTHV0TcEZ2JeP7BnQURX3ZVcKTD6vkiQHdLaS7J-MhmiRF5OOgey3KZW1TLutN_EYITwhomSvZCeoyiW330xi0bqUMtjdsXcsrrUvRIA7BgRpseGU7DfzFLVFImSCnHjYru68YTfcXD9j61zQec52TdDwz68zBAK4GN0o7BtvecWmDVWHLUaWOrVRdF7bMPf8VTUW74DiUOb121EQRiXXFm6DC"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary tracking-tight font-bold truncate">ErgonX</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider font-semibold truncate">Enterprise ERP</span></div></div><div class="p-space-sm border-b border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between p-space-sm rounded-lg bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors text-left" type="button"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-secondary-container text-base">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-on-primary font-semibold truncate">Rivermere University</span><span class="font-label-sm text-label-sm text-secondary-fixed-dim truncate">Higher Education</span></div></div><span class="material-symbols-outlined text-outline-variant text-base shrink-0">unfold_more</span></button></div><div class="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-space-xs"><nav class="space-y-space-xs" data-active-classes="bg-secondary text-on-secondary font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="home" href="#"><span class="material-symbols-outlined text-lg">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="insights" href="#"><span class="material-symbols-outlined text-lg">analytics</span><span>Insights</span></a><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Human Resources</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="hr-dashboard" href="#">HR Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="employees" href="#">Employees</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="recruitment" href="#">Recruitment</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="leave" href="#">Leave</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="attendance" href="#">Attendance</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="payroll" href="#">Payroll</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Accounting</span><span class="material-symbols-outlined text-sm text-outline-variant">expand_more</span></div><div class="ml-2 pl-2 border-l border-outline-variant/20 space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="accounting-dashboard" href="#">Accounting Dashboard</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="general-ledger" href="#">General Ledger</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-payable" href="#">Accounts Payable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="accounts-receivable" href="#">Accounts Receivable</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="bank-reconciliation" href="#">Bank Reconciliation</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="budgets" href="#">Budgets</a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="financial-reports" href="#">Financial Reports</a></div></div><div class="pt-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 text-on-primary-fixed-variant"><span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-outline-variant">Self Service</span><span class="material-symbols-outlined text-sm text-outline-variant">chevron_right</span></div></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-lg">query_stats</span><span>Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="approvals" href="#"><span class="material-symbols-outlined text-lg">fact_check</span><span>Approvals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-lg">verified_user</span><span>Audit Trail</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="users-and-access" href="#"><span class="material-symbols-outlined text-lg">manage_accounts</span><span>Users &amp; Access</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-primary-container hover:bg-surface-container-highest/15 hover:text-on-primary transition-all font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-lg">settings</span><span>Settings</span></a></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-primary-container"><button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg text-outline-variant hover:text-on-primary hover:bg-surface-container-highest/10 transition-colors" type="button"><span class="font-label-md text-label-md font-medium">Collapse Sidebar</span><span class="material-symbols-outlined text-base">keyboard_double_arrow_left</span></button></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-surface-container-high z-40 px-gutter flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-container-low rounded border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="Search records, accounts, employees..." type="text"/><kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/40">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low rounded p-0.5 border border-outline-variant/40"><button class="px-2 py-1 rounded-sm bg-surface-container-lowest text-on-surface shadow-xs flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">light_mode</span></button><button class="px-2 py-1 rounded-sm text-on-surface-variant hover:text-on-surface flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm">dark_mode</span></button></div><button class="relative p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="h-6 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Kwame Mensah</span><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Administrator</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40" src="https://lh3.googleusercontent.com/aida/AEtjO1XY73sGkcKB7MGtWcpu4U-MGnmjwfk1flAaIZGNBbLM70rcpRNeGuPpDNHpMmwaJub91jNmRQkpiC7-41JSn_j-K_Tkh-PMXm9a5CAX1CesrLmqj6pykROVOZqjpYHMfAHTC-eJ_uFhcPvanvO4G3oAsPgv8iwBxHBLBQK7kLDKIhnnlWL7oocznnN0IoToJaNnDPob4p-IdW4fsQyf9a3RDmdYVamIXkzYLNsyK1pHlwYTNT1Q94jF0cU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-gutter py-space-lg"><div class="flex flex-col w-full">
+<!-- Sub-header / Breadcrumbs & Page Actions Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-md">
+<div class="flex flex-col">
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md mb-1">
+<a class="hover:text-secondary transition-colors" href="#">Home</a>
+<span class="text-outline-variant font-bold">/</span>
+<a class="hover:text-secondary transition-colors" href="#">Human Resources</a>
+<span class="text-outline-variant font-bold">/</span>
+<span class="text-on-surface font-semibold">Employees</span>
+</nav>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Employees</h1>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed font-label-sm text-label-sm font-semibold">Rivermere Main</span>
+</div>
+</div>
+<!-- Action Group -->
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-low transition-colors shadow-sm font-label-lg text-label-lg font-semibold" type="button">
+<span class="material-symbols-outlined text-lg text-on-surface-variant">mail</span>
+<span>Invite employee</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-secondary text-on-secondary hover:bg-secondary/90 transition-all shadow-sm font-label-lg text-label-lg font-semibold" type="button">
+<span class="material-symbols-outlined text-lg">person_add</span>
+<span>Add employee</span>
+</button>
+</div>
+</div>
+<!-- Metric Ribbon (4 Key Indicators) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-md">
+<!-- Card 1: Total -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high/60 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Total employees</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">428</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+12 this qtr</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Active -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-container text-2xl" style="font-variation-settings: 'FILL' 1;">how_to_reg</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Active</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">401</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">93.7% headcount</span>
+</div>
+</div>
+</div>
+<!-- Card 3: On Leave -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest/50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-fixed-variant text-2xl" style="font-variation-settings: 'FILL' 1;">pause_circle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">On leave</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">4 planned return</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Inactive -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-2xl" style="font-variation-settings: 'FILL' 1;">person_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Inactive</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">9</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Offboarded</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Split-View Workspace: Grid & Persistent Detail Panel -->
+<div class="grid grid-cols-12 gap-space-md items-start">
+<!-- Left Workspace: Filter Toolbar, Master Table & Pagination (7 or 8 columns on ultra-wide) -->
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-space-sm min-w-0">
+<!-- Filter & Controls Toolbar -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex-1 min-w-[240px] max-w-md relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base">search</span>
+<input class="w-full h-8 pl-8 pr-3 bg-surface-container-low rounded font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="Search employees by name, email or ID..." type="text"/>
+</div>
+<div class="flex items-center flex-wrap gap-2">
+<!-- Status Dropdown Filter -->
+<div class="relative">
+<button class="h-8 px-2.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-1.5 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">filter_alt</span>
+<span>Status</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Department Filter -->
+<div class="relative">
+<button class="h-8 px-2.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-1.5 font-semibold" type="button">
+<span>Department</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Location Filter -->
+<div class="relative">
+<button class="h-8 px-2.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-1.5 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">location_on</span>
+<span>Location</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+</div>
+<!-- Columns Toggle -->
+<button class="h-8 px-2.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-1.5 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">view_column</span>
+<span>Columns</span>
+<span class="material-symbols-outlined text-sm text-outline">expand_more</span>
+</button>
+<!-- More Options button -->
+<button class="h-8 w-8 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Master Employees Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<!-- Table Header -->
+<thead class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider select-none">
+<tr>
+<th class="w-10 px-3 py-3 text-center" scope="col">
+<input checked="" class="w-4 h-4 rounded text-secondary bg-surface-container-lowest accent-secondary cursor-pointer" type="checkbox"/>
+</th>
+<th class="px-3 py-3 font-bold" scope="col">
+<div class="flex items-center gap-1 cursor-pointer hover:text-on-surface">
+<span>Employee</span>
+<span class="material-symbols-outlined text-sm">swap_vert</span>
+</div>
+</th>
+<th class="px-3 py-3 font-bold" scope="col">
+<div class="flex items-center gap-1 cursor-pointer hover:text-on-surface">
+<span>ID</span>
+<span class="material-symbols-outlined text-sm">swap_vert</span>
+</div>
+</th>
+<th class="px-3 py-3 font-bold" scope="col">
+<div class="flex items-center gap-1 cursor-pointer hover:text-on-surface">
+<span>Department</span>
+<span class="material-symbols-outlined text-sm">swap_vert</span>
+</div>
+</th>
+<th class="px-3 py-3 font-bold" scope="col">Position</th>
+<th class="px-3 py-3 font-bold" scope="col">Type</th>
+<th class="px-3 py-3 font-bold" scope="col">Location</th>
+<th class="px-3 py-3 font-bold" scope="col">Status</th>
+<th class="w-12 px-3 py-3 text-right" scope="col"></th>
+</tr>
+</thead>
+<!-- Table Body -->
+<tbody class="divide-y-0 text-on-surface">
+<!-- Row 1 (SELECTED: Ama Mensah) -->
+<tr class="bg-surface-container-low/70 hover:bg-surface-container-low transition-colors cursor-pointer relative">
+<td class="px-3 py-2.5 text-center relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-r"></div>
+<input checked="" class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-3 py-2.5 min-w-[200px]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary font-label-md text-label-md font-bold flex items-center justify-center shrink-0 shadow-xs">
+                      AM
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Ama Mensah</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">ama.mensah@rivermere.edu</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2.5 font-label-md text-label-md text-on-surface-variant tabular-nums font-semibold">EMP-00421</td>
+<td class="px-3 py-2.5 font-medium">Finance</td>
+<td class="px-3 py-2.5 font-medium truncate max-w-[160px]">Senior Finance Analyst</td>
+<td class="px-3 py-2.5 text-on-surface-variant">Full-time</td>
+<td class="px-3 py-2.5 text-on-surface-variant truncate">Main Campus</td>
+<td class="px-3 py-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Active
+                  </span>
+</td>
+<td class="px-3 py-2.5 text-right">
+<button class="w-7 h-7 inline-flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Kofi Owusu -->
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer">
+<td class="px-3 py-2.5 text-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-3 py-2.5 min-w-[200px]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-primary-fixed-variant font-label-md text-label-md font-bold flex items-center justify-center shrink-0">
+                      KO
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface truncate">Kofi Owusu</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">kofi.owusu@rivermere.edu</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2.5 font-label-md text-label-md text-on-surface-variant tabular-nums font-semibold">EMP-00387</td>
+<td class="px-3 py-2.5 font-medium">IT</td>
+<td class="px-3 py-2.5 font-medium truncate max-w-[160px]">Systems Analyst</td>
+<td class="px-3 py-2.5 text-on-surface-variant">Full-time</td>
+<td class="px-3 py-2.5 text-on-surface-variant truncate">Main Campus</td>
+<td class="px-3 py-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Active
+                  </span>
+</td>
+<td class="px-3 py-2.5 text-right">
+<button class="w-7 h-7 inline-flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Nana Adjei -->
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer">
+<td class="px-3 py-2.5 text-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-3 py-2.5 min-w-[200px]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary-container font-label-md text-label-md font-bold flex items-center justify-center shrink-0">
+                      NA
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface truncate">Nana Adjei</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">nana.adjei@rivermere.edu</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2.5 font-label-md text-label-md text-on-surface-variant tabular-nums font-semibold">EMP-00356</td>
+<td class="px-3 py-2.5 font-medium">Marketing</td>
+<td class="px-3 py-2.5 font-medium truncate max-w-[160px]">Marketing Officer</td>
+<td class="px-3 py-2.5 text-on-surface-variant">Full-time</td>
+<td class="px-3 py-2.5 text-on-surface-variant truncate">Main Campus</td>
+<td class="px-3 py-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Active
+                  </span>
+</td>
+<td class="px-3 py-2.5 text-right">
+<button class="w-7 h-7 inline-flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Sarah Amankwah (On leave) -->
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer">
+<td class="px-3 py-2.5 text-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-3 py-2.5 min-w-[200px]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md font-bold flex items-center justify-center shrink-0">
+                      SA
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface truncate">Sarah Amankwah</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">sarah.amankwah@rivermere.edu</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2.5 font-label-md text-label-md text-on-surface-variant tabular-nums font-semibold">EMP-00291</td>
+<td class="px-3 py-2.5 font-medium">Human Resources</td>
+<td class="px-3 py-2.5 font-medium truncate max-w-[160px]">HR Officer</td>
+<td class="px-3 py-2.5 text-on-surface-variant">Full-time</td>
+<td class="px-3 py-2.5 text-on-surface-variant truncate">Main Campus</td>
+<td class="px-3 py-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                    On leave
+                  </span>
+</td>
+<td class="px-3 py-2.5 text-right">
+<button class="w-7 h-7 inline-flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Daniel Osei -->
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer">
+<td class="px-3 py-2.5 text-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-3 py-2.5 min-w-[200px]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface font-label-md text-label-md font-bold flex items-center justify-center shrink-0">
+                      DO
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface truncate">Daniel Osei</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">daniel.osei@rivermere.edu</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2.5 font-label-md text-label-md text-on-surface-variant tabular-nums font-semibold">EMP-00274</td>
+<td class="px-3 py-2.5 font-medium">IT</td>
+<td class="px-3 py-2.5 font-medium truncate max-w-[160px]">IT Support Specialist</td>
+<td class="px-3 py-2.5 text-on-surface-variant">Full-time</td>
+<td class="px-3 py-2.5 text-on-surface-variant truncate">West Campus</td>
+<td class="px-3 py-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Active
+                  </span>
+</td>
+<td class="px-3 py-2.5 text-right">
+<button class="w-7 h-7 inline-flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Esi Kumah -->
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer">
+<td class="px-3 py-2.5 text-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-3 py-2.5 min-w-[200px]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary font-label-md text-label-md font-bold flex items-center justify-center shrink-0">
+                      EK
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface truncate">Esi Kumah</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">esi.kumah@rivermere.edu</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2.5 font-label-md text-label-md text-on-surface-variant tabular-nums font-semibold">EMP-00233</td>
+<td class="px-3 py-2.5 font-medium">Academic Affairs</td>
+<td class="px-3 py-2.5 font-medium truncate max-w-[160px]">Lecturer</td>
+<td class="px-3 py-2.5 text-on-surface-variant">Full-time</td>
+<td class="px-3 py-2.5 text-on-surface-variant truncate">West Campus</td>
+<td class="px-3 py-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Active
+                  </span>
+</td>
+<td class="px-3 py-2.5 text-right">
+<button class="w-7 h-7 inline-flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 7: Fatima Ibrahim (Inactive) -->
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer">
+<td class="px-3 py-2.5 text-center">
+<input class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-3 py-2.5 min-w-[200px]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-outline font-label-md text-label-md font-bold flex items-center justify-center shrink-0">
+                      FA
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface truncate">Fatima Ibrahim</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">fatima.ibrahim@rivermere.edu</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2.5 font-label-md text-label-md text-on-surface-variant tabular-nums font-semibold">EMP-00198</td>
+<td class="px-3 py-2.5 font-medium">Student Services</td>
+<td class="px-3 py-2.5 font-medium truncate max-w-[160px]">Student Advisor</td>
+<td class="px-3 py-2.5 text-on-surface-variant">Part-time</td>
+<td class="px-3 py-2.5 text-on-surface-variant truncate">Main Campus</td>
+<td class="px-3 py-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+                    Inactive
+                  </span>
+</td>
+<td class="px-3 py-2.5 text-right">
+<button class="w-7 h-7 inline-flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-base">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="bg-surface-container-lowest px-space-md py-3 flex flex-wrap items-center justify-between gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Showing <span class="font-semibold text-on-surface">1-7</span> of <span class="font-semibold text-on-surface">428</span> employees
+          </span>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded bg-surface-container-low text-outline flex items-center justify-center hover:text-on-surface disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="w-7 h-7 rounded bg-secondary text-on-secondary font-label-md text-label-md font-bold flex items-center justify-center shadow-xs" type="button">
+              1
+            </button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center justify-center" type="button">
+              2
+            </button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center justify-center" type="button">
+              3
+            </button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center justify-center" type="button">
+              4
+            </button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center justify-center" type="button">
+              5
+            </button>
+<span class="px-1 text-outline font-bold">...</span>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center justify-center" type="button">
+              62
+            </button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Institutional Analytics Micro-Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Faculty &amp; Staff Headcount Compliance</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Statutory payroll accreditation cycle completed for 2024/25 academic term.</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded bg-surface-container-high text-secondary font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors whitespace-nowrap" type="button">
+          Audit Accreditation
+        </button>
+</div>
+</div>
+<!-- Right-Side Persistent Profile Drawer / Inspector (Ama Mensah EMP-00421) -->
+<div class="col-span-12 xl:col-span-4 bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-md sticky top-20">
+<!-- Drawer Top Bar & Close -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-md">
+<!-- Big Avatar -->
+<div class="w-16 h-16 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-display-lg text-headline-lg font-bold shrink-0 shadow-sm">
+            AM
+          </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold truncate">Ama Mensah</h2>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Active
+              </span>
+</div>
+<p class="font-label-lg text-label-lg font-semibold text-on-surface-variant">Senior Finance Analyst</p>
+<div class="flex flex-wrap items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span>Finance</span>
+<span>•</span>
+<span class="font-medium text-on-surface">EMP-00421</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Joined 14 Mar 2022</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full text-outline-variant hover:text-on-surface hover:bg-surface-container-low transition-colors flex items-center justify-center shrink-0" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Drawer Tabs -->
+<div class="flex items-center border-b-0 bg-surface-container-low/60 p-1 rounded-lg gap-1 font-label-md text-label-md">
+<button class="flex-1 py-1.5 px-2 rounded-md bg-surface-container-lowest font-bold text-secondary shadow-xs text-center transition-all" type="button">Overview</button>
+<button class="flex-1 py-1.5 px-2 rounded-md text-on-surface-variant font-medium hover:text-on-surface text-center transition-all" type="button">Employment</button>
+<button class="flex-1 py-1.5 px-2 rounded-md text-on-surface-variant font-medium hover:text-on-surface text-center transition-all" type="button">Contact</button>
+<button class="flex-1 py-1.5 px-2 rounded-md text-on-surface-variant font-medium hover:text-on-surface text-center transition-all" type="button">Access</button>
+<button class="px-2 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</button>
+</div>
+<!-- Card Section 1: Employment Details -->
+<div class="bg-surface-container-low/40 rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">badge</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Employment details</h3>
+</div>
+<button class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold hover:underline" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-y-2.5 text-body-sm font-body-sm">
+<div class="text-on-surface-variant">Department</div>
+<div class="font-semibold text-on-surface text-right">Finance</div>
+<div class="text-on-surface-variant">Position</div>
+<div class="font-semibold text-on-surface text-right truncate">Senior Finance Analyst</div>
+<div class="text-on-surface-variant">Employment type</div>
+<div class="font-semibold text-on-surface text-right">Full-time</div>
+<div class="text-on-surface-variant">Location</div>
+<div class="font-semibold text-on-surface text-right">Main Campus</div>
+<div class="text-on-surface-variant">Manager</div>
+<div class="flex items-center justify-end gap-1.5 text-right">
+<div class="w-5 h-5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold flex items-center justify-center text-[10px]">
+              KO
+            </div>
+<div class="flex flex-col text-right">
+<span class="font-semibold text-on-surface text-xs leading-none">Kofi Owusu</span>
+<span class="text-[10px] text-on-surface-variant leading-none mt-0.5">IT Manager</span>
+</div>
+</div>
+<div class="text-on-surface-variant">Start date</div>
+<div class="font-semibold text-on-surface text-right tabular-nums">14 Mar 2022</div>
+</div>
+</div>
+<!-- Card Section 2: Contact Details -->
+<div class="bg-surface-container-low/40 rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">mail</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Contact details</h3>
+</div>
+<button class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold hover:underline" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="flex flex-col gap-2.5 text-body-sm font-body-sm">
+<div class="flex items-start justify-between gap-2">
+<span class="text-on-surface-variant">Work email</span>
+<a class="font-semibold text-secondary hover:underline truncate text-right" href="mailto:ama.mensah@rivermere.edu">ama.mensah@rivermere.edu</a>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="text-on-surface-variant">Work phone</span>
+<span class="font-semibold text-on-surface tabular-nums text-right">+233 20 123 4567</span>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="text-on-surface-variant">Mobile</span>
+<span class="font-semibold text-on-surface tabular-nums text-right">+233 54 987 6543</span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<span class="text-on-surface-variant">Office</span>
+<span class="font-semibold text-on-surface text-right">A-104, Administration Bldg</span>
+</div>
+</div>
+</div>
+<!-- Card Section 3: Status & Governance -->
+<div class="bg-surface-container-low/40 rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">verified</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Status</h3>
+</div>
+<button class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold hover:underline" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-y-2 text-body-sm font-body-sm items-center">
+<div class="text-on-surface-variant">Employment status</div>
+<div class="text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-bold">
+              Active
+            </span>
+</div>
+<div class="text-on-surface-variant">Last updated</div>
+<div class="font-semibold text-on-surface text-right tabular-nums">14 Mar 2022</div>
+</div>
+</div>
+<!-- Quick Actions Utility Bar -->
+<div class="flex flex-col gap-space-xs pt-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-bold mb-1">Quick actions</span>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded bg-primary-container text-on-primary hover:bg-primary-container/90 transition-all shadow-sm font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-base">open_in_new</span>
+<span>View profile</span>
+</button>
+<button class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container transition-all shadow-sm font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+<span>Edit record</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript for Tab & Selection Emulation -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Highlight row selection when clicking a table row
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        row.addEventListener('click', (e) => {
+          if (e.target.tagName.toLowerCase() === 'input' || e.target.closest('button')) return;
+          rows.forEach(r => {
+            r.classList.remove('bg-surface-container-low/70');
+            const ind = r.querySelector('.absolute.left-0');
+            if (ind) ind.remove();
+          });
+          row.classList.add('bg-surface-container-low/70');
+          const indicator = document.createElement('div');
+          indicator.className = 'absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-r';
+          row.querySelector('td:first-child').prepend(indicator);
+        });
+      });
+    });
+  </script>
+</div></main></div></body></html>
