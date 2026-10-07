@@ -101,7 +101,7 @@ export default function LeaveTypesCard({ types, policyTypeIds, canConfigure, onC
           <Field label="Name" required><Input value={form.name} maxLength={150} placeholder="e.g. Marriage Leave" onChange={(event) => setForm({ ...form, name: event.target.value })} data-autofocus /></Field>
           <Field label="Code" optional helper={editing ? undefined : "Generated automatically when left blank."}><Input value={form.code} maxLength={50} className="font-mono" onChange={(event) => setForm({ ...form, code: event.target.value.toUpperCase() })} /></Field>
           <Field label="Description" optional><Textarea rows={2} value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} /></Field>
-          <Checkbox checked={form.is_paid} onChange={(event) => setForm({ ...form, is_paid: event.target.checked })} label="Paid leave" description="Unpaid leave days are deducted in payroll." />
+          <Checkbox checked={form.is_paid} onChange={(event) => setForm({ ...form, is_paid: event.target.checked })} label="Paid leave" description="Days taken are recorded as unpaid leave." />
           <Checkbox checked={form.requires_attachment} onChange={(event) => setForm({ ...form, requires_attachment: event.target.checked })} label="Supporting document required" description="For example a medical certificate." />
           {editing && <Checkbox checked={form.is_active} onChange={(event) => setForm({ ...form, is_active: event.target.checked })} label="Active" description="Inactive types can no longer be requested." />}
         </div>

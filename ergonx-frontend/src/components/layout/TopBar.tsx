@@ -64,6 +64,10 @@ function routeContext(pathname: string): { section: string; page?: string } {
       if (child) return { section: home.label, page: child.label };
       if (matches(home.href)) return { section: home.label };
     }
+    // A top-level module destination (ErgonX HR lists Leave, Attendance, ... directly)
+    // owns its route tree before any group that links into it.
+    const direct = navigation.filter((item) => !item.children?.length && matches(item.href)).sort((a, b) => b.href.length - a.href.length)[0];
+    if (direct) return { section: direct.label };
     for (const item of navigation) {
       for (const child of item.children ?? []) {
         // A child owns its exact route tree, or — when it lives in a different
@@ -494,7 +498,7 @@ export default function TopBar({ onOpenSidebar }: TopBarProps) {
                 ref={searchInputRef}
                 autoFocus
                 data-ui="input"
-                placeholder="Search employees, payroll, leave, accounting…"
+                placeholder="Search employees, candidates, leave…"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 onKeyDown={(event) => {

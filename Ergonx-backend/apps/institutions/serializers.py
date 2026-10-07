@@ -13,10 +13,17 @@ from apps.institutions.models import (
     InstitutionInvitation,
 )
 from apps.institutions.catalogues import locale_catalogues
+from common.product import offered_permission_codes
 
 
 class RoleSummarySerializer(serializers.ModelSerializer):
     permissions = serializers.SlugRelatedField(many=True, read_only=True, slug_field="code")
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        # Hide permissions of modules this edition does not offer (common.product).
+        data["permissions"] = offered_permission_codes(data["permissions"], Permission)
+        return data
 
     class Meta:
         model = Role

@@ -240,14 +240,14 @@ export default function WorkspaceHome({ areaLabel, continueHref, continueTitle, 
               <IconTile icon={UserRound} accent="brand" />
               <div>
                 <h2 className="text-card-title font-bold text-headline">Your personal workspace</h2>
-                <p className="mt-0.5 text-support text-ink-muted">Your attendance, leave balances, payslips and documents in one place.</p>
+                <p className="mt-0.5 text-support text-ink-muted">Your attendance, leave balances and documents in one place.</p>
               </div>
             </div>
             <span className="relative mt-6 inline-flex items-center gap-1.5 text-support font-semibold text-primary-ink">Open Employee Home<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
           </Link>
         ) : (
           <Card title="Tip" icon={Sparkles} accent="brand">
-            <p className="text-support text-ink-muted">Press <kbd className="rounded-md border border-line bg-surface-muted px-1.5 py-0.5 text-caption font-semibold">Ctrl K</kbd> anywhere to search people, payroll references and leave requests.</p>
+            <p className="text-support text-ink-muted">Press <kbd className="rounded-md border border-line bg-surface-muted px-1.5 py-0.5 text-caption font-semibold">Ctrl K</kbd> anywhere to search people, candidates and leave requests.</p>
           </Card>
         )}
       </div>
@@ -335,12 +335,12 @@ function OperationalSnapshot() {
     const wanted = new Set(planKey.split(","));
     let active = true;
     const requests: Array<Promise<SnapshotTile | null>> = [];
+    if (wanted.has("hr")) requests.push(dashboardsApi.getHrDashboard().then((d) => ({ key: "hr", accent: "hr", label: "Active employees", value: formatNumber(d.active_employees), detail: `${formatNumber(d.recent_hires.length)} recent hires`, href: "/hr/dashboard" })));
     if (wanted.has("attendance")) requests.push(dashboardsApi.getAttendanceDashboard().then((d) => ({ key: "attendance", accent: "attendance", label: "Present today", value: formatNumber(d.present), detail: `${formatNumber(d.late)} late · ${formatNumber(d.absent)} absent`, href: "/attendance/dashboard", spark: d.weekly_attendance.map((day) => day.present) })));
     if (wanted.has("leave")) requests.push(dashboardsApi.getLeaveDashboard().then((d) => ({ key: "leave", accent: "leave", label: "Leave awaiting decision", value: formatNumber(d.pending), detail: `${formatNumber(d.currently_on_leave)} on leave · ${formatNumber(d.upcoming)} upcoming`, href: "/leave/dashboard", spark: d.monthly_approved_leave.map((month) => Number(month.requested_days)) })));
     if (wanted.has("payroll")) requests.push(dashboardsApi.getPayrollDashboard().then((d) => ({ key: "payroll", accent: "payroll", label: "Payroll runs in progress", value: formatNumber(d.pending_runs), detail: d.latest_run_status ? `Latest run: ${humanizeEnum(d.latest_run_status)}` : "No payroll runs yet", href: "/payroll/dashboard", spark: d.payroll_by_period.map((period) => Number(period.gross_pay)) })));
     if (wanted.has("recruitment")) requests.push(dashboardsApi.getRecruitmentDashboard().then((d) => ({ key: "recruitment", accent: "recruitment", label: "Interviews scheduled", value: formatNumber(d.scheduled_interviews), detail: `${formatNumber(d.open_jobs)} open roles · ${formatNumber(d.applications)} applications`, href: "/recruitment/dashboard" })));
     if (wanted.has("finance")) requests.push(dashboardsApi.getFinanceDashboard().then((d) => ({ key: "finance", accent: "accounting", label: "Journals pending", value: formatNumber(d.pending_journals), detail: `Bank balance ${formatAmount(d.bank_balance, d.currency)}`, href: "/accounting/dashboard", spark: d.cash_flow_trend.map((month) => Number(month.net_movement)) })));
-    if (wanted.has("hr")) requests.push(dashboardsApi.getHrDashboard().then((d) => ({ key: "hr", accent: "hr", label: "Active employees", value: formatNumber(d.active_employees), detail: `${formatNumber(d.recent_hires.length)} recent hires`, href: "/hr/dashboard" })));
     Promise.allSettled(requests).then((results) => {
       if (!active) return;
       setTiles(results.flatMap((result) => (result.status === "fulfilled" && result.value ? [result.value] : [])).slice(0, 4));

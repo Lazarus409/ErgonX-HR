@@ -16,14 +16,15 @@ import { getApiErrorMessage, institutionsApi } from "@/lib/api";
 import { useApiResource } from "@/lib/useApiResource";
 import type { InstitutionMembership } from "@/types/institutions";
 import { buttonClasses } from "@/components/ui/Button";
+import { EXCLUDED_ROLE_CODES } from "@/lib/product";
 
 const setupOwnerRoles = [
-  { code: "HR_ADMIN", label: "HR Admin", scope: "HR, Leave, Attendance, Payroll, and Recruitment" },
+  { code: "HR_ADMIN", label: "HR Admin", scope: "HR, Leave, Attendance and Recruitment" },
   { code: "FINANCE_MANAGER", label: "Finance Manager", scope: "Payroll and Accounting oversight" },
   { code: "ACCOUNTANT", label: "Accountant", scope: "Accounting operations and finance records" },
-  { code: "AUDITOR", label: "Auditor", scope: "Read-only financial and compliance review" },
+  { code: "AUDITOR", label: "Auditor", scope: "Read-only compliance and audit review" },
   { code: "DIRECTOR", label: "Director", scope: "Executive oversight and approvals" },
-] as const;
+].filter((role) => !EXCLUDED_ROLE_CODES.has(role.code));
 
 function memberName(firstName: string | undefined, lastName: string | undefined, email: string | undefined): string {
   const name = [firstName, lastName].filter(Boolean).join(" ").trim();
@@ -54,7 +55,7 @@ export default function MembershipSettingsPage() {
       institutionsApi.listInstitutionRoles(),
       institutionsApi.listInstitutionInvitations(),
     ]);
-    return { memberships, roles: roles.results.filter((role) => role.is_active), invitations };
+    return { memberships, roles: roles.results.filter((role) => role.is_active && !EXCLUDED_ROLE_CODES.has(role.code)), invitations };
   }, []);
   const { data, loading, error, reload } = useApiResource(load);
 

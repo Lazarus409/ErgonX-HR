@@ -313,7 +313,7 @@ export default function OvertimePage() {
     <div className="space-y-6">
       <PageHeader
         title="Overtime"
-        description="Review overtime generated from attendance. Only approved overtime is consumed by Payroll."
+        description="Review overtime generated from attendance. Only approved overtime counts as worked overtime."
       />
 
       {error && <ErrorState message={error} onRetry={reload} />}
@@ -695,7 +695,7 @@ export default function OvertimePage() {
               ) : (
                 <p className="text-sm text-ink-muted">
                   Rejecting records the decision against this overtime record.
-                  Rejected overtime is not consumed by Payroll.
+                  Rejected overtime does not count as worked overtime.
                 </p>
               )}
             </div>

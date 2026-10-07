@@ -16,7 +16,7 @@ export const settingsAreas: Array<{ title: string; description: string; href: st
   // Every role holds institution.view (the app needs the institution's name and locale),
   // so this Institution Admin area is keyed on the manage permission instead.
   { title: "Institution Settings", description: "Manage the institution's identity, logo and operational locale.", href: "/settings/institution", icon: Building2, permission: "settings.institution.manage" },
-  { title: "Modules", description: "Review enabled ERP modules and configuration status.", href: "/settings/modules", icon: Puzzle, permission: "settings.modules.manage" },
+  { title: "Modules", description: "Review enabled HR modules and configuration status.", href: "/settings/modules", icon: Puzzle, permission: "settings.modules.manage" },
   { title: "Roles & Permissions", description: "Manage institution roles and assigned permissions.", href: "/settings/roles", icon: ShieldCheck, permission: "settings.roles.manage" },
   { title: "Approval Workflows", description: "Review approval definitions used by operational processes.", href: "/settings/approval-workflows", icon: GitPullRequest, permission: "approval_workflow.view" },
   { title: "Notifications", description: "Review in-app notification history for your active institution.", href: "/notifications", icon: Bell, permission: "home.view" },

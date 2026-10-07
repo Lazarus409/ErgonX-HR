@@ -132,7 +132,7 @@ export default function SignInForm({ variant = "workspace" }: { variant?: "works
     <AuthShell>
       {platform
         ? <AuthHeading eyebrow="Platform administration" title="Super Admin sign in" description="Sign in to the ErgonX platform console to manage organizations, access requests and invitations." />
-        : <AuthHeading title="Welcome back" description="Sign in to continue to your ErgonX workspace." />}
+        : <AuthHeading title="Welcome back" description="Sign in to continue to your ErgonX HR workspace." />}
       <form onSubmit={handleSubmit} className="space-y-5">
         {notice && !error && <Alert tone="info">{notice}</Alert>}
         {error && <Alert tone={error.startsWith("Enter the six-digit") ? "info" : "danger"}>{error}{platform && error.startsWith("This sign-in is only") && <> Staff and organization users <Link href="/login" className="font-semibold underline">sign in here</Link>.</>}</Alert>}

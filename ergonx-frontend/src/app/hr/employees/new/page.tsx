@@ -503,7 +503,7 @@ export default function CreateEmployeePage() {
                 </span>
                 <span className="mt-1 block text-sm text-ink-muted">
                   The employee can later use self-service features such as
-                  leave, attendance and payslips when enabled and authorised.
+                  leave and attendance when enabled and authorised.
                 </span>
               </span>
             </label>

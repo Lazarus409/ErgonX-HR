@@ -1,7 +1,9 @@
 import {
+  Briefcase,
+  Building2,
   CalendarDays,
-  CircleDollarSign,
   ClipboardCheck,
+  Clock3,
   Contact,
   FileText,
   GitPullRequest,
@@ -9,11 +11,9 @@ import {
   House,
   LayoutDashboard,
   Network,
-  Receipt,
   Settings,
   ShieldCheck,
   Users,
-  Wallet,
 } from "lucide-react";
 
 export type ModuleCode =
@@ -104,48 +104,14 @@ export const navigation: NavigationItem[] = [
       { label: "Team leave calendar", href: "/leave/calendar", permission: "leave.view", module: "LEAVE" },
     ],
   },
-  {
-    label: "Human Resources",
-    href: "/hr",
-    icon: Users,
-    // HR is the people workspace umbrella. Its own setup pages and each
-    // people-related module remain individually gated below.
-    anyPermissions: [
-      ...moduleWorkspacePermissions.HR,
-      ...moduleWorkspacePermissions.RECRUITMENT,
-      ...moduleWorkspacePermissions.LEAVE,
-      ...moduleWorkspacePermissions.ATTENDANCE,
-      ...moduleWorkspacePermissions.PAYROLL,
-    ],
-    scopes: INSTITUTION_WIDE,
-    children: [
-      { label: "HR Dashboard", href: "/hr/dashboard", module: "HR", permission: "dashboard.hr.view" },
-      { label: "Employees", href: "/hr/employees", module: "HR", permission: "employee.view" },
-      { label: "Recruitment", href: "/recruitment", module: "RECRUITMENT", anyPermissions: moduleWorkspacePermissions.RECRUITMENT },
-      { label: "Leave", href: "/leave", module: "LEAVE", anyPermissions: moduleWorkspacePermissions.LEAVE },
-      { label: "Attendance", href: "/attendance", module: "ATTENDANCE", anyPermissions: moduleWorkspacePermissions.ATTENDANCE },
-      { label: "Payroll", href: "/payroll", module: "PAYROLL", anyPermissions: moduleWorkspacePermissions.PAYROLL },
-    ],
-  },
-  {
-    label: "Accounting",
-    href: "/accounting",
-    icon: Wallet,
-    module: "ACCOUNTING",
-    anyPermissions: moduleWorkspacePermissions.ACCOUNTING,
-    scopes: INSTITUTION_WIDE,
-    children: [
-      { label: "Accounting Dashboard", href: "/accounting/dashboard", permission: "dashboard.finance.view" },
-      { label: "General Ledger", href: "/accounting/journals", permission: "journal.view" },
-      { label: "Accounts Payable", href: "/accounting/payables", permission: "vendor_bill.view" },
-      { label: "Accounts Receivable", href: "/accounting/receivables", permission: "invoice.view" },
-      { label: "Bank Reconciliation", href: "/accounting/banking", permission: "bank_account.view" },
-      { label: "Payments & Receipts", href: "/accounting/banking/cash", permission: "payment.view" },
-      { label: "Budgets", href: "/accounting/budgets", permission: "budget.view" },
-      { label: "Expenses", href: "/accounting/expenses", permission: "expense.view" },
-      { label: "Financial Reports", href: "/accounting/reports", permission: "financial_report.view" },
-    ],
-  },
+  // ErgonX HR edition: the HR modules are the product, so each is a top-level
+  // destination rather than a child of a "Human Resources" group.
+  { label: "HR Dashboard", href: "/hr/dashboard", icon: LayoutDashboard, module: "HR", permission: "dashboard.hr.view", scopes: INSTITUTION_WIDE },
+  { label: "Employees", href: "/hr/employees", icon: Users, module: "HR", permission: "employee.view", scopes: INSTITUTION_WIDE },
+  { label: "Organization", href: "/hr", icon: Building2, module: "HR", anyPermissions: ["organization.view", "organization.create", "organization.update"], scopes: INSTITUTION_WIDE },
+  { label: "Recruitment", href: "/recruitment", icon: Briefcase, module: "RECRUITMENT", anyPermissions: moduleWorkspacePermissions.RECRUITMENT, scopes: INSTITUTION_WIDE },
+  { label: "Leave", href: "/leave", icon: CalendarDays, module: "LEAVE", anyPermissions: moduleWorkspacePermissions.LEAVE, scopes: INSTITUTION_WIDE },
+  { label: "Attendance", href: "/attendance", icon: Clock3, module: "ATTENDANCE", anyPermissions: moduleWorkspacePermissions.ATTENDANCE, scopes: INSTITUTION_WIDE },
   {
     label: "Reports & Analytics",
     href: "/reports",
@@ -202,22 +168,6 @@ export const selfServiceNavigation: NavigationItem[] = [
     icon: ClipboardCheck,
     module: "ATTENDANCE",
     permission: "attendance.view",
-    selfService: true,
-  },
-  {
-    label: "My Payslips",
-    href: "/me/payslips",
-    icon: CircleDollarSign,
-    module: "PAYROLL",
-    permission: "payslip.view",
-    selfService: true,
-  },
-  {
-    label: "My Expenses",
-    href: "/me/expenses",
-    icon: Receipt,
-    module: "ACCOUNTING",
-    permission: "expense.claim_own",
     selfService: true,
   },
   {

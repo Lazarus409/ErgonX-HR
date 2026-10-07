@@ -15,6 +15,7 @@ import { cx } from "@/lib/cx";
 import { EM_DASH, formatCount, formatDateTime, humanizeEnum } from "@/lib/format";
 import { useApiResource } from "@/lib/useApiResource";
 import type { LibraryEntry, LibraryItemInput, LibraryOptions, LibraryPerson } from "@/types/reportLibrary";
+import { isModuleOffered } from "@/lib/product";
 
 export function PersonChip({ person, size = "sm" }: { person: LibraryPerson | null; size?: "sm" | "md" }) {
   if (!person) return <span className="text-ink-muted">ErgonX</span>;
@@ -128,7 +129,7 @@ function SettingsForm({ entry, options, onSaved }: { entry: LibraryEntry; option
       )}
       <Field label="Category">
         <Select value={draft.category} onChange={(event) => setDraft((current) => ({ ...current, category: event.target.value as LibraryItemInput["category"] }))}>
-          <option value="FINANCE">Finance</option><option value="HR">HR</option><option value="RECRUITMENT">Recruitment</option><option value="OPERATIONS">Operations</option><option value="CUSTOM">Custom</option>
+          {isModuleOffered("ACCOUNTING") && <option value="FINANCE">Finance</option>}<option value="HR">HR</option><option value="RECRUITMENT">Recruitment</option><option value="OPERATIONS">Operations</option><option value="CUSTOM">Custom</option>
         </Select>
       </Field>
       {!options?.can_publish && <p className="text-caption text-ink-muted">Publishing to everyone needs the report.publish permission.</p>}

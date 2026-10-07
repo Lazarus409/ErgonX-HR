@@ -4,6 +4,7 @@ from datetime import date
 from decimal import Decimal
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+from django.conf import settings
 from django.db.models import Count, Sum
 
 from apps.accounting.models import Expense, Invoice, JournalEntry, VendorBill
@@ -132,6 +133,8 @@ def build_report_rows(institution, report_type, *, status=None, date_from=None, 
     records = _filtered(institution, report_type, status=status, start=start, end=end)
     if report_type == "workforce-cost":
         rows = list(records.values("status").annotate(employee_count=Count("id")).order_by("status"))
+        if "PAYROLL" in settings.ERGONX_EXCLUDED_MODULES:
+            return rows  # ErgonX HR edition: headcount only, no pay totals.
         payroll = _payroll_records(institution, start, end).aggregate(gross=Sum("gross_pay"), net=Sum("net_pay"))
         rows.append({"status": "PAYROLL_TOTAL", "employee_count": "", "gross_pay": payroll["gross"] or Decimal("0"), "net_pay": payroll["net"] or Decimal("0")})
         return rows

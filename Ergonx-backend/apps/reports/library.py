@@ -7,6 +7,7 @@ its data, so the library never reveals a dashboard or report its reader could no
 """
 from datetime import date, timedelta
 
+from django.conf import settings
 from django.db import IntegrityError, transaction
 from django.db.models import Q
 from django.utils import timezone
@@ -56,7 +57,7 @@ SOURCES = {
     (D, "payroll"): ("Payroll Workspace", "PAYROLL", C.FINANCE, "/payroll/dashboard", "Payroll runs, costs and exceptions.", ("dashboard.payroll.view",)),
     (D, "finance"): ("Financial Overview", "ACCOUNTING", C.FINANCE, "/accounting/dashboard", "A high-level view of the institution's financial performance and position.", ("dashboard.finance.view",)),
     (D, "recruitment"): ("Recruitment Pipeline", "RECRUITMENT", C.RECRUITMENT, "/recruitment/dashboard", "Requisitions, applications and hiring progress.", ("candidate.view",)),
-    (R, "workforce-cost"): ("Workforce Cost", "CORE_HR", C.HR, "/reports/dashboard?report=workforce-cost", "Headcount and pay by employee status.", None),
+    (R, "workforce-cost"): ("Workforce" if "PAYROLL" in settings.ERGONX_EXCLUDED_MODULES else "Workforce Cost", "CORE_HR", C.HR, "/reports/dashboard?report=workforce-cost", "Headcount by employee status." if "PAYROLL" in settings.ERGONX_EXCLUDED_MODULES else "Headcount and pay by employee status.", None),
     (R, "recruitment"): ("Recruitment Activity", "RECRUITMENT", C.RECRUITMENT, "/reports/dashboard?report=recruitment", "Applications by status.", None),
     (R, "leave"): ("Leave Activity", "LEAVE", C.HR, "/reports/dashboard?report=leave", "Leave requests by status and days.", None),
     (R, "attendance"): ("Attendance Summary", "ATTENDANCE", C.HR, "/reports/dashboard?report=attendance", "Attendance records by status.", None),

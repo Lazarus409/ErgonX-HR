@@ -8,6 +8,7 @@ import { Field, Input, Select, Textarea } from "@/components/ui/Field";
 import { Dialog } from "@/components/ui/Overlay";
 import { getApiErrorMessage, reportLibraryApi } from "@/lib/api";
 import type { LibraryEntry, LibraryItemInput, LibraryKind, LibraryOptions } from "@/types/reportLibrary";
+import { isModuleOffered } from "@/lib/product";
 
 const STATUS_FILTER_REPORTS = new Set(["workforce-cost", "recruitment", "leave", "attendance", "payroll", "accounting", "expenses"]);
 
@@ -86,7 +87,7 @@ export default function CreateLibraryItemDialog({ open, onClose, options, onCrea
         )}
         <Field label="Category">
           <Select value={form.category ?? source?.category ?? "CUSTOM"} onChange={(event) => set({ category: event.target.value as LibraryItemInput["category"] })}>
-            <option value="FINANCE">Finance</option><option value="HR">HR</option><option value="RECRUITMENT">Recruitment</option><option value="OPERATIONS">Operations</option><option value="CUSTOM">Custom</option>
+            {isModuleOffered("ACCOUNTING") && <option value="FINANCE">Finance</option>}<option value="HR">HR</option><option value="RECRUITMENT">Recruitment</option><option value="OPERATIONS">Operations</option><option value="CUSTOM">Custom</option>
           </Select>
         </Field>
         <Field label="Status">

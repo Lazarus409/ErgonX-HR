@@ -17,6 +17,7 @@ import { isFailedAuditAction, type AuditLogEntry, type AuditLogFilters } from "@
 import { cx } from "@/lib/cx";
 import { formatNumber } from "@/lib/format";
 import { useApiResource } from "@/lib/useApiResource";
+import { isModuleOffered } from "@/lib/product";
 
 const PAGE_SIZE = 25;
 const pretty = (value: string) => value.replaceAll(".", " ").replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
@@ -35,7 +36,7 @@ const MODULES: Array<{ value: string; label: string }> = [
   { value: "workflows", label: "Approvals" },
   { value: "institutions", label: "Users & access" },
   { value: "accounts", label: "Accounts & security" },
-];
+].filter((item) => isModuleOffered(item.value));
 
 function moduleOf(entry: AuditLogEntry): string {
   const app = entry.entity_type.split(".")[0];
@@ -124,7 +125,7 @@ export default function AuditSettingsPage() {
           <Field label="Actor email" hideLabel><Input size="sm" value={actor} onChange={update(setActor)} placeholder="Actor email" /></Field>
           <Field label="Module" hideLabel><select value={module} onChange={update(setModule)} className="h-9 w-full rounded-lg border border-line-strong bg-surface px-2 text-sm"><option value="">All modules</option>{MODULES.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</select></Field>
           <Field label="Result" hideLabel><select value={result} onChange={(event) => { setResult(event.target.value as "" | "success" | "failed"); setPage(1); }} className="h-9 w-full rounded-lg border border-line-strong bg-surface px-2 text-sm"><option value="">Success and failed</option><option value="success">Success</option><option value="failed">Failed attempts</option></select></Field>
-          <Field label="Action" hideLabel><Input size="sm" value={action} onChange={update(setAction)} placeholder="Action, e.g. payroll" /></Field>
+          <Field label="Action" hideLabel><Input size="sm" value={action} onChange={update(setAction)} placeholder="Action, e.g. leave" /></Field>
           <Field label="Record UUID" hideLabel><Input size="sm" value={entityId} onChange={update(setEntityId)} placeholder="Record UUID" className="font-mono" /></Field>
           <Field label="From"><Input size="sm" type="date" value={from} onChange={update(setFrom)} /></Field>
           <div className="flex items-end gap-2"><Field label="To" className="flex-1"><Input size="sm" type="date" value={to} onChange={update(setTo)} /></Field>{hasFilters && <Button size="sm" variant="ghost" onClick={clearFilters}>Clear</Button>}</div>

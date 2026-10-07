@@ -87,7 +87,7 @@ export default function ApprovalsPage() {
         <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <SummaryTile icon={Hourglass} label="Awaiting your decision" value={summary.actionable} tone="brand" />
           <SummaryTile icon={AlertTriangle} label="Waiting over 3 days" value={summary.waiting_over_3_days} tone={summary.waiting_over_3_days ? "warning" : "neutral"} />
-          <SummaryTile icon={ArrowUpRight} label="Review on the record page" value={summary.needs_review} tone="neutral" hint="Payroll runs are approved after checking exceptions." />
+          <SummaryTile icon={ArrowUpRight} label="Review on the record page" value={summary.needs_review} tone="neutral" hint="Some requests are decided on their own record page." />
           <SummaryTile icon={Clock3} label="Oldest request" value={summary.oldest_submitted_at ? waited(summary.oldest_submitted_at, now) : "—"} tone="neutral" />
         </div>
       )}
@@ -110,7 +110,7 @@ export default function ApprovalsPage() {
           ) : undefined}
         >
           {data.items.length === 0 ? (
-            <EmptyState size="compact" icon={CheckCircle2} title="Your approval queue is clear" description="New requests from leave, payroll, recruitment and other workflows will appear here." className="min-h-[15rem] justify-center px-6" />
+            <EmptyState size="compact" icon={CheckCircle2} title="Your approval queue is clear" description="New requests from leave, attendance, recruitment and other workflows will appear here." className="min-h-[15rem] justify-center px-6" />
           ) : (
             <>
               <ul className="divide-y divide-line-soft">

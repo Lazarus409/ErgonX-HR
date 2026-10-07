@@ -13,3 +13,9 @@ export const EXCLUDED_ROUTE_PREFIXES = ["/payroll", "/accounting", "/me/payslips
 export function isModuleOffered(code: string): boolean {
   return !EXCLUDED_MODULES.has(code.trim().toUpperCase());
 }
+
+/** System roles that exist only for Payroll and Accounting. */
+export const EXCLUDED_ROLE_CODES: ReadonlySet<string> = new Set(["FINANCE_MANAGER", "ACCOUNTANT"]);
+
+/** Approval triggers owned by Accounting. */
+export const EXCLUDED_APPROVAL_TRIGGERS: ReadonlySet<string> = new Set(["EXPENSE_CLAIM", "BUDGET", "VENDOR_BILL"]);

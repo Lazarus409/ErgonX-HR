@@ -30,6 +30,7 @@ from apps.audit.services import record_audit_event
 from apps.institutions.services import ONBOARDING_STEP_DEFINITIONS, effective_permission_codes, governed_setting_permission, validate_governed_setting, set_module_enabled, clone_role, create_custom_role, create_invitation, invite_existing_user, reconcile_institution_onboarding, resume_institution_onboarding_step, revoke_invitation, skip_institution_onboarding_step, update_custom_role, update_membership, validate_institution_onboarding
 from apps.institutions.search import universal_search
 from apps.institutions.catalogues import locale_catalogues
+from common.product import excluded_permission_codes_q, excluded_role_codes
 from common.serializers import call_validated_service
 from common.viewsets import TenantModelViewSet
 from common.scoping import scope_to_employees
@@ -191,7 +192,8 @@ class PermissionCatalogView(APIView):
 
     @extend_schema(responses=PermissionSerializer(many=True))
     def get(self, request):
-        return Response(PermissionSerializer(Permission.objects.order_by("code"), many=True).data)
+        offered = Permission.objects.exclude(excluded_permission_codes_q()).order_by("code")
+        return Response(PermissionSerializer(offered, many=True).data)
 
 
 class RoleViewSet(TenantModelViewSet):
@@ -203,7 +205,7 @@ class RoleViewSet(TenantModelViewSet):
     ordering_fields = ("code", "name", "created_at", "updated_at")
 
     def get_queryset(self):
-        return super().get_queryset().prefetch_related("permissions")
+        return super().get_queryset().exclude(code__in=excluded_role_codes()).prefetch_related("permissions")
 
     def create(self, request, *args, **kwargs):
         payload = CustomRoleCreateSerializer(data=request.data)

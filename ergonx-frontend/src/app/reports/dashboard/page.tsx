@@ -23,6 +23,7 @@ import { hasModule } from "@/types/institutions";
 import { cx } from "@/lib/cx";
 import { moduleAccents, type ModuleAccent } from "@/lib/moduleTheme";
 import { humanizeEnum } from "@/lib/format";
+import { isModuleOffered } from "@/lib/product";
 
 // `permissions` mirrors REPORT_PERMISSIONS in apps/reports/views.py: beyond report.view,
 // each report needs the permissions that guard its underlying records. Each inner list
@@ -32,7 +33,7 @@ import { humanizeEnum } from "@/lib/format";
 const LEAVE_BROAD = ["leave.approve", "leave.reject", "leave.configure", "leave.balance.manage", "dashboard.leave.view"];
 const ATTENDANCE_BROAD = ["attendance.manage", "attendance.approve", "schedule.manage", "dashboard.attendance.view"];
 const reports = [
-  { id: "workforce-cost", title: "Workforce Cost", group: "Workforce", module: "CORE_HR", permissions: [["employee.view"], ["payroll.view"]] },
+  { id: "workforce-cost", title: isModuleOffered("PAYROLL") ? "Workforce Cost" : "Workforce", group: "Workforce", module: "CORE_HR", permissions: [["employee.view"], ["payroll.view"]] },
   { id: "recruitment", title: "Recruitment Activity", group: "Recruitment", module: "RECRUITMENT", permissions: [["candidate.view"]] },
   { id: "leave", title: "Leave Activity", group: "Leave", module: "LEAVE", permissions: [LEAVE_BROAD] },
   { id: "attendance", title: "Attendance", group: "Attendance", module: "ATTENDANCE", permissions: [ATTENDANCE_BROAD] },

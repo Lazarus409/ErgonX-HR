@@ -38,6 +38,7 @@ import { cx } from "@/lib/cx";
 import { formatDateTime } from "@/lib/format";
 import { useApiResource } from "@/lib/useApiResource";
 import type { LibraryCategory, LibraryEntry, LibraryKind } from "@/types/reportLibrary";
+import { isModuleOffered } from "@/lib/product";
 
 type Section = "all" | `DASHBOARD:${"mine" | "shared" | "institution"}` | `REPORT:${"mine" | "shared" | "institution" | "scheduled"}` | `CATEGORY:${LibraryCategory}`;
 type Sort = "refreshed" | "name" | "module" | "created";
@@ -170,7 +171,7 @@ export default function ReportsLibraryPage() {
               <RailItem icon={Clock3} label="Scheduled reports" count={counts?.reports.scheduled ?? 0} active={section === "REPORT:scheduled"} onClick={() => setSection("REPORT:scheduled")} />
             </RailGroup>
             <RailGroup title="Categories">
-              {(Object.keys(CATEGORY_LABELS) as LibraryCategory[]).map((category) => (
+              {(Object.keys(CATEGORY_LABELS) as LibraryCategory[]).filter((category) => category !== "FINANCE" || isModuleOffered("ACCOUNTING")).map((category) => (
                 <RailItem key={category} icon={CATEGORY_ICONS[category]} label={CATEGORY_LABELS[category]} count={counts?.categories[category] ?? 0} active={section === `CATEGORY:${category}`} onClick={() => setSection(`CATEGORY:${category}`)} />
               ))}
             </RailGroup>

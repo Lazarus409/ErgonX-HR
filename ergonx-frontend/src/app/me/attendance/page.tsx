@@ -159,7 +159,7 @@ export default function MyAttendancePage() {
           footer={<div className="flex justify-end gap-2"><Button variant="secondary" onClick={() => setCorrecting(null)} disabled={actionRunning}>Cancel</Button><Button loading={actionRunning} disabled={!reason.trim()} onClick={() => void submitCorrection()}>Submit request</Button></div>}>
           {actionError && <ErrorState variant="inline" title="Request not submitted" message={actionError} />}
           <label className="block text-sm font-medium text-ink-strong">Reason<textarea value={reason} onChange={(event) => setReason(event.target.value)} rows={4} placeholder="Explain what needs correcting on this record…" className="mt-1.5 w-full resize-none rounded-lg border border-line-strong px-3 py-2.5 text-sm" /></label>
-          <p className="mt-2 text-caption text-ink-muted">An approver reviews the request and applies the corrected times. Records inside a finalized payroll can no longer change.</p>
+          <p className="mt-2 text-caption text-ink-muted">An approver reviews the request and applies the corrected times.</p>
         </Dialog>
       )}
     </div>

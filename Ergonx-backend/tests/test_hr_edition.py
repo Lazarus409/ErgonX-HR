@@ -76,3 +76,24 @@ def test_health_endpoint_is_lightweight(client, django_assert_num_queries):
     with django_assert_num_queries(0):
         response = client.get("/api/v1/health/")
     assert response.status_code == 200 and response.json() == {"status": "ok"}
+
+
+def test_finance_roles_and_permissions_are_hidden(admin_client):
+    client, _, _ = admin_client
+    role_codes = {role["code"] for role in client.get("/api/v1/institutions/roles/", {"page_size": 100}).data["results"]}
+    assert not role_codes & {"FINANCE_MANAGER", "ACCOUNTANT"} and "HR_ADMIN" in role_codes
+    catalogue = client.get("/api/v1/institutions/permissions/").data
+    codes = {item["code"] for item in catalogue}
+    assert "employee.view" in codes
+    assert not {item["module_code"] for item in catalogue} & {"PAYROLL", "ACCOUNTING"}
+    assert not codes & {"dashboard.payroll.view", "dashboard.finance.view"}
+    hr_admin = next(role for role in client.get("/api/v1/institutions/roles/", {"page_size": 100}).data["results"] if role["code"] == "HR_ADMIN")
+    assert not [code for code in hr_admin["permissions"] if code.startswith(("payroll.", "journal.", "account."))]
+
+
+def test_workforce_report_has_no_pay_totals(admin_client):
+    client, institution, _ = admin_client
+    InstitutionModule.objects.filter(institution=institution, module_code="REPORTS").update(is_enabled=True)
+    response = client.get("/api/v1/reports/workforce-cost/")
+    assert response.status_code == 200
+    assert "PAYROLL_TOTAL" not in response.content.decode()

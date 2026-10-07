@@ -14,6 +14,7 @@ import { getApiErrorMessage, institutionsApi } from "@/lib/api";
 import { useApiResource } from "@/lib/useApiResource";
 import type { InstitutionInvitation } from "@/types/institutions";
 import { buttonClasses } from "@/components/ui/Button";
+import { EXCLUDED_ROLE_CODES } from "@/lib/product";
 
 type PendingAction =
   | { kind: "create" }
@@ -38,7 +39,7 @@ export default function OnboardingUsersPage() {
       institutionsApi.listInstitutionRoles(),
       institutionsApi.listInstitutionInvitations(),
     ]);
-    return { context, roles: roles.results.filter((role) => role.is_active), invitations: invitations.results };
+    return { context, roles: roles.results.filter((role) => role.is_active && !EXCLUDED_ROLE_CODES.has(role.code)), invitations: invitations.results };
   }, []);
   const { data, loading, error, reload } = useApiResource(load);
   const selectedRole = useMemo(() => data?.roles.find((role) => role.id === roleId) ?? null, [data, roleId]);

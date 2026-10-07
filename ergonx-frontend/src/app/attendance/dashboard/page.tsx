@@ -256,7 +256,7 @@ export default function AttendanceDashboardPage() {
         <ChartCard
           className="xl:col-span-2"
           title="Overtime this week"
-          description="Recorded overtime minutes per day. Only approved overtime is consumed by Payroll."
+          description="Recorded overtime minutes per day, before review."
           accent="attendance"
           icon={Timer}
           loading={initial}

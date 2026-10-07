@@ -26,8 +26,9 @@ import {
   type ApprovalWorkflowStep,
   type ApproverType,
 } from "@/types/workflows";
+import { EXCLUDED_APPROVAL_TRIGGERS } from "@/lib/product";
 
-const TRIGGERS = Object.keys(APPROVAL_TRIGGER_LABELS) as ApprovalTrigger[];
+const TRIGGERS = (Object.keys(APPROVAL_TRIGGER_LABELS) as ApprovalTrigger[]).filter((code) => !EXCLUDED_APPROVAL_TRIGGERS.has(code));
 const APPROVER_TYPES = Object.keys(APPROVER_TYPE_LABELS) as ApproverType[];
 const fieldClass = "mt-1.5 h-9 w-full rounded-lg border border-line-strong bg-surface px-3 text-sm font-normal text-ink-strong";
 
@@ -93,7 +94,7 @@ export default function ApprovalWorkflowSettingsPage() {
         actions={canCreate ? <Button leadingIcon={<Plus className="h-4 w-4" />} onClick={() => setEditing("new")}>Create workflow</Button> : undefined}
       />
       <p className="rounded-xl border border-line bg-surface-muted/50 p-4 text-support text-ink-muted">
-        Today the <span className="font-semibold text-ink-strong">leave request</span> and <span className="font-semibold text-ink-strong">expense claim</span> triggers are connected: their approvals follow these definitions. Other triggers can be prepared now; until their module is connected it keeps its own approval rules. In every workflow the requester is never their own approver, view-only roles never approve, and a step with nobody eligible stops the submission.
+        Today the <span className="font-semibold text-ink-strong">leave request</span> trigger is connected: their approvals follow these definitions. Other triggers can be prepared now; until their module is connected it keeps its own approval rules. In every workflow the requester is never their own approver, view-only roles never approve, and a step with nobody eligible stops the submission.
       </p>
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_24rem]">
