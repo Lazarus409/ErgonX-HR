@@ -12,7 +12,12 @@ separate Render web services. Do not deploy the repository root as a single
 Docker service: there is intentionally no root `Dockerfile`.
 
 The included [`render.yaml`](render.yaml) creates the `ergonx-hr-api` and `ergonx-hr-web`
-services, the `ergonx-hr-postgres` database and the hourly approval-reminder job. In Render, choose **New +**
+services on Render's free plan. The database is an external free PostgreSQL
+(for example a Neon project named `ergonx-hr`): paste its connection string,
+including `?sslmode=require`, as `DATABASE_URL` on `ergonx-hr-api`. Free services
+sleep after 15 minutes without traffic, and the hourly approval-reminder cron job
+is left out because Render cron jobs are billed. When moving to paid plans, add
+a Render PostgreSQL database and a `send_approval_reminders` cron job back. In Render, choose **New +**
 then **Blueprint**, select this repository and branch, and provide these values
 when Render prompts for them:
 
@@ -23,6 +28,9 @@ when Render prompts for them:
 - `FRONTEND_PUBLIC_URL`: the same frontend origin.
 - `NEXT_PUBLIC_API_BASE_URL`: the complete API URL, for example
   `https://ergonx-hr-api.onrender.com/api/v1`.
+- `ERGONX_API_PROXY_URL`: the API origin without `/api/v1`, for example
+  `https://ergonx-hr-api.onrender.com`.
+- `DATABASE_URL`: the HR database connection string (never the main ERP's).
 
 After deployment, update the three URL values if you attach custom domains and
 redeploy both web services. Configure SMTP variables in the API service only;

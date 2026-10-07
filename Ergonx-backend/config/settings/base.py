@@ -1,7 +1,7 @@
 import os
 from datetime import timedelta
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from urllib.parse import parse_qs, unquote, urlparse
 
 from corsheaders.defaults import default_headers
 from django.core.exceptions import ImproperlyConfigured
@@ -130,6 +130,10 @@ if database_url:
         "CONN_MAX_AGE": int(os.environ.get("POSTGRES_CONN_MAX_AGE", "60")),
         "OPTIONS": {"connect_timeout": int(os.environ.get("POSTGRES_CONNECT_TIMEOUT", "5"))},
     }
+    # Hosted providers such as Neon require TLS: keep ?sslmode=require from the URL.
+    sslmode = parse_qs(parsed_database_url.query).get("sslmode")
+    if sslmode:
+        DATABASES["default"]["OPTIONS"]["sslmode"] = sslmode[0]
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
