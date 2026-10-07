@@ -90,6 +90,7 @@ export const APPROVAL_PERMISSIONS = ["approval_request.view", "leave.approve", "
 
 export const navigation: NavigationItem[] = [
   { label: "Home", href: "/", icon: House, permission: "home.view" },
+  { label: "Executive Dashboard", href: "/dashboard", icon: LayoutDashboard, permission: "dashboard.executive.view" },
   {
     label: "My Department / Functional Area",
     href: "/department",
@@ -108,7 +109,6 @@ export const navigation: NavigationItem[] = [
     icon: Users,
     // Every HR workspace sits in this one menu; each child keeps its own gate.
     anyPermissions: [
-      "dashboard.executive.view",
       ...moduleWorkspacePermissions.HR,
       ...moduleWorkspacePermissions.RECRUITMENT,
       ...moduleWorkspacePermissions.LEAVE,
@@ -121,7 +121,6 @@ export const navigation: NavigationItem[] = [
     ],
     scopes: INSTITUTION_WIDE,
     children: [
-      { label: "Executive Dashboard", href: "/dashboard", permission: "dashboard.executive.view" },
       { label: "HR Dashboard", href: "/hr/dashboard", module: "HR", permission: "dashboard.hr.view" },
       { label: "Employees", href: "/hr/employees", module: "HR", permission: "employee.view" },
       { label: "Organization", href: "/hr/organization", module: "HR", anyPermissions: ["organization.view", "organization.create", "organization.update"] },
