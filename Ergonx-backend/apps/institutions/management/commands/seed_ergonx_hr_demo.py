@@ -83,7 +83,9 @@ from apps.scheduling.services import create_schedule_assignment, schedule_assign
 
 INSTITUTION_CODE = "BOST-DEMO"
 EMAIL_DOMAIN = "bostenergy.com.gh"
-ADMIN_EMAIL = f"akua.mensah@{EMAIL_DOMAIN}"
+ADMIN_EMAIL = f"george.ologo@{EMAIL_DOMAIN}"
+# The Institution Admin (HR Director) is addressed with his title; there is no separate title field.
+ADMIN_DISPLAY_FIRST_NAME = "Dr. George"
 DEFAULT_PASSWORD = "ErgonxHR!2026"
 ATTENDANCE_DAYS = 45
 SERVICE_ERRORS = (DjangoValidationError, ApiValidationError)
@@ -190,7 +192,7 @@ EMPLOYMENT_TYPE_CODES = {"P": "PERMANENT", "C": "CONTRACT", "T": "TEMPORARY", "I
 # Leaders: number, first, last, gender, department, position, grade, role.
 LEADERS = (
     ("BOST-0001", "Kwesi", "Appiah", "MALE", "DPT-EXE", "POS-001", "GRD-01", "DIRECTOR"),
-    ("BOST-0002", "Akua", "Mensah", "FEMALE", "DPT-HR", "POS-003", "GRD-02", "INSTITUTION_ADMIN"),
+    ("BOST-0002", "George", "Ologo", "MALE", "DPT-HR", "POS-003", "GRD-02", "INSTITUTION_ADMIN"),
     ("BOST-0003", "Edem", "Kpodo", "MALE", "DPT-FIN", "POS-008", "GRD-03", "DEPARTMENT_HEAD"),
     ("BOST-0004", "Comfort", "Agyei", "FEMALE", "DPT-OPS", "POS-011", "GRD-02", "DEPARTMENT_HEAD"),
     ("BOST-0005", "Ibrahim", "Mahama", "MALE", "DPT-DEP", "POS-013", "GRD-03", "DEPARTMENT_HEAD"),
@@ -356,7 +358,7 @@ class Command(BaseCommand):
         )
         self.institution = institution
         bootstrap_institution(institution)
-        self.admin = self._user("Akua", "Mensah", ADMIN_EMAIL)
+        self.admin = self._user(ADMIN_DISPLAY_FIRST_NAME, "Ologo", ADMIN_EMAIL)
         self._membership(self.admin, "INSTITUTION_ADMIN")
         for code in MODULES:
             module = institution.modules.get(module_code=code)
@@ -404,7 +406,7 @@ class Command(BaseCommand):
             self._membership(user, role_code)
             employee = Employee(
                 institution=institution, employee_number=number, user=user, first_name=first, last_name=last,
-                preferred_name=first, work_email=email, 
+                preferred_name=ADMIN_DISPLAY_FIRST_NAME if number == "BOST-0002" else first, work_email=email, 
                 phone=f"+23324{rng.randint(1000000, 9999999)}", mobile_phone=f"+23320{rng.randint(1000000, 9999999)}",
                 date_of_birth=date(rng.randint(1970, 2002), rng.randint(1, 12), rng.randint(1, 28)), gender=gender,
                 hire_date=hire_date, office_location=locations[location].name, status=Employee.Status.ACTIVE,
