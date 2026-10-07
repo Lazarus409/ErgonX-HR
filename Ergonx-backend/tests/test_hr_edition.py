@@ -70,3 +70,9 @@ def test_excluded_module_views_are_refused_even_if_enabled_directly(admin_client
     InstitutionModule.objects.filter(institution=institution, module_code="REPORTS").update(is_enabled=True)
     response = client.get("/api/v1/reports/accounting/")
     assert response.status_code == 403 and response.data["code"] == "module_not_available"
+
+
+def test_health_endpoint_is_lightweight(client, django_assert_num_queries):
+    with django_assert_num_queries(0):
+        response = client.get("/api/v1/health/")
+    assert response.status_code == 200 and response.json() == {"status": "ok"}

@@ -10,7 +10,7 @@ services:
     name: ergonx-hr-api
     dockerfilePath: Ergonx-backend/Dockerfile
     dockerContext: Ergonx-backend
-    healthCheckPath: /api/v1/schema/
+    healthCheckPath: /api/v1/health/
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: config.settings.production
