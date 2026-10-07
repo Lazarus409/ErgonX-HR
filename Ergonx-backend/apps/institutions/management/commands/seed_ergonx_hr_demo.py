@@ -1,7 +1,9 @@
 """Seed a large, HR-only demonstration organization for the ErgonX HR edition.
 
-Kente Logistics Ltd (KLG-DEMO) is a fictional Ghanaian logistics company with
-about 120 people across nine departments and five sites. The command covers
+BOST Energy (BOST-DEMO) is a demonstration organization modelled on a Ghanaian
+petroleum storage and transportation company: about 110 people across nine
+departments, the Accra head office and three fuel depots. All people, emails and
+records are synthetic. The command covers
 every module ErgonX HR offers: Core HR (structure, people, emergency contacts,
 documents, onboarding and exits), Leave, Attendance (schedules, shifts,
 corrections and overtime) and Recruitment (requisitions through to hires).
@@ -79,8 +81,8 @@ from apps.recruitment.services import (
 from apps.scheduling.models import FlexibleWorkRule, ScheduleAssignment, Shift, ShiftPattern, ShiftPatternDay, WorkSchedule
 from apps.scheduling.services import create_schedule_assignment, schedule_assignment_for, schedule_expectation
 
-INSTITUTION_CODE = "KLG-DEMO"
-EMAIL_DOMAIN = "kentelogistics.test"
+INSTITUTION_CODE = "BOST-DEMO"
+EMAIL_DOMAIN = "bostenergy.com.gh"
 ADMIN_EMAIL = f"akua.mensah@{EMAIL_DOMAIN}"
 DEFAULT_PASSWORD = "ErgonxHR!2026"
 ATTENDANCE_DAYS = 45
@@ -98,11 +100,11 @@ DEPARTMENTS = (
     ("DPT-HR", "Human Resources", "DPT-EXE"),
     ("DPT-FIN", "Finance & Administration", "DPT-EXE"),
     ("DPT-OPS", "Operations", "DPT-EXE"),
-    ("DPT-WHS", "Warehousing", "DPT-OPS"),
-    ("DPT-FLT", "Fleet & Transport", "DPT-OPS"),
-    ("DPT-SCS", "Sales & Customer Service", "DPT-EXE"),
+    ("DPT-DEP", "Depot Operations", "DPT-OPS"),
+    ("DPT-PIP", "Pipeline & Transport", "DPT-OPS"),
+    ("DPT-COM", "Commercial & Customer Service", "DPT-EXE"),
     ("DPT-IT", "Information Technology", "DPT-EXE"),
-    ("DPT-HSE", "Health, Safety & Environment", "DPT-OPS"),
+    ("DPT-HSE", "Health, Safety, Security & Environment", "DPT-OPS"),
 )
 
 GRADES = (
@@ -116,10 +118,10 @@ GRADES = (
 
 LOCATIONS = (
     # code, name, city, remote
-    ("LOC-ACC", "Accra Head Office", "Accra", False),
-    ("LOC-TEM", "Tema Port Depot", "Tema", False),
-    ("LOC-KSI", "Kumasi Branch", "Kumasi", False),
-    ("LOC-TKD", "Takoradi Branch", "Takoradi", False),
+    ("LOC-ACC", "Head Office, Accra", "Accra", False),
+    ("LOC-APD", "Accra Plains Depot", "Accra", False),
+    ("LOC-KSI", "Kumasi Depot", "Kumasi", False),
+    ("LOC-BUI", "Buipe Depot", "Buipe", False),
     ("LOC-REM", "Remote / Hybrid", "Accra", True),
 )
 
@@ -137,23 +139,23 @@ POSITIONS = (
     ("POS-010", "Procurement Officer", "DPT-FIN"),
     ("POS-011", "Operations Director", "DPT-OPS"),
     ("POS-012", "Operations Planner", "DPT-OPS"),
-    ("POS-013", "Warehouse Manager", "DPT-WHS"),
-    ("POS-014", "Warehouse Supervisor", "DPT-WHS"),
-    ("POS-015", "Warehouse Associate", "DPT-WHS"),
-    ("POS-016", "Inventory Controller", "DPT-WHS"),
-    ("POS-017", "Fleet Manager", "DPT-FLT"),
-    ("POS-018", "Transport Coordinator", "DPT-FLT"),
-    ("POS-019", "Heavy Goods Driver", "DPT-FLT"),
-    ("POS-020", "Fleet Mechanic", "DPT-FLT"),
-    ("POS-021", "Sales & Customer Service Manager", "DPT-SCS"),
-    ("POS-022", "Account Executive", "DPT-SCS"),
-    ("POS-023", "Customer Service Representative", "DPT-SCS"),
+    ("POS-013", "Depot Manager", "DPT-DEP"),
+    ("POS-014", "Depot Shift Supervisor", "DPT-DEP"),
+    ("POS-015", "Depot Operator", "DPT-DEP"),
+    ("POS-016", "Product Stock Controller", "DPT-DEP"),
+    ("POS-017", "Pipeline & Transport Manager", "DPT-PIP"),
+    ("POS-018", "Product Movement Coordinator", "DPT-PIP"),
+    ("POS-019", "Tanker Driver", "DPT-PIP"),
+    ("POS-020", "Pipeline Maintenance Technician", "DPT-PIP"),
+    ("POS-021", "Commercial Manager", "DPT-COM"),
+    ("POS-022", "Commercial Officer", "DPT-COM"),
+    ("POS-023", "Customer Service Officer", "DPT-COM"),
     ("POS-024", "IT Manager", "DPT-IT"),
     ("POS-025", "Software Developer", "DPT-IT"),
     ("POS-026", "IT Support Technician", "DPT-IT"),
     ("POS-027", "Data Analyst", "DPT-IT"),
-    ("POS-028", "HSE Manager", "DPT-HSE"),
-    ("POS-029", "HSE Officer", "DPT-HSE"),
+    ("POS-028", "HSSE Manager", "DPT-HSE"),
+    ("POS-029", "HSSE Officer", "DPT-HSE"),
 )
 
 # Department headcount plan: (department, position, grade, location, count, staff category, employment-type mix)
@@ -165,37 +167,37 @@ STAFFING = (
     ("DPT-HR", "POS-007", "GRD-05", "LOC-ACC", 1, "SENIOR", "P"),
     ("DPT-FIN", "POS-009", "GRD-05", "LOC-ACC", 3, "SENIOR", "PPC"),
     ("DPT-FIN", "POS-010", "GRD-05", "LOC-ACC", 2, "SENIOR", "P"),
-    ("DPT-OPS", "POS-012", "GRD-05", "LOC-TEM", 4, "SENIOR", "P"),
-    ("DPT-WHS", "POS-014", "GRD-04", "LOC-TEM", 4, "SENIOR", "P"),
-    ("DPT-WHS", "POS-015", "GRD-06", "LOC-TEM", 16, "JUNIOR", "PPPPCCTA"),
-    ("DPT-WHS", "POS-015", "GRD-06", "LOC-KSI", 6, "JUNIOR", "PPCA"),
-    ("DPT-WHS", "POS-016", "GRD-05", "LOC-TEM", 3, "SENIOR", "P"),
-    ("DPT-FLT", "POS-018", "GRD-05", "LOC-TEM", 3, "SENIOR", "P"),
-    ("DPT-FLT", "POS-019", "GRD-06", "LOC-TEM", 10, "JUNIOR", "PPPC"),
-    ("DPT-FLT", "POS-019", "GRD-06", "LOC-TKD", 5, "JUNIOR", "PPC"),
-    ("DPT-FLT", "POS-020", "GRD-05", "LOC-TEM", 4, "JUNIOR", "PPC"),
-    ("DPT-SCS", "POS-022", "GRD-04", "LOC-ACC", 5, "SENIOR", "P"),
-    ("DPT-SCS", "POS-023", "GRD-06", "LOC-ACC", 7, "JUNIOR", "PPPCI"),
-    ("DPT-SCS", "POS-023", "GRD-06", "LOC-KSI", 3, "JUNIOR", "PC"),
-    ("DPT-SCS", "POS-022", "GRD-05", "LOC-TKD", 2, "SENIOR", "P"),
+    ("DPT-OPS", "POS-012", "GRD-05", "LOC-APD", 4, "SENIOR", "P"),
+    ("DPT-DEP", "POS-014", "GRD-04", "LOC-APD", 4, "SENIOR", "P"),
+    ("DPT-DEP", "POS-015", "GRD-06", "LOC-APD", 16, "JUNIOR", "PPPPCCTA"),
+    ("DPT-DEP", "POS-015", "GRD-06", "LOC-KSI", 6, "JUNIOR", "PPCA"),
+    ("DPT-DEP", "POS-016", "GRD-05", "LOC-APD", 3, "SENIOR", "P"),
+    ("DPT-PIP", "POS-018", "GRD-05", "LOC-APD", 3, "SENIOR", "P"),
+    ("DPT-PIP", "POS-019", "GRD-06", "LOC-APD", 10, "JUNIOR", "PPPC"),
+    ("DPT-PIP", "POS-019", "GRD-06", "LOC-BUI", 5, "JUNIOR", "PPC"),
+    ("DPT-PIP", "POS-020", "GRD-05", "LOC-APD", 4, "JUNIOR", "PPC"),
+    ("DPT-COM", "POS-022", "GRD-04", "LOC-ACC", 5, "SENIOR", "P"),
+    ("DPT-COM", "POS-023", "GRD-06", "LOC-ACC", 7, "JUNIOR", "PPPCI"),
+    ("DPT-COM", "POS-023", "GRD-06", "LOC-KSI", 3, "JUNIOR", "PC"),
+    ("DPT-COM", "POS-022", "GRD-05", "LOC-BUI", 2, "SENIOR", "P"),
     ("DPT-IT", "POS-025", "GRD-04", "LOC-REM", 5, "SENIOR", "PPPC"),
     ("DPT-IT", "POS-026", "GRD-05", "LOC-ACC", 3, "SENIOR", "PPI"),
     ("DPT-IT", "POS-027", "GRD-05", "LOC-REM", 2, "SENIOR", "P"),
-    ("DPT-HSE", "POS-029", "GRD-05", "LOC-TEM", 4, "SENIOR", "PPC"),
+    ("DPT-HSE", "POS-029", "GRD-05", "LOC-APD", 4, "SENIOR", "PPC"),
 )
 EMPLOYMENT_TYPE_CODES = {"P": "PERMANENT", "C": "CONTRACT", "T": "TEMPORARY", "I": "INTERN", "A": "CASUAL"}
 
 # Leaders: number, first, last, gender, department, position, grade, role.
 LEADERS = (
-    ("KLG-0001", "Kwesi", "Appiah", "MALE", "DPT-EXE", "POS-001", "GRD-01", "DIRECTOR"),
-    ("KLG-0002", "Akua", "Mensah", "FEMALE", "DPT-HR", "POS-003", "GRD-02", "INSTITUTION_ADMIN"),
-    ("KLG-0003", "Edem", "Kpodo", "MALE", "DPT-FIN", "POS-008", "GRD-03", "DEPARTMENT_HEAD"),
-    ("KLG-0004", "Comfort", "Agyei", "FEMALE", "DPT-OPS", "POS-011", "GRD-02", "DEPARTMENT_HEAD"),
-    ("KLG-0005", "Ibrahim", "Mahama", "MALE", "DPT-WHS", "POS-013", "GRD-03", "DEPARTMENT_HEAD"),
-    ("KLG-0006", "Yaw", "Darkwa", "MALE", "DPT-FLT", "POS-017", "GRD-03", "DEPARTMENT_HEAD"),
-    ("KLG-0007", "Esi", "Ampofo", "FEMALE", "DPT-SCS", "POS-021", "GRD-03", "DEPARTMENT_HEAD"),
-    ("KLG-0008", "Selorm", "Agbeko", "MALE", "DPT-IT", "POS-024", "GRD-03", "DEPARTMENT_HEAD"),
-    ("KLG-0009", "Naa", "Lamptey", "FEMALE", "DPT-HSE", "POS-028", "GRD-03", "DEPARTMENT_HEAD"),
+    ("BOST-0001", "Kwesi", "Appiah", "MALE", "DPT-EXE", "POS-001", "GRD-01", "DIRECTOR"),
+    ("BOST-0002", "Akua", "Mensah", "FEMALE", "DPT-HR", "POS-003", "GRD-02", "INSTITUTION_ADMIN"),
+    ("BOST-0003", "Edem", "Kpodo", "MALE", "DPT-FIN", "POS-008", "GRD-03", "DEPARTMENT_HEAD"),
+    ("BOST-0004", "Comfort", "Agyei", "FEMALE", "DPT-OPS", "POS-011", "GRD-02", "DEPARTMENT_HEAD"),
+    ("BOST-0005", "Ibrahim", "Mahama", "MALE", "DPT-DEP", "POS-013", "GRD-03", "DEPARTMENT_HEAD"),
+    ("BOST-0006", "Yaw", "Darkwa", "MALE", "DPT-PIP", "POS-017", "GRD-03", "DEPARTMENT_HEAD"),
+    ("BOST-0007", "Esi", "Ampofo", "FEMALE", "DPT-COM", "POS-021", "GRD-03", "DEPARTMENT_HEAD"),
+    ("BOST-0008", "Selorm", "Agbeko", "MALE", "DPT-IT", "POS-024", "GRD-03", "DEPARTMENT_HEAD"),
+    ("BOST-0009", "Naa", "Lamptey", "FEMALE", "DPT-HSE", "POS-028", "GRD-03", "DEPARTMENT_HEAD"),
 )
 
 CUSTOM_ROLES = {
@@ -217,16 +219,16 @@ DOCUMENTS = (("Employment contract", "CONTRACT"), ("Ghana Card copy", "IDENTITY"
 
 REQUISITIONS = (
     # code, title, department, position, location, target status, openings, hiring reason, days since opened
-    ("KLG-JOB-001", "Warehouse Associate (Tema)", "DPT-WHS", "POS-015", "LOC-TEM", "OPEN", 4, "EXPANSION", 40),
-    ("KLG-JOB-002", "Heavy Goods Driver", "DPT-FLT", "POS-019", "LOC-TKD", "OPEN", 3, "EXPANSION", 32),
-    ("KLG-JOB-003", "Software Developer", "DPT-IT", "POS-025", "LOC-REM", "OPEN", 1, "NEW_ROLE", 25),
-    ("KLG-JOB-004", "Customer Service Representative", "DPT-SCS", "POS-023", "LOC-KSI", "OPEN", 2, "REPLACEMENT", 20),
-    ("KLG-JOB-005", "HSE Officer", "DPT-HSE", "POS-029", "LOC-TEM", "OPEN", 1, "REPLACEMENT", 14),
-    ("KLG-JOB-006", "Data Analyst", "DPT-IT", "POS-027", "LOC-REM", "OPEN", 1, "NEW_ROLE", 8),
-    ("KLG-JOB-007", "Fleet Mechanic", "DPT-FLT", "POS-020", "LOC-TEM", "CLOSED", 1, "REPLACEMENT", 90),
-    ("KLG-JOB-008", "Inventory Controller", "DPT-WHS", "POS-016", "LOC-KSI", "APPROVED", 1, "EXPANSION", 0),
-    ("KLG-JOB-009", "Learning & Development Officer", "DPT-HR", "POS-007", "LOC-ACC", "PENDING_APPROVAL", 1, "NEW_ROLE", 0),
-    ("KLG-JOB-010", "Procurement Officer", "DPT-FIN", "POS-010", "LOC-ACC", "DRAFT", 1, "TEMPORARY_COVER", 0),
+    ("BOST-JOB-001", "Depot Operator (Accra Plains)", "DPT-DEP", "POS-015", "LOC-APD", "OPEN", 4, "EXPANSION", 40),
+    ("BOST-JOB-002", "Tanker Driver", "DPT-PIP", "POS-019", "LOC-BUI", "OPEN", 3, "EXPANSION", 32),
+    ("BOST-JOB-003", "Software Developer", "DPT-IT", "POS-025", "LOC-REM", "OPEN", 1, "NEW_ROLE", 25),
+    ("BOST-JOB-004", "Customer Service Officer", "DPT-COM", "POS-023", "LOC-KSI", "OPEN", 2, "REPLACEMENT", 20),
+    ("BOST-JOB-005", "HSSE Officer", "DPT-HSE", "POS-029", "LOC-APD", "OPEN", 1, "REPLACEMENT", 14),
+    ("BOST-JOB-006", "Data Analyst", "DPT-IT", "POS-027", "LOC-REM", "OPEN", 1, "NEW_ROLE", 8),
+    ("BOST-JOB-007", "Pipeline Maintenance Technician", "DPT-PIP", "POS-020", "LOC-APD", "CLOSED", 1, "REPLACEMENT", 90),
+    ("BOST-JOB-008", "Product Stock Controller", "DPT-DEP", "POS-016", "LOC-KSI", "APPROVED", 1, "EXPANSION", 0),
+    ("BOST-JOB-009", "Learning & Development Officer", "DPT-HR", "POS-007", "LOC-ACC", "PENDING_APPROVAL", 1, "NEW_ROLE", 0),
+    ("BOST-JOB-010", "Procurement Officer", "DPT-FIN", "POS-010", "LOC-ACC", "DRAFT", 1, "TEMPORARY_COVER", 0),
 )
 SOURCES = ("LinkedIn", "Employee referral", "Careers page", "Jobberman", "Recruitment agency", "University job fair", "Walk-in")
 STAGES = ("Applied", "Screening", "Shortlisted", "Interview", "Final Review", "Offer")
@@ -259,17 +261,19 @@ def add_weekdays(day, count):
 
 
 class Command(BaseCommand):
-    help = "Seed the KLG-DEMO HR-only demonstration organization (development only)."
+    help = "Seed the BOST-DEMO HR-only demonstration organization (development only)."
 
     def add_arguments(self, parser):
         parser.add_argument("--password", default=DEFAULT_PASSWORD, help="Password for newly created demo accounts.")
         parser.add_argument("--days", type=int, default=ATTENDANCE_DAYS, help=f"Days of attendance history to keep (default {ATTENDANCE_DAYS}).")
+        parser.add_argument("--no-documents", action="store_true", help="Skip employee document files (for hosts whose disk is wiped on deploy).")
 
     def handle(self, *args, **options):
         if not settings.DEBUG:
             raise CommandError("seed_ergonx_hr_demo is development-only and refuses to run when DEBUG=False.")
         self.password = options["password"]
         self.history_days = options["days"]
+        self.with_documents = not options["no_documents"]
         self.summary = {}
 
         with transaction.atomic():
@@ -337,16 +341,16 @@ class Command(BaseCommand):
         institution, _ = Institution.objects.update_or_create(
             code=INSTITUTION_CODE,
             defaults={
-                "name": "Kente Logistics Ltd",
+                "name": "BOST Energy",
                 "email": f"hr@{EMAIL_DOMAIN}",
                 "phone": "+233302900100",
-                "address": "Plot 14, Spintex Road, Accra, Ghana",
+                "address": "Head Office, Accra, Ghana",
                 "country_code": "GH",
                 "default_currency": "GHS",
                 "timezone": "Africa/Accra",
-                "institution_type": Institution.InstitutionType.PRIVATE,
+                "institution_type": Institution.InstitutionType.GOVERNMENT,
                 "employee_size": "51-200",
-                "website": "https://kentelogistics.test",
+                "website": "https://bostenergy.com.gh",
                 "is_active": True,
             },
         )
@@ -371,7 +375,7 @@ class Command(BaseCommand):
                 create_position(institution=institution, department=departments[department], title=title, code=code, is_active=True)
         for code, (name, permissions) in CUSTOM_ROLES.items():
             if not Role.objects.filter(institution=institution, code=code).exists():
-                create_custom_role(institution=institution, actor=self.admin, code=code, name=name, description="Kente Logistics demo role.", permission_codes=(*permissions, *SELF_SERVICE_PERMISSIONS))
+                create_custom_role(institution=institution, actor=self.admin, code=code, name=name, description="BOST Energy demo role.", permission_codes=(*permissions, *SELF_SERVICE_PERMISSIONS))
 
     # ------------------------------------------------------------------- people
 
@@ -381,7 +385,7 @@ class Command(BaseCommand):
         positions = {item.code: item for item in institution.positions.all()}
         grades = {item.code: item for item in institution.grades.all()}
         locations = {item.code: item for item in institution.locations.all()}
-        rng = random.Random("klg-people")
+        rng = random.Random("bost-people")
         used_emails = set(User.objects.filter(email__endswith=f"@{EMAIL_DOMAIN}").values_list("email", flat=True))
         heads = {}
 
@@ -390,17 +394,17 @@ class Command(BaseCommand):
             if employee is not None:
                 return employee
             email = f"{first}.{last}@{EMAIL_DOMAIN}".lower()
-            if number != "KLG-0002":
+            if number != "BOST-0002":
                 suffix = 2
                 while email in used_emails:
                     email = f"{first}.{last}{suffix}@{EMAIL_DOMAIN}".lower()
                     suffix += 1
             used_emails.add(email)
-            user = self.admin if number == "KLG-0002" else self._user(first, last, email)
+            user = self.admin if number == "BOST-0002" else self._user(first, last, email)
             self._membership(user, role_code)
             employee = Employee(
                 institution=institution, employee_number=number, user=user, first_name=first, last_name=last,
-                preferred_name=first, work_email=email, personal_email=f"{first}.{last}.{number[-4:]}@gmail.test".lower(),
+                preferred_name=first, work_email=email, 
                 phone=f"+23324{rng.randint(1000000, 9999999)}", mobile_phone=f"+23320{rng.randint(1000000, 9999999)}",
                 date_of_birth=date(rng.randint(1970, 2002), rng.randint(1, 12), rng.randint(1, 28)), gender=gender,
                 hire_date=hire_date, office_location=locations[location].name, status=Employee.Status.ACTIVE,
@@ -408,7 +412,7 @@ class Command(BaseCommand):
             employee.full_clean()
             employee.save()
             remote = locations[location].is_remote
-            shift_based = department in ("DPT-WHS", "DPT-FLT")
+            shift_based = department in ("DPT-DEP", "DPT-PIP")
             employment = create_employment(
                 institution=institution, employee=employee, department=departments[department], position=positions[position],
                 grade=grades[grade], location=locations[location], employment_type=employment_type, staff_category=category,
@@ -430,7 +434,7 @@ class Command(BaseCommand):
 
         for number, first, last, gender, department, position, grade, role_code in LEADERS:
             hire = date(rng.randint(2012, 2020), rng.randint(1, 12), rng.randint(1, 28))
-            heads[department] = person(number, first, last, gender, role_code, department, position, grade, "LOC-ACC" if department not in ("DPT-WHS", "DPT-FLT", "DPT-HSE", "DPT-OPS") else "LOC-TEM", "PERMANENT", "SENIOR", hire)
+            heads[department] = person(number, first, last, gender, role_code, department, position, grade, "LOC-ACC" if department not in ("DPT-DEP", "DPT-PIP", "DPT-HSE", "DPT-OPS") else "LOC-APD", "PERMANENT", "SENIOR", hire)
 
         number = 10
         hr_admins = 0
@@ -438,7 +442,7 @@ class Command(BaseCommand):
         supervisors = 0
         for department, position, grade, location, count, category, mix in STAFFING:
             for index in range(count):
-                gender = "FEMALE" if rng.random() < (0.55 if department in ("DPT-HR", "DPT-SCS") else 0.3) else "MALE"
+                gender = "FEMALE" if rng.random() < (0.55 if department in ("DPT-HR", "DPT-COM") else 0.3) else "MALE"
                 first = rng.choice(FEMALE_NAMES if gender == "FEMALE" else MALE_NAMES)
                 last = rng.choice(SURNAMES)
                 employment_type = EMPLOYMENT_TYPE_CODES[mix[index % len(mix)]]
@@ -456,7 +460,7 @@ class Command(BaseCommand):
                     hire = self.today - timedelta(days=rng.randint(10, 60))
                 else:
                     hire = date(rng.randint(2017, 2025), rng.randint(1, 12), rng.randint(1, 28))
-                person(f"KLG-{number:04d}", first, last, gender, role_code, department, position, grade, location, employment_type, category, hire)
+                person(f"BOST-{number:04d}", first, last, gender, role_code, department, position, grade, location, employment_type, category, hire)
                 number += 1
 
         # Reporting lines: department staff report to their head; heads report to the Managing Director.
@@ -477,7 +481,7 @@ class Command(BaseCommand):
                 department.save(update_fields=("head", "updated_at"))
 
     def _emergency_contacts(self):
-        rng = random.Random("klg-contacts")
+        rng = random.Random("bost-contacts")
         for employee in self.institution.employees.order_by("employee_number"):
             if EmergencyContact.objects.filter(employee=employee).exists():
                 continue
@@ -529,7 +533,7 @@ class Command(BaseCommand):
         for code, name, schedule_type, configuration in specs:
             schedules[code], _ = WorkSchedule.objects.get_or_create(institution=institution, code=code, defaults={"name": name, "schedule_type": schedule_type, "effective_from": effective, "timezone": "Africa/Accra", "is_active": True, **configuration})
 
-        rng = random.Random("klg-schedules")
+        rng = random.Random("bost-schedules")
         for employee in institution.employees.filter(status=Employee.Status.ACTIVE).order_by("employee_number"):
             if ScheduleAssignment.objects.filter(employee=employee, is_current=True).exists():
                 continue
@@ -537,7 +541,7 @@ class Command(BaseCommand):
             code = "SCH-OFFICE"
             if employment.location.is_remote:
                 code = "SCH-FLEX"
-            elif employment.department.code in ("DPT-WHS", "DPT-FLT") and employment.position.code not in ("POS-013", "POS-017"):
+            elif employment.department.code in ("DPT-DEP", "DPT-PIP") and employment.position.code not in ("POS-013", "POS-017"):
                 roll = rng.random()
                 code = "SCH-NIGHT" if roll < 0.2 else ("SCH-LATE" if roll < 0.45 else "SCH-DAY")
             create_schedule_assignment(institution=institution, employee=employee, work_schedule=schedules[code], effective_from=max(effective, employment.start_date), is_current=True, assigned_by=admin)
@@ -553,7 +557,7 @@ class Command(BaseCommand):
     def _book_leave(self, employee, leave_type, start, days, target):
         start = next_weekday(start)
         end = add_weekdays(start, days)
-        reason = f"KLG-LEAVE {employee.employee_number} {start:%Y-%m-%d}"
+        reason = f"BOST-LEAVE {employee.employee_number} {start:%Y-%m-%d}"
         if start.year != self.today.year or LeaveRequest.objects.filter(institution=self.institution, employee=employee, reason=reason).exists():
             return
         if start < employee.hire_date:
@@ -580,7 +584,7 @@ class Command(BaseCommand):
     def _leave(self):
         types = {leave_type.code: leave_type for leave_type in LeaveType.objects.filter(institution=self.institution)}
         employees = self._active_employees()
-        rng = random.Random(f"klg-leave-{self.today.year}")
+        rng = random.Random(f"bost-leave-{self.today.year}")
         order = employees[:]
         rng.shuffle(order)
         today = self.today
@@ -653,7 +657,7 @@ class Command(BaseCommand):
         # Office and hybrid staff work Monday to Friday; the depot runs six days.
         if (schedule_type in ("FIXED", "FLEXIBLE") and day.weekday() >= 5) or day.weekday() == 6:
             return 0
-        rng = random.Random(f"klg-attendance-{employee.employee_number}-{day.isoformat()}")
+        rng = random.Random(f"bost-attendance-{employee.employee_number}-{day.isoformat()}")
         on_leave = LeaveRequest.objects.filter(employee=employee, status=LeaveRequest.Status.APPROVED, start_date__lte=day, end_date__gte=day).exists()
         shift_start, shift_end = expectation["start"], expectation["end"]
         try:
@@ -700,11 +704,11 @@ class Command(BaseCommand):
             AttendanceRecord.objects.filter(institution=institution, check_out__isnull=False, attendance_date__gte=self.today - timedelta(days=20), attendance_date__lt=self.today - timedelta(days=1), employee__status=Employee.Status.ACTIVE)
             .select_related("employee__user").order_by("employee__employee_number", "attendance_date")
         )
-        rng = random.Random("klg-corrections")
+        rng = random.Random("bost-corrections")
         rng.shuffle(records)
         seen = set()
         made = 0
-        reasons = ("Forgot to clock out after a late delivery.", "Badge reader at the depot gate was offline.", "Clocked in late from the Kumasi site; arrived on time.", "Stayed back for stock count; clock-out not captured.")
+        reasons = ("Forgot to clock out after a late product receipt.", "Badge reader at the depot gate was offline.", "Clocked in late from the Kumasi depot; arrived on time.", "Stayed back for tank gauging; clock-out not captured.")
         for record in records:
             if made >= 18 or record.employee_id in seen or not record.employee.user_id:
                 continue
@@ -726,7 +730,7 @@ class Command(BaseCommand):
         cutoff = self.today - timedelta(days=7)
         for record in OvertimeRecord.objects.filter(institution=institution, status=OvertimeRecord.Status.PENDING, attendance_record__attendance_date__lt=cutoff):
             try:
-                decide_overtime(overtime_record=record, actor=admin, approve=random.Random(f"klg-ot-{record.id}").random() < 0.85, approved_minutes=record.calculated_minutes)
+                decide_overtime(overtime_record=record, actor=admin, approve=random.Random(f"bost-ot-{record.id}").random() < 0.85, approved_minutes=record.calculated_minutes)
                 self._count("attendance corrections and overtime")
             except SERVICE_ERRORS:
                 continue
@@ -735,7 +739,7 @@ class Command(BaseCommand):
 
     def _recruitment(self):
         institution, admin = self.institution, self.admin
-        approver = self.institution.employees.get(employee_number="KLG-0001").user  # Managing Director approves requisitions.
+        approver = self.institution.employees.get(employee_number="BOST-0001").user  # Managing Director approves requisitions.
         hr_partner = InstitutionMembership.objects.filter(institution=institution, role__code="HR_ADMIN", status="ACTIVE").select_related("user").order_by("user__email").first()
         submitter = hr_partner.user if hr_partner else admin
         stages = {}
@@ -752,10 +756,10 @@ class Command(BaseCommand):
                     institution=institution, code=code, title=title, department=department_obj, position=institution.positions.get(code=position),
                     location=institution.locations.get(code=location), hiring_manager=head, employment_type="PERMANENT", openings=openings,
                     hiring_reason=reason, target_start_date=self.today + timedelta(days=45), interview_plan=JobPosting.InterviewPlan.TWO_STAGE,
-                    description=f"Kente Logistics is hiring a {title} to support our growing network across Ghana.",
+                    description=f"BOST Energy is hiring a {title} to support safe, reliable petroleum storage and supply across Ghana.",
                     responsibilities="Deliver day-to-day duties safely and to standard; work with the team to meet service levels; keep accurate records.",
                     qualifications_essential="Relevant qualification or equivalent experience; strong communication; commitment to safety.",
-                    qualifications_desirable="Experience in logistics or supply chain.",
+                    qualifications_desirable="Experience in the downstream petroleum sector.",
                 )
                 posting.full_clean()
                 posting.save()
@@ -769,33 +773,33 @@ class Command(BaseCommand):
                 JobPosting.objects.filter(pk=posting.pk).update(opens_on=self.today - timedelta(days=opened_days_ago))
             postings[code] = posting
 
-        rng = random.Random("klg-candidates")
+        rng = random.Random("bost-candidates")
         # Pipeline per open posting: (stage, outcome) pairs; outcomes: None, REJECTED, WITHDRAWN, OFFER, DECLINED, HIRED
         pipeline = (
             ("Applied", None), ("Applied", None), ("Applied", "REJECTED"), ("Screening", None), ("Screening", "REJECTED"),
             ("Shortlisted", None), ("Interview", None), ("Interview", "WITHDRAWN"), ("Final Review", None), ("Offer", "OFFER"),
         )
-        extra = {"KLG-JOB-001": (("Offer", "HIRED"), ("Interview", None), ("Applied", None)), "KLG-JOB-002": (("Offer", "DECLINED"), ("Shortlisted", None)), "KLG-JOB-007": ()}
+        extra = {"BOST-JOB-001": (("Offer", "HIRED"), ("Interview", None), ("Applied", None)), "BOST-JOB-002": (("Offer", "DECLINED"), ("Shortlisted", None)), "BOST-JOB-007": ()}
         hire_number = 900
         for code, posting in postings.items():
             if posting.status not in (JobPosting.Status.OPEN, JobPosting.Status.CLOSED):
                 continue
-            if code == "KLG-JOB-007":
+            if code == "BOST-JOB-007":
                 plan = (("Offer", "HIRED"), ("Interview", "REJECTED"), ("Final Review", "REJECTED"), ("Screening", "REJECTED"))
             else:
                 plan = pipeline + extra.get(code, ())
             for index, (stage_name, outcome) in enumerate(plan):
                 first = rng.choice(FEMALE_NAMES + MALE_NAMES)
                 last = rng.choice(SURNAMES)
-                email = f"{first}.{last}.{code[-3:]}{index:02d}@candidates.test".lower()
+                email = f"{first}.{last}.{code[-3:]}{index:02d}@applicants.bostenergy.com.gh".lower()
                 candidate = Candidate.objects.filter(institution=institution, email=email).first()
                 if candidate is not None:
                     continue
                 candidate = Candidate.objects.create(
                     institution=institution, email=email, first_name=first, last_name=last, phone=f"+23355{rng.randint(1000000, 9999999)}",
-                    source=rng.choice(SOURCES), location=rng.choice(("Accra, Ghana", "Tema, Ghana", "Kumasi, Ghana", "Takoradi, Ghana", "Cape Coast, Ghana")),
+                    source=rng.choice(SOURCES), location=rng.choice(("Accra, Ghana", "Tema, Ghana", "Kumasi, Ghana", "Buipe, Ghana", "Takoradi, Ghana")),
                     years_experience=rng.randint(0, 12), highest_qualification=rng.choice((Candidate.Qualification.BACHELORS, Candidate.Qualification.MASTERS, Candidate.Qualification.PROFESSIONAL)),
-                    field_of_study=rng.choice(("Logistics & Supply Chain", "Business Administration", "Computer Science", "Mechanical Engineering", "Human Resource Management")),
+                    field_of_study=rng.choice(("Petroleum Engineering", "Logistics & Supply Chain", "Business Administration", "Computer Science", "Mechanical Engineering", "Human Resource Management")),
                     education_institution=rng.choice(("University of Ghana", "KNUST", "University of Cape Coast", "Ghana Institute of Management and Public Administration", "Accra Technical University")),
                     notice_period_weeks=rng.choice((0, 2, 4, 4, 8)),
                 )
@@ -815,7 +819,7 @@ class Command(BaseCommand):
                     Interview.objects.create(
                         institution=institution, application=application, scheduled_at=self._stamp(interview_day, rng.choice((9, 10, 11, 14, 15))),
                         duration_minutes=45, interview_type="First round interview", interview_stage=Interview.Stage.FIRST_ROUND, mode=Interview.Mode.IN_PERSON,
-                        location_or_link="Accra Head Office, Boardroom", interviewer=admin, status=Interview.Status.COMPLETED if outcome != "WITHDRAWN" else Interview.Status.NO_SHOW,
+                        location_or_link="Head Office, Boardroom", interviewer=admin, status=Interview.Status.COMPLETED if outcome != "WITHDRAWN" else Interview.Status.NO_SHOW,
                         notes="Panel interview",
                     )
                 if outcome == "REJECTED":
@@ -826,19 +830,19 @@ class Command(BaseCommand):
                     offer = Offer.objects.create(
                         institution=institution, application=application, proposed_start_date=self.today + timedelta(days=rng.randint(14, 40)),
                         employment_type="PERMANENT", department=posting.department, position=posting.position, grade=institution.grades.get(code="GRD-06" if posting.position.code in ("POS-015", "POS-019", "POS-023") else "GRD-05"),
-                        location=posting.location, staff_category="JUNIOR", terms="Standard Kente Logistics terms: six-month probation, 15 days annual leave.",
+                        location=posting.location, staff_category="JUNIOR", terms="Standard BOST Energy terms: six-month probation, 15 days annual leave.",
                     )
                     offer = extend_offer(offer=offer, actor=admin)
                     if outcome == "DECLINED":
                         decide_offer(offer=offer, actor=admin, accepted=False, note="Accepted a counter-offer from current employer.")
                     elif outcome == "HIRED":
                         offer = decide_offer(offer=offer, actor=admin, accepted=True, note="Signed offer letter received.")
-                        while Employee.objects.filter(institution=institution, employee_number=f"KLG-{hire_number:04d}").exists():
+                        while Employee.objects.filter(institution=institution, employee_number=f"BOST-{hire_number:04d}").exists():
                             hire_number += 1
-                        hire_candidate(offer=offer, actor=admin, employee_number=f"KLG-{hire_number:04d}")
+                        hire_candidate(offer=offer, actor=admin, employee_number=f"BOST-{hire_number:04d}")
                         hire_number += 1
                 self._count("recruitment")
-            if code == "KLG-JOB-007" and posting.status == JobPosting.Status.OPEN:
+            if code == "BOST-JOB-007" and posting.status == JobPosting.Status.OPEN:
                 close_job_posting(job_posting=posting, actor=submitter)
 
         # Upcoming interviews for the active pipeline.
@@ -846,14 +850,14 @@ class Command(BaseCommand):
         panel = [admin, submitter]
         for index, application in enumerate(upcoming[:12]):
             when = self._stamp(next_weekday(self.today + timedelta(days=1 + index // 3)), 9 + (index % 3) * 2, 30 if index % 2 else 0)
-            note = f"KLG-INT {application.candidate.email} {when:%Y-%m-%d}"
+            note = f"BOST-INT {application.candidate.email} {when:%Y-%m-%d}"
             if Interview.objects.filter(institution=institution, notes=note).exists():
                 continue
             stage = (Interview.Stage.SCREENING, Interview.Stage.FIRST_ROUND, Interview.Stage.SECOND_ROUND, Interview.Stage.FINAL)[index % 4]
             interview = Interview.objects.create(
                 institution=institution, application=application, scheduled_at=when, duration_minutes=30 if stage == Interview.Stage.SCREENING else 60,
                 interview_type=dict(Interview.Stage.choices)[stage], interview_stage=stage, mode=Interview.Mode.VIDEO if index % 2 else Interview.Mode.IN_PERSON,
-                location_or_link="https://meet.kentelogistics.test/interview" if index % 2 else "Accra Head Office, Meeting Room 2",
+                location_or_link="https://meet.bostenergy.com.gh/interview" if index % 2 else "Head Office, Meeting Room 2",
                 interviewer=panel[index % 2], status=Interview.Status.SCHEDULED, notes=note,
             )
             interview.panel.set(panel)
@@ -862,6 +866,9 @@ class Command(BaseCommand):
     # ---------------------------------------------------------------- documents
 
     def _documents(self):
+        if not self.with_documents:
+            self.summary["documents"] = "skipped (--no-documents)"
+            return
         institution, admin = self.institution, self.admin
         for index, employee in enumerate(institution.employees.order_by("employee_number")):
             for doc_index, (title, category) in enumerate(DOCUMENTS):
@@ -871,7 +878,7 @@ class Command(BaseCommand):
                 if Document.objects.filter(institution=institution, entity_type="EMPLOYEE", entity_id=employee.id, original_filename=filename).exists():
                     continue
                 document = Document(institution=institution, uploaded_by=admin, original_filename=filename, content_type="application/pdf", size_bytes=len(MINIMAL_PDF), category=category, classification=Document.Classification.CONFIDENTIAL, entity_type="EMPLOYEE", entity_id=employee.id, is_active=True)
-                document.stored_file.save(f"klg-demo/{employee.employee_number}-{category.lower()}-{doc_index}.pdf", ContentFile(MINIMAL_PDF), save=False)
+                document.stored_file.save(f"bost-demo/{employee.employee_number}-{category.lower()}-{doc_index}.pdf", ContentFile(MINIMAL_PDF), save=False)
                 document.save()
                 self._count("documents")
 
@@ -891,8 +898,8 @@ class Command(BaseCommand):
             self._count("joiners and leavers")
 
         # A few people left this year, two are serving notice and one is suspended.
-        candidates = [employee for employee in institution.employees.filter(status=Employee.Status.ACTIVE, user__isnull=False, employee_number__gt="KLG-0020").order_by("employee_number") if not employee.employments.filter(is_current=True, department__head=employee).exists()]
-        rng = random.Random("klg-lifecycle")
+        candidates = [employee for employee in institution.employees.filter(status=Employee.Status.ACTIVE, user__isnull=False, employee_number__gt="BOST-0020").order_by("employee_number") if not employee.employments.filter(is_current=True, department__head=employee).exists()]
+        rng = random.Random("bost-lifecycle")
         rng.shuffle(candidates)
         if institution.employees.filter(status=Employee.Status.TERMINATED).count() < 4:
             reasons = ("Resignation: relocating abroad", "Resignation: further studies", "End of fixed-term contract", "Retirement")
